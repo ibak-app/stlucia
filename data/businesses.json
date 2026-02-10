@@ -1,0 +1,3690 @@
+[
+  {
+    "id": "gov-001",
+    "name": "Invest Saint Lucia",
+    "category": "government",
+    "subcategory": "Investment Promotion",
+    "description": "National investment promotion agency. One-stop shop for foreign investors. Assists with permits, incentives, and business facilitation.",
+    "address": "1st Floor, Heraldine Rock Building, Waterfront, Castries",
+    "district": "Castries",
+    "lat": 14.0138,
+    "lng": -60.9903,
+    "phone": "(758) 452-3614",
+    "website": "https://www.investstlucia.com",
+    "tags": [
+      "investment",
+      "permits",
+      "incentives"
+    ]
+  },
+  {
+    "id": "gov-002",
+    "name": "Registry of Companies and Intellectual Property (ROCIP)",
+    "category": "government",
+    "subcategory": "Company Registration",
+    "description": "Handles company incorporation, business name registration, annual filings, and corporate records. Also handles intellectual property registration.",
+    "address": "2nd Floor, Francis Compton Building, Waterfront, Castries",
+    "district": "Castries",
+    "lat": 14.0143,
+    "lng": -60.9912,
+    "phone": "(758) 468-3200",
+    "website": "http://rocip.gov.lc/",
+    "tags": [
+      "registration",
+      "incorporation",
+      "IP"
+    ]
+  },
+  {
+    "id": "gov-003",
+    "name": "Attorney General's Chambers",
+    "category": "government",
+    "subcategory": "Legal Affairs",
+    "description": "Oversees legal affairs, legislation, and the incorporation process. Draft license reviews and legal advisory.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0105,
+    "lng": -60.99,
+    "phone": "",
+    "website": "https://www.attorneygeneralchambers.com",
+    "tags": [
+      "legal",
+      "legislation"
+    ]
+  },
+  {
+    "id": "gov-004",
+    "name": "Inland Revenue Department",
+    "category": "government",
+    "subcategory": "Taxation",
+    "description": "Administers income tax, VAT, withholding tax, and other tax obligations. Issues TINs, processes tax returns.",
+    "address": "Heraldine Rock Building, Waterfront, Castries",
+    "district": "Castries",
+    "lat": 14.0133,
+    "lng": -60.9898,
+    "phone": "",
+    "website": "https://irdstlucia.gov.lc",
+    "tags": [
+      "tax",
+      "VAT",
+      "TIN"
+    ]
+  },
+  {
+    "id": "gov-005",
+    "name": "National Insurance Corporation (NIC)",
+    "category": "government",
+    "subcategory": "Social Security",
+    "description": "Manages social insurance scheme. Employer and employee registration, contribution collection, benefit administration.",
+    "address": "Francis Compton Building, Waterfront, Castries",
+    "district": "Castries",
+    "lat": 14.0144,
+    "lng": -60.9912,
+    "phone": "",
+    "website": "https://www.stlucianic.org",
+    "tags": [
+      "social security",
+      "pensions",
+      "employer registration"
+    ]
+  },
+  {
+    "id": "gov-006",
+    "name": "Saint Lucia Customs & Excise Department",
+    "category": "government",
+    "subcategory": "Customs",
+    "description": "Handles import/export clearance, duty collection, trade facilitation, and border control.",
+    "address": "Jeremie Street, Port Area, Castries",
+    "district": "Castries",
+    "lat": 14.0103,
+    "lng": -60.9911,
+    "phone": "",
+    "website": "https://customs.gov.lc",
+    "tags": [
+      "customs",
+      "import",
+      "export",
+      "duties"
+    ]
+  },
+  {
+    "id": "gov-007",
+    "name": "Financial Intelligence Authority (FIA)",
+    "category": "government",
+    "subcategory": "AML/CFT Compliance",
+    "description": "Oversees anti-money laundering and counter-terrorism financing compliance. Receives suspicious transaction reports.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.012,
+    "lng": -60.99,
+    "phone": "",
+    "website": "https://www.slufia.com/",
+    "tags": [
+      "AML",
+      "compliance",
+      "financial intelligence"
+    ]
+  },
+  {
+    "id": "gov-008",
+    "name": "Trade Export Promotion Agency (TEPA)",
+    "category": "government",
+    "subcategory": "Export Promotion",
+    "description": "Promotes Saint Lucian exports, assists exporters with market access, trade fairs, and export documentation.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0125,
+    "lng": -60.9895,
+    "phone": "",
+    "website": "https://www.tepa.org.lc",
+    "tags": [
+      "exports",
+      "trade",
+      "market access"
+    ]
+  },
+  {
+    "id": "gov-009",
+    "name": "Development Control Authority (DCA)",
+    "category": "government",
+    "subcategory": "Planning & Permits",
+    "description": "Issues building permits, handles zoning, physical planning, and environmental impact assessments.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0115,
+    "lng": -60.9905,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "building permits",
+      "zoning",
+      "planning"
+    ]
+  },
+  {
+    "id": "gov-010",
+    "name": "Government of Saint Lucia Web Portal",
+    "category": "government",
+    "subcategory": "Official Portal",
+    "description": "Central government website with access to services, forms, and information across all ministries.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.011,
+    "lng": -60.9897,
+    "phone": "",
+    "website": "https://www.govt.lc",
+    "tags": [
+      "government",
+      "portal",
+      "services"
+    ]
+  },
+  {
+    "id": "gov-011",
+    "name": "Saint Lucia Chamber of Commerce, Industry & Agriculture",
+    "category": "government",
+    "subcategory": "Business Association",
+    "description": "The main business organization. Networking, advocacy, business support, trade missions.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0108,
+    "lng": -60.991,
+    "phone": "",
+    "website": "https://www.stluciachamber.org",
+    "tags": [
+      "chamber",
+      "networking",
+      "advocacy"
+    ]
+  },
+  {
+    "id": "gov-012",
+    "name": "Saint Lucia Hotel & Tourism Association (SLHTA)",
+    "category": "government",
+    "subcategory": "Tourism Association",
+    "description": "Represents the tourism private sector. Advocacy, training, marketing, and member services.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0112,
+    "lng": -60.9908,
+    "phone": "",
+    "website": "https://www.slhta.org",
+    "tags": [
+      "tourism",
+      "hotels",
+      "advocacy"
+    ]
+  },
+  {
+    "id": "gov-013",
+    "name": "Ministry of Commerce",
+    "category": "government",
+    "subcategory": "Trade Policy",
+    "description": "Trade policy, business licensing, regulation.",
+    "address": "Heraldine Rock Building, Waterfront, Castries",
+    "district": "Castries",
+    "lat": 14.0136,
+    "lng": -60.9904,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "commerce",
+      "licensing",
+      "trade policy"
+    ]
+  },
+  {
+    "id": "gov-014",
+    "name": "Immigration Department",
+    "category": "government",
+    "subcategory": "Immigration",
+    "description": "Work permits, residence permits, visa processing.",
+    "address": "Bridge Street, Castries",
+    "district": "Castries",
+    "lat": 14.0089,
+    "lng": -60.9916,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "immigration",
+      "work permits",
+      "visas"
+    ]
+  },
+  {
+    "id": "gov-015",
+    "name": "Department of Labour",
+    "category": "government",
+    "subcategory": "Employment",
+    "description": "Labour market testing, work permit support, employment standards.",
+    "address": "Waterfront, Castries",
+    "district": "Castries",
+    "lat": 14.0115,
+    "lng": -60.9895,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "labour",
+      "employment",
+      "work permits"
+    ]
+  },
+  {
+    "id": "gov-016",
+    "name": "Financial Services Regulatory Authority (FSRA)",
+    "category": "government",
+    "subcategory": "Regulator",
+    "description": "Independent statutory body regulating non-bank financial institutions: insurance, credit unions, MSBs, pension funds, international banks, IBCs, mutual funds, and registered agents.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.013,
+    "lng": -60.9905,
+    "phone": "",
+    "website": "https://www.fsrastlucia.org",
+    "tags": [
+      "regulation",
+      "insurance",
+      "MSB",
+      "IBC"
+    ]
+  },
+  {
+    "id": "gov-017",
+    "name": "Saint Lucia Air and Sea Ports Authority (SLASPA)",
+    "category": "government",
+    "subcategory": "Port Authority",
+    "description": "Manages all airports and seaports. Oversees Hewanorra, George FL Charles, Port Castries, and Vieux Fort port.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.015,
+    "lng": -60.993,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "ports",
+      "airports",
+      "shipping"
+    ]
+  },
+  {
+    "id": "gov-018",
+    "name": "Saint Lucia Tourism Authority (SLTA)",
+    "category": "government",
+    "subcategory": "Tourism Marketing",
+    "description": "National tourism marketing and promotion agency.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0118,
+    "lng": -60.9902,
+    "phone": "",
+    "website": "https://www.stlucia.org",
+    "tags": [
+      "tourism",
+      "marketing",
+      "promotion"
+    ]
+  },
+  {
+    "id": "bank-001",
+    "name": "Bank of Saint Lucia (BOSL)",
+    "category": "banks",
+    "subcategory": "Commercial Bank",
+    "description": "Largest locally incorporated commercial bank. Full retail and corporate banking, investment banking, mobile banking, DCash integration. 5 branches, 30 ATMs island-wide.",
+    "address": "Bridge Street, Castries",
+    "district": "Castries",
+    "lat": 14.0097,
+    "lng": -60.9917,
+    "phone": "",
+    "website": "https://www.bankofsaintlucia.com",
+    "tags": [
+      "banking",
+      "corporate",
+      "retail",
+      "ATM"
+    ]
+  },
+  {
+    "id": "bank-002",
+    "name": "1st National Bank St. Lucia Limited",
+    "category": "banks",
+    "subcategory": "Commercial Bank",
+    "description": "Oldest national bank (est. 1938). Acquired RBC operations in 2021. Twice named 'Bank of the Year' by the Financial Times. Dedicated MSME Competency Unit.",
+    "address": "Bridge Street, Castries",
+    "district": "Castries",
+    "lat": 14.0095,
+    "lng": -60.991,
+    "phone": "",
+    "website": "https://1stnationalbankonline.com",
+    "tags": [
+      "banking",
+      "MSME",
+      "corporate"
+    ]
+  },
+  {
+    "id": "bank-003",
+    "name": "CIBC Caribbean",
+    "category": "banks",
+    "subcategory": "International Bank",
+    "description": "Subsidiary of Canadian Imperial Bank of Commerce. Presence since 1837. Rebranded to CIBC Caribbean in January 2024. Corporate banking, wealth management, credit cards.",
+    "address": "Bridge Street, Castries",
+    "district": "Castries",
+    "lat": 14.01,
+    "lng": -60.9918,
+    "phone": "",
+    "website": "https://www.cibccaribbean.com",
+    "tags": [
+      "banking",
+      "international",
+      "wealth management"
+    ]
+  },
+  {
+    "id": "bank-004",
+    "name": "Republic Bank (EC) Limited",
+    "category": "banks",
+    "subcategory": "Regional Bank",
+    "description": "Subsidiary of Republic Financial Holdings (Trinidad). Acquired Scotiabank's EC operations in 2019. Head office for all EC operations in Saint Lucia.",
+    "address": "William Peter Blvd, Castries",
+    "district": "Castries",
+    "lat": 14.0102,
+    "lng": -60.9909,
+    "phone": "",
+    "website": "https://www.republicbankstlucia.com",
+    "tags": [
+      "banking",
+      "regional",
+      "corporate"
+    ]
+  },
+  {
+    "id": "bank-005",
+    "name": "First Citizens (St. Lucia) Limited",
+    "category": "banks",
+    "subcategory": "Regional Bank",
+    "description": "Subsidiary of First Citizens Group, Trinidad. Personal, business, and corporate banking. Investment services through First Citizens Investment Services.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0098,
+    "lng": -60.9905,
+    "phone": "",
+    "website": "https://www.firstcitizensgroup.com/lc",
+    "tags": [
+      "banking",
+      "investment",
+      "corporate"
+    ]
+  },
+  {
+    "id": "bank-006",
+    "name": "PROVEN Bank (Saint Lucia) Limited",
+    "category": "banks",
+    "subcategory": "International Bank",
+    "description": "Class A international banking license. Serves IBCs and international clients with multicurrency accounts, term deposits, credit cards, and international wire transfers.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0105,
+    "lng": -60.9915,
+    "phone": "",
+    "website": "https://stlucia.provenbank.com",
+    "tags": [
+      "banking",
+      "international",
+      "IBC",
+      "multicurrency"
+    ]
+  },
+  {
+    "id": "bank-007",
+    "name": "Hermes Bank Limited",
+    "category": "banks",
+    "subcategory": "International Bank",
+    "description": "Class A international banking license (est. 2012). 24/7 online banking, multicurrency accounts (USD, EUR, GBP, CNY, RUB). Popular with CBI investors.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.011,
+    "lng": -60.992,
+    "phone": "",
+    "website": "https://www.hermesbank.com",
+    "tags": [
+      "banking",
+      "international",
+      "CBI",
+      "multicurrency"
+    ]
+  },
+  {
+    "id": "bank-008",
+    "name": "Eastern Caribbean Central Bank (ECCB)",
+    "category": "banks",
+    "subcategory": "Central Bank",
+    "description": "Monetary authority for 8 ECCU states. Manages the XCD currency (pegged to USD at 2.70:1). Supervises commercial banks. HQ in Basseterre, St Kitts.",
+    "address": "Castries (liaison office)",
+    "district": "Castries",
+    "lat": 14.0107,
+    "lng": -60.9913,
+    "phone": "",
+    "website": "https://www.eccb-centralbank.org",
+    "tags": [
+      "central bank",
+      "monetary policy",
+      "currency"
+    ]
+  },
+  {
+    "id": "bank-009",
+    "name": "Saint Lucia Development Bank (SLDB)",
+    "category": "banks",
+    "subcategory": "Development Finance",
+    "description": "Government-owned statutory corporation (est. 2009). Financing for agriculture, fisheries, housing, education, tourism, industry, SME development, and renewable energy.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0113,
+    "lng": -60.9906,
+    "phone": "",
+    "website": "https://www.sldb.lc",
+    "tags": [
+      "development",
+      "SME",
+      "agriculture",
+      "green finance"
+    ]
+  },
+  {
+    "id": "law-001",
+    "name": "FOSTERS",
+    "category": "law",
+    "subcategory": "Full-Service Law Firm",
+    "description": "One of the longest-serving and largest law firms in the Eastern Caribbean (est. 1988). Only firm with two King's Counsel. Civil/commercial litigation, corporate law, banking, insurance, shipping.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0105,
+    "lng": -60.9895,
+    "phone": "(758) 453-1100",
+    "website": "https://www.fosters.law",
+    "tags": [
+      "law",
+      "corporate",
+      "litigation",
+      "banking"
+    ]
+  },
+  {
+    "id": "law-002",
+    "name": "Floissac, Du Boulay & Thomas",
+    "category": "law",
+    "subcategory": "Full-Service Law Firm",
+    "description": "Band 1 ranked by Chambers. Lex Mundi Member. 60 years experience, 12 lawyers. Represents all commercial banks in Saint Lucia.",
+    "address": "Quadrant Row, 9-11 Brazil Street, Castries",
+    "district": "Castries",
+    "lat": 14.011,
+    "lng": -60.989,
+    "phone": "(758) 452-2887",
+    "website": "https://www.fdt.law",
+    "tags": [
+      "law",
+      "corporate",
+      "banking",
+      "Chambers ranked"
+    ]
+  },
+  {
+    "id": "law-003",
+    "name": "McNamara & Co.",
+    "category": "law",
+    "subcategory": "Full-Service Law Firm",
+    "description": "Established 1975. Corporate/commercial services, receiverships, liquidations. Also operates McNamara Corporate Services for IBC formation.",
+    "address": "20 Micoud Street, Castries",
+    "district": "Castries",
+    "lat": 14.01,
+    "lng": -60.9888,
+    "phone": "(758) 452-2662",
+    "website": "https://mcnamara.lc",
+    "tags": [
+      "law",
+      "corporate",
+      "IBC",
+      "insolvency"
+    ]
+  },
+  {
+    "id": "law-004",
+    "name": "Gordon, Gordon & Co.",
+    "category": "law",
+    "subcategory": "IP & Real Estate Specialists",
+    "description": "Attorneys at Law, Notaries Royal, Patent & Trademark Agents. Specializes in real estate, banking, and intellectual property law.",
+    "address": "10 Manoel Street, Castries",
+    "district": "Castries",
+    "lat": 14.0106,
+    "lng": -60.9892,
+    "phone": "(758) 452-2311",
+    "website": "https://gordongordonandco.com",
+    "tags": [
+      "law",
+      "IP",
+      "real estate",
+      "patents"
+    ]
+  },
+  {
+    "id": "law-005",
+    "name": "Nicholas John & Co.",
+    "category": "law",
+    "subcategory": "CBI & Corporate Law",
+    "description": "Full-service firm serving local, regional, and international clients for 40+ years. CBI expertise, corporate/commercial, IP, banking, real estate.",
+    "address": "Hewanorra House, Trou Garnier Financial Centre, Pointe Seraphine, Castries",
+    "district": "Castries",
+    "lat": 14.0153,
+    "lng": -60.9922,
+    "phone": "(758) 451-9237",
+    "website": "https://saintlucialawyer.com",
+    "tags": [
+      "law",
+      "CBI",
+      "corporate",
+      "real estate"
+    ]
+  },
+  {
+    "id": "law-006",
+    "name": "Amicus Law Chambers",
+    "category": "law",
+    "subcategory": "Full-Service Law Firm",
+    "description": "Dynamic, full-service law firm with head office in Rodney Bay. Corporate and commercial law, litigation, conveyancing.",
+    "address": "Suite No. 2, Rodney Bayside Building, Rodney Bay",
+    "district": "Gros Islet",
+    "lat": 14.071,
+    "lng": -60.9545,
+    "phone": "(758) 453-7777",
+    "website": "https://amicus.legal",
+    "tags": [
+      "law",
+      "corporate",
+      "conveyancing"
+    ]
+  },
+  {
+    "id": "law-007",
+    "name": "Theodore & Associates",
+    "category": "law",
+    "subcategory": "High Court Practice",
+    "description": "Leading firm in Castries. Full range of civil law services including conveyancing, High Court, and appellate representation.",
+    "address": "4 Mary Ann Street, Castries",
+    "district": "Castries",
+    "lat": 14.0108,
+    "lng": -60.9885,
+    "phone": "(758) 453-1320",
+    "website": "https://tnalawyers.com",
+    "tags": [
+      "law",
+      "litigation",
+      "conveyancing"
+    ]
+  },
+  {
+    "id": "law-008",
+    "name": "RDM Chambers",
+    "category": "law",
+    "subcategory": "Specialized Practice",
+    "description": "Civil litigation, corporate/commercial law, conveyancing, employment law, and intellectual property.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0104,
+    "lng": -60.9898,
+    "phone": "",
+    "website": "https://www.rdmchambers.com",
+    "tags": [
+      "law",
+      "litigation",
+      "employment",
+      "IP"
+    ]
+  },
+  {
+    "id": "acct-001",
+    "name": "Grant Thornton St. Lucia",
+    "category": "accounting",
+    "subcategory": "International Network",
+    "description": "Member of one of the world's largest professional services networks. Assurance, tax, and advisory services.",
+    "address": "Pointe Seraphine, Castries",
+    "district": "Castries",
+    "lat": 14.0155,
+    "lng": -60.9925,
+    "phone": "(758) 456-2600",
+    "website": "https://www.grantthornton.lc",
+    "tags": [
+      "accounting",
+      "audit",
+      "tax",
+      "advisory"
+    ]
+  },
+  {
+    "id": "acct-002",
+    "name": "PKF St. Lucia",
+    "category": "accounting",
+    "subcategory": "International Network",
+    "description": "Multi-disciplinary advisory practice. Audit, tax, finance, and business advisory. Also operates PKF Corporate Services Ltd., a licensed IBC Registered Agent.",
+    "address": "1st Floor, Meridian Place, Choc Estate, Castries",
+    "district": "Castries",
+    "lat": 14.022,
+    "lng": -60.982,
+    "phone": "(758) 450-7777",
+    "website": "https://www.pkfcaribbean.com/st-lucia/",
+    "tags": [
+      "accounting",
+      "audit",
+      "IBC",
+      "advisory"
+    ]
+  },
+  {
+    "id": "acct-003",
+    "name": "BDO Eastern Caribbean (Saint Lucia)",
+    "category": "accounting",
+    "subcategory": "International Network",
+    "description": "5th largest accounting network worldwide. Assurance, accounting, tax, business advisory, valuations, M&A support.",
+    "address": "Mercury Court, Choc Estate, Castries",
+    "district": "Castries",
+    "lat": 14.0225,
+    "lng": -60.9815,
+    "phone": "(758) 452-2500",
+    "website": "https://www.bdoecc.com",
+    "tags": [
+      "accounting",
+      "audit",
+      "M&A",
+      "valuations"
+    ]
+  },
+  {
+    "id": "acct-004",
+    "name": "Ernst & Young (EY) Saint Lucia",
+    "category": "accounting",
+    "subcategory": "Big Four",
+    "description": "Global Big Four accounting firm. Audit, tax, advisory, and transaction services.",
+    "address": "2nd Floor, Mardini Building, Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.068,
+    "lng": -60.954,
+    "phone": "(758) 458-4720",
+    "website": "https://www.ey.com",
+    "tags": [
+      "accounting",
+      "Big Four",
+      "audit",
+      "tax"
+    ]
+  },
+  {
+    "id": "acct-005",
+    "name": "KPMG (Eastern Caribbean)",
+    "category": "accounting",
+    "subcategory": "Big Four",
+    "description": "Part of KPMG Islands Group. Audit, tax, and advisory services.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.067,
+    "lng": -60.9535,
+    "phone": "(758) 453-1471",
+    "website": "",
+    "tags": [
+      "accounting",
+      "Big Four",
+      "audit",
+      "tax"
+    ]
+  },
+  {
+    "id": "acct-006",
+    "name": "Strachan Thorpe & Associates",
+    "category": "accounting",
+    "subcategory": "Local Chartered Accountants",
+    "description": "Chartered accountants. Audit, business assurance, budget forecasting, bookkeeping, management consulting.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.011,
+    "lng": -60.9905,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "accounting",
+      "audit",
+      "consulting"
+    ]
+  },
+  {
+    "id": "acct-007",
+    "name": "Felix Chitolie Tax & Management Consultants",
+    "category": "accounting",
+    "subcategory": "Tax Specialists",
+    "description": "Comprehensive financial services. Tax planning and preparation, accounting, training for individuals and businesses.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0112,
+    "lng": -60.9895,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "tax",
+      "accounting",
+      "consulting"
+    ]
+  },
+  {
+    "id": "re-001",
+    "name": "Terra Caribbean (Saint Lucia)",
+    "category": "realestate",
+    "subcategory": "Full Service Agency",
+    "description": "80+ years combined experience. Property sales, rentals, management, and valuations. Office space, commercial, and residential.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0115,
+    "lng": -60.991,
+    "phone": "(758) 721-7542",
+    "website": "https://www.terracaribbean.com/St-Lucia/",
+    "tags": [
+      "real estate",
+      "rentals",
+      "valuations"
+    ]
+  },
+  {
+    "id": "re-002",
+    "name": "Paradise Properties St. Lucia",
+    "category": "realestate",
+    "subcategory": "Sales & Rentals",
+    "description": "Residential, commercial, and land purchases. Vacation and long-term rentals.",
+    "address": "Saint Lucia",
+    "district": "Castries",
+    "lat": 14.012,
+    "lng": -60.99,
+    "phone": "(758) 451-4663",
+    "website": "https://paradisepropertiesstlucia.com",
+    "tags": [
+      "real estate",
+      "sales",
+      "rentals"
+    ]
+  },
+  {
+    "id": "re-003",
+    "name": "Coral Reef Real Estate",
+    "category": "realestate",
+    "subcategory": "Sales & Villa Rentals",
+    "description": "Property sales, commercial properties, commercial rentals, and luxury villa rentals.",
+    "address": "Saint Lucia",
+    "district": "Castries",
+    "lat": 14.0118,
+    "lng": -60.9905,
+    "phone": "(758) 717-2909",
+    "website": "https://coralreefstlucia.com",
+    "tags": [
+      "real estate",
+      "luxury",
+      "villa rentals"
+    ]
+  },
+  {
+    "id": "re-004",
+    "name": "Realty St. Lucia / Micha Landers",
+    "category": "realestate",
+    "subcategory": "Luxury & Investment",
+    "description": "Premier real estate agent specializing in high-end homes and investment properties. All districts covered.",
+    "address": "Bay Street, Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8563,
+    "lng": -61.0564,
+    "phone": "(758) 730-1772",
+    "website": "https://realtystlucia.com",
+    "tags": [
+      "real estate",
+      "luxury",
+      "investment"
+    ]
+  },
+  {
+    "id": "re-005",
+    "name": "St. Lucia Homes",
+    "category": "realestate",
+    "subcategory": "Land & Commercial",
+    "description": "Land, commercial and house sales, short-term and long-term rentals.",
+    "address": "Saint Lucia",
+    "district": "Castries",
+    "lat": 14.011,
+    "lng": -60.9895,
+    "phone": "",
+    "website": "https://stlucia-homes.com",
+    "tags": [
+      "real estate",
+      "land",
+      "commercial"
+    ]
+  },
+  {
+    "id": "re-006",
+    "name": "Roseville Real Estate Services",
+    "category": "realestate",
+    "subcategory": "18 Years Experience",
+    "description": "Leading realtor with eighteen years experience. Residential and commercial property transactions.",
+    "address": "Saint Lucia",
+    "district": "Castries",
+    "lat": 14.0108,
+    "lng": -60.9892,
+    "phone": "",
+    "website": "https://www.rosevillestlucia.com",
+    "tags": [
+      "real estate",
+      "residential",
+      "commercial"
+    ]
+  },
+  {
+    "id": "re-007",
+    "name": "St. Lucia Great Property Deals",
+    "category": "realestate",
+    "subcategory": "One-Stop Property Service",
+    "description": "Luxury homes, condos, land, and commercial properties. Complete one-stop service.",
+    "address": "Saint Lucia",
+    "district": "Castries",
+    "lat": 14.0105,
+    "lng": -60.99,
+    "phone": "",
+    "website": "https://stluciagreatpropertydeals.com",
+    "tags": [
+      "real estate",
+      "luxury",
+      "condos"
+    ]
+  },
+  {
+    "id": "ibc-001",
+    "name": "Colonial Trust Company Ltd.",
+    "category": "ibc",
+    "subcategory": "Licensed Registered Agent & Trustee",
+    "description": "Registered Trustee and Registered Agent services. IBC, IMF, and IBT formation. Serves clients within and outside the Caribbean.",
+    "address": "Suite No. 2, Rodney Bayside Building, Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.071,
+    "lng": -60.9545,
+    "phone": "(758) 453-7777",
+    "website": "https://thecolonialtrust.com",
+    "tags": [
+      "IBC",
+      "trust",
+      "registered agent"
+    ]
+  },
+  {
+    "id": "ibc-002",
+    "name": "McNamara Corporate Services Inc.",
+    "category": "ibc",
+    "subcategory": "IBC Formation & Management",
+    "description": "IBC formation and management, structuring of international banks, mutual funds, and captive insurance. Full corporate administration.",
+    "address": "20 Micoud Street, Castries",
+    "district": "Castries",
+    "lat": 14.01,
+    "lng": -60.9888,
+    "phone": "(758) 452-2662",
+    "website": "https://www.mcnamaracorp.com",
+    "tags": [
+      "IBC",
+      "corporate services",
+      "mutual funds"
+    ]
+  },
+  {
+    "id": "ibc-003",
+    "name": "FortGate Offshore Investment & Legal Services Ltd.",
+    "category": "ibc",
+    "subcategory": "Licensed Registered Agent",
+    "description": "Offshore company incorporation, registration, and financial services. Also maintains a London office.",
+    "address": "1st Floor, The Sotheby Building, Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.07,
+    "lng": -60.954,
+    "phone": "(758) 285-7447",
+    "website": "http://www.fortgateoffshore.com",
+    "tags": [
+      "IBC",
+      "offshore",
+      "incorporation"
+    ]
+  },
+  {
+    "id": "ibc-004",
+    "name": "PKF Corporate Services Ltd.",
+    "category": "ibc",
+    "subcategory": "Licensed Registered Agent",
+    "description": "Licensed IBC Registered Agent. Company formation, registered office, corporate administration, and compliance.",
+    "address": "Meridian Place, Choc Estate, Castries",
+    "district": "Castries",
+    "lat": 14.022,
+    "lng": -60.982,
+    "phone": "(758) 450-7777",
+    "website": "",
+    "tags": [
+      "IBC",
+      "registered agent",
+      "compliance"
+    ]
+  },
+  {
+    "id": "ins-001",
+    "name": "Sagicor (Life & General)",
+    "category": "insurance",
+    "subcategory": "Life, Health, Motor, Home, Travel",
+    "description": "Leading financial services company. Life, health, car, home, travel, accident insurance, and employee benefits.",
+    "address": "Choc Estate, Castries",
+    "district": "Castries",
+    "lat": 14.0215,
+    "lng": -60.9825,
+    "phone": "(758) 456-1700",
+    "website": "https://www.sagicor.com/en-lc",
+    "tags": [
+      "insurance",
+      "life",
+      "health",
+      "motor"
+    ]
+  },
+  {
+    "id": "ins-002",
+    "name": "Jeffrey & Jeffrey Ltd. (Guardian Agent)",
+    "category": "insurance",
+    "subcategory": "Motor, Property, Life & Health",
+    "description": "Agent of Guardian General Insurance and Guardian Life. All classes of general insurance, large life & health portfolio.",
+    "address": "18 Micoud Street, Castries",
+    "district": "Castries",
+    "lat": 14.01,
+    "lng": -60.9885,
+    "phone": "(758) 452-3892",
+    "website": "",
+    "tags": [
+      "insurance",
+      "motor",
+      "property",
+      "life"
+    ]
+  },
+  {
+    "id": "ins-003",
+    "name": "CG United Insurance (Saint Lucia)",
+    "category": "insurance",
+    "subcategory": "Property & Casualty",
+    "description": "Leading regional provider. Car, home, commercial property, cargo insurance.",
+    "address": "J.E. Bergasse Building, Vide Bouteille, Castries",
+    "district": "Castries",
+    "lat": 14.018,
+    "lng": -60.986,
+    "phone": "(758) 456-6560",
+    "website": "https://lc.cgcoralisle.com",
+    "tags": [
+      "insurance",
+      "property",
+      "motor",
+      "cargo"
+    ]
+  },
+  {
+    "id": "ins-004",
+    "name": "NAGICO (St. Lucia) Limited",
+    "category": "insurance",
+    "subcategory": "General Insurance",
+    "description": "Regional insurer. Motor, property, liability, and commercial insurance.",
+    "address": "Nagico Building, Reduit, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.065,
+    "lng": -60.952,
+    "phone": "(758) 458-2300",
+    "website": "https://www.nagico.com",
+    "tags": [
+      "insurance",
+      "motor",
+      "commercial"
+    ]
+  },
+  {
+    "id": "ins-005",
+    "name": "EC Global Insurance Agency",
+    "category": "insurance",
+    "subcategory": "General Insurance",
+    "description": "Range of general insurance products for individuals and businesses.",
+    "address": "#1 Bridge Street, Castries",
+    "district": "Castries",
+    "lat": 14.0095,
+    "lng": -60.9918,
+    "phone": "(758) 451-3244",
+    "website": "https://www.ecglobalinsurance.com",
+    "tags": [
+      "insurance",
+      "general"
+    ]
+  },
+  {
+    "id": "ins-006",
+    "name": "St. Lucia Motor & General Insurance Co. Ltd.",
+    "category": "insurance",
+    "subcategory": "Motor & General",
+    "description": "Indigenous company (est. 1988). Known for speedy claims settlement, competitive rates.",
+    "address": "38 Micoud Street, Castries",
+    "district": "Castries",
+    "lat": 14.0102,
+    "lng": -60.9883,
+    "phone": "(758) 452-3323",
+    "website": "",
+    "tags": [
+      "insurance",
+      "motor",
+      "general"
+    ]
+  },
+  {
+    "id": "ship-001",
+    "name": "CMA CGM St. Lucia Ltd.",
+    "category": "shipping",
+    "subcategory": "International Container Shipping",
+    "description": "100% subsidiary of CMA CGM Group. Container shipping, ocean freight, and logistics.",
+    "address": "Hibiscus Crescent, Sans Souci, Castries",
+    "district": "Castries",
+    "lat": 14.02,
+    "lng": -60.985,
+    "phone": "(758) 451-7310",
+    "website": "https://www.cma-cgm.com/local/saint-lucia",
+    "tags": [
+      "shipping",
+      "containers",
+      "freight"
+    ]
+  },
+  {
+    "id": "ship-002",
+    "name": "Tropical Shipping St. Lucia Ltd.",
+    "category": "shipping",
+    "subcategory": "Caribbean Cargo",
+    "description": "Major Caribbean shipping line. Regular container and cargo service from the USA and Caribbean ports.",
+    "address": "WIBDECO Building, Cnr Manoel & Jeremie Streets, Castries",
+    "district": "Castries",
+    "lat": 14.0107,
+    "lng": -60.991,
+    "phone": "(758) 457-0900",
+    "website": "https://www.tropical.com",
+    "tags": [
+      "shipping",
+      "cargo",
+      "Caribbean"
+    ]
+  },
+  {
+    "id": "ship-003",
+    "name": "M&C Shipping (Minvielle & Chastanet Group)",
+    "category": "shipping",
+    "subcategory": "Shipping Agents",
+    "description": "Part of M&C Group (est. 1864). Shipping agency services, port handling, and logistics.",
+    "address": "9-11 Bridge Street, Castries",
+    "district": "Castries",
+    "lat": 14.0095,
+    "lng": -60.992,
+    "phone": "(758) 458-8000",
+    "website": "https://themandcgroup.com",
+    "tags": [
+      "shipping",
+      "agency",
+      "logistics"
+    ]
+  },
+  {
+    "id": "ship-004",
+    "name": "West Indies Shipping & Trading Co. Ltd.",
+    "category": "shipping",
+    "subcategory": "Freight & Trading",
+    "description": "Shipping, freight forwarding, and trading services. Import and export cargo.",
+    "address": "La Toc Road, Castries",
+    "district": "Castries",
+    "lat": 14.005,
+    "lng": -60.999,
+    "phone": "(758) 459-0444",
+    "website": "https://www.westindiesshipping.com",
+    "tags": [
+      "shipping",
+      "freight",
+      "trading"
+    ]
+  },
+  {
+    "id": "ship-005",
+    "name": "Geest Line",
+    "category": "shipping",
+    "subcategory": "UK & Europe Service",
+    "description": "Sails from Portsmouth (UK) and Flushing (Netherlands) to Castries. All cargo types including reefer and break bulk.",
+    "address": "Port Castries",
+    "district": "Castries",
+    "lat": 14.0167,
+    "lng": -60.9958,
+    "phone": "",
+    "website": "https://www.geestline.com",
+    "tags": [
+      "shipping",
+      "UK",
+      "Europe",
+      "cargo"
+    ]
+  },
+  {
+    "id": "ship-006",
+    "name": "Superior Shipping Services Ltd.",
+    "category": "shipping",
+    "subcategory": "Customs Brokerage & Freight",
+    "description": "Air freight, customs brokerage, and ocean freight services. Import/export clearance.",
+    "address": "Hospital Road, Conway, Castries",
+    "district": "Castries",
+    "lat": 14.008,
+    "lng": -60.992,
+    "phone": "(758) 458-1590",
+    "website": "https://superiorshipping.com",
+    "tags": [
+      "shipping",
+      "customs",
+      "freight"
+    ]
+  },
+  {
+    "id": "biz-001",
+    "name": "Mampa Employment Agency",
+    "category": "business",
+    "subcategory": "Recruitment & HR",
+    "description": "15+ years experience. Hospitality industry (cruise, hotels, restaurants, casinos) and land-based international employment.",
+    "address": "39 Brazil Street, Castries",
+    "district": "Castries",
+    "lat": 14.0112,
+    "lng": -60.9888,
+    "phone": "(758) 451-6163",
+    "website": "http://mampaagencyltd.com",
+    "tags": [
+      "recruitment",
+      "HR",
+      "hospitality"
+    ]
+  },
+  {
+    "id": "biz-002",
+    "name": "Hired Caribbean",
+    "category": "business",
+    "subcategory": "Digital Recruitment",
+    "description": "Connects job seekers to opportunities across the Caribbean. 50,000+ database. Jobs, scholarships, tenders.",
+    "address": "Saint Lucia",
+    "district": "Castries",
+    "lat": 14.0115,
+    "lng": -60.9905,
+    "phone": "(758) 726-3950",
+    "website": "https://hiredcaribbean.com",
+    "tags": [
+      "recruitment",
+      "jobs",
+      "Caribbean"
+    ]
+  },
+  {
+    "id": "tech-001",
+    "name": "eMagine Solutions Inc.",
+    "category": "technology",
+    "subcategory": "Software Development",
+    "description": "Software development and web applications. Mobile-first, responsive applications. Enterprise software, UI/UX, integrations.",
+    "address": "Saint Lucia",
+    "district": "Castries",
+    "lat": 14.0118,
+    "lng": -60.99,
+    "phone": "(758) 287-9788",
+    "website": "https://emagine.lc",
+    "tags": [
+      "IT",
+      "software",
+      "web development"
+    ]
+  },
+  {
+    "id": "tech-002",
+    "name": "CNSS Inc.",
+    "category": "technology",
+    "subcategory": "IT Solutions",
+    "description": "Leading IT solutions consultants and certification center. Data recovery, hardware, networking, security (CCTV). Cisco partner.",
+    "address": "Saint Lucia",
+    "district": "Castries",
+    "lat": 14.012,
+    "lng": -60.9898,
+    "phone": "",
+    "website": "https://www.cnssinc.com",
+    "tags": [
+      "IT",
+      "networking",
+      "security",
+      "Cisco"
+    ]
+  },
+  {
+    "id": "tech-003",
+    "name": "RedFin Ltd.",
+    "category": "technology",
+    "subcategory": "IT Infrastructure",
+    "description": "IT solutions for St. Lucia and wider Caribbean. IT assessments and customized solutions.",
+    "address": "Saint Lucia",
+    "district": "Castries",
+    "lat": 14.0116,
+    "lng": -60.9902,
+    "phone": "",
+    "website": "https://redfin.lc",
+    "tags": [
+      "IT",
+      "infrastructure",
+      "solutions"
+    ]
+  },
+  {
+    "id": "tech-004",
+    "name": "itel International (Saint Lucia)",
+    "category": "technology",
+    "subcategory": "BPO / Contact Center",
+    "description": "Major BPO operator, 3,500+ employees across 6 countries. Three sites in Hewanorra Free Zone. Legal, FinTech, Medical CX services.",
+    "address": "HF4 Hewanorra Free Zone, Vieux Fort",
+    "district": "Vieux Fort",
+    "lat": 13.735,
+    "lng": -60.948,
+    "phone": "",
+    "website": "https://www.itelinternational.com",
+    "tags": [
+      "BPO",
+      "contact center",
+      "outsourcing"
+    ]
+  },
+  {
+    "id": "con-001",
+    "name": "Renee's Construction Co. Ltd.",
+    "category": "construction",
+    "subcategory": "General Contractors",
+    "description": "25+ years experience. Civil engineering and construction. Industrial to tourism/leisure projects.",
+    "address": "Saint Lucia",
+    "district": "Castries",
+    "lat": 14.0108,
+    "lng": -60.9895,
+    "phone": "(758) 452-1681",
+    "website": "https://reneesconstruction.com",
+    "tags": [
+      "construction",
+      "civil engineering"
+    ]
+  },
+  {
+    "id": "con-002",
+    "name": "ECMC Ltd.",
+    "category": "construction",
+    "subcategory": "Engineering Consultancy",
+    "description": "Civil, structural, forensic engineering. Construction management, surveying, property valuation, project management.",
+    "address": "1st Floor, Marie-Colette Building, Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.069,
+    "lng": -60.9535,
+    "phone": "",
+    "website": "https://www.ecmcstlucia.com",
+    "tags": [
+      "engineering",
+      "consulting",
+      "valuation"
+    ]
+  },
+  {
+    "id": "con-003",
+    "name": "Blueprint Construction Ltd.",
+    "category": "construction",
+    "subcategory": "General Contractors",
+    "description": "Construction, project management, and related services.",
+    "address": "Beausejour Road, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.075,
+    "lng": -60.95,
+    "phone": "(758) 730-2583",
+    "website": "https://blueprintslu.com",
+    "tags": [
+      "construction",
+      "project management"
+    ]
+  },
+  {
+    "id": "con-004",
+    "name": "FDL Consult Inc.",
+    "category": "construction",
+    "subcategory": "Engineering & Architecture",
+    "description": "Engineering, architectural, and business consultancy (est. 2004). Solar PV design and installation.",
+    "address": "Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.072,
+    "lng": -60.953,
+    "phone": "",
+    "website": "https://www.fdlconsultinc.com",
+    "tags": [
+      "engineering",
+      "architecture",
+      "solar"
+    ]
+  },
+  {
+    "id": "con-005",
+    "name": "RLB (Rider Levett Bucknall) — Saint Lucia",
+    "category": "construction",
+    "subcategory": "Quantity Surveying",
+    "description": "Global quantity surveying and construction consulting firm. Cost management, project management, advisory.",
+    "address": "Saint Lucia",
+    "district": "Castries",
+    "lat": 14.011,
+    "lng": -60.99,
+    "phone": "",
+    "website": "https://www.rlb.com/americas/offices/saint-lucia/",
+    "tags": [
+      "quantity surveying",
+      "cost management"
+    ]
+  },
+  {
+    "id": "hotel-001",
+    "name": "Jade Mountain / Anse Chastanet",
+    "category": "hotels",
+    "subcategory": "Ultra-Luxury Resort",
+    "description": "Ultra-luxury resort in Soufriere with iconic Piton views. Award-winning architecture and dining.",
+    "address": "Anse Chastanet, Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8645,
+    "lng": -61.0757,
+    "phone": "",
+    "website": "https://www.jademountain.com",
+    "tags": [
+      "hotel",
+      "luxury",
+      "resort",
+      "Pitons"
+    ]
+  },
+  {
+    "id": "hotel-002",
+    "name": "Sugar Beach, A Viceroy Resort",
+    "category": "hotels",
+    "subcategory": "Luxury Resort",
+    "description": "Luxury beachfront resort between the Pitons. Private beach (Jalousie). Rainforest setting.",
+    "address": "Val des Pitons, Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8278,
+    "lng": -61.0612,
+    "phone": "",
+    "website": "https://www.viceroyhotelsandresorts.com/sugar-beach",
+    "tags": [
+      "hotel",
+      "luxury",
+      "beach",
+      "Pitons"
+    ]
+  },
+  {
+    "id": "hotel-003",
+    "name": "Sandals Grande St. Lucian Spa & Beach Resort",
+    "category": "hotels",
+    "subcategory": "All-Inclusive Resort",
+    "description": "Premium all-inclusive resort on Pigeon Island Causeway. Conference space and business facilities. Part of Sandals chain.",
+    "address": "Pigeon Island Causeway, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0913,
+    "lng": -60.9585,
+    "phone": "(758) 455-2000",
+    "website": "https://www.sandals.com/grande-st-lucian/",
+    "tags": [
+      "hotel",
+      "all-inclusive",
+      "beach",
+      "conference"
+    ]
+  },
+  {
+    "id": "hotel-004",
+    "name": "Royalton Saint Lucia Resort & Spa",
+    "category": "hotels",
+    "subcategory": "All-Inclusive Resort",
+    "description": "All-inclusive luxury resort (Marriott All-Inclusive). Conference facilities. Includes adults-only Hideaway (166 suites).",
+    "address": "Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0972,
+    "lng": -60.9392,
+    "phone": "1-888-774-0040",
+    "website": "https://www.royaltonsaintluciaresort.com",
+    "tags": [
+      "hotel",
+      "all-inclusive",
+      "conference",
+      "Marriott"
+    ]
+  },
+  {
+    "id": "hotel-005",
+    "name": "Bay Gardens Beach Resort & Spa",
+    "category": "hotels",
+    "subcategory": "Mid-Range Resort",
+    "description": "Collection of three hotels in Rodney Bay Village. Seven conference facilities. Preferred for corporate events.",
+    "address": "Rodney Bay Village, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0773,
+    "lng": -60.9538,
+    "phone": "",
+    "website": "https://www.baygardensresorts.com",
+    "tags": [
+      "hotel",
+      "conference",
+      "mid-range",
+      "beach"
+    ]
+  },
+  {
+    "id": "hotel-006",
+    "name": "Marigot Bay Resort & Marina",
+    "category": "hotels",
+    "subcategory": "Luxury Resort",
+    "description": "Luxury resort with marina facilities in protected Marigot Bay harbor.",
+    "address": "Marigot Bay",
+    "district": "Castries",
+    "lat": 13.9663,
+    "lng": -61.0275,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "hotel",
+      "luxury",
+      "marina",
+      "harbor"
+    ]
+  },
+  {
+    "id": "hotel-007",
+    "name": "Fond Doux Resort & Plantation",
+    "category": "hotels",
+    "subcategory": "Eco-Resort",
+    "description": "Eco-resort on working cocoa plantation. Heritage cottages amid tropical gardens.",
+    "address": "Fond Doux, Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8157,
+    "lng": -61.05,
+    "phone": "",
+    "website": "https://www.fonddouxresort.com",
+    "tags": [
+      "hotel",
+      "eco-resort",
+      "cocoa",
+      "plantation"
+    ]
+  },
+  {
+    "id": "hotel-008",
+    "name": "Harbor Club, Curio Collection by Hilton",
+    "category": "hotels",
+    "subcategory": "Business Hotel",
+    "description": "Hilton-branded hotel with 7,000+ sq ft meeting space. 5 meeting rooms, conference center. Rodney Bay.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0731,
+    "lng": -60.9478,
+    "phone": "(758) 731-2900",
+    "website": "https://www.theharborclub.com",
+    "tags": [
+      "hotel",
+      "Hilton",
+      "conference",
+      "business"
+    ]
+  },
+  {
+    "id": "hotel-009",
+    "name": "Windjammer Landing Resort & Residences",
+    "category": "hotels",
+    "subcategory": "Luxury Resort",
+    "description": "60-acre luxury resort in Labrelotte Bay. Member of The Leading Hotels of the World. Corporate retreats.",
+    "address": "Labrelotte Bay, Castries",
+    "district": "Castries",
+    "lat": 14.059,
+    "lng": -60.9742,
+    "phone": "(758) 456-9000",
+    "website": "https://www.windjammer-landing.com",
+    "tags": [
+      "hotel",
+      "luxury",
+      "beach",
+      "retreats"
+    ]
+  },
+  {
+    "id": "hotel-010",
+    "name": "Bel Jou Hotel",
+    "category": "hotels",
+    "subcategory": "Business Hotel",
+    "description": "Business-oriented hotel near George FL Charles Airport. Two meeting spaces (900 sq ft + 2,000 sq ft). Caribbean views.",
+    "address": "La Pansee Road, Castries",
+    "district": "Castries",
+    "lat": 14.0142,
+    "lng": -60.9818,
+    "phone": "(758) 456-1800",
+    "website": "https://www.beljouhotel.com",
+    "tags": [
+      "hotel",
+      "business",
+      "conference",
+      "Castries"
+    ]
+  },
+  {
+    "id": "hotel-011",
+    "name": "Coco Palm Resort",
+    "category": "hotels",
+    "subcategory": "Boutique Hotel",
+    "description": "Colonial-style boutique hotel in Rodney Bay Village. French Creole decor. Two restaurants. Business travelers.",
+    "address": "Rodney Bay Boulevard, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0699,
+    "lng": -60.9557,
+    "phone": "(758) 452-0712",
+    "website": "https://coco-resorts.com",
+    "tags": [
+      "hotel",
+      "boutique",
+      "dining"
+    ]
+  },
+  {
+    "id": "hotel-012",
+    "name": "Sandals Halcyon Beach Resort",
+    "category": "hotels",
+    "subcategory": "All-Inclusive Resort",
+    "description": "Intimate couples-only Sandals resort on Choc Beach. Garden and beachfront rooms.",
+    "address": "Choc Beach, Castries",
+    "district": "Castries",
+    "lat": 14.0313,
+    "lng": -60.976,
+    "phone": "",
+    "website": "https://www.sandals.com/halcyon-beach/",
+    "tags": [
+      "hotel",
+      "all-inclusive",
+      "beach",
+      "couples"
+    ]
+  },
+  {
+    "id": "hotel-013",
+    "name": "Sandals Regency La Toc Resort",
+    "category": "hotels",
+    "subcategory": "All-Inclusive Resort",
+    "description": "Sandals resort at La Toc. 9-hole golf course, spa, multiple restaurants. Hilltop and beach views.",
+    "address": "La Toc, Castries",
+    "district": "Castries",
+    "lat": 14.0083,
+    "lng": -61.0091,
+    "phone": "",
+    "website": "https://www.sandals.com/regency-la-toc/",
+    "tags": [
+      "hotel",
+      "all-inclusive",
+      "golf",
+      "spa"
+    ]
+  },
+  {
+    "id": "hotel-014",
+    "name": "Ladera Resort",
+    "category": "hotels",
+    "subcategory": "Luxury Boutique Resort",
+    "description": "Award-winning boutique resort perched on a volcanic ridge between the Pitons. Open-wall suites with plunge pools. UNESCO views.",
+    "address": "Rabot Ridge, Soufriere",
+    "district": "Soufriere",
+    "lat": 13.825,
+    "lng": -61.065,
+    "phone": "(758) 459-6600",
+    "website": "https://www.ladera.com",
+    "tags": [
+      "hotel",
+      "luxury",
+      "boutique",
+      "Pitons"
+    ]
+  },
+  {
+    "id": "hotel-015",
+    "name": "Calabash Cove Resort & Spa",
+    "category": "hotels",
+    "subcategory": "Luxury Boutique",
+    "description": "Adults-only luxury boutique resort in the north. Swim-up suites, infinity pool, beach.",
+    "address": "Bonaire Estate, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.045,
+    "lng": -60.968,
+    "phone": "(758) 456-3500",
+    "website": "https://www.calabashcove.com",
+    "tags": [
+      "hotel",
+      "luxury",
+      "boutique",
+      "adults-only"
+    ]
+  },
+  {
+    "id": "util-001",
+    "name": "LUCELEC (St. Lucia Electricity Services)",
+    "category": "utilities",
+    "subcategory": "Electricity",
+    "description": "Sole electricity provider. 432 GWh generation, 88.4MW peak demand. Commercial connections for business premises.",
+    "address": "John Compton Highway, Castries",
+    "district": "Castries",
+    "lat": 14.017,
+    "lng": -60.9918,
+    "phone": "",
+    "website": "https://www.lucelec.com",
+    "tags": [
+      "electricity",
+      "utility",
+      "power"
+    ]
+  },
+  {
+    "id": "util-002",
+    "name": "WASCO (Water & Sewerage Company)",
+    "category": "utilities",
+    "subcategory": "Water",
+    "description": "Water and sewerage services provider. Commercial connections available.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0125,
+    "lng": -60.991,
+    "phone": "",
+    "website": "https://www.wascosaintlucia.com",
+    "tags": [
+      "water",
+      "sewerage",
+      "utility"
+    ]
+  },
+  {
+    "id": "util-003",
+    "name": "Flow (Cable & Wireless)",
+    "category": "utilities",
+    "subcategory": "Telecommunications",
+    "description": "Major telecom provider. Fixed line, broadband internet, mobile (4G LTE), and TV services.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.011,
+    "lng": -60.9897,
+    "phone": "",
+    "website": "https://discoverflow.co/saint-lucia",
+    "tags": [
+      "telecom",
+      "internet",
+      "mobile",
+      "TV"
+    ]
+  },
+  {
+    "id": "util-004",
+    "name": "Digicel",
+    "category": "utilities",
+    "subcategory": "Telecommunications",
+    "description": "Mobile and data services. 4G LTE network. Prepaid and postpaid plans. Business solutions.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0101,
+    "lng": -60.9908,
+    "phone": "",
+    "website": "https://www.digicelgroup.com/lc",
+    "tags": [
+      "telecom",
+      "mobile",
+      "4G"
+    ]
+  },
+  {
+    "id": "city-001",
+    "name": "Castries",
+    "category": "cities",
+    "subcategory": "Capital City",
+    "description": "Capital and largest city. Commercial, administrative, and shipping hub. Population ~22,000 (metro ~65,000).",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0097,
+    "lng": -60.9917,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "capital",
+      "city",
+      "port",
+      "commerce"
+    ]
+  },
+  {
+    "id": "town-001",
+    "name": "Gros Islet",
+    "category": "towns",
+    "subcategory": "Tourism Hub",
+    "description": "Main tourism district. Rodney Bay, luxury resorts, national stadium, northern beaches. Friday Night Jump-Up.",
+    "address": "Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0844,
+    "lng": -60.9453,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "town",
+      "tourism",
+      "nightlife"
+    ]
+  },
+  {
+    "id": "town-002",
+    "name": "Vieux Fort",
+    "category": "towns",
+    "subcategory": "Second City",
+    "description": "Southernmost town and second-largest settlement. International airport, free zone, growing commercial area.",
+    "address": "Vieux Fort",
+    "district": "Vieux Fort",
+    "lat": 13.7206,
+    "lng": -60.9496,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "town",
+      "airport",
+      "free zone"
+    ]
+  },
+  {
+    "id": "town-003",
+    "name": "Soufriere",
+    "category": "towns",
+    "subcategory": "Heritage Town",
+    "description": "Original French capital. Home to The Pitons (UNESCO), Sulphur Springs, eco-tourism. Major landmark destination.",
+    "address": "Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8571,
+    "lng": -61.0573,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "town",
+      "heritage",
+      "Pitons",
+      "eco-tourism"
+    ]
+  },
+  {
+    "id": "town-004",
+    "name": "Dennery",
+    "category": "towns",
+    "subcategory": "Fishing Village",
+    "description": "Eastern (Atlantic) coast. Agricultural and fishing community. Dennery Fish Fiesta.",
+    "address": "Dennery",
+    "district": "Dennery",
+    "lat": 13.914,
+    "lng": -60.8915,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "town",
+      "fishing",
+      "agriculture"
+    ]
+  },
+  {
+    "id": "town-005",
+    "name": "Micoud",
+    "category": "towns",
+    "subcategory": "Agricultural District",
+    "description": "Large agricultural district on eastern coast. Bananas, coconut, cocoa production.",
+    "address": "Micoud",
+    "district": "Micoud",
+    "lat": 13.8212,
+    "lng": -60.9002,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "town",
+      "agriculture",
+      "bananas"
+    ]
+  },
+  {
+    "id": "town-006",
+    "name": "Choiseul",
+    "category": "towns",
+    "subcategory": "Arts District",
+    "description": "Arts and crafts heritage, pottery tradition, agricultural communities.",
+    "address": "Choiseul",
+    "district": "Choiseul",
+    "lat": 13.775,
+    "lng": -61.0486,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "town",
+      "arts",
+      "crafts",
+      "pottery"
+    ]
+  },
+  {
+    "id": "town-007",
+    "name": "Laborie",
+    "category": "towns",
+    "subcategory": "Fishing Village",
+    "description": "Picturesque southern fishing village. Strong community identity, Creole culture.",
+    "address": "Laborie",
+    "district": "Laborie",
+    "lat": 13.7523,
+    "lng": -60.9933,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "town",
+      "fishing",
+      "Creole"
+    ]
+  },
+  {
+    "id": "town-008",
+    "name": "Anse la Raye",
+    "category": "towns",
+    "subcategory": "Fishing Town",
+    "description": "West coast fishing town. Famous Friday Night Seafood Street Party.",
+    "address": "Anse la Raye",
+    "district": "Anse la Raye",
+    "lat": 13.9459,
+    "lng": -61.0369,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "town",
+      "fishing",
+      "food"
+    ]
+  },
+  {
+    "id": "town-009",
+    "name": "Canaries",
+    "category": "towns",
+    "subcategory": "Smallest District",
+    "description": "Smallest district between Anse la Raye and Soufriere. Rural community, coastal scenery.",
+    "address": "Canaries",
+    "district": "Canaries",
+    "lat": 13.9047,
+    "lng": -61.0668,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "town",
+      "rural",
+      "secluded"
+    ]
+  },
+  {
+    "id": "air-001",
+    "name": "Hewanorra International Airport (UVF)",
+    "category": "airports",
+    "subcategory": "International Airport",
+    "description": "Main international airport in Vieux Fort. Serves all major international flights. Modernization project underway.",
+    "address": "Vieux Fort",
+    "district": "Vieux Fort",
+    "lat": 13.7373,
+    "lng": -60.9525,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "airport",
+      "international",
+      "transport"
+    ]
+  },
+  {
+    "id": "air-002",
+    "name": "George F.L. Charles Airport (SLU)",
+    "category": "airports",
+    "subcategory": "Regional Airport",
+    "description": "Regional/domestic airport at Vigie, Castries. Inter-island flights. Close to city center.",
+    "address": "Vigie, Castries",
+    "district": "Castries",
+    "lat": 14.0203,
+    "lng": -60.9949,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "airport",
+      "regional",
+      "domestic"
+    ]
+  },
+  {
+    "id": "port-001",
+    "name": "Port Castries",
+    "category": "ports",
+    "subcategory": "Main Port",
+    "description": "Main cargo port and cruise ship terminal. GPH US$135M redevelopment. 2 cruise berths, 6 cargo berths.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0144,
+    "lng": -60.9952,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "port",
+      "cruise",
+      "cargo",
+      "shipping"
+    ]
+  },
+  {
+    "id": "port-002",
+    "name": "Rodney Bay Marina",
+    "category": "ports",
+    "subcategory": "Yacht Marina",
+    "description": "Yacht marina and boat services. Haul-out, repairs, chandlery. ARC finish line.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0753,
+    "lng": -60.9479,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "marina",
+      "yachts",
+      "sailing"
+    ]
+  },
+  {
+    "id": "port-003",
+    "name": "Marigot Bay Marina",
+    "category": "ports",
+    "subcategory": "Luxury Marina",
+    "description": "Protected natural harbor. Luxury marina facilities, chandlery, customs clearance.",
+    "address": "Marigot Bay",
+    "district": "Castries",
+    "lat": 13.965,
+    "lng": -61.0283,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "marina",
+      "harbor",
+      "luxury"
+    ]
+  },
+  {
+    "id": "port-004",
+    "name": "Vieux Fort Port",
+    "category": "ports",
+    "subcategory": "Cargo Port",
+    "description": "Southern cargo port with finger pier and Liebherr mobile harbour crane. Services Troumassee solar project.",
+    "address": "Vieux Fort",
+    "district": "Vieux Fort",
+    "lat": 13.728,
+    "lng": -60.952,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "port",
+      "cargo",
+      "southern"
+    ]
+  },
+  {
+    "id": "attr-001",
+    "name": "The Pitons (UNESCO World Heritage)",
+    "category": "attractions",
+    "subcategory": "Natural Landmark",
+    "description": "UNESCO World Heritage Site. Twin volcanic spires — Gros Piton (770m) and Petit Piton (743m). Iconic symbol of St. Lucia.",
+    "address": "Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8033,
+    "lng": -61.067,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "UNESCO",
+      "landmark",
+      "hiking",
+      "volcanic"
+    ]
+  },
+  {
+    "id": "attr-002",
+    "name": "Sulphur Springs Park",
+    "category": "attractions",
+    "subcategory": "Volcanic Attraction",
+    "description": "World's only drive-in volcano. Fumaroles, hot springs, mud baths. Major tourist attraction.",
+    "address": "Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8383,
+    "lng": -61.046,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "volcano",
+      "hot springs",
+      "mud baths"
+    ]
+  },
+  {
+    "id": "attr-003",
+    "name": "Pigeon Island National Landmark",
+    "category": "attractions",
+    "subcategory": "Historic Park",
+    "description": "44-acre historic park connected by causeway. Fort Rodney ruins, beaches, hiking trails. Events venue (Jazz Festival).",
+    "address": "Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0931,
+    "lng": -60.9646,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "historic",
+      "park",
+      "fort",
+      "events"
+    ]
+  },
+  {
+    "id": "attr-004",
+    "name": "Diamond Falls Botanical Gardens",
+    "category": "attractions",
+    "subcategory": "Gardens & Waterfall",
+    "description": "Botanical gardens with stunning waterfall and mineral baths. Oldest estate in Soufriere.",
+    "address": "Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8532,
+    "lng": -61.049,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "gardens",
+      "waterfall",
+      "mineral baths"
+    ]
+  },
+  {
+    "id": "attr-005",
+    "name": "Tet Paul Nature Trail",
+    "category": "attractions",
+    "subcategory": "Hiking Trail",
+    "description": "Moderate nature trail with spectacular Piton views. Heritage site with interpretive signage. 45-min walk.",
+    "address": "Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8202,
+    "lng": -61.055,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "hiking",
+      "nature",
+      "Pitons",
+      "views"
+    ]
+  },
+  {
+    "id": "attr-006",
+    "name": "Toraille Waterfall",
+    "category": "attractions",
+    "subcategory": "Waterfall",
+    "description": "15m waterfall cascading into a garden pool. Easy access from road. Popular swimming spot.",
+    "address": "Near Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8541,
+    "lng": -61.0367,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "waterfall",
+      "swimming",
+      "nature"
+    ]
+  },
+  {
+    "id": "attr-007",
+    "name": "Rainforest Sky Rides (Aerial Tram)",
+    "category": "attractions",
+    "subcategory": "Adventure",
+    "description": "Aerial tram through tropical rainforest canopy. Zip-line also available. Educational nature tours.",
+    "address": "Chassin, Babonneau",
+    "district": "Castries",
+    "lat": 14.005,
+    "lng": -60.945,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "adventure",
+      "rainforest",
+      "zip-line",
+      "tram"
+    ]
+  },
+  {
+    "id": "attr-008",
+    "name": "Fond Doux Cocoa Plantation",
+    "category": "attractions",
+    "subcategory": "Heritage Estate",
+    "description": "Working 250-year-old cocoa plantation. Chocolate-making demonstrations, estate tours, organic farm-to-table dining.",
+    "address": "Fond Doux, Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8157,
+    "lng": -61.05,
+    "phone": "",
+    "website": "https://www.fonddouxresort.com",
+    "tags": [
+      "cocoa",
+      "plantation",
+      "heritage",
+      "chocolate"
+    ]
+  },
+  {
+    "id": "attr-009",
+    "name": "Gros Piton Hike Trailhead",
+    "category": "attractions",
+    "subcategory": "Hiking",
+    "description": "Starting point for Gros Piton summit hike (770m). Mandatory guide required. 4-6 hour round trip. Challenging.",
+    "address": "Fond Gens Libre, Soufriere",
+    "district": "Soufriere",
+    "lat": 13.805,
+    "lng": -61.063,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "hiking",
+      "Gros Piton",
+      "climbing"
+    ]
+  },
+  {
+    "id": "attr-010",
+    "name": "Daren Sammy Cricket Ground",
+    "category": "attractions",
+    "subcategory": "Sports Venue",
+    "description": "International cricket venue. Named after West Indies captain Daren Sammy. Hosts CPL T20 matches. Capacity ~15,000.",
+    "address": "Beausejour, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0705,
+    "lng": -60.9318,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "cricket",
+      "sports",
+      "stadium",
+      "CPL"
+    ]
+  },
+  {
+    "id": "attr-011",
+    "name": "Castries Central Market",
+    "category": "attractions",
+    "subcategory": "Market",
+    "description": "Central produce market. Local food, spices, crafts. Cultural and commercial landmark. Saturday is busiest day.",
+    "address": "Jeremie Street, Castries",
+    "district": "Castries",
+    "lat": 14.0112,
+    "lng": -60.9894,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "market",
+      "food",
+      "spices",
+      "crafts"
+    ]
+  },
+  {
+    "id": "attr-012",
+    "name": "La Place Carenage",
+    "category": "attractions",
+    "subcategory": "Shopping Complex",
+    "description": "Waterfront shopping and dining complex with Castries harbour views. Duty-free shops, restaurants.",
+    "address": "Castries Harbour",
+    "district": "Castries",
+    "lat": 14.0111,
+    "lng": -60.9913,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "shopping",
+      "dining",
+      "waterfront",
+      "duty-free"
+    ]
+  },
+  {
+    "id": "biz-003",
+    "name": "Pointe Seraphine",
+    "category": "business",
+    "subcategory": "Duty-Free Shopping",
+    "description": "Duty-free shopping complex at cruise terminal. Jewelry, fashion, souvenirs, professional offices.",
+    "address": "Pointe Seraphine, Castries",
+    "district": "Castries",
+    "lat": 14.015,
+    "lng": -60.992,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "shopping",
+      "duty-free",
+      "cruise"
+    ]
+  },
+  {
+    "id": "biz-004",
+    "name": "JQ Mall",
+    "category": "business",
+    "subcategory": "Shopping Centre",
+    "description": "Main shopping centre in Rodney Bay. Retail, dining, supermarket, cinema.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0689,
+    "lng": -60.9538,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "shopping",
+      "mall",
+      "cinema",
+      "retail"
+    ]
+  },
+  {
+    "id": "biz-005",
+    "name": "Baywalk Mall",
+    "category": "business",
+    "subcategory": "Shopping & Dining",
+    "description": "Shopping and dining complex in Rodney Bay.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.07,
+    "lng": -60.953,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "shopping",
+      "dining",
+      "retail"
+    ]
+  },
+  {
+    "id": "biz-006",
+    "name": "Gablewoods Mall",
+    "category": "business",
+    "subcategory": "Shopping Centre",
+    "description": "Shopping centre and commercial offices on the outskirts of Castries.",
+    "address": "Sunny Acres, Castries",
+    "district": "Castries",
+    "lat": 14.0,
+    "lng": -60.989,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "shopping",
+      "offices",
+      "retail"
+    ]
+  },
+  {
+    "id": "biz-007",
+    "name": "Vieux Fort Industrial Free Zone",
+    "category": "business",
+    "subcategory": "Free Zone",
+    "description": "Manufacturing, warehousing, duty-free zone. Home to BPO operations and light manufacturing.",
+    "address": "Vieux Fort",
+    "district": "Vieux Fort",
+    "lat": 13.735,
+    "lng": -60.948,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "free zone",
+      "industrial",
+      "manufacturing"
+    ]
+  },
+  {
+    "id": "biz-008",
+    "name": "Cul de Sac Industrial Area",
+    "category": "business",
+    "subcategory": "Industrial Zone",
+    "description": "Industrial zone with petroleum terminal, LUCELEC power station, warehousing.",
+    "address": "Cul de Sac, Castries",
+    "district": "Castries",
+    "lat": 13.98,
+    "lng": -61.005,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "industrial",
+      "petroleum",
+      "power"
+    ]
+  },
+  {
+    "id": "biz-009",
+    "name": "Morne Fortune",
+    "category": "business",
+    "subcategory": "Historic & Residential",
+    "description": "Government House, Fort Charlotte, SALCC campus. Historic hilltop area overlooking Castries.",
+    "address": "Morne Fortune, Castries",
+    "district": "Castries",
+    "lat": 14.007,
+    "lng": -60.983,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "historic",
+      "government",
+      "residential"
+    ]
+  },
+  {
+    "id": "health-001",
+    "name": "Owen King EU Hospital (OKEU)",
+    "category": "healthcare",
+    "subcategory": "Public Hospital",
+    "description": "160-bed public hospital (replaced Victoria Hospital 2022). A&E, ICU, surgery, imaging. Main public hospital.",
+    "address": "Millennium Highway, Castries",
+    "district": "Castries",
+    "lat": 14.0015,
+    "lng": -61.0096,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "hospital",
+      "public",
+      "emergency",
+      "surgery"
+    ]
+  },
+  {
+    "id": "health-002",
+    "name": "Tapion Hospital",
+    "category": "healthcare",
+    "subcategory": "Private Hospital",
+    "description": "32-bed private hospital. Specialist consultations, surgery, diagnostics. Popular with expatriates.",
+    "address": "Tapion Road, Castries",
+    "district": "Castries",
+    "lat": 14.0128,
+    "lng": -61.0062,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "hospital",
+      "private",
+      "specialist",
+      "surgery"
+    ]
+  },
+  {
+    "id": "health-003",
+    "name": "St. Jude Hospital",
+    "category": "healthcare",
+    "subcategory": "Regional Hospital",
+    "description": "Southern region hospital. $75M reconstruction (Phase 2). Emergency, maternity, general medicine.",
+    "address": "Vieux Fort",
+    "district": "Vieux Fort",
+    "lat": 13.7545,
+    "lng": -60.9448,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "hospital",
+      "public",
+      "southern",
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "health-004",
+    "name": "Soufriere Hospital",
+    "category": "healthcare",
+    "subcategory": "District Hospital",
+    "description": "District hospital serving Soufriere and surrounding communities. Basic emergency and outpatient services.",
+    "address": "Soufriere",
+    "district": "Soufriere",
+    "lat": 13.856,
+    "lng": -61.0591,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "hospital",
+      "district",
+      "emergency"
+    ]
+  },
+  {
+    "id": "health-005",
+    "name": "Dennery Hospital",
+    "category": "healthcare",
+    "subcategory": "District Hospital",
+    "description": "Small district hospital on the east coast. Outpatient and basic emergency services.",
+    "address": "Dennery",
+    "district": "Dennery",
+    "lat": 13.9123,
+    "lng": -60.8895,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "hospital",
+      "district",
+      "east coast"
+    ]
+  },
+  {
+    "id": "edu-001",
+    "name": "Sir Arthur Lewis Community College (SALCC)",
+    "category": "education",
+    "subcategory": "Tertiary Institution",
+    "description": "Main tertiary institution. Business, IT, hospitality, arts programmes. Named after Nobel Laureate Sir Arthur Lewis.",
+    "address": "Morne Fortune, Castries",
+    "district": "Castries",
+    "lat": 13.9992,
+    "lng": -60.997,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "college",
+      "education",
+      "tertiary"
+    ]
+  },
+  {
+    "id": "edu-002",
+    "name": "UWI Open Campus — Saint Lucia",
+    "category": "education",
+    "subcategory": "University",
+    "description": "University of the West Indies distance and online learning centre. Degree programmes, continuing education.",
+    "address": "Morne Fortune, Castries",
+    "district": "Castries",
+    "lat": 14.0,
+    "lng": -60.996,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "university",
+      "education",
+      "UWI"
+    ]
+  },
+  {
+    "id": "beach-001",
+    "name": "Reduit Beach",
+    "category": "beaches",
+    "subcategory": "Popular Beach",
+    "description": "Most popular beach in the north. White sand, calm waters, water sports, beach bars. Adjacent to Rodney Bay hotels.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.075,
+    "lng": -60.954,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "beach",
+      "swimming",
+      "water sports"
+    ]
+  },
+  {
+    "id": "beach-002",
+    "name": "Vigie Beach",
+    "category": "beaches",
+    "subcategory": "City Beach",
+    "description": "Long sandy beach near George FL Charles Airport. Calm waters, accessible from Castries. Local favorite.",
+    "address": "Vigie, Castries",
+    "district": "Castries",
+    "lat": 14.0249,
+    "lng": -60.9846,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "beach",
+      "Castries",
+      "swimming"
+    ]
+  },
+  {
+    "id": "beach-003",
+    "name": "Anse Chastanet Beach",
+    "category": "beaches",
+    "subcategory": "Resort Beach",
+    "description": "Dark-sand beach at foot of Jade Mountain. World-class snorkeling and diving. Coral reef directly offshore.",
+    "address": "Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8649,
+    "lng": -61.0778,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "beach",
+      "snorkeling",
+      "diving",
+      "resort"
+    ]
+  },
+  {
+    "id": "beach-004",
+    "name": "Sugar Beach (Jalousie)",
+    "category": "beaches",
+    "subcategory": "Iconic Beach",
+    "description": "White-sand beach between the Pitons. Accessed via Sugar Beach resort but open to public. Iconic Caribbean scene.",
+    "address": "Val des Pitons, Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8237,
+    "lng": -61.0668,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "beach",
+      "Pitons",
+      "iconic"
+    ]
+  },
+  {
+    "id": "beach-005",
+    "name": "Anse Cochon Beach",
+    "category": "beaches",
+    "subcategory": "Secluded Beach",
+    "description": "Secluded west coast beach south of Anse la Raye. Good snorkeling, boat access or steep hike.",
+    "address": "Near Anse la Raye",
+    "district": "Anse la Raye",
+    "lat": 13.9272,
+    "lng": -61.0568,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "beach",
+      "secluded",
+      "snorkeling"
+    ]
+  },
+  {
+    "id": "beach-006",
+    "name": "Marigot Beach",
+    "category": "beaches",
+    "subcategory": "Bay Beach",
+    "description": "Small beach within Marigot Bay. Calm protected waters, water taxi access.",
+    "address": "Marigot Bay",
+    "district": "Castries",
+    "lat": 13.9663,
+    "lng": -61.0275,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "beach",
+      "bay",
+      "calm"
+    ]
+  },
+  {
+    "id": "beach-007",
+    "name": "Pigeon Island Beach",
+    "category": "beaches",
+    "subcategory": "Park Beach",
+    "description": "Two beaches within Pigeon Island National Landmark. Historic setting, calm waters, picnic facilities.",
+    "address": "Pigeon Island, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0909,
+    "lng": -60.9594,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "beach",
+      "historic",
+      "park"
+    ]
+  },
+  {
+    "id": "beach-008",
+    "name": "Cas en Bas Beach",
+    "category": "beaches",
+    "subcategory": "Windsurf Beach",
+    "description": "Remote Atlantic beach on the northeast coast. Popular for kitesurfing and horseback riding. Rugged scenery.",
+    "address": "Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0909,
+    "lng": -60.9273,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "beach",
+      "kitesurfing",
+      "remote",
+      "horseback"
+    ]
+  },
+  {
+    "id": "beach-009",
+    "name": "Grande Anse Beach",
+    "category": "beaches",
+    "subcategory": "Nature Beach",
+    "description": "Long Atlantic-facing beach in the northeast. Turtle nesting site (leatherback). Powerful waves — swimming not recommended.",
+    "address": "Desbarras, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.007,
+    "lng": -60.8869,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "beach",
+      "turtles",
+      "nature",
+      "Atlantic"
+    ]
+  },
+  {
+    "id": "beach-010",
+    "name": "Sandy Beach",
+    "category": "beaches",
+    "subcategory": "Southern Beach",
+    "description": "Long beach near Hewanorra Airport at the southern tip. Windy, good for windsurfing and kitesurfing.",
+    "address": "Vieux Fort",
+    "district": "Vieux Fort",
+    "lat": 13.7315,
+    "lng": -60.9406,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "beach",
+      "windsurfing",
+      "southern"
+    ]
+  },
+  {
+    "id": "dive-001",
+    "name": "Anse Chastanet Reef (Dive Site)",
+    "category": "diving",
+    "subcategory": "Reef Dive",
+    "description": "World-class reef dive directly offshore from Anse Chastanet Beach. 150+ fish species, coral walls, easy shore entry.",
+    "address": "Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8649,
+    "lng": -61.0778,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "diving",
+      "reef",
+      "snorkeling"
+    ]
+  },
+  {
+    "id": "dive-002",
+    "name": "Coral Gardens (Dive Site)",
+    "category": "diving",
+    "subcategory": "Shallow Dive",
+    "description": "Shallow coral gardens near Anse Chastanet. Ideal for beginners and snorkelers. Rich marine life.",
+    "address": "Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8635,
+    "lng": -61.0785,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "diving",
+      "coral",
+      "beginner"
+    ]
+  },
+  {
+    "id": "dive-003",
+    "name": "Superman's Flight (Dive Site)",
+    "category": "diving",
+    "subcategory": "Wall Dive",
+    "description": "Spectacular wall dive between the Pitons. Strong currents create drift dive — feels like flying. Advanced divers.",
+    "address": "Between the Pitons, Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8338,
+    "lng": -61.0688,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "diving",
+      "wall dive",
+      "advanced",
+      "Pitons"
+    ]
+  },
+  {
+    "id": "dive-004",
+    "name": "Lesleen M Wreck (Dive Site)",
+    "category": "diving",
+    "subcategory": "Wreck Dive",
+    "description": "Deliberately sunk 50ft freighter in Anse Cochon bay. 60ft depth. Coral-encrusted, abundant marine life. All levels.",
+    "address": "Anse Cochon",
+    "district": "Anse la Raye",
+    "lat": 13.934,
+    "lng": -61.046,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "diving",
+      "wreck",
+      "all levels"
+    ]
+  },
+  {
+    "id": "embassy-001",
+    "name": "British High Commission",
+    "category": "embassies",
+    "subcategory": "British Embassy",
+    "description": "UK diplomatic representation in Saint Lucia. Consular services, visa information.",
+    "address": "Francis Compton Building, Waterfront, Castries",
+    "district": "Castries",
+    "lat": 14.0144,
+    "lng": -60.9913,
+    "phone": "(758) 452-2484",
+    "website": "",
+    "tags": [
+      "embassy",
+      "UK",
+      "consular"
+    ]
+  },
+  {
+    "id": "embassy-002",
+    "name": "Embassy of the Republic of China (Taiwan)",
+    "category": "embassies",
+    "subcategory": "Taiwan Embassy",
+    "description": "Taiwan diplomatic representation. Development cooperation, scholarships, trade promotion.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.013,
+    "lng": -60.9915,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "embassy",
+      "Taiwan",
+      "development"
+    ]
+  },
+  {
+    "id": "super-001",
+    "name": "Massy Stores (Rodney Bay)",
+    "category": "supermarkets",
+    "subcategory": "Supermarket",
+    "description": "Major supermarket chain. Full grocery, pharmacy, household goods. Largest branch in north.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.067,
+    "lng": -60.954,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "supermarket",
+      "grocery",
+      "pharmacy"
+    ]
+  },
+  {
+    "id": "super-002",
+    "name": "Massy Stores (Castries / La Clery)",
+    "category": "supermarkets",
+    "subcategory": "Supermarket",
+    "description": "Major supermarket branch in Castries area. Grocery, pharmacy, household goods.",
+    "address": "La Clery, Castries",
+    "district": "Castries",
+    "lat": 14.016,
+    "lng": -60.987,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "supermarket",
+      "grocery",
+      "pharmacy"
+    ]
+  },
+  {
+    "id": "super-003",
+    "name": "Cost-U-Less",
+    "category": "supermarkets",
+    "subcategory": "Wholesale Club",
+    "description": "US-style wholesale club. Bulk groceries, household, electronics. Largest wholesale retailer on island.",
+    "address": "Sans Souci, Castries",
+    "district": "Castries",
+    "lat": 14.019,
+    "lng": -60.984,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "wholesale",
+      "grocery",
+      "bulk"
+    ]
+  },
+  {
+    "id": "super-004",
+    "name": "Julian's Supermarket (IGA)",
+    "category": "supermarkets",
+    "subcategory": "Supermarket",
+    "description": "Independent supermarket with IGA affiliation. Full grocery, bakery, deli. Local and imported goods.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.066,
+    "lng": -60.9535,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "supermarket",
+      "grocery",
+      "IGA"
+    ]
+  },
+  {
+    "id": "fuel-001",
+    "name": "Rubis Gas Station (Rodney Bay)",
+    "category": "fuel",
+    "subcategory": "Gas Station",
+    "description": "Major fuel brand. Petrol, diesel, convenience store.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.064,
+    "lng": -60.953,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "fuel",
+      "gas station",
+      "convenience"
+    ]
+  },
+  {
+    "id": "fuel-002",
+    "name": "SOL Gas Station (Castries)",
+    "category": "fuel",
+    "subcategory": "Gas Station",
+    "description": "SOL petroleum fuel station. Petrol, diesel.",
+    "address": "John Compton Highway, Castries",
+    "district": "Castries",
+    "lat": 14.0155,
+    "lng": -60.992,
+    "phone": "",
+    "website": "",
+    "tags": [
+      "fuel",
+      "gas station"
+    ]
+  },
+  {
+    "id": "car-001",
+    "name": "Cool Breeze Jeep/Car Rental",
+    "category": "carrental",
+    "subcategory": "Car Rental",
+    "description": "Local car rental company. Jeeps, cars, and SUVs. Delivery to airport and hotels.",
+    "address": "Soufriere",
+    "district": "Soufriere",
+    "lat": 13.856,
+    "lng": -61.056,
+    "phone": "(758) 459-7729",
+    "website": "",
+    "tags": [
+      "car rental",
+      "jeep",
+      "transport"
+    ]
+  },
+  {
+    "id": "car-002",
+    "name": "Drive-A-Matic Car Rentals",
+    "category": "carrental",
+    "subcategory": "Car Rental",
+    "description": "Established car rental company. Airport pick-up, various vehicle types. Temporary driving permits arranged.",
+    "address": "Vieux Fort / Rodney Bay",
+    "district": "Gros Islet",
+    "lat": 14.065,
+    "lng": -60.953,
+    "phone": "(758) 452-0090",
+    "website": "",
+    "tags": [
+      "car rental",
+      "airport",
+      "transport"
+    ]
+  },
+  {
+    "id": "biz-massy-rb",
+    "name": "Massy Stores Rodney Bay",
+    "category": "supermarkets",
+    "subcategory": "Supermarket",
+    "description": "Major supermarket chain - Rodney Bay location",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0687,
+    "lng": -60.9538,
+    "tags": [
+      "groceries",
+      "supermarket"
+    ]
+  },
+  {
+    "id": "biz-massy-castries",
+    "name": "Massy Stores La Clery",
+    "category": "supermarkets",
+    "subcategory": "Supermarket",
+    "description": "Major supermarket chain - Castries location",
+    "address": "La Clery, Castries",
+    "district": "Castries",
+    "lat": 14.0214,
+    "lng": -60.9837,
+    "tags": [
+      "groceries",
+      "supermarket"
+    ]
+  },
+  {
+    "id": "att-enbas",
+    "name": "Enbas Saut Falls",
+    "category": "attractions",
+    "subcategory": "Waterfall / Hiking",
+    "description": "Scenic twin waterfalls accessible via moderate rainforest hike in the Edmund Forest Reserve",
+    "address": "Edmund Forest Reserve, Micoud Quarter",
+    "district": "Micoud",
+    "lat": 13.8496,
+    "lng": -61.0037,
+    "tags": [
+      "waterfall",
+      "hiking",
+      "nature",
+      "rainforest"
+    ]
+  },
+  {
+    "id": "att-gros-piton",
+    "name": "Gros Piton Trail",
+    "category": "attractions",
+    "subcategory": "Hiking Trail",
+    "description": "Challenging hike to the summit of Gros Piton (798m). Guide required. 4-5 hours round trip.",
+    "address": "Fond Gens Libres, Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8086,
+    "lng": -61.0593,
+    "tags": [
+      "hiking",
+      "pitons",
+      "summit",
+      "UNESCO"
+    ]
+  },
+  {
+    "id": "att-skytram",
+    "name": "Rainforest Adventures - Aerial Tram",
+    "category": "attractions",
+    "subcategory": "Eco-Tourism",
+    "description": "Aerial tram ride through rainforest canopy with zip-line option. Includes nature trail.",
+    "address": "Chassin, Babonneau",
+    "district": "Castries",
+    "lat": 13.9864,
+    "lng": -60.9213,
+    "tags": [
+      "rainforest",
+      "zip-line",
+      "canopy",
+      "eco-tourism",
+      "adventure"
+    ]
+  },
+  {
+    "id": "biz-freezone",
+    "name": "Vieux Fort Free Zone",
+    "category": "business",
+    "subcategory": "Industrial Zone",
+    "description": "Designated free trade zone near Hewanorra Airport for manufacturing and export businesses",
+    "address": "Vieux Fort",
+    "district": "Vieux Fort",
+    "lat": 13.7274,
+    "lng": -60.9521,
+    "tags": [
+      "free zone",
+      "manufacturing",
+      "export",
+      "industrial"
+    ]
+  },
+  {
+    "id": "biz-culdesac",
+    "name": "Cul de Sac Industrial Estate",
+    "category": "business",
+    "subcategory": "Industrial Zone",
+    "description": "Major industrial and warehousing area for St. Lucia businesses",
+    "address": "Cul de Sac, Castries",
+    "district": "Castries",
+    "lat": 13.982,
+    "lng": -60.998,
+    "tags": [
+      "industrial",
+      "warehousing",
+      "commercial"
+    ]
+  },
+  {
+    "id": "gov-french-embassy",
+    "name": "French Embassy",
+    "category": "embassies",
+    "subcategory": "Embassy",
+    "description": "Embassy of France in Saint Lucia",
+    "address": "Nelson Mandela Drive, Vigie, Castries",
+    "district": "Castries",
+    "lat": 14.0191,
+    "lng": -60.9962,
+    "phone": "(758) 455-6060",
+    "website": "https://lc.ambafrance.org",
+    "tags": [
+      "embassy",
+      "france",
+      "consular"
+    ]
+  },
+  {
+    "id": "div-keyhole",
+    "name": "Keyhole Pinnacles",
+    "category": "diving",
+    "subcategory": "Dive Site",
+    "description": "Deep dive site with dramatic underwater pinnacles and abundant marine life near Soufriere",
+    "address": "Off Soufriere Coast",
+    "district": "Soufriere",
+    "lat": 13.845,
+    "lng": -61.075,
+    "tags": [
+      "diving",
+      "pinnacles",
+      "deep dive",
+      "marine"
+    ]
+  },
+  {
+    "id": "town-marigot",
+    "name": "Marigot Bay",
+    "category": "towns",
+    "subcategory": "Bay / Village",
+    "description": "Picturesque sheltered bay known as one of the most beautiful in the Caribbean. Marina and resort.",
+    "address": "Marigot Bay",
+    "district": "Castries",
+    "lat": 13.9663,
+    "lng": -61.0275,
+    "tags": [
+      "bay",
+      "marina",
+      "scenic"
+    ]
+  },
+  {
+    "id": "rest-001",
+    "name": "The Coal Pot Restaurant",
+    "category": "restaurants",
+    "subcategory": "Fine Dining",
+    "description": "Award-winning French-Creole fusion restaurant set on the waterfront at Vigie Marina. Known for fresh seafood and romantic ambiance.",
+    "address": "Vigie Marina, Castries",
+    "district": "Castries",
+    "lat": 14.0178,
+    "lng": -61.0035,
+    "phone": "(758) 452-5566",
+    "website": "https://www.thecoalpotrestaurant.com",
+    "tags": ["fine dining", "seafood", "French-Creole", "waterfront"]
+  },
+  {
+    "id": "rest-002",
+    "name": "Jacques Waterfront Dining",
+    "category": "restaurants",
+    "subcategory": "Fine Dining",
+    "description": "Upscale waterfront restaurant at Rodney Bay Marina offering contemporary French cuisine with Caribbean flair.",
+    "address": "Rodney Bay Marina, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0728,
+    "lng": -60.9530,
+    "phone": "(758) 458-1900",
+    "tags": ["fine dining", "French", "waterfront", "marina"]
+  },
+  {
+    "id": "rest-003",
+    "name": "Dasheene at Ladera",
+    "category": "restaurants",
+    "subcategory": "Fine Dining",
+    "description": "Acclaimed open-air restaurant at Ladera Resort with panoramic Pitons views. Innovative Caribbean cuisine using local ingredients.",
+    "address": "Ladera Resort, Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8452,
+    "lng": -61.0563,
+    "phone": "(758) 459-6600",
+    "website": "https://www.ladera.com/dasheene",
+    "tags": ["fine dining", "Pitons view", "Caribbean", "resort"]
+  },
+  {
+    "id": "rest-004",
+    "name": "The Cliff at Cap Maison",
+    "category": "restaurants",
+    "subcategory": "Fine Dining",
+    "description": "Cliff-edge fine dining at Cap Maison resort, accessible via a dramatic torch-lit staircase. Contemporary Caribbean-European menu.",
+    "address": "Cap Maison, Smugglers Cove Drive, Cap Estate",
+    "district": "Gros Islet",
+    "lat": 14.1013,
+    "lng": -60.9486,
+    "phone": "(758) 457-8670",
+    "website": "https://www.capmaison.com",
+    "tags": ["fine dining", "cliff-edge", "resort", "romantic"]
+  },
+  {
+    "id": "rest-005",
+    "name": "Naked Fisherman Beach Bar & Grill",
+    "category": "restaurants",
+    "subcategory": "Casual Dining",
+    "description": "Relaxed beachfront restaurant at Cap Maison. Fresh seafood, grilled dishes, and cocktails on a secluded beach.",
+    "address": "Cap Maison, Cap Estate",
+    "district": "Gros Islet",
+    "lat": 14.1005,
+    "lng": -60.9478,
+    "phone": "(758) 457-8670",
+    "website": "https://www.capmaison.com",
+    "tags": ["beach bar", "seafood", "casual", "beachfront"]
+  },
+  {
+    "id": "rest-006",
+    "name": "Pink Plantation House",
+    "category": "restaurants",
+    "subcategory": "Caribbean Fine Dining",
+    "description": "Charming 19th-century plantation house restaurant in the hills above Castries. Creole-European cuisine with panoramic sea views.",
+    "address": "Morne Fortune, Castries",
+    "district": "Castries",
+    "lat": 14.0060,
+    "lng": -60.9930,
+    "phone": "(758) 452-5422",
+    "tags": ["plantation", "Creole", "fine dining", "hilltop views"]
+  },
+  {
+    "id": "rest-007",
+    "name": "Big Chef Steakhouse",
+    "category": "restaurants",
+    "subcategory": "Steakhouse",
+    "description": "Popular steakhouse and grill at Rodney Bay. Steaks, ribs, burgers, and Caribbean dishes in a casual setting.",
+    "address": "Reduit Beach Avenue, Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0715,
+    "lng": -60.9540,
+    "phone": "(758) 450-0210",
+    "tags": ["steakhouse", "grill", "casual dining", "Rodney Bay"]
+  },
+  {
+    "id": "rest-008",
+    "name": "Boucan by Hotel Chocolat",
+    "category": "restaurants",
+    "subcategory": "Fine Dining",
+    "description": "Cacao-inspired dining at Hotel Chocolat's estate in Soufriere. Unique cocoa-infused dishes paired with estate chocolate.",
+    "address": "Hotel Chocolat, Rabot Estate, Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8530,
+    "lng": -61.0600,
+    "phone": "(758) 572-9600",
+    "website": "https://www.hotelchocolat.com/uk/boucan",
+    "tags": ["fine dining", "chocolate", "cocoa", "estate"]
+  },
+  {
+    "id": "rest-009",
+    "name": "Spice of India",
+    "category": "restaurants",
+    "subcategory": "Indian Cuisine",
+    "description": "Popular Indian restaurant at Rodney Bay offering authentic curries, tandoori dishes, and vegetarian options.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0720,
+    "lng": -60.9545,
+    "phone": "(758) 458-4243",
+    "tags": ["Indian", "curry", "vegetarian", "Rodney Bay"]
+  },
+  {
+    "id": "rest-010",
+    "name": "KFC Saint Lucia",
+    "category": "restaurants",
+    "subcategory": "Fast Food",
+    "description": "International fried chicken chain with multiple locations across Saint Lucia including Castries, Rodney Bay, and Vieux Fort.",
+    "address": "Bridge Street, Castries",
+    "district": "Castries",
+    "lat": 14.0105,
+    "lng": -60.9915,
+    "tags": ["fast food", "chicken", "chain"]
+  },
+  {
+    "id": "rest-011",
+    "name": "Subway Saint Lucia",
+    "category": "restaurants",
+    "subcategory": "Fast Food",
+    "description": "International sandwich chain with locations at Rodney Bay and other areas.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0710,
+    "lng": -60.9555,
+    "tags": ["fast food", "sandwiches", "chain"]
+  },
+  {
+    "id": "rest-012",
+    "name": "Buzz Seafood & Grill",
+    "category": "restaurants",
+    "subcategory": "Seafood",
+    "description": "Popular seafood restaurant on Reduit Beach, Rodney Bay. Fresh catches, grilled meats, and Caribbean cocktails.",
+    "address": "Reduit Beach, Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0725,
+    "lng": -60.9520,
+    "phone": "(758) 456-0450",
+    "tags": ["seafood", "grill", "beach", "Rodney Bay"]
+  },
+  {
+    "id": "car-003",
+    "name": "Hertz Saint Lucia",
+    "category": "carrental",
+    "subcategory": "International Chain",
+    "description": "International car rental chain with desk at Hewanorra International Airport and Castries. Standard and SUV vehicles available.",
+    "address": "Hewanorra International Airport, Vieux Fort",
+    "district": "Vieux Fort",
+    "lat": 13.7335,
+    "lng": -60.9528,
+    "phone": "(758) 454-9636",
+    "website": "https://www.hertz.com",
+    "tags": ["car rental", "airport", "international"]
+  },
+  {
+    "id": "car-004",
+    "name": "Avis Saint Lucia",
+    "category": "carrental",
+    "subcategory": "International Chain",
+    "description": "International car rental agency with offices at Hewanorra Airport and Castries. Wide range of vehicles from sedans to 4x4s.",
+    "address": "Hewanorra International Airport, Vieux Fort",
+    "district": "Vieux Fort",
+    "lat": 13.7333,
+    "lng": -60.9525,
+    "phone": "(758) 454-6325",
+    "website": "https://www.avis.com",
+    "tags": ["car rental", "airport", "international"]
+  },
+  {
+    "id": "car-005",
+    "name": "Budget Rent A Car",
+    "category": "carrental",
+    "subcategory": "International Chain",
+    "description": "International car rental chain with desk at Hewanorra Airport. Economy to full-size vehicles.",
+    "address": "Hewanorra International Airport, Vieux Fort",
+    "district": "Vieux Fort",
+    "lat": 13.7331,
+    "lng": -60.9522,
+    "phone": "(758) 452-0233",
+    "website": "https://www.budget.com",
+    "tags": ["car rental", "airport", "budget"]
+  },
+  {
+    "id": "car-006",
+    "name": "Drive-A-Matic",
+    "category": "carrental",
+    "subcategory": "Local Operator",
+    "description": "Established local car rental company with locations at both airports and Rodney Bay. Known for reliable service and competitive rates.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0705,
+    "lng": -60.9550,
+    "phone": "(758) 452-0896",
+    "tags": ["car rental", "local", "Rodney Bay"]
+  },
+  {
+    "id": "car-007",
+    "name": "Cool Breeze Jeep / Car Rental",
+    "category": "carrental",
+    "subcategory": "Local Operator",
+    "description": "Local car and jeep rental company popular with visitors. SUVs and 4x4s suited for the island's hilly terrain.",
+    "address": "Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8565,
+    "lng": -61.0565,
+    "phone": "(758) 459-7729",
+    "tags": ["car rental", "jeep", "local", "Soufriere"]
+  },
+  {
+    "id": "car-008",
+    "name": "Courtesy Car Rental",
+    "category": "carrental",
+    "subcategory": "Local Operator",
+    "description": "Long-established local car rental company with airport pickup. Sedans, SUVs, and minibuses available.",
+    "address": "Gros Islet Highway, Castries",
+    "district": "Castries",
+    "lat": 14.0280,
+    "lng": -60.9880,
+    "phone": "(758) 452-8140",
+    "tags": ["car rental", "local", "airport pickup"]
+  },
+  {
+    "id": "cour-001",
+    "name": "FedEx Saint Lucia",
+    "category": "courier",
+    "subcategory": "International Courier",
+    "description": "International express courier service for documents and packages. Offers domestic and worldwide shipping.",
+    "address": "Bridge Street, Castries",
+    "district": "Castries",
+    "lat": 14.0112,
+    "lng": -60.9910,
+    "phone": "(758) 452-1520",
+    "website": "https://www.fedex.com",
+    "tags": ["courier", "express", "international shipping"]
+  },
+  {
+    "id": "cour-002",
+    "name": "DHL Saint Lucia",
+    "category": "courier",
+    "subcategory": "International Courier",
+    "description": "Global express delivery and logistics. Door-to-door international courier service and customs brokerage.",
+    "address": "Castries Waterfront",
+    "district": "Castries",
+    "lat": 14.0130,
+    "lng": -60.9905,
+    "phone": "(758) 453-1538",
+    "website": "https://www.dhl.com",
+    "tags": ["courier", "express", "logistics", "international"]
+  },
+  {
+    "id": "hw-001",
+    "name": "M&C Home Depot",
+    "category": "hardware",
+    "subcategory": "Hardware & Building Supply",
+    "description": "Major hardware and home improvement store. Building materials, tools, paint, plumbing, and electrical supplies.",
+    "address": "Bois D'Orange, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0550,
+    "lng": -60.9650,
+    "phone": "(758) 452-8077",
+    "website": "https://www.mchodepot.com",
+    "tags": ["hardware", "building materials", "tools", "home improvement"]
+  },
+  {
+    "id": "hw-002",
+    "name": "St. Lucia Block & Tile",
+    "category": "hardware",
+    "subcategory": "Building Materials",
+    "description": "Local manufacturer and supplier of concrete blocks, tiles, and masonry products. Also supplies aggregates and ready-mix concrete.",
+    "address": "Sans Souci, Castries",
+    "district": "Castries",
+    "lat": 14.0250,
+    "lng": -60.9800,
+    "phone": "(758) 452-3444",
+    "tags": ["blocks", "tiles", "concrete", "building materials"]
+  },
+  {
+    "id": "hw-003",
+    "name": "Courts Saint Lucia",
+    "category": "hardware",
+    "subcategory": "Home Furnishing & Appliances",
+    "description": "Caribbean home furnishing chain. Furniture, appliances, electronics, and mattresses with hire purchase financing.",
+    "address": "Chaussee Road, Castries",
+    "district": "Castries",
+    "lat": 14.0115,
+    "lng": -60.9925,
+    "phone": "(758) 452-2764",
+    "website": "https://www.shopcourts.com",
+    "tags": ["furniture", "appliances", "electronics", "hire purchase"]
+  },
+  {
+    "id": "hw-004",
+    "name": "Do It Center",
+    "category": "hardware",
+    "subcategory": "Hardware & Building Supply",
+    "description": "Hardware store offering tools, building materials, paint, plumbing and electrical supplies for DIY and contractors.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0120,
+    "lng": -60.9890,
+    "phone": "(758) 451-6555",
+    "tags": ["hardware", "tools", "building", "DIY"]
+  },
+  {
+    "id": "pharm-001",
+    "name": "People's Pharmacy",
+    "category": "healthcare",
+    "subcategory": "Pharmacy",
+    "description": "Well-established pharmacy chain with multiple locations across Saint Lucia. Prescription drugs, OTC medicines, and health products.",
+    "address": "Bridge Street, Castries",
+    "district": "Castries",
+    "lat": 14.0108,
+    "lng": -60.9913,
+    "phone": "(758) 452-2607",
+    "tags": ["pharmacy", "prescription", "health products"]
+  },
+  {
+    "id": "pharm-002",
+    "name": "J.Q. Charles Pharmacy",
+    "category": "healthcare",
+    "subcategory": "Pharmacy",
+    "description": "Pharmacy and health store at JQ Mall. Prescription services, wellness products, and personal care items.",
+    "address": "JQ Mall, Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0690,
+    "lng": -60.9565,
+    "phone": "(758) 458-0178",
+    "tags": ["pharmacy", "wellness", "health"]
+  },
+  {
+    "id": "pharm-003",
+    "name": "M&C Drugstore",
+    "category": "healthcare",
+    "subcategory": "Pharmacy",
+    "description": "Pharmacy and drugstore with prescription services and a wide range of health, beauty, and personal care products.",
+    "address": "Bridge Street, Castries",
+    "district": "Castries",
+    "lat": 14.0110,
+    "lng": -60.9918,
+    "phone": "(758) 452-2811",
+    "tags": ["pharmacy", "drugstore", "health", "beauty"]
+  },
+  {
+    "id": "super-005",
+    "name": "Massy Stores - Gablewoods",
+    "category": "supermarkets",
+    "subcategory": "Supermarket",
+    "description": "Major supermarket location in the Gablewoods Mall area. Full grocery, deli, bakery, and pharmacy sections.",
+    "address": "Gablewoods Mall, Sunny Acres, Castries",
+    "district": "Castries",
+    "lat": 14.0280,
+    "lng": -60.9810,
+    "phone": "(758) 451-6738",
+    "website": "https://www.massystores.com",
+    "tags": ["supermarket", "grocery", "bakery", "pharmacy"]
+  },
+  {
+    "id": "super-006",
+    "name": "Massy Stores - Rodney Bay",
+    "category": "supermarkets",
+    "subcategory": "Supermarket",
+    "description": "Rodney Bay branch of the Caribbean-wide supermarket chain. Fresh produce, imported goods, and household items.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0700,
+    "lng": -60.9560,
+    "phone": "(758) 458-0842",
+    "website": "https://www.massystores.com",
+    "tags": ["supermarket", "grocery", "imported goods"]
+  },
+  {
+    "id": "super-007",
+    "name": "Julian's Supermarket",
+    "category": "supermarkets",
+    "subcategory": "Supermarket",
+    "description": "Independent supermarket in Soufriere serving the south of the island. Local and imported groceries.",
+    "address": "Soufriere",
+    "district": "Soufriere",
+    "lat": 13.8560,
+    "lng": -61.0555,
+    "phone": "(758) 459-5552",
+    "tags": ["supermarket", "grocery", "local", "Soufriere"]
+  },
+  {
+    "id": "super-008",
+    "name": "Glace Supermarket",
+    "category": "supermarkets",
+    "subcategory": "Supermarket",
+    "description": "Supermarket on the Gros Islet Highway serving Castries and northern communities. Groceries and household items.",
+    "address": "Gros Islet Highway, Castries",
+    "district": "Castries",
+    "lat": 14.0350,
+    "lng": -60.9790,
+    "tags": ["supermarket", "grocery", "household"]
+  },
+  {
+    "id": "gym-001",
+    "name": "Body Inc Fitness Centre",
+    "category": "fitness",
+    "subcategory": "Gym",
+    "description": "Full-service fitness centre at Rodney Bay with weights, cardio equipment, and group fitness classes.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0695,
+    "lng": -60.9555,
+    "phone": "(758) 452-0884",
+    "tags": ["gym", "fitness", "weights", "cardio"]
+  },
+  {
+    "id": "gym-002",
+    "name": "Energize Health & Fitness",
+    "category": "fitness",
+    "subcategory": "Gym",
+    "description": "Fitness centre with modern equipment, personal training, and group exercise classes.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0150,
+    "lng": -60.9870,
+    "tags": ["gym", "fitness", "personal training"]
+  },
+  {
+    "id": "cowork-001",
+    "name": "The Workspace (TEPA)",
+    "category": "business",
+    "subcategory": "Co-working Space",
+    "description": "Government-supported co-working and innovation space operated through TEPA for entrepreneurs and startups.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0125,
+    "lng": -60.9905,
+    "tags": ["co-working", "startup", "innovation", "TEPA"]
+  },
+  {
+    "id": "rest-013",
+    "name": "Domino's Pizza",
+    "category": "restaurants",
+    "subcategory": "Fast Food",
+    "description": "International pizza chain offering delivery, carryout, and dine-in service to Rodney Bay and surrounding areas.",
+    "address": "Rodney Bay, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0710,
+    "lng": -60.9555,
+    "phone": "(758) 458-0002",
+    "website": "https://www.dominos.lc/",
+    "tags": ["fast food", "pizza", "delivery"]
+  },
+  {
+    "id": "rest-014",
+    "name": "Rituals Coffee House",
+    "category": "restaurants",
+    "subcategory": "Cafe",
+    "description": "Caribbean's premier coffee house chain at Baywalk Mall, serving gourmet coffee, sandwiches, and pastries.",
+    "address": "Baywalk Mall, Rodney Bay",
+    "district": "Gros Islet",
+    "lat": 14.0712,
+    "lng": -60.9540,
+    "phone": "(758) 450-8592",
+    "website": "https://ritualscoffeehouse.com/",
+    "tags": ["cafe", "coffee", "pastries"]
+  },
+  {
+    "id": "rest-015",
+    "name": "Spinnakers Beach Bar & Grill",
+    "category": "restaurants",
+    "subcategory": "Beach Dining",
+    "description": "Iconic beachfront restaurant on Reduit Beach, popular with locals and yachtsmen, serving breakfast, lunch, and dinner daily.",
+    "address": "Reduit Beach Avenue, Rodney Bay",
+    "district": "Gros Islet",
+    "lat": 14.0730,
+    "lng": -60.9520,
+    "phone": "(758) 452-8491",
+    "tags": ["beach bar", "casual dining", "Rodney Bay"]
+  },
+  {
+    "id": "rest-016",
+    "name": "Subway - Castries",
+    "category": "restaurants",
+    "subcategory": "Fast Food",
+    "description": "Downtown Castries Subway location on Jeremie Street for quick made-to-order sandwiches and salads.",
+    "address": "Jeremie Street, Castries",
+    "district": "Castries",
+    "lat": 14.0105,
+    "lng": -60.9895,
+    "phone": "(758) 450-0136",
+    "tags": ["fast food", "sandwiches", "downtown"]
+  },
+  {
+    "id": "cour-004",
+    "name": "UPS (Parcels Express International)",
+    "category": "courier",
+    "subcategory": "International Courier",
+    "description": "UPS shipping services operated through Parcels Express International, handling parcel delivery and logistics.",
+    "address": "Business Group Building, Mongiraud, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0580,
+    "lng": -60.9600,
+    "phone": "(758) 452-7211",
+    "website": "https://www.ups.com/lc/en/",
+    "tags": ["courier", "parcel delivery", "international", "logistics"]
+  },
+  {
+    "id": "cour-005",
+    "name": "Aeropost International",
+    "category": "courier",
+    "subcategory": "Shopping & Shipping Service",
+    "description": "Caribbean courier enabling customers to order from US stores with delivery to Saint Lucia. Also handles outbound international shipping.",
+    "address": "Castries",
+    "district": "Castries",
+    "lat": 14.0115,
+    "lng": -60.9910,
+    "phone": "(758) 452-3647",
+    "website": "https://aeropost.com/SLU/en",
+    "tags": ["courier", "US shopping", "shipping", "Caribbean"]
+  },
+  {
+    "id": "med-001",
+    "name": "Rodney Bay Medical Centre",
+    "category": "healthcare",
+    "subcategory": "Private Clinic",
+    "description": "Premier private medical clinic offering general practice, specialist consultations, and walk-in services at Providence Commercial Centre.",
+    "address": "Providence Commercial Centre, Rodney Bay",
+    "district": "Gros Islet",
+    "lat": 14.0720,
+    "lng": -60.9545,
+    "phone": "(758) 452-8621",
+    "tags": ["medical", "clinic", "general practice", "walk-in"]
+  },
+  {
+    "id": "med-002",
+    "name": "Vision Express Eye Care",
+    "category": "healthcare",
+    "subcategory": "Optometry",
+    "description": "Comprehensive eye care practice with five branches across Saint Lucia, offering optometry, ophthalmology, and contact lenses.",
+    "address": "Orange Grove Plaza, Bois D'Orange, Gros Islet",
+    "district": "Gros Islet",
+    "lat": 14.0610,
+    "lng": -60.9580,
+    "phone": "(758) 457-7420",
+    "website": "https://www.visionexpressstlucia.com/",
+    "tags": ["optometry", "eye care", "glasses", "contact lenses"]
+  },
+  {
+    "id": "super-009",
+    "name": "The Marketplace - Rodney Bay Marina",
+    "category": "supermarkets",
+    "subcategory": "Specialty Grocery",
+    "description": "Marina-based grocery store at IGY Rodney Bay Marina, specializing in yacht provisioning with fresh produce, wines, and spirits.",
+    "address": "IGY Rodney Bay Marina, Rodney Bay",
+    "district": "Gros Islet",
+    "lat": 14.0755,
+    "lng": -60.9490,
+    "phone": "(758) 452-0147",
+    "tags": ["grocery", "marina", "provisioning", "yacht", "specialty"]
+  }
+]

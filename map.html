@@ -7,21 +7,259 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
-    #map { width: 100%; height: 550px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
-    .map-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-    .map-filter-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 50px; border: 2px solid var(--border); background: var(--white); cursor: pointer; font-size: 0.82rem; font-weight: 600; transition: all 0.2s; }
-    .map-filter-btn:hover { border-color: var(--primary-light); }
-    .map-filter-btn.active { border-color: var(--primary); background: rgba(26,82,118,0.06); }
-    .map-filter-btn .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    /* ===== MAP PAGE LAYOUT ===== */
+    .map-page-wrapper {
+      display: flex;
+      height: calc(100vh - 64px);
+      overflow: hidden;
+    }
+
+    /* ===== SIDEBAR ===== */
+    #map-sidebar {
+      width: 340px;
+      flex-shrink: 0;
+      background: var(--white);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 500;
+    }
+    .sidebar-header {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sidebar-header h2 { font-size: 1.1rem; margin-bottom: 8px; }
+    #marker-count { font-size: 0.82rem; color: var(--text-light); }
+
+    /* Search */
+    .map-search-wrap { position: relative; margin-top: 10px; }
+    #map-search {
+      width: 100%;
+      padding: 10px 14px 10px 36px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      background: var(--bg);
+      transition: border-color 0.2s;
+    }
+    #map-search:focus { outline: none; border-color: var(--primary-light); }
+    .map-search-wrap i {
+      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+      color: var(--text-light); font-size: 0.85rem;
+    }
+    #map-search-results {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 0 0 var(--radius) var(--radius);
+      box-shadow: var(--shadow-lg); max-height: 300px; overflow-y: auto; z-index: 600;
+    }
+    .search-result-item {
+      display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+      cursor: pointer; border-bottom: 1px solid var(--border); transition: background 0.15s;
+    }
+    .search-result-item:hover { background: var(--bg-alt); }
+    .search-result-item:last-child { border-bottom: none; }
+    .search-result-item strong { font-size: 0.88rem; }
+    .search-result-item small { color: var(--text-light); }
+    .search-dot {
+      width: 28px; height: 28px; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0; color: white; font-size: 0.7rem;
+    }
+
+    /* Sidebar sections */
+    .sidebar-body { flex: 1; overflow-y: auto; }
+    .sidebar-section {
+      border-bottom: 1px solid var(--border);
+    }
+    .sidebar-section-header {
+      padding: 10px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+      background: var(--bg);
+      user-select: none;
+      transition: background 0.15s;
+    }
+    .sidebar-section-header:hover { background: var(--bg-alt); }
+    .sidebar-section-header i.chevron { font-size: 0.65rem; transition: transform 0.2s; }
+    .sidebar-section-header.collapsed i.chevron { transform: rotate(-90deg); }
+    .sidebar-section-content {
+      padding: 8px 16px 12px;
+      max-height: 600px;
+      overflow-y: auto;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .sidebar-section-content.collapsed {
+      max-height: 0;
+      padding: 0 16px;
+      overflow: hidden;
+    }
+
+    /* Filters */
+    .filter-controls { display: flex; gap: 8px; margin-bottom: 10px; }
+    .filter-ctrl-btn {
+      flex: 1; padding: 5px 8px; border: 1px solid var(--border); border-radius: var(--radius);
+      background: var(--bg); cursor: pointer; font-size: 0.75rem; font-weight: 600; color: var(--text);
+      display: flex; align-items: center; justify-content: center; gap: 4px; transition: all 0.2s;
+    }
+    .filter-ctrl-btn:hover { background: var(--bg-alt); border-color: var(--primary-light); }
+    .filter-ctrl-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+    .filter-item {
+      display: flex; align-items: center; gap: 8px; padding: 4px 0; cursor: pointer; font-size: 0.82rem;
+    }
+    .filter-item input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--primary); cursor: pointer; }
+    .filter-dot {
+      width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; color: white; font-size: 0.55rem;
+    }
+    .filter-label { flex: 1; }
+    .filter-label small { color: var(--text-light); }
+
+    /* Sidebar toggle (mobile) */
+    .sidebar-toggle-btn {
+      display: none; width: 100%; padding: 12px 16px; background: var(--primary);
+      color: white; border: none; cursor: pointer; font-size: 0.9rem; font-weight: 600; text-align: center;
+    }
+    .sidebar-toggle-btn i { margin-left: 6px; }
+
+    /* Zone edit tools */
+    .zone-tool-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .zone-tool-btn {
+      padding: 6px 10px; border: 1px solid var(--border); border-radius: var(--radius);
+      background: var(--white); cursor: pointer; font-size: 0.75rem; font-weight: 600;
+      color: var(--text); display: flex; align-items: center; gap: 4px; transition: all 0.2s;
+    }
+    .zone-tool-btn:hover { background: var(--bg-alt); border-color: var(--primary-light); }
+    .zone-tool-btn.active { background: var(--primary); color: white; }
+
+    /* ===== MAP CONTAINER ===== */
+    #map { flex: 1; min-width: 0; }
+
+    /* ===== CUSTOM MARKERS ===== */
+    .custom-marker-icon { background: none; border: none; }
+    .marker-pin {
+      width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; color: white; font-size: 0.65rem;
+      border: 2px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    }
+
+    /* ===== POPUP STYLES ===== */
+    .map-popup h4 { color: var(--primary-dark); margin-bottom: 4px; font-size: 0.95rem; }
+    .popup-badge {
+      display: inline-block; padding: 2px 8px; border-radius: 50px; font-size: 0.7rem;
+      font-weight: 600; background: rgba(26,82,118,0.1); color: var(--primary); margin-bottom: 6px;
+    }
+    .map-popup p { font-size: 0.82rem; color: var(--text); margin: 6px 0; line-height: 1.4; }
+    .popup-detail {
+      font-size: 0.8rem; color: var(--text-light); margin: 3px 0;
+      display: flex; align-items: flex-start; gap: 6px;
+    }
+    .popup-detail i { color: var(--primary); margin-top: 2px; flex-shrink: 0; }
+    .popup-detail a { color: var(--primary-light); font-size: 0.78rem; word-break: break-all; }
+
+    /* ===== ZONE INFO PANEL (floating) ===== */
+    .zone-info-panel {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 360px;
+      width: 320px;
+      max-height: 400px;
+      overflow-y: auto;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      z-index: 1000;
+      padding: 16px;
+    }
+    .zone-info-panel .panel-header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+    }
+    .zone-info-panel .panel-header h3 { font-size: 0.9rem; color: var(--primary); }
+    .zone-info-close {
+      background: none; border: none; cursor: pointer; font-size: 1.1rem;
+      color: var(--text-light); padding: 4px;
+    }
+    .zone-info-close:hover { color: var(--text); }
+    .zone-info-table { width: 100%; font-size: 0.8rem; border-collapse: collapse; }
+    .zone-info-table td { padding: 4px 8px 4px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .zone-info-table td:first-child { font-weight: 600; color: var(--text-light); white-space: nowrap; width: 80px; }
+    .zone-info-table a { color: var(--primary-light); }
+
+    /* ===== ZONE EDITOR PANEL ===== */
+    .zone-editor-panel {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 360px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+      z-index: 1100;
+      padding: 24px;
+    }
+    .zone-editor-panel h3 { margin-bottom: 16px; font-size: 1rem; color: var(--primary); }
+    .ze-field { margin-bottom: 12px; }
+    .ze-field label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; color: var(--text); }
+    .ze-field input, .ze-field select, .ze-field textarea {
+      width: 100%; padding: 8px 12px; border: 2px solid var(--border); border-radius: var(--radius);
+      font-size: 0.85rem; font-family: inherit;
+    }
+    .ze-field textarea { height: 60px; resize: vertical; }
+    .ze-field input:focus, .ze-field select:focus, .ze-field textarea:focus { outline: none; border-color: var(--primary-light); }
+    .ze-actions { display: flex; gap: 8px; margin-top: 16px; }
+    .ze-actions button {
+      flex: 1; padding: 10px; border: none; border-radius: var(--radius); cursor: pointer;
+      font-weight: 600; font-size: 0.85rem; transition: opacity 0.2s;
+    }
+    .ze-actions button:hover { opacity: 0.85; }
+    .ze-btn-save { background: var(--primary); color: white; }
+    .ze-btn-cancel { background: var(--bg-alt); color: var(--text); }
+
+    /* ===== DATA SOURCE LEGEND ===== */
+    .data-legend {
+      padding: 8px 0;
+      font-size: 0.72rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+    .data-legend strong { color: var(--text); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .map-page-wrapper { flex-direction: column; height: auto; min-height: calc(100vh - 64px); }
+      #map-sidebar {
+        width: 100%; max-height: none; border-right: none; border-bottom: 1px solid var(--border);
+      }
+      .sidebar-body {
+        max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+      }
+      #map-sidebar.open .sidebar-body {
+        max-height: 70vh; overflow-y: auto;
+      }
+      .sidebar-toggle-btn { display: block; }
+      #map { height: 60vh; min-height: 350px; }
+      .zone-info-panel { left: 10px; right: 10px; width: auto; bottom: 10px; }
+      .zone-editor-panel { width: 90%; max-width: 360px; }
+    }
+
+    /* District & table sections below map */
+    .below-map { overflow-y: auto; }
     .district-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
     .district-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 20px; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
     .district-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
     .district-card h3 { color: var(--primary); margin-bottom: 8px; }
     .district-card .meta { color: var(--text-light); font-size: 0.85rem; margin-bottom: 8px; }
-    .legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; }
-    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; }
-    .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
   </style>
 </head>
 <body>
@@ -46,460 +284,353 @@
     </div>
   </nav>
 
-  <section class="hero" style="padding:50px 0 40px;">
-    <div class="container">
-      <h1>Map &amp; Districts</h1>
-      <p>Interactive map of Saint Lucia with key locations, districts, and business zones</p>
+  <!-- FULL-VIEWPORT MAP + SIDEBAR -->
+  <div class="map-page-wrapper">
+    <!-- Filter Sidebar -->
+    <aside id="map-sidebar">
+      <div class="sidebar-header">
+        <h2><i class="fa-solid fa-map-location-dot"></i> Saint Lucia Map</h2>
+        <span id="marker-count">Loading...</span>
+        <div class="map-search-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="map-search" placeholder="Search businesses, places..." />
+          <div id="map-search-results"></div>
+        </div>
+      </div>
+
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        Filters &amp; Layers <i class="fa-solid fa-chevron-down"></i>
+      </button>
+
+      <div class="sidebar-body">
+        <!-- MARKERS SECTION -->
+        <div class="sidebar-section">
+          <div class="sidebar-section-header" data-section="markers">
+            <span><i class="fa-solid fa-location-dot"></i> Business Markers</span>
+            <i class="fa-solid fa-chevron-down chevron"></i>
+          </div>
+          <div class="sidebar-section-content" id="map-filters">
+            <!-- Generated by map.js -->
+          </div>
+        </div>
+
+        <!-- ZONES SECTION -->
+        <div class="sidebar-section">
+          <div class="sidebar-section-header" data-section="zones">
+            <span><i class="fa-solid fa-map"></i> Land Use Zones</span>
+            <i class="fa-solid fa-chevron-down chevron"></i>
+          </div>
+          <div class="sidebar-section-content" id="zone-controls">
+            <!-- Generated by zones.js -->
+          </div>
+        </div>
+
+        <!-- ZONE EDITOR TOOLS -->
+        <div class="sidebar-section">
+          <div class="sidebar-section-header" data-section="edit">
+            <span><i class="fa-solid fa-pen-ruler"></i> Zone Editor</span>
+            <i class="fa-solid fa-chevron-down chevron"></i>
+          </div>
+          <div class="sidebar-section-content" id="zone-edit-tools">
+            <p style="font-size:0.78rem;color:var(--text-light);margin-bottom:10px;">
+              Draw custom zones on the map. Zones are saved in your browser.
+            </p>
+            <div class="zone-tool-row">
+              <button class="zone-tool-btn" id="btn-draw-zone"><i class="fa-solid fa-pen-ruler"></i> Draw Zone</button>
+              <button class="zone-tool-btn" id="btn-export-zones"><i class="fa-solid fa-download"></i> Export</button>
+              <button class="zone-tool-btn" id="btn-import-zones"><i class="fa-solid fa-upload"></i> Import</button>
+            </div>
+            <input type="file" id="zone-import-file" accept=".geojson,.json" style="display:none;" />
+            <div class="zone-tool-row" style="margin-top:6px;">
+              <button class="zone-tool-btn" id="btn-clear-zones" style="color:#e74c3c;"><i class="fa-solid fa-trash"></i> Clear All My Zones</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DATA SOURCE LEGEND -->
+        <div class="sidebar-section">
+          <div class="sidebar-section-header" data-section="legend">
+            <span><i class="fa-solid fa-circle-info"></i> Data Sources</span>
+            <i class="fa-solid fa-chevron-down chevron"></i>
+          </div>
+          <div class="sidebar-section-content">
+            <div class="data-legend">
+              <strong>OSM Zones (1,218):</strong> 1,171 OpenStreetMap community-mapped landuse polygons + 47 manually mapped zones from satellite imagery and local knowledge. Feb 2026. Coverage varies by area.<br><br>
+              <strong>Building Outlines (4,382):</strong> OSM building footprints for Castries, Rodney Bay, Vieux Fort, Soufriere. Visible at zoom 15+. Not legal cadastral parcels.<br><br>
+              <strong>Business Markers (171):</strong> Verified locations across 26 categories with GPS-validated coordinates.<br><br>
+              <strong>User Zones:</strong> Your custom zones, saved locally in this browser. Use Export to backup.<br><br>
+              <em>Saint Lucia has no published statutory zoning plan. All zones shown are indicative, not legally authoritative. Click any zone for source details.</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Map -->
+    <div id="map"></div>
+  </div>
+
+  <!-- ZONE INFO PANEL (floating over map) -->
+  <div class="zone-info-panel" id="zone-info-panel">
+    <div class="panel-header">
+      <h3><i class="fa-solid fa-info-circle"></i> Zone Info</h3>
+      <button class="zone-info-close" id="zone-info-close"><i class="fa-solid fa-xmark"></i></button>
     </div>
-  </section>
+    <div id="zone-info-content"></div>
+  </div>
 
-  <section class="section">
-    <div class="container">
-
-      <!-- MAP FILTER CONTROLS -->
-      <div class="map-filters">
-        <button class="map-filter-btn active" data-layer="cities"><span class="dot" style="background:#e74c3c;"></span> Cities</button>
-        <button class="map-filter-btn active" data-layer="towns"><span class="dot" style="background:#3498db;"></span> Towns</button>
-        <button class="map-filter-btn active" data-layer="airports"><span class="dot" style="background:#2ecc71;"></span> Airports</button>
-        <button class="map-filter-btn active" data-layer="ports"><span class="dot" style="background:#f39c12;"></span> Ports</button>
-        <button class="map-filter-btn active" data-layer="attractions"><span class="dot" style="background:#9b59b6;"></span> Attractions</button>
-        <button class="map-filter-btn active" data-layer="hotels"><span class="dot" style="background:#f1c40f;"></span> Hotels</button>
-        <button class="map-filter-btn active" data-layer="business"><span class="dot" style="background:#95a5a6;"></span> Business</button>
-        <button class="map-filter-btn active" data-layer="government"><span class="dot" style="background:#1a5276;"></span> Government</button>
-        <button class="map-filter-btn active" data-layer="finance"><span class="dot" style="background:#148f77;"></span> Banks</button>
-        <button class="map-filter-btn active" data-layer="healthcare"><span class="dot" style="background:#c0392b;"></span> Healthcare</button>
-        <button class="map-filter-btn active" data-layer="education"><span class="dot" style="background:#8e44ad;"></span> Education</button>
-      </div>
-
-      <!-- MAP -->
-      <div id="map"></div>
-      <div class="legend" style="margin-bottom:30px;">
-        <div class="legend-item"><div class="legend-dot" style="background:#e74c3c;"></div> Capital / Major City</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#3498db;"></div> Town / District Center</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#2ecc71;"></div> Airport</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#f39c12;"></div> Port / Marina</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#9b59b6;"></div> Tourist Attraction</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#1a5276;"></div> Government Office</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#148f77;"></div> Bank / Financial</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#c0392b;"></div> Hospital / Healthcare</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#8e44ad;"></div> Education</div>
-      </div>
-
-      <!-- DISTRICT PROFILES -->
-      <div class="section-header">
-        <h2>District Profiles</h2>
-        <p>The 10 administrative districts (quarters) of Saint Lucia</p>
-      </div>
-
-      <div class="district-grid">
-
-        <div class="district-card" data-searchable>
-          <h3>Castries</h3>
-          <div class="meta">Capital City &bull; Northwestern Coast</div>
-          <p>The capital and largest city, Castries is the commercial, administrative, and shipping hub. Home to the main port, government offices, the financial district, and major retail areas. Population ~22,000 (metro ~65,000).</p>
-          <ul style="margin-top:8px;">
-            <li><strong>Key Areas:</strong> Downtown, Pointe Seraphine (duty-free), La Place Carenage, Morne Fortune</li>
-            <li><strong>Business:</strong> Banks, law firms, government HQ, Castries Market</li>
-            <li><strong>Port:</strong> Cruise terminal, cargo port</li>
-          </ul>
-        </div>
-
-        <div class="district-card" data-searchable>
-          <h3>Gros Islet</h3>
-          <div class="meta">Tourism Hub &bull; Northern Tip</div>
-          <p>The main tourism district, home to Rodney Bay (the island's tourism and entertainment center), luxury resorts, the national stadium, and the northern beaches.</p>
-          <ul style="margin-top:8px;">
-            <li><strong>Key Areas:</strong> Rodney Bay Village, Reduit Beach, Pigeon Island National Park, Cap Estate</li>
-            <li><strong>Business:</strong> Hotels, restaurants, nightlife, marina, shopping mall</li>
-            <li><strong>Known For:</strong> Friday Night Street Party (Gros Islet Jump-Up)</li>
-          </ul>
-        </div>
-
-        <div class="district-card" data-searchable>
-          <h3>Vieux Fort</h3>
-          <div class="meta">Second City &bull; Southern Tip</div>
-          <p>The southernmost town and second-largest settlement. Home to the main international airport, free zone, and growing commercial area.</p>
-          <ul style="margin-top:8px;">
-            <li><strong>Key Areas:</strong> Hewanorra Int'l Airport, Vieux Fort Industrial Estate/Free Zone</li>
-            <li><strong>Business:</strong> Light manufacturing, free zone operations, cargo port</li>
-            <li><strong>Notable:</strong> Sandy Beach, Moule-a-Chique peninsula (southernmost point)</li>
-          </ul>
-        </div>
-
-        <div class="district-card" data-searchable>
-          <h3>Soufriere</h3>
-          <div class="meta">Heritage Town &bull; Southwest Coast</div>
-          <p>The original French capital and home to St. Lucia's most iconic landmarks. A major eco-tourism destination with volcanic features.</p>
-          <ul style="margin-top:8px;">
-            <li><strong>Key Areas:</strong> The Pitons (UNESCO), Sulphur Springs, Diamond Falls, Fond Doux Estate</li>
-            <li><strong>Business:</strong> Eco-tourism, luxury resorts (Jade Mountain, Sugar Beach), cocoa estates</li>
-            <li><strong>Known For:</strong> World's only drive-in volcano</li>
-          </ul>
-        </div>
-
-        <div class="district-card" data-searchable>
-          <h3>Dennery</h3>
-          <div class="meta">Eastern District &bull; Atlantic Coast</div>
-          <p>Located on the windward (Atlantic) coast. A largely agricultural and fishing community with authentic rural character.</p>
-          <ul style="margin-top:8px;">
-            <li><strong>Key Areas:</strong> Dennery Village, Fond d'Or Nature Reserve</li>
-            <li><strong>Business:</strong> Fishing, agriculture (bananas, root crops), small-scale manufacturing</li>
-            <li><strong>Known For:</strong> Dennery Fish Fiesta</li>
-          </ul>
-        </div>
-
-        <div class="district-card" data-searchable>
-          <h3>Micoud</h3>
-          <div class="meta">Eastern District &bull; Southeast Coast</div>
-          <p>A large agricultural district on the eastern coast, important for banana and crop production.</p>
-          <ul style="margin-top:8px;">
-            <li><strong>Key Areas:</strong> Micoud Village, Praslin, Mamiku Gardens</li>
-            <li><strong>Business:</strong> Agriculture (bananas, coconut, cocoa), fishing</li>
-            <li><strong>Known For:</strong> La Rose &amp; La Marguerite cultural festivals</li>
-          </ul>
-        </div>
-
-        <div class="district-card" data-searchable>
-          <h3>Choiseul</h3>
-          <div class="meta">Arts District &bull; Southwest Coast</div>
-          <p>A southern district known for its arts and crafts heritage, pottery tradition, and agricultural communities.</p>
-          <ul style="margin-top:8px;">
-            <li><strong>Key Areas:</strong> Choiseul Village, Arts &amp; Craft Centre, Balembouche Estate</li>
-            <li><strong>Business:</strong> Pottery, handicrafts, agriculture, heritage tourism</li>
-            <li><strong>Known For:</strong> Traditional Carib pottery and craft village</li>
-          </ul>
-        </div>
-
-        <div class="district-card" data-searchable>
-          <h3>Laborie</h3>
-          <div class="meta">Fishing Village &bull; South Coast</div>
-          <p>A small, picturesque fishing village on the southern coast with strong community identity and authentic Creole culture.</p>
-          <ul style="margin-top:8px;">
-            <li><strong>Key Areas:</strong> Laborie Village, Laborie Bay</li>
-            <li><strong>Business:</strong> Fishing, small-scale agriculture, community tourism</li>
-            <li><strong>Known For:</strong> Traditional fishing, charming waterfront</li>
-          </ul>
-        </div>
-
-        <div class="district-card" data-searchable>
-          <h3>Anse la Raye</h3>
-          <div class="meta">Fishing Town &bull; West Coast</div>
-          <p>A west coast fishing town famous for its weekly Friday Fish Fry and authentic local dining experience.</p>
-          <ul style="margin-top:8px;">
-            <li><strong>Key Areas:</strong> Anse la Raye Village, Anse Cochon Beach</li>
-            <li><strong>Business:</strong> Fishing, food tourism, water sports</li>
-            <li><strong>Known For:</strong> Friday Night Seafood Street Party</li>
-          </ul>
-        </div>
-
-        <div class="district-card" data-searchable>
-          <h3>Canaries</h3>
-          <div class="meta">Smallest District &bull; West Coast</div>
-          <p>The smallest district, located between Anse la Raye and Soufriere. A quiet, rural community with stunning coastal scenery.</p>
-          <ul style="margin-top:8px;">
-            <li><strong>Key Areas:</strong> Canaries Village, Anse La Liberté Beach</li>
-            <li><strong>Business:</strong> Small-scale fishing, agriculture</li>
-            <li><strong>Known For:</strong> Secluded beaches, peaceful setting</li>
-          </ul>
-        </div>
-
-      </div>
-
+  <!-- ZONE EDITOR MODAL -->
+  <div class="zone-editor-panel" id="zone-editor-panel">
+    <h3><i class="fa-solid fa-pen-to-square"></i> New Zone</h3>
+    <div class="ze-field">
+      <label for="ze-name">Zone Name</label>
+      <input type="text" id="ze-name" placeholder="e.g. Rodney Bay Commercial District" />
     </div>
-  </section>
-
-  <!-- KEY LOCATIONS TABLE -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>Key Business Locations</h2>
-      </div>
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr><th>Location</th><th>District</th><th>Type</th><th>Significance</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Castries Central</td><td>Castries</td><td>Commercial</td><td>Government offices, banks, courts, registry of companies</td></tr>
-            <tr><td>Pointe Seraphine</td><td>Castries</td><td>Commercial</td><td>Duty-free shopping complex, cruise port</td></tr>
-            <tr><td>Rodney Bay</td><td>Gros Islet</td><td>Tourism/Commercial</td><td>Main tourism strip, marina, restaurants, JQ Mall</td></tr>
-            <tr><td>Hewanorra Airport</td><td>Vieux Fort</td><td>Transport</td><td>International airport, cargo</td></tr>
-            <tr><td>Vieux Fort Free Zone</td><td>Vieux Fort</td><td>Industrial</td><td>Free zone, light manufacturing, warehousing</td></tr>
-            <tr><td>Cul de Sac</td><td>Castries</td><td>Industrial</td><td>Industrial area, petroleum terminal, warehousing</td></tr>
-            <tr><td>George F.L. Charles Airport</td><td>Castries</td><td>Transport</td><td>Regional/domestic airport (Vigie)</td></tr>
-            <tr><td>Port Castries</td><td>Castries</td><td>Maritime</td><td>Main cargo port, cruise terminal</td></tr>
-            <tr><td>Rodney Bay Marina</td><td>Gros Islet</td><td>Maritime</td><td>Yacht marina, boat services</td></tr>
-            <tr><td>Marigot Bay</td><td>Castries</td><td>Tourism/Maritime</td><td>Protected harbor, luxury marina, resorts</td></tr>
-            <tr><td>JQ Mall</td><td>Gros Islet</td><td>Commercial</td><td>Main shopping centre in Rodney Bay, retail, dining, cinema</td></tr>
-            <tr><td>La Place Carenage</td><td>Castries</td><td>Commercial</td><td>Waterfront shopping &amp; dining complex, harbour views</td></tr>
-            <tr><td>Castries Central Market</td><td>Castries</td><td>Commercial</td><td>Central produce market, local food, spices, crafts</td></tr>
-            <tr><td>LUCELEC HQ</td><td>Castries</td><td>Utility</td><td>National electricity provider headquarters, John Compton Highway</td></tr>
-            <tr><td>OKEU Hospital</td><td>Castries</td><td>Healthcare</td><td>160-bed public hospital (replaced Victoria Hospital 2022)</td></tr>
-            <tr><td>Tapion Hospital</td><td>Castries</td><td>Healthcare</td><td>32-bed private hospital, specialist &amp; surgical services</td></tr>
-            <tr><td>St. Jude Hospital</td><td>Vieux Fort</td><td>Healthcare</td><td>Southern region hospital, $75M reconstruction underway</td></tr>
-            <tr><td>SALCC</td><td>Castries</td><td>Education</td><td>Sir Arthur Lewis Community College, Morne Fortune</td></tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="ze-field">
+      <label for="ze-type">Zone Type</label>
+      <select id="ze-type">
+        <option value="residential">Residential</option>
+        <option value="commercial">Commercial</option>
+        <option value="tourism">Tourism</option>
+        <option value="industrial">Industrial</option>
+        <option value="agricultural">Agricultural</option>
+        <option value="conservation">Conservation</option>
+        <option value="mixed" selected>Mixed Use</option>
+        <option value="institutional">Institutional</option>
+        <option value="recreation">Recreation</option>
+      </select>
     </div>
-  </section>
-
-  <!-- RELATED PAGES -->
-  <section class="section">
-    <div class="container">
-      <h3 style="margin-bottom:16px;">Related Pages</h3>
-      <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
-        <a href="overview.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
-          <h4>Country Overview</h4>
-          <p>Geography, economy, demographics</p>
-        </a>
-        <a href="living.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
-          <h4>Cost of Living</h4>
-          <p>Housing, utilities by area</p>
-        </a>
-        <a href="directory.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
-          <h4>Business Directory</h4>
-          <p>Local businesses &amp; contacts</p>
-        </a>
-        <a href="sectors.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
-          <h4>Key Sectors</h4>
-          <p>Tourism, agriculture, energy</p>
-        </a>
-      </div>
+    <div class="ze-field">
+      <label for="ze-source">Data Source</label>
+      <select id="ze-source">
+        <option value="User-defined">User-defined</option>
+        <option value="Satellite imagery">Satellite imagery analysis</option>
+        <option value="Local knowledge">Local knowledge</option>
+        <option value="Government source">Government source</option>
+        <option value="Survey/field visit">Survey / field visit</option>
+        <option value="Other">Other</option>
+      </select>
     </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-bottom">
-        <p>St. Lucia Business Guide &mdash; Research-based guide. Verify all information with official sources. Last updated: February 2026.</p>
-      </div>
+    <div class="ze-field">
+      <label for="ze-notes">Notes</label>
+      <textarea id="ze-notes" placeholder="Optional description or notes..."></textarea>
     </div>
-  </footer>
+    <div class="ze-actions">
+      <button class="ze-btn-cancel" id="ze-cancel">Cancel</button>
+      <button class="ze-btn-save" id="ze-save">Save Zone</button>
+    </div>
+  </div>
+
+  <!-- BELOW MAP: District Profiles & Key Locations -->
+  <div class="below-map">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>District Profiles</h2>
+          <p>The 10 administrative districts (quarters) of Saint Lucia</p>
+        </div>
+
+        <div class="district-grid">
+
+          <div class="district-card" data-searchable>
+            <h3>Castries</h3>
+            <div class="meta">Capital City &bull; Northwestern Coast</div>
+            <p>The capital and largest city, Castries is the commercial, administrative, and shipping hub. Home to the main port, government offices, the financial district, and major retail areas. Population ~22,000 (metro ~65,000).</p>
+            <ul style="margin-top:8px;">
+              <li><strong>Key Areas:</strong> Downtown, Pointe Seraphine (duty-free), La Place Carenage, Morne Fortune</li>
+              <li><strong>Business:</strong> Banks, law firms, government HQ, Castries Market</li>
+              <li><strong>Port:</strong> Cruise terminal, cargo port</li>
+            </ul>
+          </div>
+
+          <div class="district-card" data-searchable>
+            <h3>Gros Islet</h3>
+            <div class="meta">Tourism Hub &bull; Northern Tip</div>
+            <p>The main tourism district, home to Rodney Bay (the island's tourism and entertainment center), luxury resorts, the national stadium, and the northern beaches.</p>
+            <ul style="margin-top:8px;">
+              <li><strong>Key Areas:</strong> Rodney Bay Village, Reduit Beach, Pigeon Island National Park, Cap Estate</li>
+              <li><strong>Business:</strong> Hotels, restaurants, nightlife, marina, shopping mall</li>
+              <li><strong>Known For:</strong> Friday Night Street Party (Gros Islet Jump-Up)</li>
+            </ul>
+          </div>
+
+          <div class="district-card" data-searchable>
+            <h3>Vieux Fort</h3>
+            <div class="meta">Second City &bull; Southern Tip</div>
+            <p>The southernmost town and second-largest settlement. Home to the main international airport, free zone, and growing commercial area.</p>
+            <ul style="margin-top:8px;">
+              <li><strong>Key Areas:</strong> Hewanorra Int'l Airport, Vieux Fort Industrial Estate/Free Zone</li>
+              <li><strong>Business:</strong> Light manufacturing, free zone operations, cargo port</li>
+              <li><strong>Notable:</strong> Sandy Beach, Moule-a-Chique peninsula (southernmost point)</li>
+            </ul>
+          </div>
+
+          <div class="district-card" data-searchable>
+            <h3>Soufriere</h3>
+            <div class="meta">Heritage Town &bull; Southwest Coast</div>
+            <p>The original French capital and home to St. Lucia's most iconic landmarks. A major eco-tourism destination with volcanic features.</p>
+            <ul style="margin-top:8px;">
+              <li><strong>Key Areas:</strong> The Pitons (UNESCO), Sulphur Springs, Diamond Falls, Fond Doux Estate</li>
+              <li><strong>Business:</strong> Eco-tourism, luxury resorts (Jade Mountain, Sugar Beach), cocoa estates</li>
+              <li><strong>Known For:</strong> World's only drive-in volcano</li>
+            </ul>
+          </div>
+
+          <div class="district-card" data-searchable>
+            <h3>Dennery</h3>
+            <div class="meta">Eastern District &bull; Atlantic Coast</div>
+            <p>Located on the windward (Atlantic) coast. A largely agricultural and fishing community with authentic rural character.</p>
+            <ul style="margin-top:8px;">
+              <li><strong>Key Areas:</strong> Dennery Village, Fond d'Or Nature Reserve</li>
+              <li><strong>Business:</strong> Fishing, agriculture (bananas, root crops), small-scale manufacturing</li>
+              <li><strong>Known For:</strong> Dennery Fish Fiesta</li>
+            </ul>
+          </div>
+
+          <div class="district-card" data-searchable>
+            <h3>Micoud</h3>
+            <div class="meta">Eastern District &bull; Southeast Coast</div>
+            <p>A large agricultural district on the eastern coast, important for banana and crop production.</p>
+            <ul style="margin-top:8px;">
+              <li><strong>Key Areas:</strong> Micoud Village, Praslin, Mamiku Gardens</li>
+              <li><strong>Business:</strong> Agriculture (bananas, coconut, cocoa), fishing</li>
+              <li><strong>Known For:</strong> La Rose &amp; La Marguerite cultural festivals</li>
+            </ul>
+          </div>
+
+          <div class="district-card" data-searchable>
+            <h3>Choiseul</h3>
+            <div class="meta">Arts District &bull; Southwest Coast</div>
+            <p>A southern district known for its arts and crafts heritage, pottery tradition, and agricultural communities.</p>
+            <ul style="margin-top:8px;">
+              <li><strong>Key Areas:</strong> Choiseul Village, Arts &amp; Craft Centre, Balembouche Estate</li>
+              <li><strong>Business:</strong> Pottery, handicrafts, agriculture, heritage tourism</li>
+              <li><strong>Known For:</strong> Traditional Carib pottery and craft village</li>
+            </ul>
+          </div>
+
+          <div class="district-card" data-searchable>
+            <h3>Laborie</h3>
+            <div class="meta">Fishing Village &bull; South Coast</div>
+            <p>A small, picturesque fishing village on the southern coast with strong community identity and authentic Creole culture.</p>
+            <ul style="margin-top:8px;">
+              <li><strong>Key Areas:</strong> Laborie Village, Laborie Bay</li>
+              <li><strong>Business:</strong> Fishing, small-scale agriculture, community tourism</li>
+              <li><strong>Known For:</strong> Traditional fishing, charming waterfront</li>
+            </ul>
+          </div>
+
+          <div class="district-card" data-searchable>
+            <h3>Anse la Raye</h3>
+            <div class="meta">Fishing Town &bull; West Coast</div>
+            <p>A west coast fishing town famous for its weekly Friday Fish Fry and authentic local dining experience.</p>
+            <ul style="margin-top:8px;">
+              <li><strong>Key Areas:</strong> Anse la Raye Village, Anse Cochon Beach</li>
+              <li><strong>Business:</strong> Fishing, food tourism, water sports</li>
+              <li><strong>Known For:</strong> Friday Night Seafood Street Party</li>
+            </ul>
+          </div>
+
+          <div class="district-card" data-searchable>
+            <h3>Canaries</h3>
+            <div class="meta">Smallest District &bull; West Coast</div>
+            <p>The smallest district, located between Anse la Raye and Soufriere. A quiet, rural community with stunning coastal scenery.</p>
+            <ul style="margin-top:8px;">
+              <li><strong>Key Areas:</strong> Canaries Village, Anse La Libert&eacute; Beach</li>
+              <li><strong>Business:</strong> Small-scale fishing, agriculture</li>
+              <li><strong>Known For:</strong> Secluded beaches, peaceful setting</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY LOCATIONS TABLE -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Key Business Locations</h2>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr><th>Location</th><th>District</th><th>Type</th><th>Significance</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Castries Central</td><td>Castries</td><td>Commercial</td><td>Government offices, banks, courts, registry of companies</td></tr>
+              <tr><td>Pointe Seraphine</td><td>Castries</td><td>Commercial</td><td>Duty-free shopping complex, cruise port</td></tr>
+              <tr><td>Rodney Bay</td><td>Gros Islet</td><td>Tourism/Commercial</td><td>Main tourism strip, marina, restaurants, JQ Mall</td></tr>
+              <tr><td>Hewanorra Airport</td><td>Vieux Fort</td><td>Transport</td><td>International airport, cargo</td></tr>
+              <tr><td>Vieux Fort Free Zone</td><td>Vieux Fort</td><td>Industrial</td><td>Free zone, light manufacturing, warehousing</td></tr>
+              <tr><td>Cul de Sac</td><td>Castries</td><td>Industrial</td><td>Industrial area, petroleum terminal, warehousing</td></tr>
+              <tr><td>George F.L. Charles Airport</td><td>Castries</td><td>Transport</td><td>Regional/domestic airport (Vigie)</td></tr>
+              <tr><td>Port Castries</td><td>Castries</td><td>Maritime</td><td>Main cargo port, cruise terminal</td></tr>
+              <tr><td>Rodney Bay Marina</td><td>Gros Islet</td><td>Maritime</td><td>Yacht marina, boat services</td></tr>
+              <tr><td>Marigot Bay</td><td>Castries</td><td>Tourism/Maritime</td><td>Protected harbor, luxury marina, resorts</td></tr>
+              <tr><td>JQ Mall</td><td>Gros Islet</td><td>Commercial</td><td>Main shopping centre in Rodney Bay, retail, dining, cinema</td></tr>
+              <tr><td>La Place Carenage</td><td>Castries</td><td>Commercial</td><td>Waterfront shopping &amp; dining complex, harbour views</td></tr>
+              <tr><td>Castries Central Market</td><td>Castries</td><td>Commercial</td><td>Central produce market, local food, spices, crafts</td></tr>
+              <tr><td>LUCELEC HQ</td><td>Castries</td><td>Utility</td><td>National electricity provider headquarters, John Compton Highway</td></tr>
+              <tr><td>OKEU Hospital</td><td>Castries</td><td>Healthcare</td><td>160-bed public hospital (replaced Victoria Hospital 2022)</td></tr>
+              <tr><td>Tapion Hospital</td><td>Castries</td><td>Healthcare</td><td>32-bed private hospital, specialist &amp; surgical services</td></tr>
+              <tr><td>St. Jude Hospital</td><td>Vieux Fort</td><td>Healthcare</td><td>Southern region hospital, $75M reconstruction underway</td></tr>
+              <tr><td>SALCC</td><td>Castries</td><td>Education</td><td>Sir Arthur Lewis Community College, Morne Fortune</td></tr>
+              <tr><td>Daren Sammy Cricket Ground</td><td>Gros Islet</td><td>Sports</td><td>International cricket venue, CPL matches, capacity ~15,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED PAGES -->
+    <section class="section">
+      <div class="container">
+        <h3 style="margin-bottom:16px;">Related Pages</h3>
+        <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+          <a href="overview.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Country Overview</h4>
+            <p>Geography, economy, demographics</p>
+          </a>
+          <a href="living.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Cost of Living</h4>
+            <p>Housing, utilities by area</p>
+          </a>
+          <a href="directory.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Business Directory</h4>
+            <p>Local businesses &amp; contacts</p>
+          </a>
+          <a href="sectors.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Key Sectors</h4>
+            <p>Tourism, agriculture, energy</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>St. Lucia Business Guide &mdash; Research-based guide. Verify all information with official sources. Last updated: February 2026.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+  <script src="assets/js/map.js"></script>
+  <script src="assets/js/zones.js"></script>
   <script>
-    // Initialize map centered on St. Lucia
-    const map = L.map('map').setView([13.9094, -60.9789], 11);
-
-    // Add tile layer (OpenStreetMap)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Custom icons
-    function createIcon(color) {
-      return L.divIcon({
-        className: 'custom-marker',
-        html: `<div style="background:${color};width:14px;height:14px;border-radius:50%;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>`,
-        iconSize: [14, 14],
-        iconAnchor: [7, 7]
-      });
-    }
-
-    const redIcon = createIcon('#e74c3c');
-    const blueIcon = createIcon('#3498db');
-    const greenIcon = createIcon('#2ecc71');
-    const orangeIcon = createIcon('#f39c12');
-    const purpleIcon = createIcon('#9b59b6');
-
-    // Create layer groups for filtering
-    const layers = {
-      cities: L.layerGroup(),
-      towns: L.layerGroup(),
-      airports: L.layerGroup(),
-      ports: L.layerGroup(),
-      attractions: L.layerGroup(),
-      hotels: L.layerGroup(),
-      business: L.layerGroup(),
-      government: L.layerGroup(),
-      finance: L.layerGroup(),
-      healthcare: L.layerGroup(),
-      education: L.layerGroup()
-    };
-
-    const yellowIcon = createIcon('#f1c40f');
-    const grayIcon = createIcon('#95a5a6');
-    const navyIcon = createIcon('#1a5276');
-    const tealIcon = createIcon('#148f77');
-    const crimsonIcon = createIcon('#c0392b');
-    const deepPurpleIcon = createIcon('#8e44ad');
-
-    // Cities
-    L.marker([14.0110, -60.9897], {icon: redIcon}).addTo(layers.cities)
-      .bindPopup('<strong>Castries</strong><br>Capital city, commercial hub, main port, government offices');
-
-    // Towns
-    L.marker([14.0833, -60.9500], {icon: blueIcon}).addTo(layers.towns)
-      .bindPopup('<strong>Gros Islet</strong><br>Tourism hub, Rodney Bay, resorts, marina');
-    L.marker([13.7333, -60.9500], {icon: blueIcon}).addTo(layers.towns)
-      .bindPopup('<strong>Vieux Fort</strong><br>Second city, international airport, free zone');
-    L.marker([13.8563, -61.0564], {icon: blueIcon}).addTo(layers.towns)
-      .bindPopup('<strong>Soufriere</strong><br>Heritage town, The Pitons, eco-tourism, volcanic springs');
-    L.marker([13.9167, -60.8833], {icon: blueIcon}).addTo(layers.towns)
-      .bindPopup('<strong>Dennery</strong><br>Eastern coast, fishing, agriculture');
-    L.marker([13.8167, -60.9000], {icon: blueIcon}).addTo(layers.towns)
-      .bindPopup('<strong>Micoud</strong><br>Agricultural district, eastern coast');
-    L.marker([13.7744, -61.0492], {icon: blueIcon}).addTo(layers.towns)
-      .bindPopup('<strong>Choiseul</strong><br>Arts & crafts district, pottery heritage');
-    L.marker([13.7500, -61.0000], {icon: blueIcon}).addTo(layers.towns)
-      .bindPopup('<strong>Laborie</strong><br>Southern fishing village');
-    L.marker([13.9458, -61.0389], {icon: blueIcon}).addTo(layers.towns)
-      .bindPopup('<strong>Anse la Raye</strong><br>West coast fishing town, Friday Fish Fry');
-    L.marker([13.9056, -61.0667], {icon: blueIcon}).addTo(layers.towns)
-      .bindPopup('<strong>Canaries</strong><br>Smallest district, rural community');
-
-    // Airports
-    L.marker([13.7332, -60.9526], {icon: greenIcon}).addTo(layers.airports)
-      .bindPopup('<strong>Hewanorra International Airport (UVF)</strong><br>Main international airport, Vieux Fort');
-    L.marker([14.0202, -60.9929], {icon: greenIcon}).addTo(layers.airports)
-      .bindPopup('<strong>George F.L. Charles Airport (SLU)</strong><br>Regional/domestic airport, Vigie, Castries');
-
-    // Ports & Marinas
-    L.marker([14.0167, -60.9958], {icon: orangeIcon}).addTo(layers.ports)
-      .bindPopup('<strong>Port Castries</strong><br>Main cargo port, cruise ship terminal');
-    L.marker([14.0750, -60.9467], {icon: orangeIcon}).addTo(layers.ports)
-      .bindPopup('<strong>Rodney Bay Marina</strong><br>Yacht marina, boat services');
-    L.marker([13.9650, -61.0283], {icon: orangeIcon}).addTo(layers.ports)
-      .bindPopup('<strong>Marigot Bay</strong><br>Protected harbor, luxury marina');
-
-    // Tourist Attractions
-    L.marker([13.8081, -61.0681], {icon: purpleIcon}).addTo(layers.attractions)
-      .bindPopup('<strong>The Pitons</strong><br>UNESCO World Heritage Site - Gros Piton & Petit Piton');
-    L.marker([13.8367, -61.0433], {icon: purpleIcon}).addTo(layers.attractions)
-      .bindPopup('<strong>Sulphur Springs</strong><br>World\'s only drive-in volcano');
-    L.marker([14.0917, -60.9583], {icon: purpleIcon}).addTo(layers.attractions)
-      .bindPopup('<strong>Pigeon Island National Park</strong><br>Historic park, events venue');
-    L.marker([13.8483, -61.0383], {icon: purpleIcon}).addTo(layers.attractions)
-      .bindPopup('<strong>Diamond Falls Botanical Gardens</strong><br>Waterfall, mineral baths, gardens');
-
-    // Hotels & Resorts
-    L.marker([13.8200, -61.0700], {icon: yellowIcon}).addTo(layers.hotels)
-      .bindPopup('<strong>Jade Mountain / Anse Chastanet</strong><br>Ultra-luxury resort, Soufriere. Iconic Piton views.');
-    L.marker([13.8300, -61.0620], {icon: yellowIcon}).addTo(layers.hotels)
-      .bindPopup('<strong>Sugar Beach, A Viceroy Resort</strong><br>Luxury beachfront between the Pitons');
-    L.marker([14.0850, -60.9520], {icon: yellowIcon}).addTo(layers.hotels)
-      .bindPopup('<strong>Sandals Grande St. Lucian</strong><br>All-inclusive resort, Pigeon Island Causeway');
-    L.marker([14.0650, -60.9500], {icon: yellowIcon}).addTo(layers.hotels)
-      .bindPopup('<strong>Royalton Saint Lucia</strong><br>All-inclusive resort, Rodney Bay');
-    L.marker([14.0550, -60.9530], {icon: yellowIcon}).addTo(layers.hotels)
-      .bindPopup('<strong>Bay Gardens Beach Resort</strong><br>Mid-range resort, Reduit Beach');
-    L.marker([13.9620, -61.0260], {icon: yellowIcon}).addTo(layers.hotels)
-      .bindPopup('<strong>Marigot Bay Resort & Marina</strong><br>Luxury resort with marina facilities');
-    L.marker([13.8730, -61.0600], {icon: yellowIcon}).addTo(layers.hotels)
-      .bindPopup('<strong>Fond Doux Resort & Plantation</strong><br>Eco-resort on working cocoa plantation');
-
-    // Industrial / Business zones
-    L.marker([13.7350, -60.9480], {icon: grayIcon}).addTo(layers.business)
-      .bindPopup('<strong>Vieux Fort Industrial Free Zone</strong><br>Manufacturing, warehousing, duty-free zone');
-    L.marker([13.9800, -61.0050], {icon: grayIcon}).addTo(layers.business)
-      .bindPopup('<strong>Cul de Sac Industrial Area</strong><br>Industrial zone, petroleum terminal, LUCELEC power station');
-    L.marker([14.0070, -60.9830], {icon: grayIcon}).addTo(layers.business)
-      .bindPopup('<strong>Morne Fortune</strong><br>Government House, Fort Charlotte, residential area');
-    L.marker([14.0150, -60.9920], {icon: grayIcon}).addTo(layers.business)
-      .bindPopup('<strong>Pointe Seraphine</strong><br>Duty-free shopping complex, cruise terminal');
-    L.marker([14.0000, -60.9890], {icon: grayIcon}).addTo(layers.business)
-      .bindPopup('<strong>Gablewoods Mall</strong><br>Shopping centre, commercial offices, Castries');
-    L.marker([14.0700, -60.9530], {icon: grayIcon}).addTo(layers.business)
-      .bindPopup('<strong>Baywalk Mall</strong><br>Shopping & dining complex, Rodney Bay');
-
-    // Government Offices
-    L.marker([14.0143, -60.9912], {icon: navyIcon}).addTo(layers.government)
-      .bindPopup('<strong>Registry of Companies (ROCIP)</strong><br>Francis Compton Building, Waterfront. Company registration & intellectual property.');
-    L.marker([14.0133, -60.9898], {icon: navyIcon}).addTo(layers.government)
-      .bindPopup('<strong>Inland Revenue Department</strong><br>Heraldine Rock Building. Tax collection: corporate tax, VAT, personal income tax.');
-    L.marker([14.0138, -60.9903], {icon: navyIcon}).addTo(layers.government)
-      .bindPopup('<strong>Invest Saint Lucia</strong><br>1st Floor, Heraldine Rock Building. National investment promotion agency.');
-    L.marker([14.0136, -60.9904], {icon: navyIcon}).addTo(layers.government)
-      .bindPopup('<strong>Ministry of Commerce</strong><br>Heraldine Rock Building. Trade policy, business licensing, regulation.');
-    L.marker([14.0103, -60.9911], {icon: navyIcon}).addTo(layers.government)
-      .bindPopup('<strong>Customs & Excise Department</strong><br>Jeremie Street, port area. Import/export duties, trade facilitation.');
-    L.marker([14.0144, -60.9912], {icon: navyIcon}).addTo(layers.government)
-      .bindPopup('<strong>National Insurance Corporation (NIC)</strong><br>Francis Compton Building. Social security, pensions, employer registration.');
-
-    // Banks & Financial Institutions
-    L.marker([14.0097, -60.9917], {icon: tealIcon}).addTo(layers.finance)
-      .bindPopup('<strong>Bank of Saint Lucia (BOSL)</strong><br>Bridge Street, Castries. Largest local bank. 5 branches, 30 ATMs island-wide.');
-    L.marker([14.0100, -60.9918], {icon: tealIcon}).addTo(layers.finance)
-      .bindPopup('<strong>CIBC Caribbean</strong><br>Bridge Street, Castries. Regional bank (CIBC subsidiary). Corporate & retail banking.');
-    L.marker([14.0102, -60.9909], {icon: tealIcon}).addTo(layers.finance)
-      .bindPopup('<strong>Republic Bank</strong><br>William Peter Blvd. Trinidad-HQ bank (acquired Scotiabank operations 2019).');
-
-    // Healthcare Facilities
-    L.marker([14.0015, -61.0096], {icon: crimsonIcon}).addTo(layers.healthcare)
-      .bindPopup('<strong>Owen King EU Hospital (OKEU)</strong><br>160-bed public hospital (replaced Victoria Hospital 2022). A&E, ICU, surgery, imaging.');
-    L.marker([14.0128, -61.0062], {icon: crimsonIcon}).addTo(layers.healthcare)
-      .bindPopup('<strong>Tapion Hospital</strong><br>32-bed private hospital. Specialist consultations, surgery, diagnostics. Tapion Road.');
-    L.marker([13.7545, -60.9448], {icon: crimsonIcon}).addTo(layers.healthcare)
-      .bindPopup('<strong>St. Jude Hospital</strong><br>Southern region healthcare, Vieux Fort. $75M reconstruction (Phase 2). Emergency, maternity, general.');
-
-    // Additional Government Offices
-    L.marker([14.0089, -60.9916], {icon: navyIcon}).addTo(layers.government)
-      .bindPopup('<strong>Immigration Department</strong><br>Bridge Street, Castries. Work permits, residence permits, visa processing.');
-    L.marker([14.0115, -60.9895], {icon: navyIcon}).addTo(layers.government)
-      .bindPopup('<strong>Department of Labour</strong><br>Waterfront, Castries. Labour market testing, work permit support, employment standards.');
-
-    // Additional Business / Commercial
-    L.marker([14.0689, -60.9538], {icon: grayIcon}).addTo(layers.business)
-      .bindPopup('<strong>JQ Mall</strong><br>Main shopping centre, Rodney Bay. Retail, dining, supermarket, cinema.');
-    L.marker([14.0111, -60.9913], {icon: grayIcon}).addTo(layers.business)
-      .bindPopup('<strong>La Place Carenage</strong><br>Waterfront shopping & dining complex, Castries harbour.');
-    L.marker([14.0112, -60.9894], {icon: grayIcon}).addTo(layers.business)
-      .bindPopup('<strong>Castries Central Market</strong><br>Central produce market. Local food, spices, crafts. Cultural & commercial landmark.');
-    L.marker([14.0170, -60.9918], {icon: grayIcon}).addTo(layers.business)
-      .bindPopup('<strong>LUCELEC Headquarters</strong><br>St. Lucia Electricity Services Ltd. Main office, John Compton Highway.');
-
-    // Additional Banks & Financial
-    L.marker([14.0095, -60.9910], {icon: tealIcon}).addTo(layers.finance)
-      .bindPopup('<strong>1st National Bank</strong><br>Bridge Street, Castries. Regional bank, corporate & personal banking.');
-
-    // Education
-    L.marker([13.9992, -60.9970], {icon: deepPurpleIcon}).addTo(layers.education)
-      .bindPopup('<strong>Sir Arthur Lewis Community College</strong><br>Main tertiary institution. Business, IT, hospitality, arts programmes. Morne Fortune.');
-
-    // Add all layers to map initially
-    Object.values(layers).forEach(layer => layer.addTo(map));
-
-    // Filter button functionality
-    document.querySelectorAll('.map-filter-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const layerName = this.dataset.layer;
-        this.classList.toggle('active');
-        if (this.classList.contains('active')) {
-          layers[layerName].addTo(map);
-        } else {
-          map.removeLayer(layers[layerName]);
-        }
+    // Collapsible sidebar sections
+    document.querySelectorAll('.sidebar-section-header').forEach(function(header) {
+      header.addEventListener('click', function() {
+        var content = this.nextElementSibling;
+        var chevron = this.querySelector('.chevron');
+        this.classList.toggle('collapsed');
+        content.classList.toggle('collapsed');
       });
     });
-
-    // Add layer control legend
-    const legend = L.control({position: 'bottomright'});
-    legend.onAdd = function () {
-      const div = L.DomUtil.create('div', 'info legend');
-      div.style.background = 'white';
-      div.style.padding = '8px 12px';
-      div.style.borderRadius = '8px';
-      div.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
-      div.style.fontSize = '11px';
-      div.style.lineHeight = '1.8';
-      div.innerHTML =
-        '<strong>Map Legend</strong><br>' +
-        '<span style="color:#e74c3c;">&#9679;</span> Capital<br>' +
-        '<span style="color:#3498db;">&#9679;</span> Town/District<br>' +
-        '<span style="color:#2ecc71;">&#9679;</span> Airport<br>' +
-        '<span style="color:#f39c12;">&#9679;</span> Port/Marina<br>' +
-        '<span style="color:#9b59b6;">&#9679;</span> Attraction<br>' +
-        '<span style="color:#f1c40f;">&#9679;</span> Hotel/Resort<br>' +
-        '<span style="color:#95a5a6;">&#9679;</span> Industrial/Business<br>' +
-        '<span style="color:#1a5276;">&#9679;</span> Government Office<br>' +
-        '<span style="color:#148f77;">&#9679;</span> Bank/Financial<br>' +
-        '<span style="color:#c0392b;">&#9679;</span> Hospital<br>' +
-        '<span style="color:#8e44ad;">&#9679;</span> Education';
-      return div;
-    };
-    legend.addTo(map);
   </script>
   <script src="assets/js/app.js"></script>
 </body>

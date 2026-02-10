@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initReadingProgress();
   initSidebarScrollSpy();
+  initResponsiveTables();
 });
 
 // Mobile nav toggle
@@ -168,6 +169,21 @@ function initSidebarScrollSpy() {
 
   window.addEventListener('scroll', updateActive, { passive: true });
   updateActive();
+}
+
+// Auto-inject data-label and table-card-mobile class for wide tables on mobile
+function initResponsiveTables() {
+  document.querySelectorAll('.table-wrapper table').forEach(table => {
+    const headers = table.querySelectorAll('thead th');
+    if (headers.length < 5) return; // Only apply to wide tables (5+ cols)
+    table.classList.add('table-card-mobile');
+    const labels = Array.from(headers).map(th => th.textContent.trim());
+    table.querySelectorAll('tbody tr').forEach(row => {
+      row.querySelectorAll('td').forEach((td, i) => {
+        if (labels[i]) td.setAttribute('data-label', labels[i]);
+      });
+    });
+  });
 }
 
 // Utility: smooth scroll to element
