@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment Checklist - St. Lucia Business Guide</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Checklist-specific styles */
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: checklist-counter;
+    }
+    .checklist-item {
+      counter-increment: checklist-counter;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      border-left: 4px solid var(--primary-light);
+    }
+    .checklist-item:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .checklist-item.completed { border-left-color: var(--success); }
+    .checklist-item.highlight { border-left-color: var(--accent); }
+    .step-number {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .step-number.green { background: var(--success); }
+    .step-number.orange { background: var(--accent); }
+    .step-number.red { background: var(--danger); }
+    .step-content { flex: 1; min-width: 0; }
+    .step-content h4 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+      color: var(--primary-dark);
+    }
+    .step-content p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+    .step-meta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .step-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+    .meta-time {
+      background: rgba(26,82,118,0.1);
+      color: var(--primary);
+    }
+    .meta-cost {
+      background: rgba(39,174,96,0.12);
+      color: #1e8449;
+    }
+    .meta-authority {
+      background: rgba(243,156,18,0.12);
+      color: #b7770a;
+    }
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--primary-light);
+    }
+    .phase-header h2 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+    .phase-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+    .phase-icon.green { background: var(--success); }
+    .phase-icon.orange { background: var(--accent); }
+    .phase-icon.red { background: #c0392b; }
+    .phase-icon.purple { background: #8e44ad; }
+    .decision-matrix {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .decision-option {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .decision-option:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow);
+    }
+    .decision-option h4 {
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .decision-option .best-for {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--success);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .decision-option ul {
+      padding-left: 0;
+    }
+    .decision-option ul li {
+      font-size: 0.88rem;
+      color: var(--text);
+      padding: 3px 0 3px 18px;
+      position: relative;
+    }
+    .decision-option ul li::before {
+      content: '\2713';
+      color: var(--success);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    .progress-bar-container {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .progress-phases {
+      display: flex;
+      gap: 8px;
+      justify-content: space-between;
+    }
+    .progress-phase {
+      flex: 1;
+      text-align: center;
+      padding: 12px 8px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      color: inherit;
+    }
+    .progress-phase:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      color: inherit;
+    }
+    .progress-phase .phase-num {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+    .progress-phase .phase-name {
+      display: block;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--primary-dark);
+    }
+    .doc-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .doc-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+    }
+    .doc-item .doc-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: rgba(26,82,118,0.1);
+      color: var(--primary);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .progress-phases { flex-direction: column; }
+      .decision-matrix { grid-template-columns: 1fr; }
+      .doc-list { grid-template-columns: 1fr; }
+      .step-meta { flex-direction: column; gap: 6px; }
+      .phase-header h2 { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia Business Guide</a>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="overview.html">Overview</a>
+        <a href="business.html">Business</a>
+        <a href="legal.html">Legal &amp; Tax</a>
+        <a href="sectors.html">Sectors</a>
+        <a href="cbi.html">CBI</a>
+        <a href="living.html">Living</a>
+        <a href="events.html">Events</a>
+        <a href="map.html">Map</a>
+        <a href="directory.html">Directory</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" style="padding:50px 0 40px;">
+    <div class="container">
+      <h1>Investment Checklist</h1>
+      <p>Step-by-step action plan for starting your St. Lucia business</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="number">5</div>
+          <div class="label">Phases</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number">30+</div>
+          <div class="label">Action Steps</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number">4-12 Wk</div>
+          <div class="label">Typical Timeline</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number">$2K-$10K</div>
+          <div class="label">Setup Costs (Local Co.)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="section">
+    <div class="container">
+      <div class="page-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+          <h3>Phases</h3>
+          <a href="#pre-investment">Pre-Investment</a>
+          <a href="#registration">Registration</a>
+          <a href="#post-registration">Post-Registration</a>
+          <a href="#property">Property Investors</a>
+          <a href="#cbi-checklist">CBI Applicants</a>
+          <h3 style="margin-top:20px;">Quick Links</h3>
+          <a href="#entity-decision">Entity Decision Matrix</a>
+          <a href="#documents">Document Checklist</a>
+          <a href="#cost-summary">Cost Summary</a>
+          <a href="#timeline-overview">Timeline Overview</a>
+        </aside>
+
+        <div class="main-content">
+
+          <!-- PROGRESS OVERVIEW -->
+          <div class="progress-bar-container">
+            <h3 style="margin-bottom:16px;text-align:center;color:var(--primary-dark);">Your Investment Journey</h3>
+            <div class="progress-phases">
+              <a href="#pre-investment" class="progress-phase" style="border-top:3px solid var(--primary);">
+                <span class="phase-num">Phase 1</span>
+                <span class="phase-name">Pre-Investment</span>
+              </a>
+              <a href="#registration" class="progress-phase" style="border-top:3px solid var(--success);">
+                <span class="phase-num">Phase 2</span>
+                <span class="phase-name">Registration</span>
+              </a>
+              <a href="#post-registration" class="progress-phase" style="border-top:3px solid var(--accent);">
+                <span class="phase-num">Phase 3</span>
+                <span class="phase-name">Post-Registration</span>
+              </a>
+              <a href="#property" class="progress-phase" style="border-top:3px solid #8e44ad;">
+                <span class="phase-num">Phase 4</span>
+                <span class="phase-name">Property Investors</span>
+              </a>
+              <a href="#cbi-checklist" class="progress-phase" style="border-top:3px solid #c0392b;">
+                <span class="phase-num">Phase 5</span>
+                <span class="phase-name">CBI Applicants</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- PHASE 1: PRE-INVESTMENT -->
+          <!-- ========================================== -->
+          <div id="pre-investment" style="margin-bottom:50px;">
+            <div class="phase-header">
+              <div class="phase-icon">&#128270;</div>
+              <div>
+                <h2>Phase 1: Pre-Investment</h2>
+                <p style="color:var(--text-light);font-size:0.9rem;">Research, planning, and preparation before you commit</p>
+              </div>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="checklist">
+              <div class="checklist-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Conduct Research &amp; Due Diligence</h4>
+                  <p>Study the Saint Lucian market, regulatory environment, and your target sector. Review the country overview, key sectors, and legal/tax pages of this guide. Speak with existing investors if possible.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-4 weeks</span>
+                    <span class="meta-cost">&#128176; Free - $500 (reports)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 2: Entity Decision Matrix -->
+              <div class="checklist-item" id="entity-decision">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Choose Your Entity Type</h4>
+                  <p>Select the right business structure based on your goals, tax situation, and whether you will operate locally or internationally.</p>
+                  <div class="decision-matrix">
+                    <div class="decision-option">
+                      <h4>International Business Company (IBC)</h4>
+                      <div class="best-for">Best for: Foreign investors, holding cos.</div>
+                      <ul>
+                        <li>0% tax on foreign income</li>
+                        <li>No minimum capital</li>
+                        <li>48-72 hour registration</li>
+                        <li>No exchange controls</li>
+                        <li>Cannot trade locally in St. Lucia</li>
+                      </ul>
+                    </div>
+                    <div class="decision-option">
+                      <h4>Local Company (Ltd by Shares)</h4>
+                      <div class="best-for">Best for: Local operations, retail, services</div>
+                      <ul>
+                        <li>Can trade locally</li>
+                        <li>30% corporate tax</li>
+                        <li>6-10 day registration</li>
+                        <li>Eligible for tax holidays</li>
+                        <li>Can own St. Lucian property</li>
+                      </ul>
+                    </div>
+                    <div class="decision-option">
+                      <h4>Branch / External Company</h4>
+                      <div class="best-for">Best for: Existing foreign companies</div>
+                      <ul>
+                        <li>Extension of parent company</li>
+                        <li>Parent remains liable</li>
+                        <li>Must register with ROCIP</li>
+                        <li>Taxed on local income at 30%</li>
+                        <li>Simpler than forming new entity</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="step-meta" style="margin-top:12px;">
+                    <span class="meta-time">&#9202; 1-2 weeks (decision)</span>
+                    <span class="meta-cost">&#128176; Free (self-assessment)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="checklist-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Engage Local Professionals</h4>
+                  <p>Hire a Saint Lucian attorney, accountant, and (for IBCs) a licensed registered agent. A local lawyer is essential for navigating regulations, filing documents, and ensuring compliance.</p>
+                  <div class="info-box warning" style="margin-top:10px;margin-bottom:0;">
+                    <h4>Key Professionals Needed</h4>
+                    <p><strong>Attorney-at-Law</strong> &mdash; Required for statutory declarations and filings. <strong>Chartered Accountant</strong> &mdash; Tax registration, bookkeeping setup, annual returns. <strong>Registered Agent</strong> (IBC only) &mdash; Must be licensed in St. Lucia; maintains registered office. See the <a href="directory.html">Business Directory</a> for listings.</p>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-2 weeks</span>
+                    <span class="meta-cost">&#128176; $1,000 - $5,000 (retainer)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 4: Documents -->
+              <div class="checklist-item" id="documents">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h4>Prepare Required Documents</h4>
+                  <p>Gather, notarize, and apostille all required personal and corporate documents. Processing times for certifications vary by country.</p>
+                  <div class="doc-list">
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128196;</div>
+                      <span>Certified passport copies (all directors/shareholders)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#127974;</div>
+                      <span>Bank reference letter (dated within 6 months)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128176;</div>
+                      <span>Source of funds declaration &amp; supporting evidence</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128230;</div>
+                      <span>Proof of address (utility bill or bank statement)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128221;</div>
+                      <span>Professional reference letter</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128188;</div>
+                      <span>Business plan (recommended for local companies)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128100;</div>
+                      <span>CV/resume of directors</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128274;</div>
+                      <span>Police clearance certificate (for work permits)</span>
+                    </div>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 2-4 weeks</span>
+                    <span class="meta-cost">&#128176; $200 - $800 (notarization, apostille)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- PHASE 2: REGISTRATION -->
+          <!-- ========================================== -->
+          <div id="registration" style="margin-bottom:50px;">
+            <div class="phase-header">
+              <div class="phase-icon green">&#128221;</div>
+              <div>
+                <h2>Phase 2: Registration</h2>
+                <p style="color:var(--text-light);font-size:0.9rem;">Incorporate your company and obtain all required registrations</p>
+              </div>
+            </div>
+
+            <div class="checklist">
+              <!-- Step 5 -->
+              <div class="checklist-item">
+                <div class="step-number green">5</div>
+                <div class="step-content">
+                  <h4>Name Search &amp; Approval</h4>
+                  <p>Submit <strong>Form 26</strong> (Request for Name Search and Name Reservation) to the Registry of Companies and Intellectual Property (ROCIP). The proposed name must not duplicate or closely resemble an existing registered entity. For IBCs, submit via the IFC registry.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-3 business days</span>
+                    <span class="meta-cost">&#128176; EC $50 (approx. USD $19)</span>
+                    <span class="meta-authority">&#127970; ROCIP</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 6 -->
+              <div class="checklist-item">
+                <div class="step-number green">6</div>
+                <div class="step-content">
+                  <h4>File Incorporation Documents</h4>
+                  <p>Prepare and file the following with the Registry:</p>
+                  <div class="table-wrapper" style="margin-top:10px;margin-bottom:0;">
+                    <table>
+                      <thead>
+                        <tr><th>Form</th><th>Description</th><th>Notes</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td><strong>Form 1</strong></td><td>Articles of Incorporation</td><td>Sets out company name, share structure, restrictions</td></tr>
+                        <tr><td><strong>Form 9</strong></td><td>Notice of Directors</td><td>Names, addresses, and nationalities of all directors</td></tr>
+                        <tr><td><strong>Form 4</strong></td><td>Notice of Registered Office</td><td>Physical address in Saint Lucia</td></tr>
+                        <tr><td><strong>Statutory Decl.</strong></td><td>Declaration by Attorney-at-Law</td><td>Requires EC $2.50 stamp</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-2 days (preparation)</span>
+                    <span class="meta-cost">&#128176; EC $850 (local) / USD $400-$600 (IBC)</span>
+                    <span class="meta-authority">&#127970; ROCIP / IFC Registry</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 7 -->
+              <div class="checklist-item">
+                <div class="step-number green">7</div>
+                <div class="step-content">
+                  <h4>Obtain Certificate of Incorporation</h4>
+                  <p>Once documents are processed and approved, the Registry issues a Certificate of Incorporation. This is your company's birth certificate and proof of legal existence.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 6-10 working days (local) / 48-72 hours (IBC)</span>
+                    <span class="meta-cost">&#128176; Included in filing fee</span>
+                    <span class="meta-authority">&#127970; ROCIP</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 8 -->
+              <div class="checklist-item">
+                <div class="step-number green">8</div>
+                <div class="step-content">
+                  <h4>Apply for Tax Identification Number (TIN)</h4>
+                  <p>Register with the Inland Revenue Department (IRD) to obtain a TIN. Required for all tax filings, VAT registration, and opening a bank account. Bring your Certificate of Incorporation and directors' ID.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-3 business days</span>
+                    <span class="meta-cost">&#128176; Free</span>
+                    <span class="meta-authority">&#127970; Inland Revenue Dept.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 9 -->
+              <div class="checklist-item">
+                <div class="step-number green">9</div>
+                <div class="step-content">
+                  <h4>Register for VAT (if applicable)</h4>
+                  <p>If your expected annual turnover exceeds <strong>XCD $400,000</strong> (approx. USD $148,000), VAT registration is mandatory. Standard rate is 12.5%; tourism accommodation services 7%; hotel food/beverage and related tourism services 10%. You may also register voluntarily below the threshold.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 3-5 business days</span>
+                    <span class="meta-cost">&#128176; Free</span>
+                    <span class="meta-authority">&#127970; Inland Revenue Dept.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 10 -->
+              <div class="checklist-item">
+                <div class="step-number green">10</div>
+                <div class="step-content">
+                  <h4>Obtain Trade License</h4>
+                  <p>Apply to the relevant authority for your business sector. A general trade or business license is required for most commercial activities. Certain sectors (tourism, food &amp; beverage, import/export) require additional sector-specific licenses.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-2 weeks</span>
+                    <span class="meta-cost">&#128176; EC $100 - $2,000 (varies by type)</span>
+                    <span class="meta-authority">&#127970; Ministry of Commerce / Local Authority</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 11 -->
+              <div class="checklist-item">
+                <div class="step-number green">11</div>
+                <div class="step-content">
+                  <h4>Open a Corporate Bank Account</h4>
+                  <p>Open an account with a local commercial bank. Major banks include Bank of Saint Lucia, First Caribbean International Bank (CIBC), Republic Bank, and 1st National Bank. IBCs may also use international banking partners.</p>
+                  <div class="info-box" style="margin-top:10px;margin-bottom:0;">
+                    <h4>Documents Typically Required</h4>
+                    <p>Certificate of Incorporation, Articles of Incorporation, Board Resolution authorizing account opening, Directors' certified ID and proof of address, TIN, source of funds documentation. Allow extra time for enhanced due diligence on non-resident accounts.</p>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-4 weeks</span>
+                    <span class="meta-cost">&#128176; $0 - $500 (initial deposit varies)</span>
+                    <span class="meta-authority">&#127970; Commercial Bank</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- PHASE 3: POST-REGISTRATION -->
+          <!-- ========================================== -->
+          <div id="post-registration" style="margin-bottom:50px;">
+            <div class="phase-header">
+              <div class="phase-icon orange">&#9881;</div>
+              <div>
+                <h2>Phase 3: Post-Registration</h2>
+                <p style="color:var(--text-light);font-size:0.9rem;">Set up operations, hire staff, and ensure ongoing compliance</p>
+              </div>
+            </div>
+
+            <div class="checklist">
+              <!-- Step 12 -->
+              <div class="checklist-item">
+                <div class="step-number orange">12</div>
+                <div class="step-content">
+                  <h4>Set Up Accounting &amp; Bookkeeping</h4>
+                  <p>Engage a local chartered accountant or accounting firm to establish your bookkeeping system, chart of accounts, and financial reporting processes. Saint Lucia uses IFRS for SMEs. IBCs must file unaudited annual financial statements.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-2 weeks</span>
+                    <span class="meta-cost">&#128176; $500 - $3,000/year</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 13 -->
+              <div class="checklist-item">
+                <div class="step-number orange">13</div>
+                <div class="step-content">
+                  <h4>Register with the National Insurance Corporation (NIC)</h4>
+                  <p>Mandatory if you have employees. Register as an employer and obtain an NIC employer number. Both employer (5%) and employee (5%) contributions are required on earnings up to a ceiling. Total NIC contribution rate: 10%.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-3 business days</span>
+                    <span class="meta-cost">&#128176; Free (registration)</span>
+                    <span class="meta-authority">&#127970; National Insurance Corp.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 14 -->
+              <div class="checklist-item">
+                <div class="step-number orange">14</div>
+                <div class="step-content">
+                  <h4>Hire Staff / Apply for Work Permits</h4>
+                  <p>For local hires, ensure compliance with the Labour Act (minimum wage, working hours, leave entitlements). For foreign workers, the employer must apply for a work permit through the Ministry of Labour, demonstrating that no suitable local candidate is available.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 4-6 weeks (work permits)</span>
+                    <span class="meta-cost">&#128176; EC $500 - $2,500 (work permit fee)</span>
+                    <span class="meta-authority">&#127970; Ministry of Labour</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 15 -->
+              <div class="checklist-item">
+                <div class="step-number orange">15</div>
+                <div class="step-content">
+                  <h4>Obtain Sector-Specific Licenses</h4>
+                  <p>Depending on your industry, you may need additional licenses or permits. Common examples include:</p>
+                  <div class="table-wrapper" style="margin-top:10px;margin-bottom:0;">
+                    <table>
+                      <thead>
+                        <tr><th>Sector</th><th>License Required</th><th>Issuing Authority</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>Tourism / Hotels</td><td>Hotel License, Tourism Operator License</td><td>Ministry of Tourism / SLTA</td></tr>
+                        <tr><td>Food &amp; Beverage</td><td>Food Handler's Permit, Liquor License</td><td>Environmental Health / Magistrate Court</td></tr>
+                        <tr><td>Construction</td><td>Building Permit, Contractor License</td><td>Development Control Authority</td></tr>
+                        <tr><td>Import / Export</td><td>Customs License, Import Permit</td><td>Customs &amp; Excise Dept.</td></tr>
+                        <tr><td>Financial Services</td><td>FSRA License</td><td>Financial Services Regulatory Authority</td></tr>
+                        <tr><td>Telecommunications</td><td>Telecom License</td><td>NTRC (National Telecom Regulatory Commission)</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 2-8 weeks (varies)</span>
+                    <span class="meta-cost">&#128176; Varies by sector</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 16 -->
+              <div class="checklist-item">
+                <div class="step-number orange">16</div>
+                <div class="step-content">
+                  <h4>Set Up Office / Business Premises</h4>
+                  <p>Secure commercial space through lease or purchase. Key business areas include Castries (capital, government offices), Rodney Bay (tourism hub), and Vieux Fort (near Hewanorra International Airport / Free Zone). Ensure premises comply with zoning and fire safety regulations.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 2-6 weeks</span>
+                    <span class="meta-cost">&#128176; EC $1,500 - $8,000/month (rent varies by location)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 17 -->
+              <div class="checklist-item">
+                <div class="step-number orange">17</div>
+                <div class="step-content">
+                  <h4>Arrange Business Insurance</h4>
+                  <p>While not always legally mandated, business insurance is strongly recommended and often required by landlords and lenders. Key coverage types: property insurance (hurricanes, fire), public liability, employer's liability, professional indemnity, and motor vehicle insurance (mandatory for company vehicles).</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-2 weeks</span>
+                    <span class="meta-cost">&#128176; Varies (request quotes from local insurers)</span>
+                    <span class="meta-authority">&#127970; EC Global, Guardian General, Sagicor, etc.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- PHASE 4: PROPERTY INVESTORS -->
+          <!-- ========================================== -->
+          <div id="property" style="margin-bottom:50px;">
+            <div class="phase-header">
+              <div class="phase-icon purple">&#127968;</div>
+              <div>
+                <h2>Phase 4: For Property Investors</h2>
+                <p style="color:var(--text-light);font-size:0.9rem;">Additional steps for purchasing real estate in Saint Lucia</p>
+              </div>
+            </div>
+
+            <div class="info-box warning" style="margin-bottom:20px;">
+              <h4>Non-Citizens Must Obtain an Alien Landholding License</h4>
+              <p>Under the Alien Landholding Act, all non-nationals of Saint Lucia (including CARICOM nationals for commercial land) must obtain a license before purchasing property. This requirement is waived for CBI real estate purchases through approved projects.</p>
+            </div>
+
+            <div class="checklist">
+              <!-- Step P1 -->
+              <div class="checklist-item highlight">
+                <div class="step-number" style="background:#8e44ad;">P1</div>
+                <div class="step-content">
+                  <h4>Apply for Alien Landholding License</h4>
+                  <p>Submit an application to the Ministry of Physical Development, Housing and Urban Renewal. Include: completed application form, passport copies, police clearance, details of the property (survey plan, valuation), and the purpose of purchase. A fee based on property value is payable.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 4-12 weeks</span>
+                    <span class="meta-cost">&#128176; License fee: USD $2,500 (&lt;1 acre) / $5,000 (1&ndash;5 acres) / $10,500 (5&ndash;10 acres) + EC$1,500 application fee</span>
+                    <span class="meta-authority">&#127970; Ministry of Physical Development</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step P2 -->
+              <div class="checklist-item highlight">
+                <div class="step-number" style="background:#8e44ad;">P2</div>
+                <div class="step-content">
+                  <h4>Property Purchase Process</h4>
+                  <p>Once the Alien Landholding License is granted, proceed with the purchase. Engage a local attorney to conduct title searches, review the deed of sale, and handle the conveyancing process. Typically involves:</p>
+                  <ul style="margin-top:8px;">
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">1.</span> Sign preliminary agreement (sale and purchase agreement)</li>
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">2.</span> Attorney conducts title search at the Land Registry</li>
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">3.</span> Satisfy any conditions (survey, valuation, financing)</li>
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">4.</span> Execute the Deed of Sale before a Notary Royal</li>
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">5.</span> Register the deed at the Land Registry</li>
+                  </ul>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 6-12 weeks (total process)</span>
+                    <span class="meta-cost">&#128176; Attorney fees: 2-3% of property value</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step P3 -->
+              <div class="checklist-item highlight">
+                <div class="step-number" style="background:#8e44ad;">P3</div>
+                <div class="step-content">
+                  <h4>Pay Transfer Tax &amp; Stamp Duty</h4>
+                  <p>Upon completion of the property transfer, the following taxes and duties apply:</p>
+                  <div class="table-wrapper" style="margin-top:10px;margin-bottom:0;">
+                    <table>
+                      <thead>
+                        <tr><th>Tax / Duty</th><th>Rate</th><th>Paid By</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td><strong>Transfer Tax (Vendor)</strong></td><td>2.5% of market value</td><td>Seller</td></tr>
+                        <tr><td><strong>Transfer Tax (Purchaser)</strong></td><td>2.0% of market value</td><td>Buyer</td></tr>
+                        <tr><td><strong>Stamp Duty</strong></td><td>2.0% of market value</td><td>Buyer</td></tr>
+                        <tr><td><strong>VAT on Commercial Property</strong></td><td>12.5% (if applicable)</td><td>Buyer</td></tr>
+                        <tr><td><strong>Registration Fees</strong></td><td>Approx. EC $100 - $300</td><td>Buyer</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; At closing</span>
+                    <span class="meta-cost">&#128176; Total buyer costs: ~4-4.5% of property value</span>
+                    <span class="meta-authority">&#127970; Inland Revenue Dept. / Land Registry</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step P4 -->
+              <div class="checklist-item highlight">
+                <div class="step-number" style="background:#8e44ad;">P4</div>
+                <div class="step-content">
+                  <h4>Engage Surveyor &amp; Valuer</h4>
+                  <p>Hire a licensed land surveyor to verify boundaries and prepare a survey plan. Engage a certified property valuer for an independent market valuation, which is often required by banks for mortgage financing and by the Inland Revenue for assessing transfer tax.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 2-4 weeks</span>
+                    <span class="meta-cost">&#128176; EC $1,500 - $5,000 (survey) / EC $800 - $2,500 (valuation)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- PHASE 5: CBI APPLICANTS -->
+          <!-- ========================================== -->
+          <div id="cbi-checklist" style="margin-bottom:50px;">
+            <div class="phase-header">
+              <div class="phase-icon red">&#127758;</div>
+              <div>
+                <h2>Phase 5: For CBI Applicants</h2>
+                <p style="color:var(--text-light);font-size:0.9rem;">Citizenship by Investment programme checklist</p>
+              </div>
+            </div>
+
+            <div class="info-box success" style="margin-bottom:20px;">
+              <h4>Citizenship by Investment &mdash; Quick Facts</h4>
+              <p>4 investment routes from USD $240,000. Visa-free travel to 145+ countries. No residency requirement. 6-12 month processing. Full details on the <a href="cbi.html">CBI page</a>.</p>
+            </div>
+
+            <div class="checklist">
+              <!-- Step C1 -->
+              <div class="checklist-item">
+                <div class="step-number red">C1</div>
+                <div class="step-content">
+                  <h4>Choose Your Investment Route</h4>
+                  <p>Decide between the four qualifying investment options based on your budget, goals, and family situation.</p>
+                  <div class="table-wrapper" style="margin-top:10px;margin-bottom:0;">
+                    <table>
+                      <thead>
+                        <tr><th>Route</th><th>Minimum</th><th>Refundable?</th><th>Best For</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td><strong>National Economic Fund (NEF)</strong></td><td>USD $240,000</td><td>No (donation)</td><td>Lowest cost, fastest, no management burden</td></tr>
+                        <tr><td><strong>Real Estate</strong></td><td>USD $300,000</td><td>Yes (resale after 5 years)</td><td>Asset retention, rental income potential</td></tr>
+                        <tr><td><strong>Government Bonds</strong></td><td>USD $300,000</td><td>Yes (after 5 years, 0% interest)</td><td>Capital preservation (no interest)</td></tr>
+                        <tr><td><strong>Enterprise Project</strong></td><td>USD $3,500,000</td><td>Business investment</td><td>Large-scale investors, job creation</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-2 weeks (decision)</span>
+                    <span class="meta-cost">&#128176; Free (consultation with agent)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step C2 -->
+              <div class="checklist-item">
+                <div class="step-number red">C2</div>
+                <div class="step-content">
+                  <h4>Engage a CIU-Authorized Agent</h4>
+                  <p>All CBI applications <strong>must</strong> be submitted through a licensed authorized agent. This is typically a law firm or specialist service provider licensed by the Citizenship by Investment Unit (CIU). The agent manages the entire application process, prepares documents, and liaises with the CIU on your behalf.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1 week</span>
+                    <span class="meta-cost">&#128176; Agent fees: USD $10,000 - $25,000 (varies)</span>
+                    <span class="meta-authority">&#127970; CIU-Licensed Agent</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step C3 -->
+              <div class="checklist-item">
+                <div class="step-number red">C3</div>
+                <div class="step-content">
+                  <h4>Prepare CBI Documentation</h4>
+                  <p>Compile a comprehensive documentation package for the main applicant and all dependents. All documents must be certified, notarized, and (where required) apostilled.</p>
+                  <div class="doc-list">
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128196;</div>
+                      <span>Certified passport copies (all applicants)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128100;</div>
+                      <span>Birth certificates (applicant &amp; dependents)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128274;</div>
+                      <span>Police clearance certificates (all adults)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#127973;</div>
+                      <span>Medical examination reports</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#127974;</div>
+                      <span>Bank reference letters</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128176;</div>
+                      <span>Source of funds evidence (tax returns, business financials)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128221;</div>
+                      <span>Professional reference letters</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128247;</div>
+                      <span>Passport-sized photographs (6 per applicant)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128188;</div>
+                      <span>CV/resume of main applicant</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128141;</div>
+                      <span>Marriage certificate (if applicable)</span>
+                    </div>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 2-6 weeks</span>
+                    <span class="meta-cost">&#128176; $500 - $2,000 (notarization, apostille, translations)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step C4 -->
+              <div class="checklist-item">
+                <div class="step-number red">C4</div>
+                <div class="step-content">
+                  <h4>Application Submission &amp; Due Diligence</h4>
+                  <p>Your authorized agent submits the completed application to the CIU along with the application, processing, and due diligence fees. The CIU conducts thorough international background checks covering criminal history, financial integrity, security, and source of funds.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 6-12 weeks (due diligence)</span>
+                    <span class="meta-cost">&#128176; Application fee: $2,000 + DD fee: $8,000 + Interview fee: $500 (main applicant)</span>
+                    <span class="meta-authority">&#127970; CIU (Citizenship by Investment Unit)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step C5 -->
+              <div class="checklist-item">
+                <div class="step-number red">C5</div>
+                <div class="step-content">
+                  <h4>Approval, Investment &amp; Citizenship</h4>
+                  <p>Upon approval in principle, you will be notified to complete the qualifying investment within a set period. Once the investment is confirmed by the CIU, the Certificate of Registration as a Citizen is issued, followed by passport application and issuance.</p>
+                  <div class="info-box success" style="margin-top:10px;margin-bottom:0;">
+                    <h4>Timeline Summary</h4>
+                    <p><strong>Total process:</strong> 6-12 months from submission to passport. <strong>Passport validity:</strong> 5 years (renewable). <strong>Mandatory interview</strong> (virtual or in-person) for all applicants aged 16+ since Sept 2023. Dual citizenship is permitted.</p>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 2-4 weeks (post-approval to passport)</span>
+                    <span class="meta-cost">&#128176; Passport fee: USD $250 per person</span>
+                    <span class="meta-authority">&#127970; CIU / Immigration Dept.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- COST SUMMARY -->
+          <!-- ========================================== -->
+          <div id="cost-summary" style="margin-bottom:50px;">
+            <h2 style="margin-bottom:16px;">Cost Summary: What to Budget</h2>
+            <div class="table-wrapper" style="margin-bottom:20px;">
+              <table>
+                <thead>
+                  <tr><th>Item</th><th>Local Company</th><th>IBC</th><th>Notes</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Name reservation</strong></td><td>EC $50</td><td>Included</td><td>Form 26</td></tr>
+                  <tr><td><strong>Incorporation filing</strong></td><td>EC $850</td><td>USD $400-$600</td><td>Government fees</td></tr>
+                  <tr><td><strong>Registered agent (annual)</strong></td><td>N/A</td><td>USD $800-$2,000</td><td>IBC requirement</td></tr>
+                  <tr><td><strong>Attorney fees</strong></td><td>USD $1,000-$3,000</td><td>USD $1,500-$4,000</td><td>Incorporation only</td></tr>
+                  <tr><td><strong>Accounting setup</strong></td><td>USD $500-$1,500</td><td>USD $500-$1,500</td><td>Initial setup</td></tr>
+                  <tr><td><strong>Annual return filing</strong></td><td>EC $250-$500</td><td>USD $300-$500</td><td>Required annually</td></tr>
+                  <tr><td><strong>Trade license</strong></td><td>EC $100-$2,000</td><td>N/A</td><td>Varies by sector</td></tr>
+                  <tr><td><strong>Work permit (per person)</strong></td><td colspan="2" style="text-align:center;">EC $500-$2,500</td><td>For foreign employees</td></tr>
+                  <tr style="background:rgba(26,82,118,0.06);">
+                    <td><strong>Estimated Total (Setup)</strong></td>
+                    <td><strong>USD $2,000-$6,000</strong></td>
+                    <td><strong>USD $3,000-$8,000</strong></td>
+                    <td>Excluding premises &amp; insurance</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="info-box" style="margin-bottom:0;">
+              <h4>Currency Note</h4>
+              <p>The Eastern Caribbean Dollar (XCD) is pegged to the US Dollar at <strong>XCD 2.70 = USD 1.00</strong>. Government fees are typically quoted in XCD; professional fees are often quoted in USD for international clients.</p>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- TIMELINE OVERVIEW -->
+          <!-- ========================================== -->
+          <div id="timeline-overview" style="margin-bottom:50px;">
+            <h2 style="margin-bottom:16px;">Timeline Overview</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <h4>Weeks 1-4: Pre-Investment Phase</h4>
+                <p>Research the market, choose entity type, engage professionals (lawyer, accountant, registered agent), and begin gathering documents. Start notarization and apostille process for international documents.</p>
+              </div>
+              <div class="timeline-item">
+                <h4>Weeks 4-6: Name Search &amp; Filing</h4>
+                <p>Submit name reservation (Form 26), prepare incorporation documents (Forms 1, 4, 9), and file with the Registry. Pay prescribed fees.</p>
+              </div>
+              <div class="timeline-item">
+                <h4>Weeks 6-8: Certificate &amp; Tax Registration</h4>
+                <p>Receive Certificate of Incorporation (6-10 days for local, 48-72 hours for IBC). Immediately apply for TIN and VAT registration (if applicable).</p>
+              </div>
+              <div class="timeline-item">
+                <h4>Weeks 8-10: Banking &amp; Licensing</h4>
+                <p>Open corporate bank account with required documents. Apply for trade license and any sector-specific permits.</p>
+              </div>
+              <div class="timeline-item">
+                <h4>Weeks 10-12+: Operations Setup</h4>
+                <p>Set up accounting system, register with NIC, secure premises, arrange insurance, hire staff (apply for work permits if needed). Begin operations.</p>
+              </div>
+            </div>
+            <div class="info-box success" style="margin-top:16px;">
+              <h4>Fast Track for IBCs</h4>
+              <p>An IBC can be fully incorporated in <strong>48-72 hours</strong> with a registered agent. If using a shelf company, incorporation is effectively immediate. The total setup timeline for an IBC (incorporation + bank account) can be as short as <strong>2-4 weeks</strong>.</p>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- FINAL TIPS -->
+          <!-- ========================================== -->
+          <div style="margin-bottom:30px;">
+            <h2 style="margin-bottom:16px;">Important Reminders</h2>
+            <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+              <div class="info-box warning" style="margin:0;">
+                <h4>Verify Before You Act</h4>
+                <p>This checklist is a research-based guide. Fees, timelines, and requirements may change. Always verify current requirements directly with the relevant government authority or through your local attorney before making financial commitments.</p>
+              </div>
+              <div class="info-box" style="margin:0;">
+                <h4>Invest Saint Lucia</h4>
+                <p>The national investment promotion agency (<a href="https://www.investstlucia.com" target="_blank">investstlucia.com</a>) provides free one-stop-shop support for investors, including assistance with permits, licenses, incentive applications, and introductions to local partners.</p>
+              </div>
+              <div class="info-box success" style="margin:0;">
+                <h4>Use the Full Guide</h4>
+                <p>This checklist complements the detailed pages of the St. Lucia Business Guide. See <a href="business.html">Business Setup</a> for entity details, <a href="legal.html">Legal &amp; Tax</a> for regulations, <a href="cbi.html">CBI</a> for citizenship by investment, and the <a href="directory.html">Directory</a> for professional contacts.</p>
+              </div>
+              <div class="info-box danger" style="margin:0;">
+                <h4>Anti-Money Laundering</h4>
+                <p>Saint Lucia enforces strict AML/CFT regulations. All financial institutions and registered agents conduct enhanced due diligence. Ensure your source of funds is well-documented and transparent. Non-compliance can result in delays or rejection.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RELATED PAGES -->
+          <div style="margin-top:40px;padding-top:30px;border-top:2px solid var(--border);">
+            <h3 style="margin-bottom:16px;">Related Pages</h3>
+            <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+              <a href="business.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>Business Setup</h4>
+                <p>Detailed entity types &amp; registration</p>
+              </a>
+              <a href="legal.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>Legal &amp; Tax</h4>
+                <p>Tax rates, labor laws, property rules</p>
+              </a>
+              <a href="cbi.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>CBI Program</h4>
+                <p>Citizenship by investment details</p>
+              </a>
+              <a href="trade.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>CARICOM &amp; Trade</h4>
+                <p>Trade agreements &amp; market access</p>
+              </a>
+              <a href="directory.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>Business Directory</h4>
+                <p>Lawyers, accountants, agents</p>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>St. Lucia Business Guide</h4>
+          <p>Your comprehensive resource for business intelligence and investment opportunities in Saint Lucia.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="overview.html">Country Overview</a></li>
+            <li><a href="business.html">Business Setup</a></li>
+            <li><a href="legal.html">Legal &amp; Tax</a></li>
+            <li><a href="sectors.html">Key Sectors</a></li>
+            <li><a href="cbi.html">Citizenship by Investment</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="living.html">Cost of Living</a></li>
+            <li><a href="events.html">Events &amp; Calendar</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="map.html">Map &amp; Districts</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="resources.html">External Resources</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Key Contacts</h4>
+          <ul>
+            <li>Invest Saint Lucia</li>
+            <li>Registry of Companies</li>
+            <li>Inland Revenue Dept.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Research-based guide. Verify all information with official sources before making business decisions. Last updated: February 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

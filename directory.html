@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Directory - St. Lucia Business Guide</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia Business Guide</a>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="overview.html">Overview</a>
+        <a href="business.html">Business</a>
+        <a href="legal.html">Legal &amp; Tax</a>
+        <a href="sectors.html">Sectors</a>
+        <a href="cbi.html">CBI</a>
+        <a href="living.html">Living</a>
+        <a href="events.html">Events</a>
+        <a href="map.html">Map</a>
+        <a href="directory.html" class="active">Directory</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" style="padding:50px 0 40px;">
+    <div class="container">
+      <h1>Business Directory</h1>
+      <p>Key contacts, government agencies, banks, and professional services</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- SEARCH -->
+      <div class="search-box">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" id="search-input" placeholder="Search directory..." />
+      </div>
+      <div id="search-count" style="text-align:center;color:var(--text-light);margin-bottom:20px;font-size:0.9rem;"></div>
+
+      <!-- TABS -->
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="tab-government">Government</button>
+        <button class="tab-btn" data-tab="tab-banks">Banks</button>
+        <button class="tab-btn" data-tab="tab-legal">Law Firms</button>
+        <button class="tab-btn" data-tab="tab-accounting">Accounting</button>
+        <button class="tab-btn" data-tab="tab-realestate">Real Estate</button>
+        <button class="tab-btn" data-tab="tab-ibc">IBC Agents</button>
+        <button class="tab-btn" data-tab="tab-insurance">Insurance</button>
+        <button class="tab-btn" data-tab="tab-shipping">Shipping</button>
+        <button class="tab-btn" data-tab="tab-business">Business Services</button>
+        <button class="tab-btn" data-tab="tab-hotels">Hotels &amp; Venues</button>
+        <button class="tab-btn" data-tab="tab-utilities">Utilities &amp; Telecom</button>
+      </div>
+
+      <!-- GOVERNMENT TAB -->
+      <div id="tab-government" class="tab-content active">
+        <h3 style="margin-bottom:16px;">Government Agencies &amp; Departments</h3>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Invest Saint Lucia</h4>
+              <span class="badge badge-success">Investment Promotion Agency</span>
+              <p style="margin-top:8px;">National investment promotion agency. One-stop shop for foreign investors. Assists with permits, incentives, and business facilitation.</p>
+              <p><strong>Website:</strong> <a href="https://www.investstlucia.com" target="_blank">investstlucia.com</a></p>
+              <p><strong>Location:</strong> Castries</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Registry of Companies and Intellectual Property (ROCIP)</h4>
+              <span class="badge badge-primary">Company Registration</span>
+              <p style="margin-top:8px;">Handles company incorporation, business name registration, annual filings, and corporate records. Also handles intellectual property registration.</p>
+              <p><strong>Website:</strong> <a href="http://rocip.gov.lc/" target="_blank">rocip.gov.lc</a></p>
+              <p><strong>Address:</strong> 2nd Floor, Francis Compton Building, Waterfront, Castries</p>
+              <p><strong>Phone:</strong> (758) 468-3200</p>
+              <p><strong>IBC Online Registry:</strong> <a href="https://www.saintluciaifc.com" target="_blank">saintluciaifc.com</a> (Pinnacle St. Lucia)</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Attorney General's Chambers</h4>
+              <span class="badge badge-primary">Legal Affairs</span>
+              <p style="margin-top:8px;">Oversees legal affairs, legislation, and the incorporation process. Draft license reviews and legal advisory.</p>
+              <p><strong>Website:</strong> <a href="https://www.attorneygeneralchambers.com" target="_blank">attorneygeneralchambers.com</a></p>
+              <p><strong>Location:</strong> Castries</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Inland Revenue Department</h4>
+              <span class="badge badge-primary">Taxation</span>
+              <p style="margin-top:8px;">Administers income tax, VAT, withholding tax, and other tax obligations. Issues TINs, processes tax returns.</p>
+              <p><strong>Website:</strong> <a href="https://irdstlucia.gov.lc" target="_blank">irdstlucia.gov.lc</a></p>
+              <p><strong>Location:</strong> Castries</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">National Insurance Corporation (NIC)</h4>
+              <span class="badge badge-primary">Social Security</span>
+              <p style="margin-top:8px;">Manages social insurance scheme. Employer and employee registration, contribution collection, benefit administration.</p>
+              <p><strong>Website:</strong> <a href="https://www.stlucianic.org" target="_blank">stlucianic.org</a></p>
+              <p><strong>Location:</strong> Castries (head office), district offices island-wide</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Saint Lucia Customs &amp; Excise Department</h4>
+              <span class="badge badge-primary">Customs</span>
+              <p style="margin-top:8px;">Handles import/export clearance, duty collection, trade facilitation, and border control.</p>
+              <p><strong>Website:</strong> <a href="https://customs.gov.lc" target="_blank">customs.gov.lc</a></p>
+              <p><strong>Locations:</strong> Castries (Port) and Vieux Fort (Airport)</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Financial Intelligence Authority (FIA)</h4>
+              <span class="badge badge-primary">AML/CFT Compliance</span>
+              <p style="margin-top:8px;">Oversees anti-money laundering and counter-terrorism financing compliance. Receives suspicious transaction reports from financial institutions.</p>
+              <p><strong>Website:</strong> <a href="https://www.slufia.com/" target="_blank">slufia.com</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Trade Export Promotion Agency (TEPA)</h4>
+              <span class="badge badge-accent">Export Promotion</span>
+              <p style="margin-top:8px;">Promotes Saint Lucian exports, assists exporters with market access, trade fairs, and export documentation.</p>
+              <p><strong>Website:</strong> <a href="https://www.tepa.org.lc" target="_blank">tepa.org.lc</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Development Control Authority (DCA)</h4>
+              <span class="badge badge-primary">Planning &amp; Permits</span>
+              <p style="margin-top:8px;">Issues building permits, handles zoning, physical planning, and environmental impact assessments.</p>
+              <p><strong>Location:</strong> Castries</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Government of Saint Lucia Web Portal</h4>
+              <span class="badge badge-primary">Official Portal</span>
+              <p style="margin-top:8px;">Central government website with access to services, forms, and information across all ministries.</p>
+              <p><strong>Website:</strong> <a href="https://www.govt.lc" target="_blank">govt.lc</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Saint Lucia Chamber of Commerce, Industry &amp; Agriculture</h4>
+              <span class="badge badge-accent">Business Association</span>
+              <p style="margin-top:8px;">The main business organization. Networking, advocacy, business support, trade missions.</p>
+              <p><strong>Website:</strong> <a href="https://www.stluciachamber.org" target="_blank">stluciachamber.org</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Saint Lucia Hotel &amp; Tourism Association (SLHTA)</h4>
+              <span class="badge badge-accent">Tourism Association</span>
+              <p style="margin-top:8px;">Represents the tourism private sector. Advocacy, training, marketing, and member services.</p>
+              <p><strong>Website:</strong> <a href="https://www.slhta.org" target="_blank">slhta.org</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BANKS TAB -->
+      <div id="tab-banks" class="tab-content">
+        <h3 style="margin-bottom:16px;">Banks &amp; Financial Institutions</h3>
+        <div class="info-box" style="margin-bottom:20px;">
+          <h4>Banking Overview</h4>
+          <p>Saint Lucia has 5 commercial banks supervised by the ECCB, plus international banks, a development bank, and 16 credit unions. The EC Dollar is pegged at XCD 2.70 = USD 1.00 since 1976. No exchange controls &mdash; funds can be freely converted and repatriated. The <strong>Bankers Association of St. Lucia (BASL)</strong> represents 10 member institutions.</p>
+        </div>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Bank of Saint Lucia (BOSL)</h4>
+              <span class="badge badge-primary">Local Bank &mdash; Largest</span>
+              <p style="margin-top:8px;">The largest locally incorporated commercial bank, formed in 2001 from the merger of St. Lucia Co-operative Bank and National Commercial Bank. Full retail and corporate banking, investment banking division, mobile banking, DCash integration, and extensive POS network including wireless "Swipe on the Go" terminals.</p>
+              <p><strong>Branches:</strong> 5 (Bridge St Castries, Waterfront Castries, Gros Islet, Vieux Fort, Soufriere) + Hewanorra Airport bureau de change</p>
+              <p><strong>ATMs:</strong> 30 island-wide (branches, Massy Stores, malls, casino)</p>
+              <p><strong>Website:</strong> <a href="https://www.bankofsaintlucia.com" target="_blank">bankofsaintlucia.com</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">1st National Bank St. Lucia Limited</h4>
+              <span class="badge badge-primary">Local Bank &mdash; Est. 1938</span>
+              <p style="margin-top:8px;">Oldest national bank (founded 1938 as St. Lucia Cooperative Bank). Acquired RBC's Saint Lucia operations in April 2021. Twice named "Bank of the Year" by the Financial Times. Operates a dedicated <strong>MSME Competency Unit</strong> &mdash; the only bank with a specialised SME unit. First bank to introduce mobile banking in Saint Lucia.</p>
+              <p><strong>Website:</strong> <a href="https://1stnationalbankonline.com" target="_blank">1stnationalbankonline.com</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">CIBC Caribbean</h4>
+              <span class="badge badge-accent">International Bank (Canada)</span>
+              <p style="margin-top:8px;">Subsidiary of Canadian Imperial Bank of Commerce. Presence in St. Lucia since 1837. Formed in 2002 (merger of Barclays/CIBC Caribbean ops). Rebranded from CIBC FirstCaribbean to <strong>CIBC Caribbean in January 2024</strong>. Corporate banking, retail banking, wealth management, credit cards, treasury, and capital markets.</p>
+              <p><strong>Website:</strong> <a href="https://www.cibccaribbean.com" target="_blank">cibccaribbean.com</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Republic Bank (EC) Limited</h4>
+              <span class="badge badge-accent">Regional Bank (Trinidad)</span>
+              <p style="margin-top:8px;">Subsidiary of Republic Financial Holdings (Trinidad). Acquired Scotiabank's Eastern Caribbean operations in October 2019 for US$123M. <strong>Head office for all EC operations in Saint Lucia</strong>. Full retail and commercial banking. No jobs lost in acquisition.</p>
+              <p><strong>Website:</strong> <a href="https://www.republicbankstlucia.com" target="_blank">republicbankstlucia.com</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">First Citizens (St. Lucia) Limited</h4>
+              <span class="badge badge-accent">Regional Bank (Trinidad)</span>
+              <p style="margin-top:8px;">Subsidiary of First Citizens Group, Trinidad. Personal, business, and corporate banking. Investment services through First Citizens Investment Services Ltd (Caribbean's largest full-service securities trading company, partnered with Pershing LLC/BNY Mellon). Trustee services for pensions and funds.</p>
+              <p><strong>Website:</strong> <a href="https://www.firstcitizensgroup.com/lc" target="_blank">firstcitizensgroup.com/lc</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">PROVEN Bank (Saint Lucia) Limited</h4>
+              <span class="badge badge-success">International Bank &mdash; Class A License</span>
+              <p style="margin-top:8px;">Holds a Class A international banking license. Originally Bank of Saint Lucia International Limited, acquired by PROVEN Investments. Serves IBCs and international clients with multicurrency accounts, money market accounts, term deposits, credit cards, and international wire transfers.</p>
+              <p><strong>Website:</strong> <a href="https://stlucia.provenbank.com" target="_blank">stlucia.provenbank.com</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Hermes Bank Limited</h4>
+              <span class="badge badge-success">International Bank &mdash; Class A License</span>
+              <p style="margin-top:8px;">Class A international banking license (registered 2012). 24/7 online banking, multicurrency accounts (USD, EUR, GBP, CNY, RUB), personal and current accounts, term deposits. Popular with CBI investors and international clients.</p>
+              <p><strong>Website:</strong> <a href="https://www.hermesbank.com" target="_blank">hermesbank.com</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Eastern Caribbean Central Bank (ECCB)</h4>
+              <span class="badge badge-primary">Central Bank &mdash; Regional</span>
+              <p style="margin-top:8px;">Monetary authority for 8 ECCU states. Manages the XCD currency (pegged to USD at 2.70:1 since 1976). Supervises commercial banks. Operates the Regional Government Securities Market. DCash 2.0 (retail CBDC) anticipated 2026. Foreign reserves: ~EC$5.4B (98%+ backing ratio; statutory minimum 60%).</p>
+              <p><strong>Website:</strong> <a href="https://www.eccb-centralbank.org" target="_blank">eccb-centralbank.org</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Saint Lucia Development Bank (SLDB)</h4>
+              <span class="badge badge-success">Development Finance</span>
+              <p style="margin-top:8px;">Government-owned statutory corporation (est. 2009). Financing for agriculture, fisheries, housing, education, tourism, industry, SME development, and renewable energy. Accredited Green Climate Fund entity.</p>
+              <p><strong>Website:</strong> <a href="https://www.sldb.lc" target="_blank">sldb.lc</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Financial Services Regulatory Authority (FSRA)</h4>
+              <span class="badge badge-primary">Regulator</span>
+              <p style="margin-top:8px;">Independent statutory body (est. 2014) regulating non-bank financial institutions: insurance companies, credit unions, money services businesses, pension funds, international banks, IBCs, mutual funds, and registered agents. 5 classes of money services licenses (remittance, currency exchange, cheque cashing, payment instruments, micro-lending).</p>
+              <p><strong>Website:</strong> <a href="https://www.fsrastlucia.org" target="_blank">fsrastlucia.org</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- LAW FIRMS TAB -->
+      <div id="tab-legal" class="tab-content">
+        <h3 style="margin-bottom:16px;">Law Firms</h3>
+        <div class="info-box" style="margin-bottom:20px;">
+          <h4>Finding the Right Law Firm</h4>
+          <p>Saint Lucia has well-established law firms with expertise in corporate, commercial, real estate, banking, intellectual property, and CBI matters. The <a href="http://barassociationslu.com" target="_blank">Bar Association of St. Lucia</a> can also provide referrals.</p>
+        </div>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">FOSTERS</h4>
+              <span class="badge badge-success">Full-Service Law Firm</span>
+              <p style="margin-top:8px;">One of the longest-serving and largest law firms in the Eastern Caribbean, founded in 1988. The only firm in Saint Lucia with two King's Counsel. Specializes in civil and commercial litigation, corporate law, insolvency, conveyancing, property development, banking and finance, construction, hotels and tourism, shipping, gaming, insurance, and securities.</p>
+              <p><strong>Managing Partner:</strong> Claire Greene-Malaykhan</p>
+              <p><strong>Website:</strong> <a href="https://www.fosters.law" target="_blank">fosters.law</a></p>
+              <p><strong>Address:</strong> Castries, Saint Lucia</p>
+              <p><strong>Phone:</strong> (758) 453-1100</p>
+              <p><strong>Fax:</strong> (758) 452-4940</p>
+              <p><strong>Email:</strong> contact@fosters.law</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Floissac, Du Boulay &amp; Thomas</h4>
+              <span class="badge badge-success">Band 1 Ranked &mdash; Lex Mundi Member</span>
+              <p style="margin-top:8px;">Built on almost 60 years of legal experience from the merger of Floissac Fleming &amp; Associates (est. 1960) and Deterville, Thomas &amp; Co (est. 2014). Ranked Band 1 for General Business Law by Chambers. Represents all commercial banks in Saint Lucia. Full-service, multi-specialty civil law practice with 12 lawyers.</p>
+              <p><strong>Managing Partner:</strong> Geoffrey Du Boulay</p>
+              <p><strong>Website:</strong> <a href="https://www.fdt.law" target="_blank">fdt.law</a></p>
+              <p><strong>Address:</strong> Quadrant Row, 9-11 Brazil Street, Castries (P.O. Box 722, LC04 101)</p>
+              <p><strong>Phone:</strong> (758) 452-2887 / 452-3250 / 455-2860</p>
+              <p><strong>Email:</strong> info@fdt.law</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">McNamara &amp; Co.</h4>
+              <span class="badge badge-success">Established 1975</span>
+              <p style="margin-top:8px;">One of St. Lucia's most respected law firms, established in 1975. Offers corporate/commercial services with 4 partners and various associates. Experienced in major receiverships and liquidations. Also operates McNamara Corporate Services for IBC formation and management.</p>
+              <p><strong>Website:</strong> <a href="https://mcnamara.lc" target="_blank">mcnamara.lc</a></p>
+              <p><strong>Address:</strong> 20 Micoud Street, P.O. Box 189, Castries</p>
+              <p><strong>Phone:</strong> (758) 452-2662</p>
+              <p><strong>Fax:</strong> (758) 452-3885</p>
+              <p><strong>Email:</strong> info@mcnamara.lc</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Gordon, Gordon &amp; Co.</h4>
+              <span class="badge badge-success">Intellectual Property Specialists</span>
+              <p style="margin-top:8px;">One of the foremost law firms in St Lucia. Attorneys at Law, Notaries Royal, and Patent &amp; Trademark Agents. Specializes in real estate, banking, and intellectual property law.</p>
+              <p><strong>Website:</strong> <a href="https://gordongordonandco.com" target="_blank">gordongordonandco.com</a></p>
+              <p><strong>Address:</strong> 10 Manoel Street, Castries</p>
+              <p><strong>Phone:</strong> (758) 452-2311</p>
+              <p><strong>Fax:</strong> (758) 453-1377</p>
+              <p><strong>Email:</strong> gordonsol@candw.lc</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Nicholas John &amp; Co.</h4>
+              <span class="badge badge-success">Established 1993 &mdash; CBI Expertise</span>
+              <p style="margin-top:8px;">Full-service law firm serving local, regional, and international clients for over 40 years. Special emphasis on corporate and commercial matters, intellectual property, banking and finance, fiduciary services, and real estate transactions. Also involved in Saint Lucia's Citizenship by Investment Programme.</p>
+              <p><strong>Principal:</strong> Nicholas John (LLB, London School of Economics)</p>
+              <p><strong>Website:</strong> <a href="https://saintlucialawyer.com" target="_blank">saintlucialawyer.com</a></p>
+              <p><strong>Address:</strong> Hewanorra House, Trou Garnier Financial Centre, Pointe Seraphine, P.O. Box 1209, Castries</p>
+              <p><strong>Phone:</strong> (758) 451-9237</p>
+              <p><strong>Email:</strong> info@saintlucialawyer.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Amicus Law Chambers</h4>
+              <span class="badge badge-success">Rodney Bay Office</span>
+              <p style="margin-top:8px;">A dynamic, full-service law firm with offices in Castries and head office in Rodney Bay. Offers corporate and commercial law services, litigation, conveyancing, and more.</p>
+              <p><strong>Website:</strong> <a href="https://amicus.legal" target="_blank">amicus.legal</a></p>
+              <p><strong>Address:</strong> Suite No. 2, Rodney Bayside Building, Rodney Bay</p>
+              <p><strong>Phone:</strong> (758) 453-7777</p>
+              <p><strong>Fax:</strong> (758) 453-3777</p>
+              <p><strong>Email:</strong> shervon@amicus.legal</p>
+              <p><strong>Hours:</strong> 8:30 AM &ndash; 4:30 PM, Mon&ndash;Fri</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Theodore &amp; Associates</h4>
+              <span class="badge badge-success">High Court &amp; Appellate Practice</span>
+              <p style="margin-top:8px;">A leading St Lucian law firm located in Castries offering a full range of civil law services, including conveyancing and representation at the High Court of Justice and at the appellate level.</p>
+              <p><strong>Website:</strong> <a href="https://tnalawyers.com" target="_blank">tnalawyers.com</a></p>
+              <p><strong>Address:</strong> 4 Mary Ann Street, P.O. Box 1635, Castries</p>
+              <p><strong>Phone:</strong> (758) 453-1320</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">RDM Chambers</h4>
+              <span class="badge badge-success">Specialized Practice</span>
+              <p style="margin-top:8px;">A specialized St. Lucian law firm offering services in civil litigation, corporate and commercial law, conveyancing, employment law, and intellectual property.</p>
+              <p><strong>Website:</strong> <a href="https://www.rdmchambers.com" target="_blank">rdmchambers.com</a></p>
+              <p><strong>Address:</strong> Castries, Saint Lucia</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ACCOUNTING TAB -->
+      <div id="tab-accounting" class="tab-content">
+        <h3 style="margin-bottom:16px;">Accounting &amp; Audit Firms</h3>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Grant Thornton St. Lucia</h4>
+              <span class="badge badge-accent">International Network</span>
+              <p style="margin-top:8px;">Member of one of the world's largest professional services networks. Provides assurance, tax, and advisory services to privately held businesses, public interest entities, and public sector entities in Saint Lucia.</p>
+              <p><strong>Website:</strong> <a href="https://www.grantthornton.lc" target="_blank">grantthornton.lc</a></p>
+              <p><strong>Address:</strong> Pointe Seraphine, P.O. Box 195, Castries</p>
+              <p><strong>Phone:</strong> (758) 456-2600</p>
+              <p><strong>Email:</strong> grantthornton@candw.lc</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">PKF St. Lucia</h4>
+              <span class="badge badge-accent">International Network &mdash; IBC Services</span>
+              <p style="margin-top:8px;">Multi-disciplinary professional advisory practice providing a complete and integrated range of audit, tax, finance, and business advisory services. Also operates PKF Corporate Services Ltd., a licensed IBC Registered Agent.</p>
+              <p><strong>Website:</strong> <a href="https://www.pkfcaribbean.com/st-lucia/" target="_blank">pkfcaribbean.com/st-lucia</a></p>
+              <p><strong>Address:</strong> 1st Floor, Meridian Place, Choc Estate, P.O. Box Choc 8245, Castries</p>
+              <p><strong>Phone:</strong> (758) 450-7777</p>
+              <p><strong>Email:</strong> pkf@pkf.lc</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">BDO Eastern Caribbean (Saint Lucia)</h4>
+              <span class="badge badge-accent">5th Largest Global Network</span>
+              <p style="margin-top:8px;">Member firm of BDO International, the fifth-largest accounting network worldwide. Provides assurance, accounting, tax, business advisory, valuations, M&amp;A support, and litigation support services.</p>
+              <p><strong>Website:</strong> <a href="https://www.bdoecc.com/en-gb/locations/bdo-saint-lucia" target="_blank">bdoecc.com</a></p>
+              <p><strong>Address:</strong> Mercury Court, Choc Estate, Highway 364, Castries</p>
+              <p><strong>Phone:</strong> (758) 452-2500</p>
+              <p><strong>Email:</strong> info@bdoecc.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Ernst &amp; Young (EY) Saint Lucia</h4>
+              <span class="badge badge-accent">Big Four</span>
+              <p style="margin-top:8px;">Global Big Four accounting firm with a Saint Lucia office providing audit, tax, advisory, and transaction services to local and international clients.</p>
+              <p><strong>Website:</strong> <a href="https://www.ey.com/en_us/locations/saint-lucia" target="_blank">ey.com (Saint Lucia)</a></p>
+              <p><strong>Address:</strong> 2nd Floor, Mardini Building, Rodney Bay, P.O. Box BW 368, Gros Islet</p>
+              <p><strong>Phone:</strong> (758) 458-4720/30</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">KPMG (Eastern Caribbean &mdash; Saint Lucia)</h4>
+              <span class="badge badge-accent">Big Four</span>
+              <p style="margin-top:8px;">Part of KPMG Islands Group and KPMG in Barbados and the Eastern Caribbean. Provides audit, tax, and advisory services to businesses in Saint Lucia.</p>
+              <p><strong>Address:</strong> Rodney Bay, Gros Islet</p>
+              <p><strong>Phone:</strong> (758) 453-1471</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Strachan Thorpe &amp; Associates</h4>
+              <span class="badge badge-primary">Local Chartered Accountants</span>
+              <p style="margin-top:8px;">Chartered accountants offering a wide range of professional accounting services including audit and business assurance, budget and financial forecasting, bookkeeping, and management consulting.</p>
+              <p><strong>Location:</strong> Castries, Saint Lucia</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Felix Chitolie Tax &amp; Management Consultants</h4>
+              <span class="badge badge-primary">Tax Specialists</span>
+              <p style="margin-top:8px;">Comprehensive financial services firm emphasizing tax planning and preparation, accounting services, and training for individuals and businesses in Saint Lucia.</p>
+              <p><strong>Location:</strong> Castries, Saint Lucia</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- REAL ESTATE TAB -->
+      <div id="tab-realestate" class="tab-content">
+        <h3 style="margin-bottom:16px;">Real Estate Agencies</h3>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Terra Caribbean (Saint Lucia)</h4>
+              <span class="badge badge-success">80+ Years Combined Experience</span>
+              <p style="margin-top:8px;">Founded in 2017 through the merger of Tropical Villas (Saint Lucia) Ltd. and Home Services Ltd. Over 80 years of combined experience in property sales, rentals, management, and valuations. Helps clients find office space, commercial premises, and residential property.</p>
+              <p><strong>Managing Director:</strong> Marella Devaux</p>
+              <p><strong>Website:</strong> <a href="https://www.terracaribbean.com/St-Lucia/" target="_blank">terracaribbean.com/St-Lucia</a></p>
+              <p><strong>Phone:</strong> (758) 721-7542</p>
+              <p><strong>Email:</strong> marella.devaux@terracaribbean.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Paradise Properties St. Lucia</h4>
+              <span class="badge badge-success">Sales &amp; Rentals</span>
+              <p style="margin-top:8px;">Established real estate agency offering property listings across Saint Lucia for residential, commercial, and land purchases, as well as vacation and long-term rentals.</p>
+              <p><strong>Website:</strong> <a href="https://paradisepropertiesstlucia.com" target="_blank">paradisepropertiesstlucia.com</a></p>
+              <p><strong>Phone:</strong> (758) 451-4663 / (758) 712-6623</p>
+              <p><strong>Email:</strong> info@paradisepropertiesstlucia.com</p>
+              <p><strong>Address:</strong> P.O. Box 800, Saint Lucia</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Coral Reef Real Estate</h4>
+              <span class="badge badge-success">Sales &amp; Villa Rentals</span>
+              <p style="margin-top:8px;">Specializes in property sales, commercial properties, commercial rentals, and luxury villa rentals across Saint Lucia.</p>
+              <p><strong>Website:</strong> <a href="https://coralreefstlucia.com" target="_blank">coralreefstlucia.com</a></p>
+              <p><strong>Phone/WhatsApp:</strong> (758) 717-2909</p>
+              <p><strong>Email:</strong> info@coralreefstlucia.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Realty St. Lucia / Micha Landers</h4>
+              <span class="badge badge-success">Luxury &amp; Investment Properties</span>
+              <p style="margin-top:8px;">Premier St. Lucia real estate agent specializing in high-end homes and investment properties. Founded by Micha Landers. Covers all districts including Soufriere, Rodney Bay, Cap Estate, Castries, and more.</p>
+              <p><strong>Website:</strong> <a href="https://realtystlucia.com" target="_blank">realtystlucia.com</a></p>
+              <p><strong>Address:</strong> Bay Street, Soufriere</p>
+              <p><strong>Phone:</strong> (758) 730-1772</p>
+              <p><strong>Email:</strong> info@realtystlucia.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">St. Lucia Homes</h4>
+              <span class="badge badge-success">Land &amp; Commercial Sales</span>
+              <p style="margin-top:8px;">One of the leading real estate companies in St. Lucia with years of experience locally and regionally. Wide range of services including land, commercial and house sales, short-term and long-term rentals for vacation properties, commercial properties, and houses.</p>
+              <p><strong>Website:</strong> <a href="https://stlucia-homes.com" target="_blank">stlucia-homes.com</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Roseville Real Estate Services</h4>
+              <span class="badge badge-success">18 Years Experience</span>
+              <p style="margin-top:8px;">Leading realtor in St. Lucia with eighteen years of experience. Expert realtor Welcome St Rose assists with residential and commercial property transactions across the island.</p>
+              <p><strong>Website:</strong> <a href="https://www.rosevillestlucia.com" target="_blank">rosevillestlucia.com</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">St. Lucia Great Property Deals</h4>
+              <span class="badge badge-success">One-Stop Property Service</span>
+              <p style="margin-top:8px;">Specializes in luxury homes, condos, land, and commercial properties. Offers complete one-stop service for buying, selling, or renting residential, commercial, touristic, industrial, or agricultural property.</p>
+              <p><strong>Website:</strong> <a href="https://stluciagreatpropertydeals.com" target="_blank">stluciagreatpropertydeals.com</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- IBC REGISTERED AGENTS TAB -->
+      <div id="tab-ibc" class="tab-content">
+        <h3 style="margin-bottom:16px;">IBC Registered Agents</h3>
+        <div class="info-box" style="margin-bottom:20px;">
+          <h4>About IBC Registered Agents</h4>
+          <p>All International Business Companies (IBCs) in Saint Lucia must have a licensed Registered Agent and Registered Office. The office of the Registered Agent serves as the Registered Office. A full list of approved agents is on the <a href="https://www.saintluciaifc.com/professional_directory/lra.htm" target="_blank">Pinnacle St. Lucia Registry</a>.</p>
+        </div>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Colonial Trust Company Ltd.</h4>
+              <span class="badge badge-accent">Licensed Registered Agent &amp; Trustee</span>
+              <p style="margin-top:8px;">Provides a broad range of Registered Trustee and Registered Agent services. Comprehensive assistance with formation of IBCs, International Mutual Funds (IMFs), and International Business Trusts (IBTs). Experienced in serving clients within and outside of Saint Lucia and the Caribbean.</p>
+              <p><strong>Website:</strong> <a href="https://thecolonialtrust.com" target="_blank">thecolonialtrust.com</a></p>
+              <p><strong>Address:</strong> Suite No. 2, Rodney Bayside Building, Rodney Bay, Gros Islet</p>
+              <p><strong>Phone:</strong> (758) 453-7777</p>
+              <p><strong>Email:</strong> info@thecolonialtrust.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">McNamara Corporate Services Inc.</h4>
+              <span class="badge badge-accent">IBC Formation &amp; Management</span>
+              <p style="margin-top:8px;">Affiliated with McNamara &amp; Co. law firm. Provides St Lucia IBC formation and management services, structuring of international banks, mutual funds, and captive insurance companies. Full corporate administration services.</p>
+              <p><strong>Contact:</strong> Rhory McNamara</p>
+              <p><strong>Website:</strong> <a href="https://www.mcnamaracorp.com" target="_blank">mcnamaracorp.com</a></p>
+              <p><strong>Address:</strong> 20 Micoud Street, P.O. Box 189, Castries</p>
+              <p><strong>Phone:</strong> (758) 452-2662</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">FortGate Offshore Investment &amp; Legal Services Ltd.</h4>
+              <span class="badge badge-accent">Licensed Registered Agent</span>
+              <p style="margin-top:8px;">Licensed as a Registered Agent under the Registered Agents and Trade Licensing Act of Saint Lucia. Provides offshore company incorporation, registration, and financial services. Also maintains a London office.</p>
+              <p><strong>Website:</strong> <a href="http://www.fortgateoffshore.com" target="_blank">fortgateoffshore.com</a></p>
+              <p><strong>Address:</strong> 1st Floor, The Sotheby Building, Rodney Bay, Gros Islet, P.O. Box 838, Castries</p>
+              <p><strong>Phone:</strong> (758) 285-7447</p>
+              <p><strong>Email:</strong> info@fortgateoffshore.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">PKF Corporate Services Ltd.</h4>
+              <span class="badge badge-accent">Licensed Registered Agent</span>
+              <p style="margin-top:8px;">Affiliated with PKF St. Lucia accounting firm. Licensed IBC Registered Agent providing company formation, registered office, corporate administration, and compliance services.</p>
+              <p><strong>Contact:</strong> J. Wendell Skeete</p>
+              <p><strong>Address:</strong> Meridian Place, Choc Estate, P.O. Box 201, Castries</p>
+              <p><strong>Phone:</strong> (758) 450-7777</p>
+              <p><strong>Email:</strong> corporate@pkf.lc</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- INSURANCE TAB -->
+      <div id="tab-insurance" class="tab-content">
+        <h3 style="margin-bottom:16px;">Insurance Companies</h3>
+        <div class="info-box" style="margin-bottom:20px;">
+          <h4>Insurance Regulation</h4>
+          <p>Insurance in Saint Lucia is regulated by the <a href="https://icslu.com/companies" target="_blank">Insurance Council of St. Lucia</a>. Full list of licensed companies available on their website.</p>
+        </div>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Sagicor (Life &amp; General)</h4>
+              <span class="badge badge-primary">Life, Health, Motor, Home, Travel</span>
+              <p style="margin-top:8px;">One of the leading financial services companies in Saint Lucia. Provides life insurance, individual and group health insurance, car/auto insurance, home insurance, travel insurance, accident insurance, and employee benefits.</p>
+              <p><strong>Website:</strong> <a href="https://www.sagicor.com/en-lc" target="_blank">sagicor.com/en-lc</a></p>
+              <p><strong>Sagicor Life:</strong> Choc Estate, Castries, P.O. Box 1264 &mdash; Phone: (758) 456-1700</p>
+              <p><strong>Sagicor General:</strong> Sagicor Financial Centre, Choc Estate, Castries &mdash; Phone: (758) 452-0994</p>
+              <p><strong>Contact Centre:</strong> 467-7707</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Jeffrey &amp; Jeffrey Ltd. (Guardian Agent)</h4>
+              <span class="badge badge-primary">Motor, Property, Homeowners, Life &amp; Health</span>
+              <p style="margin-top:8px;">Proud agent of both Guardian General Insurance and Guardian Life. Specializes in all classes of general insurance including motor, commercial property, homeowners insurance, and services a large individual and group life &amp; health insurance portfolio.</p>
+              <p><strong>Address:</strong> 18 Micoud Street, Castries</p>
+              <p><strong>Phone:</strong> (758) 452-3892 / (758) 456-0972</p>
+              <p><strong>Email:</strong> jeffrey@candw.lc</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">CG United Insurance (Saint Lucia)</h4>
+              <span class="badge badge-primary">Property &amp; Casualty, Motor, Cargo</span>
+              <p style="margin-top:8px;">A leading regional provider of property and casualty insurance. Offers car insurance, home and contents insurance, commercial property, cargo insurance, and more.</p>
+              <p><strong>Website:</strong> <a href="https://lc.cgcoralisle.com" target="_blank">lc.cgcoralisle.com</a></p>
+              <p><strong>Castries Office:</strong> J.E. Bergasse Building, Vide Bouteille &mdash; Phone: (758) 456-6560</p>
+              <p><strong>Vieux Fort Office:</strong> 2nd Floor, Vieux Fort Mall, New Dock Road &mdash; Phone: (758) 454-8515</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">NAGICO (St. Lucia) Limited</h4>
+              <span class="badge badge-primary">General Insurance</span>
+              <p style="margin-top:8px;">Regional insurer operating across the Caribbean. Provides motor, property, liability, and commercial insurance in Saint Lucia.</p>
+              <p><strong>Website:</strong> <a href="https://www.nagico.com" target="_blank">nagico.com</a></p>
+              <p><strong>Address:</strong> Nagico Building, P.O. Box RB 2766, Reduit, Gros Islet</p>
+              <p><strong>Phone:</strong> (758) 458-2300</p>
+              <p><strong>Email:</strong> info.stlucia@nagico.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">EC Global Insurance Agency</h4>
+              <span class="badge badge-primary">General Insurance</span>
+              <p style="margin-top:8px;">Insurance company providing a range of general insurance products to individuals and businesses in Saint Lucia.</p>
+              <p><strong>Website:</strong> <a href="https://www.ecglobalinsurance.com" target="_blank">ecglobalinsurance.com</a></p>
+              <p><strong>Address:</strong> #1 Bridge Street, P.O. Box 1860, Castries (1st Floor, Financial Centre Building)</p>
+              <p><strong>Phone:</strong> (758) 451-3244</p>
+              <p><strong>Email:</strong> ecglobal@ecfh.com</p>
+              <p><strong>Managing Director:</strong> Leathon B. Khan</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">St. Lucia Motor &amp; General Insurance Co. Ltd.</h4>
+              <span class="badge badge-primary">Motor &amp; General Insurance</span>
+              <p style="margin-top:8px;">A truly indigenous company registered and operating under the Commercial Code of St Lucia, incorporated in 1988. Known for speedy settlement of claims, courteous services, competitive rates, and knowledgeable staff.</p>
+              <p><strong>Address:</strong> 38 Micoud Street, P.O. Box 767, Castries</p>
+              <p><strong>Phone:</strong> (758) 452-3323</p>
+              <p><strong>Managing Director:</strong> Lester Hippolyte</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SHIPPING & FREIGHT TAB -->
+      <div id="tab-shipping" class="tab-content">
+        <h3 style="margin-bottom:16px;">Shipping &amp; Freight</h3>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">CMA CGM St. Lucia Ltd.</h4>
+              <span class="badge badge-accent">International Container Shipping</span>
+              <p style="margin-top:8px;">100% owned subsidiary of the CMA CGM Group (one of the world's largest container shipping lines). Started as Caribbean General Maritime Ltd in 1992 in Castries. Handles container shipping, ocean freight, and logistics.</p>
+              <p><strong>Website:</strong> <a href="https://www.cma-cgm.com/local/saint-lucia" target="_blank">cma-cgm.com (Saint Lucia)</a></p>
+              <p><strong>Address:</strong> Hibiscus Crescent, Sans Souci, Castries</p>
+              <p><strong>Phone:</strong> (758) 451-7310</p>
+              <p><strong>Fax:</strong> (758) 451-7306</p>
+              <p><strong>Email:</strong> slu.genmbox@cma-cgm.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Tropical Shipping St. Lucia Ltd.</h4>
+              <span class="badge badge-accent">Caribbean Cargo</span>
+              <p style="margin-top:8px;">Major Caribbean shipping line providing regular container and cargo service to Saint Lucia from the USA and other Caribbean ports.</p>
+              <p><strong>Website:</strong> <a href="https://www.tropical.com" target="_blank">tropical.com</a></p>
+              <p><strong>Address:</strong> Cnr of Manoel &amp; Jeremie Streets, WIBDECO Building, P.O. Box 1211, Castries</p>
+              <p><strong>Phone:</strong> (758) 457-0900</p>
+              <p><strong>Email:</strong> stluciasales@tropical.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">M&amp;C Shipping (Minvielle &amp; Chastanet Group)</h4>
+              <span class="badge badge-accent">Shipping Agents &mdash; Est. 1864</span>
+              <p style="margin-top:8px;">Part of the M&amp;C Group, one of Saint Lucia's oldest businesses (founded 1864). Provides shipping agency services, port handling, and logistics from their Bridge Street headquarters.</p>
+              <p><strong>Website:</strong> <a href="https://themandcgroup.com" target="_blank">themandcgroup.com</a></p>
+              <p><strong>Address:</strong> 9-11 Bridge Street, P.O. Box 99, Castries</p>
+              <p><strong>Phone:</strong> (758) 458-8000</p>
+              <p><strong>Email:</strong> mcshipping@mandcgroup.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">West Indies Shipping &amp; Trading Co. Ltd.</h4>
+              <span class="badge badge-accent">Freight &amp; Trading</span>
+              <p style="margin-top:8px;">Provides shipping, freight forwarding, and trading services from Castries, handling both import and export cargo for Saint Lucia.</p>
+              <p><strong>Website:</strong> <a href="https://www.westindiesshipping.com" target="_blank">westindiesshipping.com</a></p>
+              <p><strong>Address:</strong> P.O. Box 1805, La Toc Road, Castries</p>
+              <p><strong>Phone:</strong> (758) 459-0444 / 453-7493 / 454-3226</p>
+              <p><strong>Fax:</strong> (758) 459-0477</p>
+              <p><strong>Email:</strong> stl@westindiesshipping.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Geest Line</h4>
+              <span class="badge badge-accent">UK &amp; Europe Service</span>
+              <p style="margin-top:8px;">Sails regularly from Portsmouth (UK) and Flushing (Netherlands) to the port of Castries. Offers all cargo types including dry, reefer, special equipment, LCL chilled, and break bulk including out-of-gauge cargoes.</p>
+              <p><strong>Website:</strong> <a href="https://www.geestline.com" target="_blank">geestline.com</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Superior Shipping Services Ltd.</h4>
+              <span class="badge badge-accent">Customs Brokerage &amp; Freight</span>
+              <p style="margin-top:8px;">Offers air freight, customs brokerage, and ocean freight services from their Castries office. Handles import/export clearance and logistics.</p>
+              <p><strong>Website:</strong> <a href="https://superiorshipping.com" target="_blank">superiorshipping.com</a></p>
+              <p><strong>Address:</strong> Hospital Road, P.O. Box CP5333, Conway, Castries LC04 301</p>
+              <p><strong>Phone:</strong> (758) 458-1590 / 456-0458</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BUSINESS SERVICES TAB -->
+      <div id="tab-business" class="tab-content">
+        <h3 style="margin-bottom:16px;">Business Services: Recruitment, IT &amp; Construction</h3>
+
+        <h4 style="margin:24px 0 12px; color:var(--primary);">Recruitment &amp; HR Agencies</h4>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Mampa Employment Agency</h4>
+              <span class="badge badge-success">Established 2002</span>
+              <p style="margin-top:8px;">Over 15 years' experience in job recruitment and training. Specializes in the hospitality industry (cruise ships, hotels, restaurants, casinos) and has broadened to land-based international employment across the Caribbean. Offers training in Hospitality, Business, and Health.</p>
+              <p><strong>Website:</strong> <a href="http://mampaagencyltd.com" target="_blank">mampaagencyltd.com</a></p>
+              <p><strong>Address:</strong> 39 Brazil Street, Castries</p>
+              <p><strong>Phone:</strong> (758) 451-6163</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Hired Caribbean</h4>
+              <span class="badge badge-success">Digital Recruitment Platform</span>
+              <p style="margin-top:8px;">Connects job seekers to opportunities across the Caribbean via a daily-updated website. Weekly email blasts to a database of over 50,000 people. Provides access to jobs, scholarships, tenders, consultancies, and more. Efficient recruitment system for employers.</p>
+              <p><strong>Website:</strong> <a href="https://hiredcaribbean.com" target="_blank">hiredcaribbean.com</a></p>
+              <p><strong>Phone:</strong> (758) 726-3950</p>
+              <p><strong>Email:</strong> jobs@hiredcaribbean.com</p>
+            </div>
+          </div>
+
+        </div>
+
+        <h4 style="margin:24px 0 12px; color:var(--primary);">IT &amp; Technology Service Providers</h4>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">eMagine Solutions Inc.</h4>
+              <span class="badge badge-accent">Software Development &amp; Web Design</span>
+              <p style="margin-top:8px;">Software development and web application company based in Saint Lucia. Specializes in creating mobile-first, responsive software applications. Services include enterprise software development, custom web development, UI/UX design, responsive web design, integrations, site testing, maintenance, and administration.</p>
+              <p><strong>Website:</strong> <a href="https://emagine.lc/n/" target="_blank">emagine.lc</a></p>
+              <p><strong>Phone:</strong> (758) 287-9788</p>
+              <p><strong>Email:</strong> info@emagine.lc</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">CNSS Inc.</h4>
+              <span class="badge badge-accent">IT Solutions &amp; Certifications</span>
+              <p style="margin-top:8px;">Saint Lucia's leading IT solutions consultants and IT certification center. Services include data recovery, hardware repairs and maintenance, IT policy development, internal network servicing and redesign, and security solutions (CCTV). Also a Cisco-certified partner.</p>
+              <p><strong>Website:</strong> <a href="https://www.cnssinc.com" target="_blank">cnssinc.com</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">RedFin Ltd.</h4>
+              <span class="badge badge-accent">IT Infrastructure &amp; Solutions</span>
+              <p style="margin-top:8px;">Dedicated to providing St. Lucia and the wider Caribbean with competent and up-to-date IT solutions. Assesses client setups, IT requirements, and proposes customized solutions. Also offers real estate and construction services.</p>
+              <p><strong>Website:</strong> <a href="https://redfin.lc" target="_blank">redfin.lc</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">itel International (Saint Lucia)</h4>
+              <span class="badge badge-accent">BPO / Contact Center / CX</span>
+              <p style="margin-top:8px;">Major BPO (Business Process Outsourcing) and contact center operator with 3,500+ employees across 6 countries. Operates three sites in the Hewanorra Free Zone in Vieux Fort. Provides customer experience services in Legal, FinTech, Web Services, and Medical sectors using their proprietary itelligence platform.</p>
+              <p><strong>Website:</strong> <a href="https://www.itelinternational.com/locations/caribbean/saint-lucia/" target="_blank">itelinternational.com</a></p>
+              <p><strong>Address:</strong> HF4 Hewanorra Free Zone, Vieux Fort</p>
+            </div>
+          </div>
+
+        </div>
+
+        <h4 style="margin:24px 0 12px; color:var(--primary);">Construction &amp; Engineering</h4>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Renee's Construction Co. Ltd.</h4>
+              <span class="badge badge-primary">25+ Years Experience</span>
+              <p style="margin-top:8px;">One of the most established construction firms in St. Lucia with over 25 years of experience. Offers cost-effective civil engineering and construction engineering works. Growing portfolio from industrial to tourism/leisure projects.</p>
+              <p><strong>Website:</strong> <a href="https://reneesconstruction.com" target="_blank">reneesconstruction.com</a></p>
+              <p><strong>Phone:</strong> (758) 452-1681</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">ECMC Ltd.</h4>
+              <span class="badge badge-primary">Engineering Consultancy</span>
+              <p style="margin-top:8px;">Privately-owned multi-disciplinary company providing consulting services in civil, structural and forensic engineering; construction management; building surveying; commercial and residential property valuation; and project cycle management.</p>
+              <p><strong>Website:</strong> <a href="https://www.ecmcstlucia.com" target="_blank">ecmcstlucia.com</a></p>
+              <p><strong>Address:</strong> 1st Floor, Marie-Colette Building, #9 Lawjanv Crescent, Rodney Bay Commercial Blvd, Gros Islet, LC01 401</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Blueprint Construction Ltd. (Blueprint Group)</h4>
+              <span class="badge badge-primary">General Contractors</span>
+              <p style="margin-top:8px;">Established construction company operating in Gros Islet. Part of the Blueprint Group providing construction, project management, and related services across Saint Lucia.</p>
+              <p><strong>Website:</strong> <a href="https://blueprintslu.com" target="_blank">blueprintslu.com</a></p>
+              <p><strong>Address:</strong> Beausejour Road, Gros Islet</p>
+              <p><strong>Phone:</strong> (758) 730-2583 / 733-2583</p>
+              <p><strong>Email:</strong> info@blueprintslu.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">FDL Consult Inc.</h4>
+              <span class="badge badge-primary">Engineering &amp; Project Management</span>
+              <p style="margin-top:8px;">Engineering, architectural, and business consultancy firm incorporated in June 2004. Specializes in engineering consultancy, construction management, architectural design, property valuation, and solar photovoltaic system design and installation.</p>
+              <p><strong>Website:</strong> <a href="https://www.fdlconsultinc.com" target="_blank">fdlconsultinc.com</a></p>
+              <p><strong>Address:</strong> Gros Islet, Saint Lucia</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">RLB (Rider Levett Bucknall) &mdash; Saint Lucia</h4>
+              <span class="badge badge-primary">Quantity Surveying &amp; Project Management</span>
+              <p style="margin-top:8px;">Global quantity surveying and construction consulting firm with a Saint Lucia office. Provides cost management, project management, and advisory services for construction projects.</p>
+              <p><strong>Website:</strong> <a href="https://www.rlb.com/americas/offices/saint-lucia/" target="_blank">rlb.com (Saint Lucia)</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- HOTELS & CONFERENCE VENUES TAB -->
+      <div id="tab-hotels" class="tab-content">
+        <h3 style="margin-bottom:16px;">Hotels &amp; Conference Venues</h3>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Harbor Club, Curio Collection by Hilton</h4>
+              <span class="badge badge-success">7,000 sq ft Meeting Space</span>
+              <p style="margin-top:8px;">Modern Hilton-branded hotel in Rodney Bay with over 7,000 square feet of meeting and event space, including a 3,000 sq ft deck overlooking the harbor. 5 meeting rooms and a dedicated conference center. Suitable for business meetings, conferences, incentives, and corporate functions.</p>
+              <p><strong>Website:</strong> <a href="https://www.theharborclub.com" target="_blank">theharborclub.com</a></p>
+              <p><strong>Address:</strong> Rodney Bay, Gros Islet</p>
+              <p><strong>Phone:</strong> (758) 731-2900</p>
+              <p><strong>Toll Free:</strong> 1-877-244-8990</p>
+              <p><strong>Email:</strong> info@theharborclub.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Bay Gardens Resorts</h4>
+              <span class="badge badge-success">7 Conference Facilities</span>
+              <p style="margin-top:8px;">Collection of three hotels in Rodney Bay Village (Beach Resort &amp; Spa, Hotel, and Inn). Seven conference facilities including the Dolphins Conference Centre (up to 100 guests), Bougainvillea Conference Centre (1,680 sq ft with outdoor terrace), and Ixora Conference Centre (up to 100 guests). Preferred choice for local, regional, and international corporate clients.</p>
+              <p><strong>Website:</strong> <a href="https://www.baygardensresorts.com" target="_blank">baygardensresorts.com</a></p>
+              <p><strong>Address:</strong> Rodney Bay Village, Gros Islet</p>
+              <p><strong>Meetings:</strong> <a href="https://www.baygardensresorts.com/meetings-events/event-spaces-rfp" target="_blank">Event Spaces &amp; RFP</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Bel Jou Hotel</h4>
+              <span class="badge badge-success">Business-Oriented &mdash; Castries</span>
+              <p style="margin-top:8px;">Intimate business-oriented hotel perched on a hillside with panoramic Caribbean views on the outskirts of Castries, 5 minutes from George F.L. Charles Airport. Two meeting spaces: 900 sq ft (up to 100 banquet) and 2,000 sq ft (up to 275 auditorium/150 banquet). Wireless internet in meeting rooms.</p>
+              <p><strong>Website:</strong> <a href="https://www.beljouhotel.com" target="_blank">beljouhotel.com</a></p>
+              <p><strong>Address:</strong> La Pansee Road, Castries</p>
+              <p><strong>Phone:</strong> (758) 456-1800</p>
+              <p><strong>Toll Free:</strong> 1-888-207-3557</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Royalton Saint Lucia Resort &amp; Spa</h4>
+              <span class="badge badge-success">All-Inclusive &mdash; Conference Facilities</span>
+              <p style="margin-top:8px;">All-inclusive luxury resort in Gros Islet (now part of Marriott All-Inclusive). Features air-conditioned conference and banquet facilities with professional event planners on-site. Also includes the adults-only Hideaway at Royalton (166 luxury suites) for upscale corporate retreats and incentives.</p>
+              <p><strong>Website:</strong> <a href="https://www.royaltonsaintluciaresort.com" target="_blank">royaltonsaintluciaresort.com</a></p>
+              <p><strong>Phone:</strong> 1-888-774-0040</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Windjammer Landing Resort &amp; Residences</h4>
+              <span class="badge badge-success">Luxury &mdash; Leading Hotels of the World</span>
+              <p style="margin-top:8px;">Luxury all-inclusive resort nestled on 60 acres of Saint Lucia's northwest coast in Labrelotte Bay. Member of The Leading Hotels of the World. Suitable for corporate retreats, events, and meetings. Hillside villas with Caribbean views.</p>
+              <p><strong>Website:</strong> <a href="https://www.windjammer-landing.com" target="_blank">windjammer-landing.com</a></p>
+              <p><strong>Address:</strong> Labrelotte Bay, P.O. Box 1504, Castries</p>
+              <p><strong>Phone:</strong> (758) 456-9000</p>
+              <p><strong>Toll Free:</strong> 1-877-522-0722</p>
+              <p><strong>Email:</strong> reservations@windjammer-landing.com</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Sandals Grande St. Lucian Spa &amp; Beach Resort</h4>
+              <span class="badge badge-success">All-Inclusive &mdash; Meeting Space</span>
+              <p style="margin-top:8px;">Premium all-inclusive resort located six miles northwest of Castries in Gros Islet. Offers conference space and business facilities. Part of the Sandals chain with three properties on the island (Grande St. Lucian, Halcyon Beach, and Regency La Toc).</p>
+              <p><strong>Website:</strong> <a href="https://www.sandals.com/grande-st-lucian/" target="_blank">sandals.com/grande-st-lucian</a></p>
+              <p><strong>Phone:</strong> (758) 455-2000</p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Coco Palm Resort</h4>
+              <span class="badge badge-success">Boutique &mdash; Rodney Bay</span>
+              <p style="margin-top:8px;">Colonial-style boutique hotel with rich French Creole decor in Rodney Bay Village, a 7-minute walk from Reduit Beach. Offers meeting and event services, two restaurants (Creole Grill and Ti Bananne), and is popular with business travelers for its central location.</p>
+              <p><strong>Website:</strong> <a href="https://coco-resorts.com" target="_blank">coco-resorts.com</a></p>
+              <p><strong>Address:</strong> Rodney Bay Boulevard, Gros Islet, P.O. Box 605</p>
+              <p><strong>Phone:</strong> (758) 452-0712</p>
+              <p><strong>Email:</strong> reservations@coco-resort.com</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- UTILITIES & TELECOM TAB -->
+      <div id="tab-utilities" class="tab-content">
+        <h3 style="margin-bottom:16px;">Utilities &amp; Telecommunications</h3>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">LUCELEC (St. Lucia Electricity Services)</h4>
+              <span class="badge badge-primary">Electricity</span>
+              <p style="margin-top:8px;">Sole electricity provider. Apply for commercial connections for business premises.</p>
+              <p><strong>Website:</strong> <a href="https://www.lucelec.com" target="_blank">lucelec.com</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">WASCO (Water &amp; Sewerage Company)</h4>
+              <span class="badge badge-primary">Water</span>
+              <p style="margin-top:8px;">Water and sewerage services provider. Commercial connections available.</p>
+              <p><strong>Website:</strong> <a href="https://www.wascosaintlucia.com" target="_blank">wascosaintlucia.com</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Flow (Cable &amp; Wireless)</h4>
+              <span class="badge badge-accent">Telecom</span>
+              <p style="margin-top:8px;">Major telecom provider. Fixed line, broadband internet, mobile (4G LTE), and TV services.</p>
+              <p><strong>Website:</strong> <a href="https://discoverflow.co/saint-lucia" target="_blank">discoverflow.co/saint-lucia</a></p>
+            </div>
+          </div>
+
+          <div class="card" data-searchable>
+            <div class="card-body">
+              <h4 style="color:var(--primary);">Digicel</h4>
+              <span class="badge badge-accent">Telecom</span>
+              <p style="margin-top:8px;">Mobile and data services provider. 4G LTE network. Prepaid and postpaid plans. Business solutions.</p>
+              <p><strong>Website:</strong> <a href="https://www.digicelgroup.com/lc" target="_blank">digicelgroup.com/lc</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RELATED PAGES -->
+      <div style="margin-top:40px;padding-top:30px;border-top:2px solid var(--border);">
+        <h3 style="margin-bottom:16px;">Related Pages</h3>
+        <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+          <a href="business.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Business Setup</h4>
+            <p>Registration process &amp; requirements</p>
+          </a>
+          <a href="checklist.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Investment Checklist</h4>
+            <p>Step-by-step action plan</p>
+          </a>
+          <a href="map.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Map &amp; Districts</h4>
+            <p>Find locations on the map</p>
+          </a>
+          <a href="resources.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Resources</h4>
+            <p>External links &amp; official sites</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>St. Lucia Business Guide &mdash; Research-based guide. Verify all information with official sources. Last updated: February 2026.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

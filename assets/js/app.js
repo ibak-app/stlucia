@@ -1,0 +1,177 @@
+// ===== St. Lucia Business Guide - Main JS =====
+
+document.addEventListener('DOMContentLoaded', () => {
+  initNavToggle();
+  initTabs();
+  initAccordions();
+  initSearch();
+  highlightActiveNav();
+  initBackToTop();
+  initReadingProgress();
+  initSidebarScrollSpy();
+});
+
+// Mobile nav toggle
+function initNavToggle() {
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (!toggle || !links) return;
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+  });
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !links.contains(e.target)) {
+      links.classList.remove('open');
+    }
+  });
+}
+
+// Tab system
+function initTabs() {
+  document.querySelectorAll('.tabs').forEach(tabContainer => {
+    const buttons = tabContainer.querySelectorAll('.tab-btn');
+    const parent = tabContainer.parentElement;
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        parent.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+          if (content.id === target) content.classList.add('active');
+        });
+      });
+    });
+  });
+}
+
+// Accordion
+function initAccordions() {
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const body = item.querySelector('.accordion-body');
+      const inner = body.querySelector('.accordion-body-inner');
+      const isOpen = item.classList.contains('open');
+
+      // Close all in same group
+      const group = item.closest('.accordion-group');
+      if (group) {
+        group.querySelectorAll('.accordion-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.accordion-body').style.maxHeight = '0';
+        });
+      }
+
+      if (!isOpen) {
+        item.classList.add('open');
+        body.style.maxHeight = inner.scrollHeight + 'px';
+      }
+    });
+  });
+}
+
+// Search/filter
+function initSearch() {
+  const searchInput = document.querySelector('#search-input');
+  if (!searchInput) return;
+
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    const searchableItems = document.querySelectorAll('[data-searchable]');
+
+    searchableItems.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(query) || query === '' ? '' : 'none';
+    });
+
+    // Update result count if exists
+    const counter = document.querySelector('#search-count');
+    if (counter) {
+      const visible = document.querySelectorAll('[data-searchable]:not([style*="display: none"])').length;
+      counter.textContent = `${visible} result${visible !== 1 ? 's' : ''}`;
+    }
+  });
+}
+
+// Highlight current page in nav
+function highlightActiveNav() {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+      link.classList.add('active');
+    }
+  });
+}
+
+// Back to top button
+function initBackToTop() {
+  const btn = document.createElement('button');
+  btn.className = 'back-to-top';
+  btn.innerHTML = '&#9650;';
+  btn.setAttribute('aria-label', 'Back to top');
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  document.body.appendChild(btn);
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+}
+
+// Reading progress bar
+function initReadingProgress() {
+  const bar = document.createElement('div');
+  bar.className = 'reading-progress';
+  document.body.appendChild(bar);
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = progress + '%';
+  }, { passive: true });
+}
+
+// Sidebar scroll-spy
+function initSidebarScrollSpy() {
+  const sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
+
+  const links = sidebar.querySelectorAll('a[href^="#"]');
+  if (links.length === 0) return;
+
+  const sections = [];
+  links.forEach(link => {
+    const id = link.getAttribute('href').substring(1);
+    const section = document.getElementById(id);
+    if (section) sections.push({ link, section });
+  });
+
+  if (sections.length === 0) return;
+
+  function updateActive() {
+    const scrollPos = window.scrollY + 120;
+    let current = sections[0];
+
+    for (const item of sections) {
+      if (item.section.offsetTop <= scrollPos) {
+        current = item;
+      }
+    }
+
+    links.forEach(l => l.classList.remove('active'));
+    if (current) current.link.classList.add('active');
+  }
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+}
+
+// Utility: smooth scroll to element
+function scrollTo(selector) {
+  const el = document.querySelector(selector);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}

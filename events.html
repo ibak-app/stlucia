@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events &amp; Calendar - St. Lucia Business Guide</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .calendar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .event-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; transition: transform 0.3s; }
+    .event-card:hover { transform: translateY(-3px); }
+    .event-date { background: var(--primary); color: white; padding: 12px 16px; text-align: center; }
+    .event-date .month { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+    .event-date .day { font-size: 1.8rem; font-weight: 800; line-height: 1; }
+    .event-info { padding: 16px; }
+    .event-info h4 { margin-bottom: 6px; color: var(--primary-dark); }
+    .event-info p { font-size: 0.9rem; color: var(--text-light); }
+    .event-tag { display: inline-block; padding: 2px 8px; border-radius: 50px; font-size: 0.7rem; font-weight: 600; margin-top: 8px; }
+    .tag-holiday { background: #e74c3c22; color: #c0392b; }
+    .tag-festival { background: #8e44ad22; color: #8e44ad; }
+    .tag-business { background: #2980b922; color: #2980b9; }
+    .tag-sport { background: #27ae6022; color: #27ae60; }
+    .season-bar { display: flex; border-radius: var(--radius); overflow: hidden; height: 40px; margin-bottom: 24px; box-shadow: var(--shadow); }
+    .season-bar div { display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; color: white; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia Business Guide</a>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="overview.html">Overview</a>
+        <a href="business.html">Business</a>
+        <a href="legal.html">Legal &amp; Tax</a>
+        <a href="sectors.html">Sectors</a>
+        <a href="cbi.html">CBI</a>
+        <a href="living.html">Living</a>
+        <a href="events.html" class="active">Events</a>
+        <a href="map.html">Map</a>
+        <a href="directory.html">Directory</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" style="padding:50px 0 40px;">
+    <div class="container">
+      <h1>Events &amp; Calendar</h1>
+      <p>Public holidays, festivals, business events, and seasonal planning guide</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="page-layout">
+        <aside class="sidebar">
+          <h3>On This Page</h3>
+          <a href="#seasons">Tourism Seasons</a>
+          <a href="#holidays">Public Holidays</a>
+          <a href="#festivals">Festivals &amp; Events</a>
+          <a href="#business-events">Business Events</a>
+          <a href="#weekly">Weekly Events</a>
+          <a href="#planning">Seasonal Planning</a>
+          <a href="#culture">Business Culture</a>
+        </aside>
+
+        <div class="main-content">
+
+      <!-- TOURISM SEASONS -->
+      <div id="seasons" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">Tourism &amp; Business Seasons</h2>
+        <div class="season-bar">
+          <div style="background:#27ae60;flex:2;">Jan</div>
+          <div style="background:#2ecc71;flex:2;">Feb</div>
+          <div style="background:#27ae60;flex:2;">Mar</div>
+          <div style="background:#2ecc71;flex:2;">Apr</div>
+          <div style="background:#f39c12;flex:2;">May</div>
+          <div style="background:#e67e22;flex:2;">Jun</div>
+          <div style="background:#e74c3c;flex:2;">Jul</div>
+          <div style="background:#c0392b;flex:2;">Aug</div>
+          <div style="background:#e74c3c;flex:2;">Sep</div>
+          <div style="background:#e67e22;flex:2;">Oct</div>
+          <div style="background:#f39c12;flex:2;">Nov</div>
+          <div style="background:#27ae60;flex:2;">Dec</div>
+        </div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:0.85rem;">
+          <span><span style="display:inline-block;width:12px;height:12px;background:#27ae60;border-radius:3px;vertical-align:middle;"></span> High Season (Dec-Apr) &mdash; Peak tourism, highest hotel rates, best weather</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:#f39c12;border-radius:3px;vertical-align:middle;"></span> Shoulder (May-Jun, Nov) &mdash; Good deals, less crowded</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:#e74c3c;border-radius:3px;vertical-align:middle;"></span> Hurricane Season (Jul-Oct) &mdash; Lower rates, rain possible, some closures</span>
+        </div>
+      </div>
+
+      <!-- PUBLIC HOLIDAYS -->
+      <div id="holidays" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">Public Holidays 2025&ndash;2026</h2>
+
+        <h3 style="margin-bottom:12px;">2025 (13 Public Holidays)</h3>
+        <div class="table-wrapper" style="margin-bottom:24px;">
+          <table>
+            <thead>
+              <tr><th>Date</th><th>Day</th><th>Holiday</th><th>Type</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>January 1</td><td>Wednesday</td><td><strong>New Year's Day</strong></td><td>Fixed</td></tr>
+              <tr><td>January 2</td><td>Thursday</td><td><strong>Day After New Year's</strong></td><td>Fixed</td></tr>
+              <tr><td>February 22</td><td>Saturday</td><td><strong>Independence Day</strong></td><td>Fixed &mdash; 46th anniversary</td></tr>
+              <tr><td>April 18</td><td>Friday</td><td><strong>Good Friday</strong></td><td>Moveable (Easter)</td></tr>
+              <tr><td>April 21</td><td>Monday</td><td><strong>Easter Monday</strong></td><td>Moveable</td></tr>
+              <tr><td>May 1</td><td>Thursday</td><td><strong>Labour Day</strong></td><td>Fixed</td></tr>
+              <tr><td>June 9</td><td>Monday</td><td><strong>Whit Monday</strong></td><td>Moveable (49 days after Easter)</td></tr>
+              <tr><td>June 19</td><td>Thursday</td><td><strong>Corpus Christi</strong></td><td>Moveable (60 days after Easter)</td></tr>
+              <tr><td>August 1</td><td>Friday</td><td><strong>Emancipation Day</strong></td><td>Fixed &mdash; end of slavery</td></tr>
+              <tr><td>October 6</td><td>Monday</td><td><strong>Thanksgiving Day</strong></td><td>Fixed (1st Monday in October)</td></tr>
+              <tr><td>December 13</td><td>Saturday</td><td><strong>National Day (Saint Lucy's Day)</strong></td><td>Fixed &mdash; Festival of Lights</td></tr>
+              <tr><td>December 25</td><td>Thursday</td><td><strong>Christmas Day</strong></td><td>Fixed</td></tr>
+              <tr><td>December 26</td><td>Friday</td><td><strong>Boxing Day</strong></td><td>Fixed</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-bottom:12px;">2026 (13 Public Holidays + 2 In-Lieu Days)</h3>
+        <div class="table-wrapper" style="margin-bottom:24px;">
+          <table>
+            <thead>
+              <tr><th>Date</th><th>Day</th><th>Holiday</th><th>Type</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>January 1</td><td>Thursday</td><td><strong>New Year's Day</strong></td><td>Fixed</td></tr>
+              <tr><td>January 2</td><td>Friday</td><td><strong>Day After New Year's</strong></td><td>Fixed</td></tr>
+              <tr><td>February 22</td><td>Sunday</td><td><strong>Independence Day</strong></td><td>Fixed &mdash; 47th anniversary</td></tr>
+              <tr><td>February 23</td><td>Monday</td><td><strong>Independence Day (in lieu)</strong></td><td>Substitute</td></tr>
+              <tr><td>April 3</td><td>Friday</td><td><strong>Good Friday</strong></td><td>Moveable</td></tr>
+              <tr><td>April 6</td><td>Monday</td><td><strong>Easter Monday</strong></td><td>Moveable</td></tr>
+              <tr><td>May 1</td><td>Friday</td><td><strong>Labour Day</strong></td><td>Fixed</td></tr>
+              <tr><td>May 25</td><td>Monday</td><td><strong>Whit Monday</strong></td><td>Moveable</td></tr>
+              <tr><td>June 4</td><td>Thursday</td><td><strong>Corpus Christi</strong></td><td>Moveable</td></tr>
+              <tr><td>August 1</td><td>Saturday</td><td><strong>Emancipation Day</strong></td><td>Fixed</td></tr>
+              <tr><td>October 5</td><td>Monday</td><td><strong>Thanksgiving Day</strong></td><td>Fixed (1st Monday in October)</td></tr>
+              <tr><td>December 13</td><td>Sunday</td><td><strong>National Day</strong></td><td>Fixed</td></tr>
+              <tr><td>December 14</td><td>Monday</td><td><strong>National Day (in lieu)</strong></td><td>Substitute</td></tr>
+              <tr><td>December 25</td><td>Friday</td><td><strong>Christmas Day</strong></td><td>Fixed</td></tr>
+              <tr><td>December 26</td><td>Saturday</td><td><strong>Boxing Day</strong></td><td>Fixed</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box">
+          <h4>Business Impact</h4>
+          <p>Government offices, banks, and most businesses close on public holidays. <strong>When a fixed holiday falls on a Sunday, the following Monday is observed as the public holiday (in lieu).</strong> Moveable holidays (Good Friday, Easter Monday, Whit Monday, Corpus Christi) shift each year based on Easter. December is busy with multiple holidays &mdash; expect reduced business activity from mid-December through early January.</p>
+        </div>
+      </div>
+
+      <!-- MAJOR EVENTS -->
+      <div id="festivals" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">Major Annual Events &amp; Festivals</h2>
+        <div class="calendar-grid">
+
+          <div class="event-card" data-searchable>
+            <div class="event-date">
+              <div class="month">January</div>
+              <div class="day">10-12</div>
+            </div>
+            <div class="event-info">
+              <h4>Nobel Laureate Festival</h4>
+              <p>Celebrates Saint Lucia's two Nobel Laureates: Sir Derek Walcott (Literature, 1992) and Sir W. Arthur Lewis (Economics, 1979). Lectures, literary readings, cultural events, and school programmes.</p>
+              <span class="event-tag tag-festival">Festival</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date">
+              <div class="month">February</div>
+              <div class="day">21-22</div>
+            </div>
+            <div class="event-info">
+              <h4>Independence Day Celebrations</h4>
+              <p>National celebrations marking independence from Britain (1979). 2025 theme: <em>&ldquo;Douvan Ansanm &mdash; Health and Well-Being for a Prosperous Nation.&rdquo;</em> Flag raising &amp; fireworks at Heroes Park (Feb 21 evening), military parade at Mindoo Philip Park, &ldquo;Annou We-y&rdquo; afternoon parade through Castries, Seafood Festival.</p>
+              <span class="event-tag tag-holiday">Public Holiday</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#8e44ad;">
+              <div class="month">Apr-May</div>
+              <div class="day">30&ndash;11</div>
+            </div>
+            <div class="event-info">
+              <h4>Saint Lucia Jazz &amp; Arts Festival</h4>
+              <p>The premier jazz festival in the Caribbean. Main stage at <strong>Pigeon Island National Landmark</strong> (open-air waterside). 2025 headliners included John Legend, Earth Wind &amp; Fire, Summer Walker, and Samara Joy. &ldquo;Art &amp; The City&rdquo; transforms Castries into an open-air gallery with live art, spoken word, and folk performances. Peak hotel occupancy and excellent networking.</p>
+              <p style="font-size:0.8rem;margin-top:6px;"><strong>2025:</strong> Apr 30 &ndash; May 11 | <strong>2026:</strong> Apr 30 &ndash; May 10</p>
+              <span class="event-tag tag-festival">Festival</span> <span class="event-tag tag-business">Business Networking</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#e67e22;">
+              <div class="month">July</div>
+              <div class="day">1-23</div>
+            </div>
+            <div class="event-info">
+              <h4>Lucian Carnival</h4>
+              <p>The island's biggest event. National Carnival Queen Pageant, Groovy &amp; Power Soca Monarch, Calypso &amp; Panorama finals, J'Ouvert (dawn street party from 4 AM), and the Parade of the Bands through Castries. <strong>24,500 visitor arrivals</strong> during Carnival 2025 (36% increase over 2024). Additional flights added from Miami and New York to meet demand.</p>
+              <p style="font-size:0.8rem;margin-top:6px;"><strong>2025 Parade Days:</strong> Jul 21-22 | <strong>2026:</strong> Jul 20-21</p>
+              <span class="event-tag tag-festival">Festival</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#6c3483;">
+              <div class="month">August</div>
+              <div class="day">All Month</div>
+            </div>
+            <div class="event-info">
+              <h4>Chocolate Heritage Month</h4>
+              <p>Celebrating Saint Lucia's cacao heritage. Cocoa farm tours, resort chocolate-pairing packages, artisan chocolate workshops, and culinary experiences across the island.</p>
+              <span class="event-tag tag-festival">Festival</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#27ae60;">
+              <div class="month">August</div>
+              <div class="day">30</div>
+            </div>
+            <div class="event-info">
+              <h4>La Rose Festival (Gwan Fet Lawoz)</h4>
+              <p>Cultural celebration of the La Rose flower society (representing English/British influence). Members dress in red and process through communities with songs, dance, and feasting. UNESCO-recognised intangible cultural heritage.</p>
+              <span class="event-tag tag-festival">Cultural</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#2980b9;">
+              <div class="month">September</div>
+              <div class="day">21-23</div>
+            </div>
+            <div class="event-info">
+              <h4>Food &amp; Rum Festival</h4>
+              <p>Celebration of Saint Lucian cuisine and rum culture. Celebrity chefs, international food critics, rum tastings, culinary competitions, and local food vendors.</p>
+              <span class="event-tag tag-festival">Festival</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#16a085;">
+              <div class="month">October</div>
+              <div class="day">17</div>
+            </div>
+            <div class="event-info">
+              <h4>La Marguerite Festival (La Magewit)</h4>
+              <p>Counterpart to La Rose, representing French influence. Members dress in blue/violet for traditional Creole ceremonies, music, and community gatherings. Together with La Rose, recognised by UNESCO for intangible cultural heritage.</p>
+              <span class="event-tag tag-festival">Cultural</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#2c3e50;">
+              <div class="month">October</div>
+              <div class="day">All Month</div>
+            </div>
+            <div class="event-info">
+              <h4>Creole Heritage Month / Jounen Kweyol</h4>
+              <p>Month-long celebration of Creole culture, language, food, and music. 2025 theme: <em>&ldquo;Kweyol Se Fos Nou&rdquo;</em> (Creole is Our Strength). Highlights: Woulelaba Festival, La Wenn Kweyol Pageant, concerts, and the grand finale <strong>Jounen Kweyol</strong> on the last Sunday of October (Oct 26, 2025; Oct 25, 2026) with celebrations in designated host communities.</p>
+              <span class="event-tag tag-festival">Cultural</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#e74c3c;">
+              <div class="month">December</div>
+              <div class="day">10-15</div>
+            </div>
+            <div class="event-info">
+              <h4>Atlantic Rally for Cruisers (ARC)</h4>
+              <p>World's largest transatlantic sailing rally. ~200+ yachts cross the Atlantic from Las Palmas (departs late November), finishing at <strong>IGY Rodney Bay Marina</strong>. Crossing takes 14-21 days. Prizegiving ceremony is a high-profile social/networking event. Significant spending by the affluent sailing community.</p>
+              <p style="font-size:0.8rem;margin-top:6px;"><strong>2025:</strong> Fleet arrives ~Dec 10-15 | <strong>2026:</strong> Prizegiving ~Dec 19</p>
+              <span class="event-tag tag-sport">Sporting Event</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#c0392b;">
+              <div class="month">December</div>
+              <div class="day">12-13</div>
+            </div>
+            <div class="event-info">
+              <h4>National Day / Festival of Lights &amp; Renewal</h4>
+              <p>Saint Lucy's Day (patron saint). The Festival of Lights on December 12 evening illuminates Castries with decorative lights and lantern competitions, culminating in fireworks. Marks the beginning of the Christmas season. National Day (Dec 13) is a public holiday.</p>
+              <span class="event-tag tag-holiday">Public Holiday</span> <span class="event-tag tag-festival">Festival</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BUSINESS EVENTS -->
+      <div id="business-events" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">Business Events &amp; Conferences</h2>
+        <div class="table-wrapper" style="margin-bottom:16px;">
+          <table>
+            <thead>
+              <tr><th>Event</th><th>Dates</th><th>Venue / Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr style="background:rgba(39,174,96,0.08);">
+                <td><strong>Saint Lucia Business Forum 2025</strong></td>
+                <td>August 29-30, 2025</td>
+                <td>Expo Salon, Saint Lucia. Hosted by Invest Saint Lucia. Theme: &ldquo;Investing in Paradise: Unlocking Business Opportunities.&rdquo; Tourism, manufacturing, agribusiness, and renewable energy panels.</td>
+              </tr>
+              <tr>
+                <td><strong>Chamber of Commerce &mdash; CEO Ka Pale</strong></td>
+                <td>Recurring (quarterly)</td>
+                <td>Exclusive panel discussion convening Caribbean business leaders. In collaboration with Sagicor Life.</td>
+              </tr>
+              <tr>
+                <td><strong>Chamber Annual Business Awards</strong></td>
+                <td>Applications due ~September</td>
+                <td>Recognises outstanding Saint Lucian businesses and entrepreneurs.</td>
+              </tr>
+              <tr>
+                <td><strong>Caribbean Travel Marketplace</strong> (CHTA)</td>
+                <td>May 12-15, 2026</td>
+                <td>Antigua &amp; Barbuda. Largest Caribbean tourism B2B trade forum.</td>
+              </tr>
+              <tr>
+                <td><strong>Taste of the Caribbean</strong> (CHTA)</td>
+                <td>Nov 16-19, 2026</td>
+                <td>Barbados. Culinary and hospitality talent development.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info-box">
+          <h4>Conference Infrastructure</h4>
+          <p>A <strong>2,000-seat convention centre</strong> is being developed as part of the A'ila Resorts complex at Mount Pimard. Once operational, this will significantly expand Saint Lucia's capacity to host international conferences. Currently, major business events use hotel conference facilities (Bay Gardens, Royalton, Sandals) and the Expo Salon. The Chamber of Commerce is located at Orange Park Commercial Building, Bois D'Orange, Gros Islet (<a href="https://www.stluciachamber.org" target="_blank">stluciachamber.org</a>).</p>
+        </div>
+      </div>
+
+      <!-- WEEKLY EVENTS -->
+      <div id="weekly" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">Weekly Recurring Events</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Day</th><th>Event</th><th>Location</th><th>Description</th></tr>
+            <tr><td><strong>Friday</strong></td><td>Anse la Raye Fish Fry</td><td>Anse la Raye</td><td>Famous street seafood party. Fresh grilled fish, lobster, music, dancing. Very popular with tourists and locals.</td></tr>
+            <tr><td><strong>Friday</strong></td><td>Gros Islet Jump-Up</td><td>Gros Islet village</td><td>Weekly street party with music, food stalls, drinks, BBQ. The island's most famous Friday night event.</td></tr>
+            <tr><td><strong>Saturday</strong></td><td>Castries Central Market</td><td>Castries</td><td>The main market day. Fresh produce, spices, crafts, clothing. Best day for experiencing local culture.</td></tr>
+            <tr><td><strong>Saturday</strong></td><td>Dennery Fish Fiesta</td><td>Dennery</td><td>Seasonal Saturday fish fry and cultural event on the east coast.</td></tr>
+            <tr><td><strong>Sunday</strong></td><td>Rodney Bay Craft Market</td><td>Rodney Bay</td><td>Arts, crafts, and souvenirs near the marina area.</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- SEASONAL PLANNING -->
+      <div id="planning" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">Seasonal Business Planning</h2>
+        <div class="table-wrapper" style="margin-bottom:16px;">
+          <table>
+            <thead>
+              <tr><th>Season</th><th>Months</th><th>Weather</th><th>Business Climate</th></tr>
+            </thead>
+            <tbody>
+              <tr style="background:rgba(39,174,96,0.08);">
+                <td><strong>High Season</strong></td>
+                <td>Dec &ndash; Apr</td>
+                <td>Dry, sunny (75-85&deg;F)</td>
+                <td>Peak tourism &amp; business. Full government operations. Highest hotel rates. Best for meetings, site visits, and deal-making. ARC fleet and cruise ship season peaks.</td>
+              </tr>
+              <tr>
+                <td><strong>Shoulder</strong></td>
+                <td>May &ndash; Jun</td>
+                <td>Warm, occasional rain</td>
+                <td>Fewer crowds, lower rates. Jazz Festival (May) brings international networking opportunities. Good value for business travel.</td>
+              </tr>
+              <tr>
+                <td><strong>Low / Green Season</strong></td>
+                <td>Jul &ndash; Nov</td>
+                <td>Wet, hurricane risk</td>
+                <td>Lowest hotel rates (30-50% off high season). Carnival (July). Business Forum (Aug). Creole Heritage (Oct). Reduced international business travel. Peak hurricane risk: Aug-Oct.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 style="margin-bottom:8px;">Best Months for Business Travel</h4>
+        <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(250px,1fr));">
+          <div class="info-box success" style="margin:0;">
+            <h4>Jan &ndash; Mar (Peak)</h4>
+            <p>Government in full session. All businesses at full capacity. Best weather. Independence celebrations in February. Best for high-level meetings and government engagements.</p>
+          </div>
+          <div class="info-box success" style="margin:0;">
+            <h4>Apr &ndash; May (Strong)</h4>
+            <p>Jazz Festival brings international visitors and networking. Government fiscal year activity. Still favourable weather. Good for combining business and cultural engagement.</p>
+          </div>
+          <div class="info-box" style="margin:0;">
+            <h4>Aug &ndash; Sep (Events)</h4>
+            <p>Business Forum (late August) is the flagship investment conference. Lower travel costs. Some business disruption from hurricane risk. Food &amp; Rum Festival (September).</p>
+          </div>
+          <div class="info-box" style="margin:0;">
+            <h4>Oct &ndash; Nov (Transition)</h4>
+            <p>Creole Heritage Month adds cultural dimension. Hurricane season ends Nov 30. Transition to high season. Good value accommodation. Lower tourism traffic.</p>
+          </div>
+        </div>
+
+        <div class="info-box warning" style="margin-top:16px;">
+          <h4>Hurricane Season (June 1 &ndash; November 30)</h4>
+          <p>Highest risk months: August, September, October. Business impacts: travel insurance essential, possible flight disruptions, some outdoor projects delayed. Despite the risk, Saint Lucia is historically less frequently hit than islands further north. Hotel rates are at their lowest during this period.</p>
+        </div>
+      </div>
+
+      <!-- BUSINESS CULTURE -->
+      <div id="culture" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">Business Culture &amp; Etiquette</h2>
+        <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="info-box">
+            <h4>Working Hours</h4>
+            <p><strong>Government:</strong> Mon-Fri 8:00 AM &ndash; 4:30 PM<br>
+            <strong>Banks:</strong> Mon-Thu 8:00 AM &ndash; 2:00 PM; Fri 8:00 AM &ndash; 4:00 PM; Sat 8:30 &ndash; 11:00 AM<br>
+            <strong>General Business:</strong> Mon-Fri 8:00 AM &ndash; 5:00 PM; Sat 8:30 AM &ndash; 12:30 PM<br>
+            <strong>Shops/Retail:</strong> Mon-Fri 8:00 AM &ndash; 4:30 PM; Sat 8:30 AM &ndash; 1:00 PM<br>
+            <strong>Sundays:</strong> Almost all businesses closed (some supermarkets and mini-marts open)</p>
+          </div>
+          <div class="info-box warning">
+            <h4>Dress Code &amp; Important Prohibition</h4>
+            <p><strong>Business:</strong> Short/long-sleeved shirt with tie, or lightweight suit. Smart casual increasingly acceptable in tourism and creative sectors.<br>
+            <strong>General:</strong> Swimwear is only appropriate at the beach, never in towns or business settings.<br>
+            <strong style="color:#c0392b;">Camouflage clothing is ILLEGAL in Saint Lucia</strong> (for anyone, including children). Do not pack or wear any camouflage patterns.</p>
+          </div>
+          <div class="info-box">
+            <h4>Greetings &amp; Meeting Culture</h4>
+            <p><strong>Greetings are paramount:</strong> Always open with &ldquo;Good morning/afternoon/evening&rdquo; when entering any office or shop. Skipping greetings is considered rude. Firm handshake on meeting and departure. Use formal titles (Mr., Mrs., Dr., Honourable) until invited to use first names. Initial meetings focus on building rapport before business discussions. Patience and warmth are valued over directness.</p>
+          </div>
+          <div class="info-box">
+            <h4>Communication &amp; Follow-Up</h4>
+            <p>Communication is warm but somewhat indirect. Direct confrontation or aggressive negotiation tactics are poorly received. Loud public arguments are taboo. Written follow-ups after meetings are appreciated. <strong>Email and WhatsApp</strong> are both standard business communication tools. Do not criticise the island &mdash; national pride is strong.</p>
+          </div>
+          <div class="info-box">
+            <h4>Relationship Building</h4>
+            <p><strong>Relationships precede transactions.</strong> Invest time in getting to know counterparts before diving into business discussions. Processes may move at a different pace than in North America or Europe &mdash; pushing too aggressively can be counterproductive. Church and family networks are gateways to trust. Accept social invitations when offered. Hosting a meal or drinks goes a long way.</p>
+          </div>
+          <div class="info-box">
+            <h4>Gift-Giving &amp; Cultural Notes</h4>
+            <p>Gift-giving in business is low-key and not expected at initial meetings. For home visits: locally made rum, chocolates, or a small gift from your home country. Avoid ostentatious gifts. After closing a deal, a bottle of quality rum is well received. The majority of Saint Lucians are Roman Catholic &mdash; respect religious customs. Learning a few <strong>Kweyol</strong> (Creole French) phrases demonstrates cultural awareness.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RELATED PAGES -->
+      <div style="margin-top:40px;padding-top:30px;border-top:2px solid var(--border);">
+        <h3 style="margin-bottom:16px;">Related Pages</h3>
+        <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+          <a href="overview.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Country Overview</h4>
+            <p>Culture, demographics, history</p>
+          </a>
+          <a href="living.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Cost of Living</h4>
+            <p>Housing, food, daily expenses</p>
+          </a>
+          <a href="sectors.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Key Sectors</h4>
+            <p>Tourism &amp; hospitality industry</p>
+          </a>
+          <a href="map.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Map &amp; Districts</h4>
+            <p>Event locations &amp; venues</p>
+          </a>
+        </div>
+      </div>
+
+        </div><!-- /.main-content -->
+      </div><!-- /.page-layout -->
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>St. Lucia Business Guide &mdash; Event dates are approximate and may change. Check local sources for confirmed dates. Last updated: February 2026.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
