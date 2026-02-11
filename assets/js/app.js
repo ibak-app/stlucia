@@ -921,25 +921,58 @@ function initBottomSectionNav() {
   }
   if (sections.length === 0) return;
 
+  // Build section list panel (expandable)
+  var listHtml = '<div class="bsn-list" id="bsn-list">';
+  sections.forEach(function(s, i) {
+    listHtml += '<a href="#' + s.id + '" class="bsn-list-item" data-idx="' + i + '">' + escapeHtml(s.title) + '</a>';
+  });
+  listHtml += '</div>';
+
   var nav = document.createElement('div');
   nav.className = 'bottom-section-nav';
   nav.id = 'bottom-section-nav';
-  nav.innerHTML = '<div class="bsn-progress"><div class="bsn-progress-fill"></div></div>' +
+
+  // Progress track with markers integrated into the bar
+  var trackHtml = '<div class="bsn-track">';
+  trackHtml += '<div class="bsn-track-fill"></div>';
+  sections.forEach(function(s, i) {
+    trackHtml += '<div class="bsn-marker" data-idx="' + i + '" title="' + escapeHtml(s.title) + '"></div>';
+  });
+  trackHtml += '</div>';
+
+  nav.innerHTML = listHtml + trackHtml +
     '<div class="bsn-controls">' +
     '<button class="bsn-btn bsn-prev" aria-label="Previous section">&#9664;</button>' +
-    '<div class="bsn-info"><div class="bsn-title"></div><div class="bsn-counter"></div></div>' +
+    '<div class="bsn-info"><div class="bsn-title"></div></div>' +
     '<button class="bsn-btn bsn-next" aria-label="Next section">&#9654;</button></div>';
   document.body.appendChild(nav);
   document.body.classList.add('has-bottom-nav');
 
   var titleEl = nav.querySelector('.bsn-title');
-  var counterEl = nav.querySelector('.bsn-counter');
-  var progressFill = nav.querySelector('.bsn-progress-fill');
+  var trackFill = nav.querySelector('.bsn-track-fill');
+  var markers = nav.querySelectorAll('.bsn-marker');
   var prevBtn = nav.querySelector('.bsn-prev');
   var nextBtn = nav.querySelector('.bsn-next');
+  var listPanel = nav.querySelector('#bsn-list');
+  var listItems = nav.querySelectorAll('.bsn-list-item');
   var currentIdx = 0;
 
+  // Position markers along the track based on section positions
+  function positionMarkers() {
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) return;
+    markers.forEach(function(m, i) {
+      var sTop = sections[i].el.offsetTop;
+      var pct = Math.min((sTop / (docHeight || 1)) * 100, 100);
+      m.style.left = pct + '%';
+    });
+  }
+
   function update() {
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var scrollPct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+    trackFill.style.width = scrollPct + '%';
+
     var scrollPos = window.scrollY + window.innerHeight * 0.4;
     var idx = 0;
     for (var i = 0; i < sections.length; i++) {
@@ -947,14 +980,39 @@ function initBottomSectionNav() {
     }
     currentIdx = idx;
     titleEl.textContent = sections[idx].title;
-    counterEl.textContent = (idx + 1) + ' / ' + sections.length;
-
-    var sectionPct = sections.length > 1 ? (idx / (sections.length - 1)) * 100 : 100;
-    progressFill.style.width = sectionPct + '%';
 
     prevBtn.disabled = idx === 0;
     nextBtn.disabled = idx === sections.length - 1;
+
+    // Highlight active marker
+    markers.forEach(function(m, i) { m.classList.toggle('active', i === idx); });
+
+    // Highlight active list item
+    listItems.forEach(function(item, i) { item.classList.toggle('active', i === idx); });
   }
+
+  // Tap title area to expand/collapse section list
+  nav.querySelector('.bsn-info').addEventListener('click', function() {
+    nav.classList.toggle('expanded');
+  });
+
+  // List item click: scroll to section and collapse
+  listItems.forEach(function(item) {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      var i = parseInt(item.getAttribute('data-idx'));
+      sections[i].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      nav.classList.remove('expanded');
+    });
+  });
+
+  // Marker click: scroll to that section
+  markers.forEach(function(m) {
+    m.addEventListener('click', function() {
+      var i = parseInt(m.getAttribute('data-idx'));
+      sections[i].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 
   prevBtn.addEventListener('click', function() {
     if (currentIdx > 0) sections[currentIdx - 1].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -964,7 +1022,10 @@ function initBottomSectionNav() {
   });
 
   window.addEventListener('scroll', update, { passive: true });
+  positionMarkers();
   update();
+  // Reposition markers after images load etc
+  window.addEventListener('load', positionMarkers);
 }
 
 // ===== COLLAPSIBLE INFO BOXES (mobile) =====
