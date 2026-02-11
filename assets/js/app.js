@@ -116,8 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSiteSearch();
   initLikesAndReadTracking();
   initGlobalBookProgress();
-  initMobileBottomNav();
-  initPageNavInMenu();
+  initSwipeNavigation();
   initCollapsibleDetails();
   initReadMore();
   initIndexReadBadges();
@@ -356,37 +355,43 @@ function scrollTo(selector) {
 function initLikesAndReadTracking() {
   const pageKey = getPageKey();
   const likesBtn = document.getElementById('likes-toggle');
-  const likesBadge = document.getElementById('likes-badge');
   if (!likesBtn) return;
 
-  // Create likes panel
-  const panel = document.createElement('div');
-  panel.className = 'likes-panel';
-  panel.id = 'likes-panel';
-  panel.innerHTML = `
-    <div class="likes-panel-header">
-      <h4>&#9733; Bookmarks</h4>
-      <button class="likes-panel-close" aria-label="Close">&times;</button>
+  // Create full-screen liked feed overlay (same pattern as search overlay)
+  const overlay = document.createElement('div');
+  overlay.className = 'liked-feed-overlay';
+  overlay.id = 'liked-feed-overlay';
+  overlay.innerHTML = `
+    <div class="liked-feed-content">
+      <div class="liked-feed-header">
+        <h3>&#9829; Liked Sections</h3>
+        <button class="liked-feed-close" aria-label="Close">&times;</button>
+      </div>
+      <div id="liked-feed-body"></div>
     </div>
-    <div class="likes-panel-body" id="likes-panel-body"></div>
   `;
-  document.body.appendChild(panel);
+  document.body.appendChild(overlay);
 
-  // Toggle panel
+  // Toggle liked feed overlay
   likesBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    panel.classList.toggle('open');
-    if (panel.classList.contains('open')) renderLikesPanel();
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    renderLikedFeed();
   });
 
-  panel.querySelector('.likes-panel-close').addEventListener('click', () => {
-    panel.classList.remove('open');
+  overlay.querySelector('.liked-feed-close').addEventListener('click', () => {
+    closeLikedFeed();
   });
 
-  document.addEventListener('click', (e) => {
-    if (!panel.contains(e.target) && !likesBtn.contains(e.target)) {
-      panel.classList.remove('open');
-    }
+  // Close on overlay background click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeLikedFeed();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) closeLikedFeed();
   });
 
   // Find content sections (div[id] with h2 inside .main-content)
@@ -398,47 +403,45 @@ function initLikesAndReadTracking() {
   const isFaq = pageFile === 'faq.html';
 
   if (isFaq) {
-    // FAQ uses .faq-category-header inside div[id] instead of h2
     sections = [];
     mainContent.querySelectorAll('.faq-category-header').forEach((header, i) => {
       const parent = header.closest('div[id]') || header.parentElement;
       if (!parent.id) parent.id = 'faq-section-' + i;
       sections.push(parent);
     });
-    sections = sections.filter((s, i, arr) => arr.indexOf(s) === i); // deduplicate
+    sections = sections.filter((s, i, arr) => arr.indexOf(s) === i);
   } else {
     sections = Array.from(mainContent.querySelectorAll('div[id]')).filter(s => s.querySelector('h2'));
   }
 
   if (!sections.length) { updateLikesBadge(); storeSectionCount(); return; }
 
-  // Load saved state
-  const likes = getLikes();
   const readSections = getReadSections(pageKey);
 
-  // Inject like buttons into each section
+  // Apply .section-liked class to already-liked sections
+  sections.forEach(section => {
+    if (isLiked(pageKey, section.id)) {
+      section.classList.add('section-liked');
+    }
+  });
+
+  // Double-click to like/unlike sections (NO like buttons in headings)
   sections.forEach(section => {
     const heading = isFaq ? section.querySelector('.faq-category-header h3, .faq-category-header') : section.querySelector('h2');
     if (!heading) return;
-
     const sectionId = section.id;
     const sectionTitle = heading.textContent.trim();
 
-    // Like button (star icon)
-    const likeBtn = document.createElement('button');
-    likeBtn.className = 'section-like-btn' + (isLiked(pageKey, sectionId) ? ' liked' : '');
-    likeBtn.innerHTML = '<span class="like-icon-off">&#9734;</span><span class="like-icon-on">&#9733;</span>';
-    likeBtn.title = isLiked(pageKey, sectionId) ? 'Remove bookmark' : 'Bookmark this section';
-    likeBtn.addEventListener('click', () => {
+    section.addEventListener('dblclick', (e) => {
+      // Skip if double-click was on interactive elements
+      if (e.target.closest('a, button, input, textarea, select, details, summary')) return;
+
       toggleLike(pageKey, sectionId, sectionTitle);
       const liked = isLiked(pageKey, sectionId);
-      likeBtn.classList.toggle('liked', liked);
-      likeBtn.title = liked ? 'Remove bookmark' : 'Bookmark this section';
-      likeBtn.classList.add('animate');
-      setTimeout(() => likeBtn.classList.remove('animate'), 300);
+      section.classList.toggle('section-liked', liked);
+      showHeartAnimation(e.clientX, e.clientY, liked);
       updateLikesBadge();
     });
-    heading.appendChild(likeBtn);
   });
 
   // Read tracking with IntersectionObserver
@@ -474,6 +477,22 @@ function initLikesAndReadTracking() {
 
   storeSectionCount();
   updateLikesBadge();
+}
+
+function showHeartAnimation(x, y, liked) {
+  const heart = document.createElement('div');
+  heart.className = 'heart-pop';
+  heart.innerHTML = liked ? '&#9829;' : '&#9825;';
+  heart.style.left = x + 'px';
+  heart.style.top = y + 'px';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 900);
+}
+
+function closeLikedFeed() {
+  const overlay = document.getElementById('liked-feed-overlay');
+  if (overlay) overlay.classList.remove('active');
+  document.body.style.overflow = '';
 }
 
 function getPageKey() {
@@ -524,18 +543,12 @@ function removeLike(pageKey, sectionId) {
   likes = likes.filter(l => !(l.page === pageKey && l.section === sectionId));
   saveLikes(likes);
   updateLikesBadge();
-  renderLikesPanel();
-  // Update section button if on same page
+  renderLikedFeed();
+  // Remove .section-liked class if on same page
   const currentPage = getPageKey();
   if (pageKey === currentPage) {
     const section = document.getElementById(sectionId);
-    if (section) {
-      const btn = section.querySelector('.section-like-btn');
-      if (btn) {
-        btn.classList.remove('liked');
-        btn.title = 'Like this section';
-      }
-    }
+    if (section) section.classList.remove('section-liked');
   }
 }
 
@@ -563,28 +576,24 @@ function updateLikesBadge() {
   badge.textContent = count;
   badge.style.display = count > 0 ? 'flex' : 'none';
   btn.classList.toggle('has-likes', count > 0);
-  btn.innerHTML = (count > 0 ? '&#9733;' : '&#9734;') + badge.outerHTML;
+  btn.innerHTML = (count > 0 ? '&#9829;' : '&#9825;') + badge.outerHTML;
 }
 
-function renderLikesPanel() {
-  const body = document.getElementById('likes-panel-body');
+function renderLikedFeed() {
+  const body = document.getElementById('liked-feed-body');
   if (!body) return;
   const likes = getLikes();
 
   if (likes.length === 0) {
-    body.innerHTML = '<div class="likes-panel-empty">No bookmarks yet.<br>Tap the &#9734; on any section to save it here.</div>';
+    body.innerHTML = '<div class="liked-feed-empty">No liked sections yet.<br>Double-tap any section to like it.</div>';
     return;
   }
 
-  // Sort by most recent first
   const sorted = [...likes].sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
   const isTR = window.location.pathname.includes('/tr/');
-  const prefix = isTR ? '' : '';
 
   body.innerHTML = sorted.map(like => {
     let href = like.page;
-    const currentPage = getPageKey();
-    // Build relative URL
     if (isTR && !like.page.startsWith('tr/')) {
       href = '../' + like.page;
     } else if (!isTR && like.page.startsWith('tr/')) {
@@ -592,14 +601,14 @@ function renderLikesPanel() {
     }
     href += '#' + like.section;
 
-    return `<div class="likes-panel-item">
-      <span class="like-heart">&#9733;</span>
-      <a href="${href}" class="like-info" onclick="document.getElementById('likes-panel').classList.remove('open');">
-        <div class="like-section">${escapeHtml(like.title)}</div>
-        <div class="like-page">${escapeHtml(like.pageTitle || like.page)}</div>
-      </a>
-      <button class="like-remove" title="Remove" onclick="event.stopPropagation();removeLike('${like.page}','${like.section}');">&times;</button>
-    </div>`;
+    return `<a href="${href}" class="liked-feed-card" onclick="closeLikedFeed();">
+      <span class="liked-feed-icon">&#9829;</span>
+      <div class="liked-feed-info">
+        <div class="liked-feed-title">${escapeHtml(like.title)}</div>
+        <div class="liked-feed-page">${escapeHtml(like.pageTitle || like.page)}</div>
+      </div>
+      <button class="liked-feed-remove" title="Remove" onclick="event.preventDefault();event.stopPropagation();removeLike('${like.page}','${like.section}');">&times;</button>
+    </a>`;
   }).join('');
 }
 
@@ -808,145 +817,60 @@ function updateGlobalBookProgress() {
   } catch {}
 }
 
-// ===== MOBILE BOTTOM NAVIGATION =====
-function initMobileBottomNav() {
-  if (window.innerWidth > 960) return;
+// ===== SWIPE NAVIGATION =====
+function initSwipeNavigation() {
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchStartTime = 0;
 
-  var pageFile = getPageFile();
-  var skipPages = ['index.html', 'map.html', 'directory.html'];
-  if (skipPages.indexOf(pageFile) >= 0) return;
+  document.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].clientX;
+    touchStartY = e.changedTouches[0].clientY;
+    touchStartTime = Date.now();
+  }, { passive: true });
 
-  var mainContent = document.querySelector('.main-content');
-  if (!mainContent) return;
+  document.addEventListener('touchend', function(e) {
+    const diffX = e.changedTouches[0].clientX - touchStartX;
+    const diffY = Math.abs(e.changedTouches[0].clientY - touchStartY);
+    const elapsed = Date.now() - touchStartTime;
 
-  // Gather sections
-  var sections = [];
-  var isFaq = pageFile === 'faq.html';
-  if (isFaq) {
-    mainContent.querySelectorAll('.faq-category-header').forEach(function(header, i) {
-      var parent = header.closest('div[id]') || header.parentElement;
-      var id = parent.id || 'faq-section-' + i;
-      if (!parent.id) parent.id = id;
-      var titleEl = header.querySelector('h3') || header;
-      sections.push({ el: parent, id: id, title: titleEl.textContent.trim() });
-    });
-  } else {
-    mainContent.querySelectorAll('div[id]').forEach(function(s) {
-      var h2 = s.querySelector('h2');
-      if (h2) {
-        var title = '';
-        h2.childNodes.forEach(function(n) {
-          if (n.nodeType === 3) title += n.textContent;
-          else if (n.tagName && !n.classList.contains('section-like-btn')) title += n.textContent;
-        });
-        sections.push({ el: s, id: s.id, title: title.trim() });
+    // Require: >80px horizontal, <500ms, mostly horizontal
+    if (Math.abs(diffX) < 80) return;
+    if (elapsed > 500) return;
+    if (diffY > Math.abs(diffX) * 0.6) return;
+
+    // Skip if started on a scrollable element (tables, code blocks, tabs)
+    const startEl = document.elementFromPoint(touchStartX, touchStartY);
+    if (startEl && startEl.closest('.table-wrapper, .tabs, pre, code, .map-container, input, textarea')) return;
+
+    if (diffX < 0) {
+      // Swipe left → next page
+      const next = getNextPage();
+      if (next) {
+        showSwipeIndicator('next', next.title);
+        setTimeout(function() {
+          window.location.href = next.file;
+        }, 250);
       }
-    });
-  }
-  if (sections.length === 0) return;
-
-  // 1. Create inline TOC under hero
-  var hero = document.querySelector('.hero');
-  var toc = document.createElement('div');
-  toc.className = 'page-toc';
-  toc.innerHTML = '<div class="page-toc-inner">' +
-    sections.map(function(s, i) {
-      return '<a href="#' + s.id + '" class="page-toc-item' + (i === 0 ? ' active' : '') + '">' + s.title + '</a>';
-    }).join('') + '</div>';
-
-  if (hero && hero.nextSibling) {
-    hero.parentElement.insertBefore(toc, hero.nextSibling);
-  } else if (hero) {
-    hero.parentElement.appendChild(toc);
-  }
-
-  // 2. Create fixed bottom bar (hidden until scrolled past TOC)
-  var nav = document.createElement('div');
-  nav.className = 'mobile-bottom-nav';
-  nav.innerHTML = '<div class="mbn-progress"><div class="mbn-progress-fill"></div></div>' +
-    '<div class="mbn-controls">' +
-    '<button class="mbn-btn mbn-prev" aria-label="Prev">&#9664;</button>' +
-    '<div class="mbn-info"><div class="mbn-title"></div><div class="mbn-counter"></div></div>' +
-    '<button class="mbn-btn mbn-next" aria-label="Next">&#9654;</button></div>';
-  document.body.appendChild(nav);
-  document.body.classList.add('has-bottom-nav');
-
-  var titleEl = nav.querySelector('.mbn-title');
-  var counterEl = nav.querySelector('.mbn-counter');
-  var progressFill = nav.querySelector('.mbn-progress-fill');
-  var prevBtn = nav.querySelector('.mbn-prev');
-  var nextBtn = nav.querySelector('.mbn-next');
-  var tocItems = toc.querySelectorAll('.page-toc-item');
-  var currentIdx = 0;
-
-  function update() {
-    var scrollPos = window.scrollY + window.innerHeight * 0.4;
-    var idx = 0;
-    for (var i = 0; i < sections.length; i++) {
-      if (sections[i].el.offsetTop <= scrollPos) idx = i;
+    } else {
+      // Swipe right → previous page
+      const prev = getPrevPage();
+      if (prev) {
+        showSwipeIndicator('prev', prev.title);
+        setTimeout(function() {
+          window.location.href = prev.file;
+        }, 250);
+      }
     }
-    currentIdx = idx;
-    titleEl.textContent = sections[idx].title;
-    counterEl.textContent = (idx + 1) + ' / ' + sections.length;
-
-    // Granular scroll-based progress
-    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    var pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
-    progressFill.style.width = pct + '%';
-
-    prevBtn.disabled = idx === 0;
-    nextBtn.disabled = idx === sections.length - 1;
-
-    // Update TOC active item & horizontally scroll TOC container only
-    tocItems.forEach(function(item, i) { item.classList.toggle('active', i === idx); });
-    if (tocItems[idx] && toc.getBoundingClientRect().bottom > 0) {
-      var itemLeft = tocItems[idx].offsetLeft;
-      var itemWidth = tocItems[idx].offsetWidth;
-      var tocWidth = toc.offsetWidth;
-      toc.scrollLeft = itemLeft - (tocWidth / 2) + (itemWidth / 2);
-    }
-
-    // Show bottom bar when TOC scrolls out of view
-    var tocBottom = toc.getBoundingClientRect().bottom;
-    nav.classList.toggle('visible', tocBottom < 0);
-  }
-
-  prevBtn.addEventListener('click', function() {
-    if (currentIdx > 0) sections[currentIdx - 1].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-  nextBtn.addEventListener('click', function() {
-    if (currentIdx < sections.length - 1) sections[currentIdx + 1].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-
-  window.addEventListener('scroll', update, { passive: true });
-  update();
+  }, { passive: true });
 }
 
-// ===== PAGE NAV IN MENU =====
-function initPageNavInMenu() {
-  var navLinks = document.querySelector('.nav-links');
-  if (!navLinks) return;
-
-  var prevPage = getPrevPage();
-  var nextPage = getNextPage();
-  if (!prevPage && !nextPage) return;
-
-  var idx = getCurrentPageIndex();
-  var pages = getBookPages();
-
-  var navInfo = document.createElement('div');
-  navInfo.className = 'nav-page-links';
-
-  var html = '';
-  if (prevPage) {
-    html += '<a href="' + prevPage.file + '" class="nav-page-link nav-page-prev">&larr; ' + prevPage.title + '</a>';
-  }
-  html += '<span class="nav-page-counter">' + (idx + 1) + ' / ' + pages.length + '</span>';
-  if (nextPage) {
-    html += '<a href="' + nextPage.file + '" class="nav-page-link nav-page-next">' + nextPage.title + ' &rarr;</a>';
-  }
-  navInfo.innerHTML = html;
-  navLinks.appendChild(navInfo);
+function showSwipeIndicator(dir, title) {
+  const indicator = document.createElement('div');
+  indicator.className = 'swipe-indicator swipe-' + dir;
+  indicator.innerHTML = (dir === 'next' ? '&rarr; ' : '&larr; ') + escapeHtml(title);
+  document.body.appendChild(indicator);
+  setTimeout(function() { indicator.remove(); }, 600);
 }
 
 // ===== COLLAPSIBLE INFO BOXES (mobile) =====
