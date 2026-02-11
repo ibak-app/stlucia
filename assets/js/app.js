@@ -116,7 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initSiteSearch();
   initLikesAndReadTracking();
   initGlobalBookProgress();
-  initSwipeNavigation();
+  initTopPageNav();
+  initBottomSectionNav();
   initCollapsibleDetails();
   initReadMore();
   initIndexReadBadges();
@@ -817,60 +818,120 @@ function updateGlobalBookProgress() {
   } catch {}
 }
 
-// ===== SWIPE NAVIGATION =====
-function initSwipeNavigation() {
-  let touchStartX = 0;
-  let touchStartY = 0;
-  let touchStartTime = 0;
+// ===== TOP PAGE NAVIGATION BAR =====
+function initTopPageNav() {
+  var pages = getBookPages();
+  var idx = getCurrentPageIndex();
+  if (idx < 0) return;
 
-  document.addEventListener('touchstart', function(e) {
-    touchStartX = e.changedTouches[0].clientX;
-    touchStartY = e.changedTouches[0].clientY;
-    touchStartTime = Date.now();
-  }, { passive: true });
+  var prevPage = getPrevPage();
+  var nextPage = getNextPage();
+  var labels = getBookLabels();
 
-  document.addEventListener('touchend', function(e) {
-    const diffX = e.changedTouches[0].clientX - touchStartX;
-    const diffY = Math.abs(e.changedTouches[0].clientY - touchStartY);
-    const elapsed = Date.now() - touchStartTime;
+  var bar = document.createElement('div');
+  bar.className = 'top-page-nav';
+  bar.id = 'top-page-nav';
 
-    // Require: >80px horizontal, <500ms, mostly horizontal
-    if (Math.abs(diffX) < 80) return;
-    if (elapsed > 500) return;
-    if (diffY > Math.abs(diffX) * 0.6) return;
+  var html = '<div class="tpn-progress"><div class="tpn-progress-fill"></div></div>';
+  html += '<div class="tpn-controls">';
+  if (prevPage) {
+    html += '<a href="' + prevPage.file + '" class="tpn-link tpn-prev">&#9664; ' + prevPage.title + '</a>';
+  } else {
+    html += '<span class="tpn-link tpn-disabled"></span>';
+  }
+  html += '<span class="tpn-counter">' + (idx + 1) + ' / ' + pages.length + '</span>';
+  if (nextPage) {
+    html += '<a href="' + nextPage.file + '" class="tpn-link tpn-next">' + nextPage.title + ' &#9654;</a>';
+  } else {
+    html += '<span class="tpn-link tpn-disabled"></span>';
+  }
+  html += '</div>';
 
-    // Skip if started on a scrollable element (tables, code blocks, tabs)
-    const startEl = document.elementFromPoint(touchStartX, touchStartY);
-    if (startEl && startEl.closest('.table-wrapper, .tabs, pre, code, .map-container, input, textarea')) return;
+  bar.innerHTML = html;
+  document.body.appendChild(bar);
 
-    if (diffX < 0) {
-      // Swipe left → next page
-      const next = getNextPage();
-      if (next) {
-        showSwipeIndicator('next', next.title);
-        setTimeout(function() {
-          window.location.href = next.file;
-        }, 250);
-      }
-    } else {
-      // Swipe right → previous page
-      const prev = getPrevPage();
-      if (prev) {
-        showSwipeIndicator('prev', prev.title);
-        setTimeout(function() {
-          window.location.href = prev.file;
-        }, 250);
-      }
-    }
+  // Update page-level progress on scroll
+  var progressFill = bar.querySelector('.tpn-progress-fill');
+  window.addEventListener('scroll', function() {
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+    progressFill.style.width = pct + '%';
   }, { passive: true });
 }
 
-function showSwipeIndicator(dir, title) {
-  const indicator = document.createElement('div');
-  indicator.className = 'swipe-indicator swipe-' + dir;
-  indicator.innerHTML = (dir === 'next' ? '&rarr; ' : '&larr; ') + escapeHtml(title);
-  document.body.appendChild(indicator);
-  setTimeout(function() { indicator.remove(); }, 600);
+// ===== BOTTOM SECTION NAVIGATION BAR =====
+function initBottomSectionNav() {
+  var pageFile = getPageFile();
+  var skipPages = ['index.html', 'map.html', 'directory.html'];
+  if (skipPages.indexOf(pageFile) >= 0) return;
+
+  var mainContent = document.querySelector('.main-content');
+  if (!mainContent) return;
+
+  var sections = [];
+  var isFaq = pageFile === 'faq.html';
+  if (isFaq) {
+    mainContent.querySelectorAll('.faq-category-header').forEach(function(header, i) {
+      var parent = header.closest('div[id]') || header.parentElement;
+      var id = parent.id || 'faq-section-' + i;
+      if (!parent.id) parent.id = id;
+      var titleEl = header.querySelector('h3') || header;
+      sections.push({ el: parent, id: id, title: titleEl.textContent.trim() });
+    });
+  } else {
+    mainContent.querySelectorAll('div[id]').forEach(function(s) {
+      var h2 = s.querySelector('h2');
+      if (h2) {
+        sections.push({ el: s, id: s.id, title: h2.textContent.trim() });
+      }
+    });
+  }
+  if (sections.length === 0) return;
+
+  var nav = document.createElement('div');
+  nav.className = 'bottom-section-nav';
+  nav.id = 'bottom-section-nav';
+  nav.innerHTML = '<div class="bsn-progress"><div class="bsn-progress-fill"></div></div>' +
+    '<div class="bsn-controls">' +
+    '<button class="bsn-btn bsn-prev" aria-label="Previous section">&#9664;</button>' +
+    '<div class="bsn-info"><div class="bsn-title"></div><div class="bsn-counter"></div></div>' +
+    '<button class="bsn-btn bsn-next" aria-label="Next section">&#9654;</button></div>';
+  document.body.appendChild(nav);
+  document.body.classList.add('has-bottom-nav');
+
+  var titleEl = nav.querySelector('.bsn-title');
+  var counterEl = nav.querySelector('.bsn-counter');
+  var progressFill = nav.querySelector('.bsn-progress-fill');
+  var prevBtn = nav.querySelector('.bsn-prev');
+  var nextBtn = nav.querySelector('.bsn-next');
+  var currentIdx = 0;
+
+  function update() {
+    var scrollPos = window.scrollY + window.innerHeight * 0.4;
+    var idx = 0;
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].el.offsetTop <= scrollPos) idx = i;
+    }
+    currentIdx = idx;
+    titleEl.textContent = sections[idx].title;
+    counterEl.textContent = (idx + 1) + ' / ' + sections.length;
+
+    var sectionPct = sections.length > 1 ? (idx / (sections.length - 1)) * 100 : 100;
+    progressFill.style.width = sectionPct + '%';
+
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === sections.length - 1;
+  }
+
+  prevBtn.addEventListener('click', function() {
+    if (currentIdx > 0) sections[currentIdx - 1].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  nextBtn.addEventListener('click', function() {
+    if (currentIdx < sections.length - 1) sections[currentIdx + 1].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
 }
 
 // ===== COLLAPSIBLE INFO BOXES (mobile) =====
