@@ -117,8 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initLikesAndReadTracking();
   initGlobalBookProgress();
   initMobileBottomNav();
-  initContinueCTA();
-  initSidebarCheckmarks();
+  initPageNavInMenu();
+  initCollapsibleDetails();
+  initReadMore();
   initIndexReadBadges();
 });
 
@@ -364,7 +365,7 @@ function initLikesAndReadTracking() {
   panel.id = 'likes-panel';
   panel.innerHTML = `
     <div class="likes-panel-header">
-      <h4>&#9829; Liked Sections</h4>
+      <h4>&#9733; Bookmarks</h4>
       <button class="likes-panel-close" aria-label="Close">&times;</button>
     </div>
     <div class="likes-panel-body" id="likes-panel-body"></div>
@@ -415,7 +416,7 @@ function initLikesAndReadTracking() {
   const likes = getLikes();
   const readSections = getReadSections(pageKey);
 
-  // Inject like buttons and read markers into each section
+  // Inject like buttons into each section
   sections.forEach(section => {
     const heading = isFaq ? section.querySelector('.faq-category-header h3, .faq-category-header') : section.querySelector('h2');
     if (!heading) return;
@@ -423,31 +424,21 @@ function initLikesAndReadTracking() {
     const sectionId = section.id;
     const sectionTitle = heading.textContent.trim();
 
-    // Like button
+    // Like button (star icon)
     const likeBtn = document.createElement('button');
     likeBtn.className = 'section-like-btn' + (isLiked(pageKey, sectionId) ? ' liked' : '');
-    likeBtn.innerHTML = '<span class="like-heart-icon">&#9825;</span><span class="like-heart-filled">&#9829;</span>';
-    likeBtn.title = isLiked(pageKey, sectionId) ? 'Unlike this section' : 'Like this section';
+    likeBtn.innerHTML = '<span class="like-icon-off">&#9734;</span><span class="like-icon-on">&#9733;</span>';
+    likeBtn.title = isLiked(pageKey, sectionId) ? 'Remove bookmark' : 'Bookmark this section';
     likeBtn.addEventListener('click', () => {
       toggleLike(pageKey, sectionId, sectionTitle);
       const liked = isLiked(pageKey, sectionId);
       likeBtn.classList.toggle('liked', liked);
-      likeBtn.title = liked ? 'Unlike this section' : 'Like this section';
+      likeBtn.title = liked ? 'Remove bookmark' : 'Bookmark this section';
       likeBtn.classList.add('animate');
       setTimeout(() => likeBtn.classList.remove('animate'), 300);
       updateLikesBadge();
     });
     heading.appendChild(likeBtn);
-
-    // Read marker
-    const readMarker = document.createElement('span');
-    readMarker.className = 'section-read-marker';
-    readMarker.innerHTML = '&#10003; Read';
-    readMarker.id = 'read-' + sectionId;
-    if (readSections.includes(sectionId)) {
-      readMarker.classList.add('visible');
-    }
-    heading.appendChild(readMarker);
   });
 
   // Read tracking with IntersectionObserver
@@ -461,9 +452,6 @@ function initLikesAndReadTracking() {
             readTimers[id] = setTimeout(() => {
               markAsRead(pageKey, id);
               readSections.push(id);
-              const marker = document.getElementById('read-' + id);
-              if (marker) marker.classList.add('visible');
-              updateSidebarCheck(id);
               updateGlobalBookProgress();
               readObserver.unobserve(entry.target);
             }, 3000);
@@ -575,7 +563,7 @@ function updateLikesBadge() {
   badge.textContent = count;
   badge.style.display = count > 0 ? 'flex' : 'none';
   btn.classList.toggle('has-likes', count > 0);
-  btn.innerHTML = (count > 0 ? '&#9829;' : '&#9825;') + badge.outerHTML;
+  btn.innerHTML = (count > 0 ? '&#9733;' : '&#9734;') + badge.outerHTML;
 }
 
 function renderLikesPanel() {
@@ -584,7 +572,7 @@ function renderLikesPanel() {
   const likes = getLikes();
 
   if (likes.length === 0) {
-    body.innerHTML = '<div class="likes-panel-empty">No liked sections yet.<br>Click the &#9825; on any section to save it here.</div>';
+    body.innerHTML = '<div class="likes-panel-empty">No bookmarks yet.<br>Tap the &#9734; on any section to save it here.</div>';
     return;
   }
 
@@ -605,7 +593,7 @@ function renderLikesPanel() {
     href += '#' + like.section;
 
     return `<div class="likes-panel-item">
-      <span class="like-heart">&#9829;</span>
+      <span class="like-heart">&#9733;</span>
       <a href="${href}" class="like-info" onclick="document.getElementById('likes-panel').classList.remove('open');">
         <div class="like-section">${escapeHtml(like.title)}</div>
         <div class="like-page">${escapeHtml(like.pageTitle || like.page)}</div>
@@ -822,38 +810,34 @@ function updateGlobalBookProgress() {
 
 // ===== MOBILE BOTTOM NAVIGATION =====
 function initMobileBottomNav() {
-  // Only on mobile
   if (window.innerWidth > 960) return;
 
-  const pageFile = getPageFile();
-  // Skip on pages without sections
-  const skipPages = ['index.html', 'map.html', 'directory.html'];
-  if (skipPages.includes(pageFile)) return;
+  var pageFile = getPageFile();
+  var skipPages = ['index.html', 'map.html', 'directory.html'];
+  if (skipPages.indexOf(pageFile) >= 0) return;
 
-  const mainContent = document.querySelector('.main-content');
+  var mainContent = document.querySelector('.main-content');
   if (!mainContent) return;
 
   // Gather sections
-  let sections = [];
-  if (pageFile === 'faq.html') {
-    mainContent.querySelectorAll('.faq-category-header').forEach((header, i) => {
-      const parent = header.closest('div[id]') || header.parentElement;
-      const id = parent.id || 'faq-section-' + i;
+  var sections = [];
+  var isFaq = pageFile === 'faq.html';
+  if (isFaq) {
+    mainContent.querySelectorAll('.faq-category-header').forEach(function(header, i) {
+      var parent = header.closest('div[id]') || header.parentElement;
+      var id = parent.id || 'faq-section-' + i;
       if (!parent.id) parent.id = id;
-      const titleEl = header.querySelector('h3') || header;
+      var titleEl = header.querySelector('h3') || header;
       sections.push({ el: parent, id: id, title: titleEl.textContent.trim() });
     });
   } else {
-    mainContent.querySelectorAll('div[id]').forEach(s => {
-      const h2 = s.querySelector('h2');
+    mainContent.querySelectorAll('div[id]').forEach(function(s) {
+      var h2 = s.querySelector('h2');
       if (h2) {
-        // Get text excluding like/read buttons
-        let title = '';
-        h2.childNodes.forEach(n => {
+        var title = '';
+        h2.childNodes.forEach(function(n) {
           if (n.nodeType === 3) title += n.textContent;
-          else if (n.tagName && !n.classList.contains('section-like-btn') && !n.classList.contains('section-read-marker')) {
-            title += n.textContent;
-          }
+          else if (n.tagName && !n.classList.contains('section-like-btn')) title += n.textContent;
         });
         sections.push({ el: s, id: s.id, title: title.trim() });
       }
@@ -861,136 +845,166 @@ function initMobileBottomNav() {
   }
   if (sections.length === 0) return;
 
-  const labels = getBookLabels();
+  // 1. Create inline TOC under hero
+  var hero = document.querySelector('.hero');
+  var toc = document.createElement('div');
+  toc.className = 'page-toc';
+  toc.innerHTML = '<div class="page-toc-inner">' +
+    sections.map(function(s, i) {
+      return '<a href="#' + s.id + '" class="page-toc-item' + (i === 0 ? ' active' : '') + '">' + s.title + '</a>';
+    }).join('') + '</div>';
 
-  // Create bottom nav
-  const nav = document.createElement('div');
+  if (hero && hero.nextSibling) {
+    hero.parentElement.insertBefore(toc, hero.nextSibling);
+  } else if (hero) {
+    hero.parentElement.appendChild(toc);
+  }
+
+  // 2. Create fixed bottom bar (hidden until scrolled past TOC)
+  var nav = document.createElement('div');
   nav.className = 'mobile-bottom-nav';
-  nav.innerHTML = `
-    <div class="mbn-progress"><div class="mbn-progress-fill"></div></div>
-    <div class="mbn-controls">
-      <button class="mbn-btn mbn-prev" aria-label="${labels.prev}">&#9664;</button>
-      <div class="mbn-info">
-        <div class="mbn-title"></div>
-        <div class="mbn-counter"></div>
-      </div>
-      <button class="mbn-btn mbn-next" aria-label="${labels.next}">&#9654;</button>
-    </div>
-  `;
+  nav.innerHTML = '<div class="mbn-progress"><div class="mbn-progress-fill"></div></div>' +
+    '<div class="mbn-controls">' +
+    '<button class="mbn-btn mbn-prev" aria-label="Prev">&#9664;</button>' +
+    '<div class="mbn-info"><div class="mbn-title"></div><div class="mbn-counter"></div></div>' +
+    '<button class="mbn-btn mbn-next" aria-label="Next">&#9654;</button></div>';
   document.body.appendChild(nav);
   document.body.classList.add('has-bottom-nav');
 
-  const titleEl = nav.querySelector('.mbn-title');
-  const counterEl = nav.querySelector('.mbn-counter');
-  const progressFill = nav.querySelector('.mbn-progress-fill');
-  const prevBtn = nav.querySelector('.mbn-prev');
-  const nextBtn = nav.querySelector('.mbn-next');
-  let currentIdx = 0;
+  var titleEl = nav.querySelector('.mbn-title');
+  var counterEl = nav.querySelector('.mbn-counter');
+  var progressFill = nav.querySelector('.mbn-progress-fill');
+  var prevBtn = nav.querySelector('.mbn-prev');
+  var nextBtn = nav.querySelector('.mbn-next');
+  var tocItems = toc.querySelectorAll('.page-toc-item');
+  var currentIdx = 0;
 
-  function updateBottomNav() {
-    const scrollPos = window.scrollY + window.innerHeight * 0.4;
-    let idx = 0;
-    for (let i = 0; i < sections.length; i++) {
+  function update() {
+    var scrollPos = window.scrollY + window.innerHeight * 0.4;
+    var idx = 0;
+    for (var i = 0; i < sections.length; i++) {
       if (sections[i].el.offsetTop <= scrollPos) idx = i;
     }
     currentIdx = idx;
     titleEl.textContent = sections[idx].title;
-    counterEl.textContent = `${idx + 1} / ${sections.length}`;
-    progressFill.style.width = ((idx + 1) / sections.length * 100) + '%';
+    counterEl.textContent = (idx + 1) + ' / ' + sections.length;
+
+    // Granular scroll-based progress
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+    progressFill.style.width = pct + '%';
+
     prevBtn.disabled = idx === 0;
     nextBtn.disabled = idx === sections.length - 1;
+
+    // Update TOC active item & auto-scroll active into view
+    tocItems.forEach(function(item, i) { item.classList.toggle('active', i === idx); });
+    if (tocItems[idx]) tocItems[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+    // Show bottom bar when TOC scrolls out of view
+    var tocBottom = toc.getBoundingClientRect().bottom;
+    nav.classList.toggle('visible', tocBottom < 0);
   }
 
-  prevBtn.addEventListener('click', () => {
-    if (currentIdx > 0) {
-      sections[currentIdx - 1].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  prevBtn.addEventListener('click', function() {
+    if (currentIdx > 0) sections[currentIdx - 1].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  nextBtn.addEventListener('click', function() {
+    if (currentIdx < sections.length - 1) sections[currentIdx + 1].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  nextBtn.addEventListener('click', () => {
-    if (currentIdx < sections.length - 1) {
-      sections[currentIdx + 1].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-
-  window.addEventListener('scroll', updateBottomNav, { passive: true });
-  updateBottomNav();
+  window.addEventListener('scroll', update, { passive: true });
+  update();
 }
 
-// ===== CONTINUE TO NEXT PAGE CTA =====
-function initContinueCTA() {
-  const pages = getBookPages();
-  const idx = getCurrentPageIndex();
-  if (idx < 0) return; // Not in book
+// ===== PAGE NAV IN MENU =====
+function initPageNavInMenu() {
+  var navLinks = document.querySelector('.nav-links');
+  if (!navLinks) return;
 
-  const nextPage = getNextPage();
-  const prevPage = getPrevPage();
-  if (!nextPage && !prevPage) return;
+  var prevPage = getPrevPage();
+  var nextPage = getNextPage();
+  if (!prevPage && !nextPage) return;
 
-  const labels = getBookLabels();
-  const isTR = window.location.pathname.includes('/tr/');
-  const prefix = isTR ? '' : '';
+  var idx = getCurrentPageIndex();
+  var pages = getBookPages();
 
-  // Find insertion point
-  const mainContent = document.querySelector('.main-content');
-  const footer = document.querySelector('.footer');
-  const insertTarget = mainContent || (footer ? footer.parentElement : null);
-  if (!insertTarget) return;
+  var navInfo = document.createElement('div');
+  navInfo.className = 'nav-page-links';
 
-  const cta = document.createElement('div');
-  cta.className = 'continue-cta';
-
-  let html = '';
+  var html = '';
   if (prevPage) {
-    html += `<a href="${prefix}${prevPage.file}" class="continue-prev">&larr; ${labels.prevChapter}: ${prevPage.title}</a>`;
+    html += '<a href="' + prevPage.file + '" class="nav-page-link nav-page-prev">&larr; ' + prevPage.title + '</a>';
   }
+  html += '<span class="nav-page-counter">' + (idx + 1) + ' / ' + pages.length + '</span>';
   if (nextPage) {
-    html += `
-      <div class="continue-label">${labels.continueReading}</div>
-      <div class="continue-next-info">
-        <span class="continue-icon">${nextPage.icon}</span>
-        <div>
-          <div class="continue-next-title">${nextPage.title}</div>
-          <div class="continue-next-desc">${nextPage.desc}</div>
-        </div>
-      </div>
-      <a href="${prefix}${nextPage.file}" class="continue-btn">${labels.nextChapter} &rarr;</a>
-    `;
+    html += '<a href="' + nextPage.file + '" class="nav-page-link nav-page-next">' + nextPage.title + ' &rarr;</a>';
   }
-  html += `<div class="continue-meta">${labels.pageOf} ${idx + 1} ${labels.of} ${pages.length}</div>`;
-  cta.innerHTML = html;
-
-  if (mainContent) {
-    mainContent.appendChild(cta);
-  } else if (footer) {
-    footer.parentElement.insertBefore(cta, footer);
-  }
+  navInfo.innerHTML = html;
+  navLinks.appendChild(navInfo);
 }
 
-// ===== SIDEBAR READ CHECKMARKS =====
-function initSidebarCheckmarks() {
-  const sidebar = document.querySelector('.sidebar');
-  if (!sidebar) return;
+// ===== COLLAPSIBLE INFO BOXES (mobile) =====
+function initCollapsibleDetails() {
+  if (window.innerWidth > 960) return;
 
-  const pageKey = getPageKey();
-  const readSections = getReadSections(pageKey);
+  var mainContent = document.querySelector('.main-content');
+  if (!mainContent) return;
 
-  sidebar.querySelectorAll('a[href^="#"]').forEach(link => {
-    const sectionId = link.getAttribute('href').substring(1);
-    const check = document.createElement('span');
-    check.className = 'sidebar-check';
-    check.id = 'sidebar-check-' + sectionId;
-    check.innerHTML = '&#10003;';
-    if (readSections.includes(sectionId)) {
-      check.classList.add('visible');
+  mainContent.querySelectorAll('.info-box').forEach(function(box) {
+    if (box.textContent.trim().length < 150) return;
+    var h4 = box.querySelector('h4');
+    if (!h4) return;
+
+    var content = document.createElement('div');
+    content.className = 'collapsible-content';
+    while (h4.nextSibling) {
+      content.appendChild(h4.nextSibling);
     }
-    link.appendChild(check);
+    box.appendChild(content);
+
+    box.classList.add('collapsible');
+    h4.classList.add('collapsible-toggle');
+    h4.insertAdjacentHTML('beforeend', ' <span class="collapsible-arrow">&#9662;</span>');
+
+    h4.addEventListener('click', function() {
+      box.classList.toggle('expanded');
+    });
   });
 }
 
-function updateSidebarCheck(sectionId) {
-  const check = document.getElementById('sidebar-check-' + sectionId);
-  if (check) check.classList.add('visible');
+// ===== READ MORE FOR LONG PARAGRAPHS (mobile) =====
+function initReadMore() {
+  if (window.innerWidth > 960) return;
+
+  var mainContent = document.querySelector('.main-content');
+  if (!mainContent) return;
+
+  var isTR = window.location.pathname.indexOf('/tr/') >= 0;
+  var moreText = isTR ? 'Devam\u0131n\u0131 oku' : 'Read more';
+  var lessText = isTR ? 'Daha az' : 'Show less';
+
+  mainContent.querySelectorAll('p').forEach(function(p) {
+    if (p.closest('.collapsible-content')) return;
+    if (p.closest('.info-box')) return;
+    if (p.closest('.card')) return;
+    if (p.closest('.page-toc')) return;
+    if (p.textContent.trim().length < 300) return;
+    if (p.querySelector('a, strong, em, code')) {
+      // Skip paragraphs with lots of inline elements (likely structured content)
+      if (p.querySelectorAll('a').length > 3) return;
+    }
+
+    p.classList.add('truncated-p');
+    var btn = document.createElement('button');
+    btn.className = 'read-more-btn';
+    btn.textContent = moreText;
+    btn.addEventListener('click', function() {
+      p.classList.toggle('expanded');
+      btn.textContent = p.classList.contains('expanded') ? lessText : moreText;
+    });
+    p.parentElement.insertBefore(btn, p.nextSibling);
+  });
 }
 
 // ===== INDEX PAGE READ BADGES =====
