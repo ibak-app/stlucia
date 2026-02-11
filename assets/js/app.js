@@ -897,9 +897,14 @@ function initMobileBottomNav() {
     prevBtn.disabled = idx === 0;
     nextBtn.disabled = idx === sections.length - 1;
 
-    // Update TOC active item & auto-scroll active into view
+    // Update TOC active item & horizontally scroll TOC container only
     tocItems.forEach(function(item, i) { item.classList.toggle('active', i === idx); });
-    if (tocItems[idx]) tocItems[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    if (tocItems[idx] && toc.getBoundingClientRect().bottom > 0) {
+      var itemLeft = tocItems[idx].offsetLeft;
+      var itemWidth = tocItems[idx].offsetWidth;
+      var tocWidth = toc.offsetWidth;
+      toc.scrollLeft = itemLeft - (tocWidth / 2) + (itemWidth / 2);
+    }
 
     // Show bottom bar when TOC scrolls out of view
     var tocBottom = toc.getBoundingClientRect().bottom;
