@@ -1,5 +1,107 @@
 // ===== St. Lucia Business Guide - Main JS =====
 
+// ===== BOOK PAGES DATA =====
+const BOOK_PAGES = {
+  en: [
+    { file: 'index.html', title: 'Home', icon: '&#127968;', desc: 'Your gateway to business in Saint Lucia' },
+    { file: 'overview.html', title: 'Country Overview', icon: '&#127758;', desc: 'Geography, economy, infrastructure & demographics' },
+    { file: 'business.html', title: 'Business Setup', icon: '&#127970;', desc: 'Company registration, banking & business operations' },
+    { file: 'legal.html', title: 'Legal & Tax Framework', icon: '&#9878;', desc: 'Tax rates, labor laws & regulatory landscape' },
+    { file: 'sectors.html', title: 'Key Sectors', icon: '&#127965;', desc: 'Tourism, agriculture, energy & construction' },
+    { file: 'cbi.html', title: 'Citizenship by Investment', icon: '&#127963;', desc: 'CBI program, requirements & real estate options' },
+    { file: 'immigration.html', title: 'Immigration', icon: '&#9992;', desc: 'Visas, work permits & residency pathways' },
+    { file: 'living.html', title: 'Living in St. Lucia', icon: '&#127796;', desc: 'Healthcare, education, cost of living & lifestyle' },
+    { file: 'expats.html', title: 'Expat Guide', icon: '&#129489;', desc: 'Practical tips for expatriates & digital nomads' },
+    { file: 'events.html', title: 'Events & Culture', icon: '&#127926;', desc: 'Jazz festival, carnival, sports & cultural calendar' },
+    { file: 'trade.html', title: 'Trade & Export', icon: '&#128674;', desc: 'Import/export, trade agreements & logistics' },
+    { file: 'government.html', title: 'Government', icon: '&#127963;', desc: 'Political system, budget & public policy' },
+    { file: 'realestate.html', title: 'Real Estate', icon: '&#127968;', desc: 'Property market, prices & development pipeline' },
+    { file: 'startups.html', title: 'Startups & Innovation', icon: '&#128161;', desc: 'Incubators, funding & digital economy' },
+    { file: 'checklist.html', title: 'Business Checklist', icon: '&#9989;', desc: 'Step-by-step setup checklist' },
+    { file: 'resources.html', title: 'Resources', icon: '&#128218;', desc: 'Useful links, contacts & references' },
+    { file: 'faq.html', title: 'FAQ', icon: '&#10067;', desc: 'Frequently asked questions' },
+    { file: 'map.html', title: 'Interactive Map', icon: '&#128506;', desc: 'Explore key locations across St. Lucia' },
+    { file: 'directory.html', title: 'Business Directory', icon: '&#128210;', desc: 'Find businesses, services & contacts' }
+  ],
+  tr: [
+    { file: 'index.html', title: 'Ana Sayfa', icon: '&#127968;', desc: 'Saint Lucia\'da iş dünyasına açılan kapınız' },
+    { file: 'overview.html', title: 'Ülke Genel Bakış', icon: '&#127758;', desc: 'Coğrafya, ekonomi, altyapı ve demografi' },
+    { file: 'business.html', title: 'İş Kurulumu', icon: '&#127970;', desc: 'Şirket kaydı, bankacılık ve iş operasyonları' },
+    { file: 'legal.html', title: 'Hukuk ve Vergi', icon: '&#9878;', desc: 'Vergi oranları, iş hukuku ve düzenlemeler' },
+    { file: 'sectors.html', title: 'Sektörler', icon: '&#127965;', desc: 'Turizm, tarım, enerji ve inşaat' },
+    { file: 'cbi.html', title: 'Yatırım Yoluyla Vatandaşlık', icon: '&#127963;', desc: 'CBI programı, gereksinimler ve gayrimenkul seçenekleri' },
+    { file: 'immigration.html', title: 'Göç', icon: '&#9992;', desc: 'Vize, çalışma izni ve oturma yolları' },
+    { file: 'living.html', title: 'Yaşam', icon: '&#127796;', desc: 'Sağlık, eğitim, yaşam maliyeti ve yaşam tarzı' },
+    { file: 'expats.html', title: 'Göçmen Rehberi', icon: '&#129489;', desc: 'Gurbetçiler ve dijital göçebeler için ipuçları' },
+    { file: 'events.html', title: 'Etkinlikler', icon: '&#127926;', desc: 'Jazz festivali, karnaval, spor ve kültür takvimi' },
+    { file: 'trade.html', title: 'Ticaret', icon: '&#128674;', desc: 'İthalat/ihracat, ticaret anlaşmaları ve lojistik' },
+    { file: 'government.html', title: 'Hükümet', icon: '&#127963;', desc: 'Siyasi sistem, bütçe ve kamu politikası' },
+    { file: 'realestate.html', title: 'Gayrimenkul', icon: '&#127968;', desc: 'Emlak piyasası, fiyatlar ve geliştirme projeleri' },
+    { file: 'startups.html', title: 'Girişimler', icon: '&#128161;', desc: 'Kuluçka merkezleri, finansman ve dijital ekonomi' },
+    { file: 'checklist.html', title: 'İş Kontrol Listesi', icon: '&#9989;', desc: 'Adım adım kurulum kontrol listesi' },
+    { file: 'resources.html', title: 'Kaynaklar', icon: '&#128218;', desc: 'Faydalı bağlantılar, iletişim ve referanslar' },
+    { file: 'faq.html', title: 'SSS', icon: '&#10067;', desc: 'Sıkça sorulan sorular' },
+    { file: 'map.html', title: 'Harita', icon: '&#128506;', desc: 'St. Lucia genelinde önemli konumları keşfedin' },
+    { file: 'directory.html', title: 'Rehber', icon: '&#128210;', desc: 'İşletme, hizmet ve iletişim bilgileri' }
+  ]
+};
+
+function getBookLabels() {
+  const isTR = window.location.pathname.includes('/tr/');
+  return isTR ? {
+    continueReading: 'Okumaya Devam Et',
+    nextChapter: 'Sonraki Bölüm',
+    prevChapter: 'Önceki Bölüm',
+    pageOf: 'Sayfa',
+    of: '/',
+    readComplete: 'Okundu',
+    bookProgress: 'Rehber İlerlemesi',
+    section: 'Bölüm',
+    prev: 'Önceki',
+    next: 'Sonraki'
+  } : {
+    continueReading: 'Continue Reading',
+    nextChapter: 'Next Chapter',
+    prevChapter: 'Previous Chapter',
+    pageOf: 'Page',
+    of: 'of',
+    readComplete: 'Read',
+    bookProgress: 'Guide Progress',
+    section: 'Section',
+    prev: 'Prev',
+    next: 'Next'
+  };
+}
+
+function getBookPages() {
+  const isTR = window.location.pathname.includes('/tr/');
+  return isTR ? BOOK_PAGES.tr : BOOK_PAGES.en;
+}
+
+function getCurrentPageIndex() {
+  const pages = getBookPages();
+  const pageKey = getPageKey();
+  const file = pageKey.replace('tr/', '');
+  return pages.findIndex(p => p.file === file);
+}
+
+function getNextPage() {
+  const pages = getBookPages();
+  const idx = getCurrentPageIndex();
+  return idx >= 0 && idx < pages.length - 1 ? pages[idx + 1] : null;
+}
+
+function getPrevPage() {
+  const pages = getBookPages();
+  const idx = getCurrentPageIndex();
+  return idx > 0 ? pages[idx - 1] : null;
+}
+
+function getPageFile() {
+  const pageKey = getPageKey();
+  return pageKey.replace('tr/', '');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initNavToggle();
   initTabs();
@@ -13,6 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initSectionReveal();
   initSiteSearch();
   initLikesAndReadTracking();
+  initGlobalBookProgress();
+  initMobileBottomNav();
+  initContinueCTA();
+  initSidebarCheckmarks();
+  initIndexReadBadges();
 });
 
 // Mobile nav toggle
@@ -283,10 +390,26 @@ function initLikesAndReadTracking() {
 
   // Find content sections (div[id] with h2 inside .main-content)
   const mainContent = document.querySelector('.main-content');
-  if (!mainContent) { updateLikesBadge(); return; }
+  if (!mainContent) { updateLikesBadge(); storeSectionCount(); return; }
 
-  const sections = mainContent.querySelectorAll('div[id]');
-  if (!sections.length) { updateLikesBadge(); return; }
+  const pageFile = getPageFile();
+  let sections;
+  const isFaq = pageFile === 'faq.html';
+
+  if (isFaq) {
+    // FAQ uses .faq-category-header inside div[id] instead of h2
+    sections = [];
+    mainContent.querySelectorAll('.faq-category-header').forEach((header, i) => {
+      const parent = header.closest('div[id]') || header.parentElement;
+      if (!parent.id) parent.id = 'faq-section-' + i;
+      sections.push(parent);
+    });
+    sections = sections.filter((s, i, arr) => arr.indexOf(s) === i); // deduplicate
+  } else {
+    sections = Array.from(mainContent.querySelectorAll('div[id]')).filter(s => s.querySelector('h2'));
+  }
+
+  if (!sections.length) { updateLikesBadge(); storeSectionCount(); return; }
 
   // Load saved state
   const likes = getLikes();
@@ -294,11 +417,11 @@ function initLikesAndReadTracking() {
 
   // Inject like buttons and read markers into each section
   sections.forEach(section => {
-    const h2 = section.querySelector('h2');
-    if (!h2) return;
+    const heading = isFaq ? section.querySelector('.faq-category-header h3, .faq-category-header') : section.querySelector('h2');
+    if (!heading) return;
 
     const sectionId = section.id;
-    const sectionTitle = h2.textContent.trim();
+    const sectionTitle = heading.textContent.trim();
 
     // Like button
     const likeBtn = document.createElement('button');
@@ -314,7 +437,7 @@ function initLikesAndReadTracking() {
       setTimeout(() => likeBtn.classList.remove('animate'), 300);
       updateLikesBadge();
     });
-    h2.appendChild(likeBtn);
+    heading.appendChild(likeBtn);
 
     // Read marker
     const readMarker = document.createElement('span');
@@ -324,7 +447,7 @@ function initLikesAndReadTracking() {
     if (readSections.includes(sectionId)) {
       readMarker.classList.add('visible');
     }
-    h2.appendChild(readMarker);
+    heading.appendChild(readMarker);
   });
 
   // Read tracking with IntersectionObserver
@@ -340,6 +463,8 @@ function initLikesAndReadTracking() {
               readSections.push(id);
               const marker = document.getElementById('read-' + id);
               if (marker) marker.classList.add('visible');
+              updateSidebarCheck(id);
+              updateGlobalBookProgress();
               readObserver.unobserve(entry.target);
             }, 3000);
           }
@@ -353,12 +478,13 @@ function initLikesAndReadTracking() {
     }, { threshold: 0.3 });
 
     sections.forEach(section => {
-      if (section.querySelector('h2') && !readSections.includes(section.id)) {
+      if (!readSections.includes(section.id)) {
         readObserver.observe(section);
       }
     });
   }
 
+  storeSectionCount();
   updateLikesBadge();
 }
 
@@ -638,6 +764,271 @@ function escapeHtml(text) {
 
 function escapeRegex(text) {
   return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// ===== GLOBAL BOOK PROGRESS =====
+function initGlobalBookProgress() {
+  const bar = document.createElement('div');
+  bar.className = 'book-progress-bar';
+  bar.id = 'book-progress-bar';
+  document.body.appendChild(bar);
+  updateGlobalBookProgress();
+}
+
+function storeSectionCount() {
+  const pageFile = getPageFile();
+  const mainContent = document.querySelector('.main-content');
+  if (!mainContent) return;
+
+  // Count sections: div[id] with h2, or faq-category-header
+  let count = 0;
+  if (pageFile === 'faq.html') {
+    count = mainContent.querySelectorAll('.faq-category-header').length;
+  } else {
+    mainContent.querySelectorAll('div[id]').forEach(s => {
+      if (s.querySelector('h2')) count++;
+    });
+  }
+  if (count === 0) return;
+
+  try {
+    const counts = JSON.parse(localStorage.getItem('stlucia_section_counts') || '{}');
+    const pageKey = getPageKey();
+    counts[pageKey] = count;
+    localStorage.setItem('stlucia_section_counts', JSON.stringify(counts));
+  } catch {}
+}
+
+function updateGlobalBookProgress() {
+  const bar = document.getElementById('book-progress-bar');
+  if (!bar) return;
+
+  try {
+    const counts = JSON.parse(localStorage.getItem('stlucia_section_counts') || '{}');
+    const readData = JSON.parse(localStorage.getItem('stlucia_read') || '{}');
+    let totalSections = 0;
+    let totalRead = 0;
+
+    Object.keys(counts).forEach(pageKey => {
+      totalSections += counts[pageKey];
+      const readArr = readData[pageKey] || [];
+      totalRead += Math.min(readArr.length, counts[pageKey]);
+    });
+
+    const pct = totalSections > 0 ? (totalRead / totalSections) * 100 : 0;
+    bar.style.width = pct + '%';
+  } catch {}
+}
+
+// ===== MOBILE BOTTOM NAVIGATION =====
+function initMobileBottomNav() {
+  // Only on mobile
+  if (window.innerWidth > 960) return;
+
+  const pageFile = getPageFile();
+  // Skip on pages without sections
+  const skipPages = ['index.html', 'map.html', 'directory.html'];
+  if (skipPages.includes(pageFile)) return;
+
+  const mainContent = document.querySelector('.main-content');
+  if (!mainContent) return;
+
+  // Gather sections
+  let sections = [];
+  if (pageFile === 'faq.html') {
+    mainContent.querySelectorAll('.faq-category-header').forEach((header, i) => {
+      const parent = header.closest('div[id]') || header.parentElement;
+      const id = parent.id || 'faq-section-' + i;
+      if (!parent.id) parent.id = id;
+      const titleEl = header.querySelector('h3') || header;
+      sections.push({ el: parent, id: id, title: titleEl.textContent.trim() });
+    });
+  } else {
+    mainContent.querySelectorAll('div[id]').forEach(s => {
+      const h2 = s.querySelector('h2');
+      if (h2) {
+        // Get text excluding like/read buttons
+        let title = '';
+        h2.childNodes.forEach(n => {
+          if (n.nodeType === 3) title += n.textContent;
+          else if (n.tagName && !n.classList.contains('section-like-btn') && !n.classList.contains('section-read-marker')) {
+            title += n.textContent;
+          }
+        });
+        sections.push({ el: s, id: s.id, title: title.trim() });
+      }
+    });
+  }
+  if (sections.length === 0) return;
+
+  const labels = getBookLabels();
+
+  // Create bottom nav
+  const nav = document.createElement('div');
+  nav.className = 'mobile-bottom-nav';
+  nav.innerHTML = `
+    <div class="mbn-progress"><div class="mbn-progress-fill"></div></div>
+    <div class="mbn-controls">
+      <button class="mbn-btn mbn-prev" aria-label="${labels.prev}">&#9664;</button>
+      <div class="mbn-info">
+        <div class="mbn-title"></div>
+        <div class="mbn-counter"></div>
+      </div>
+      <button class="mbn-btn mbn-next" aria-label="${labels.next}">&#9654;</button>
+    </div>
+  `;
+  document.body.appendChild(nav);
+  document.body.classList.add('has-bottom-nav');
+
+  const titleEl = nav.querySelector('.mbn-title');
+  const counterEl = nav.querySelector('.mbn-counter');
+  const progressFill = nav.querySelector('.mbn-progress-fill');
+  const prevBtn = nav.querySelector('.mbn-prev');
+  const nextBtn = nav.querySelector('.mbn-next');
+  let currentIdx = 0;
+
+  function updateBottomNav() {
+    const scrollPos = window.scrollY + window.innerHeight * 0.4;
+    let idx = 0;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].el.offsetTop <= scrollPos) idx = i;
+    }
+    currentIdx = idx;
+    titleEl.textContent = sections[idx].title;
+    counterEl.textContent = `${idx + 1} / ${sections.length}`;
+    progressFill.style.width = ((idx + 1) / sections.length * 100) + '%';
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === sections.length - 1;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (currentIdx > 0) {
+      sections[currentIdx - 1].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentIdx < sections.length - 1) {
+      sections[currentIdx + 1].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  window.addEventListener('scroll', updateBottomNav, { passive: true });
+  updateBottomNav();
+}
+
+// ===== CONTINUE TO NEXT PAGE CTA =====
+function initContinueCTA() {
+  const pages = getBookPages();
+  const idx = getCurrentPageIndex();
+  if (idx < 0) return; // Not in book
+
+  const nextPage = getNextPage();
+  const prevPage = getPrevPage();
+  if (!nextPage && !prevPage) return;
+
+  const labels = getBookLabels();
+  const isTR = window.location.pathname.includes('/tr/');
+  const prefix = isTR ? '' : '';
+
+  // Find insertion point
+  const mainContent = document.querySelector('.main-content');
+  const footer = document.querySelector('.footer');
+  const insertTarget = mainContent || (footer ? footer.parentElement : null);
+  if (!insertTarget) return;
+
+  const cta = document.createElement('div');
+  cta.className = 'continue-cta';
+
+  let html = '';
+  if (prevPage) {
+    html += `<a href="${prefix}${prevPage.file}" class="continue-prev">&larr; ${labels.prevChapter}: ${prevPage.title}</a>`;
+  }
+  if (nextPage) {
+    html += `
+      <div class="continue-label">${labels.continueReading}</div>
+      <div class="continue-next-info">
+        <span class="continue-icon">${nextPage.icon}</span>
+        <div>
+          <div class="continue-next-title">${nextPage.title}</div>
+          <div class="continue-next-desc">${nextPage.desc}</div>
+        </div>
+      </div>
+      <a href="${prefix}${nextPage.file}" class="continue-btn">${labels.nextChapter} &rarr;</a>
+    `;
+  }
+  html += `<div class="continue-meta">${labels.pageOf} ${idx + 1} ${labels.of} ${pages.length}</div>`;
+  cta.innerHTML = html;
+
+  if (mainContent) {
+    mainContent.appendChild(cta);
+  } else if (footer) {
+    footer.parentElement.insertBefore(cta, footer);
+  }
+}
+
+// ===== SIDEBAR READ CHECKMARKS =====
+function initSidebarCheckmarks() {
+  const sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
+
+  const pageKey = getPageKey();
+  const readSections = getReadSections(pageKey);
+
+  sidebar.querySelectorAll('a[href^="#"]').forEach(link => {
+    const sectionId = link.getAttribute('href').substring(1);
+    const check = document.createElement('span');
+    check.className = 'sidebar-check';
+    check.id = 'sidebar-check-' + sectionId;
+    check.innerHTML = '&#10003;';
+    if (readSections.includes(sectionId)) {
+      check.classList.add('visible');
+    }
+    link.appendChild(check);
+  });
+}
+
+function updateSidebarCheck(sectionId) {
+  const check = document.getElementById('sidebar-check-' + sectionId);
+  if (check) check.classList.add('visible');
+}
+
+// ===== INDEX PAGE READ BADGES =====
+function initIndexReadBadges() {
+  const pageFile = getPageFile();
+  if (pageFile !== 'index.html') return;
+
+  const cards = document.querySelectorAll('.card-grid .card[href]');
+  if (!cards.length) return;
+
+  try {
+    const counts = JSON.parse(localStorage.getItem('stlucia_section_counts') || '{}');
+    const readData = JSON.parse(localStorage.getItem('stlucia_read') || '{}');
+    const isTR = window.location.pathname.includes('/tr/');
+    const labels = getBookLabels();
+
+    cards.forEach(card => {
+      const href = card.getAttribute('href');
+      if (!href) return;
+      const file = href.replace('../', '').replace('tr/', '');
+      const cardPageKey = (isTR ? 'tr/' : '') + file;
+
+      const total = counts[cardPageKey] || 0;
+      const read = readData[cardPageKey] ? Math.min(readData[cardPageKey].length, total) : 0;
+      if (total === 0) return;
+
+      const pct = Math.round((read / total) * 100);
+      const isComplete = pct === 100;
+
+      const badge = document.createElement('div');
+      badge.className = 'card-read-progress';
+      badge.innerHTML = `
+        <div class="card-progress-bar"><div class="card-progress-fill" style="width:${pct}%"></div></div>
+        ${isComplete ? `<span class="card-read-badge">${labels.readComplete}</span>` : `<span class="card-read-pct">${pct}%</span>`}
+      `;
+      card.appendChild(badge);
+    });
+  } catch {}
 }
 
 // ===== PWA: Service Worker Registration =====
