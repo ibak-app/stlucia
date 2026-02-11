@@ -1,0 +1,731 @@
+[
+  {
+    "page": "Home",
+    "url": "index.html",
+    "sections": [
+      {
+        "title": "St. Lucia Business Guide",
+        "anchor": "",
+        "content": "Your Gateway to Business in Saint Lucia. Comprehensive guide to investing, registering, and operating a business in the Eastern Caribbean's most dynamic island economy. GDP $2.66B, Population 184K, 65% GDP from Tourism, 48-72h Company Registration"
+      },
+      {
+        "title": "Why Saint Lucia for Business",
+        "anchor": "#why",
+        "content": "Strategic Location gateway between North and South America. Tax Incentives up to 15-year income tax waivers. IBCs pay 0% tax on foreign income. Fast Company Formation in 48-72 hours. English-Speaking common law legal system. CARICOM Access to Caribbean single market. Citizenship by Investment program starting at $240,000"
+      }
+    ]
+  },
+  {
+    "page": "Overview",
+    "url": "overview.html",
+    "sections": [
+      {
+        "title": "Geography & Climate",
+        "anchor": "#geography",
+        "content": "Saint Lucia is a volcanic island in the eastern Caribbean Sea. Total Area 617 km2. The Pitons UNESCO World Heritage Site. Tropical maritime climate with dry season January-June and wet season July-December"
+      },
+      {
+        "title": "Government",
+        "anchor": "#government",
+        "content": "Parliamentary democracy under constitutional monarchy. Westminster system. Prime Minister Philip J. Pierre. 17-seat House of Assembly. English common law system. Eastern Caribbean Supreme Court. CCJ final appellate court"
+      },
+      {
+        "title": "Economy",
+        "anchor": "#economy",
+        "content": "GDP $2.66 billion. GDP per capita $14,650. Tourism 65% of GDP. Services 80% of GDP. Currency Eastern Caribbean Dollar XCD pegged at 2.70 to USD. CARICOM member. Banking system regulated by ECCB"
+      },
+      {
+        "title": "Infrastructure Airports",
+        "anchor": "#infrastructure",
+        "content": "Hewanorra International Airport UVF serves international flights. George FL Charles Airport SLU for regional flights. Airlines include American, JetBlue, United, Air Canada, British Airways, Virgin Atlantic, Caribbean Airlines. Direct flights from Miami, New York, Toronto, London"
+      },
+      {
+        "title": "Infrastructure Seaports",
+        "anchor": "#infrastructure",
+        "content": "Port Castries is main commercial port. Pointe Seraphine cruise terminal. Global Ports Holding $135M redevelopment. Vieux Fort has cargo facilities. Shipping lines CMA CGM, Tropical Shipping, Geest Line, Maersk, MSC"
+      },
+      {
+        "title": "Telecommunications",
+        "anchor": "#infrastructure",
+        "content": "Flow and Digicel mobile networks. Business internet from $79-$399 monthly. Mobile data plans available. Starlink satellite internet available. 95% mobile coverage. 4G LTE networks"
+      },
+      {
+        "title": "Electricity",
+        "anchor": "#infrastructure",
+        "content": "LUCELEC provides electricity. 432 GWh annual generation. 88.4MW capacity. Rates from EC$0.46-0.70 per kWh. Diesel accounts for 66.1M in fuel costs. Renewable energy transition underway"
+      },
+      {
+        "title": "Water and Sewerage",
+        "anchor": "#infrastructure",
+        "content": "WASCO provides water and sewerage. Residential rates EC$1.50-3.50 per 1000 gallons. Commercial sewerage rates EC$40-100 monthly. Infrastructure projects for Millet-Vanard, Theobalds, Ciceron underway"
+      }
+    ]
+  },
+  {
+    "page": "Business",
+    "url": "business.html",
+    "sections": [
+      {
+        "title": "Business Entity Types",
+        "anchor": "#entity-types",
+        "content": "International Business Company IBC 0% tax on foreign income, privacy protections, no minimum capital, fast registration. Limited Liability Company LLC for local businesses. Company Limited by Shares. Sole Proprietorship. Partnership. Branch Office"
+      },
+      {
+        "title": "IBC Registration",
+        "anchor": "#ibc",
+        "content": "Register IBC in 48-72 hours. No minimum capital requirement. Only 1 director and 1 shareholder needed. 0% tax on foreign-sourced income. No exchange controls. Annual government fee $350. Registered agent required"
+      },
+      {
+        "title": "Registration Process",
+        "anchor": "#registration",
+        "content": "Step 1 Name reservation. Step 2 Prepare incorporation documents. Step 3 Submit to Registry of Companies. Step 4 Pay registration fees. Step 5 Receive Certificate of Incorporation. Timeline 48-72 hours for IBC, 5-10 days for LLC"
+      },
+      {
+        "title": "Required Documents",
+        "anchor": "#documents",
+        "content": "Passport copies of directors and shareholders. Proof of address utility bills. Company name reservation. Memorandum and Articles of Association. Registered office address. Board resolution. Due diligence questionnaire"
+      },
+      {
+        "title": "Investment Incentives",
+        "anchor": "#incentives",
+        "content": "Income tax holidays up to 15 years for tourism, manufacturing, agriculture. Import duty concessions. Withholding tax exemptions. Property tax concessions. Accelerated depreciation allowances. Training grants available"
+      },
+      {
+        "title": "Work Permits",
+        "anchor": "#work-permits",
+        "content": "Work permit required for non-nationals. Categories Temporary, Special, Trainee. Processing time 4-6 weeks. Fees $500-2500 annually. Employer must demonstrate local recruitment efforts. CARICOM nationals have easier process with Skills Certificate"
+      },
+      {
+        "title": "Banking & Payments",
+        "anchor": "#banking",
+        "content": "7 banks 1st National Bank, Bank of Saint Lucia, CIBC Caribbean, Republic Bank, Scotiabank, First Citizens, RBTT. Corporate accounts available. SWIFT codes for international transfers. ECACH for regional payments. Mobile banking widespread. Credit unions 16 active institutions"
+      },
+      {
+        "title": "ECCB Regulation",
+        "anchor": "#eccb",
+        "content": "Eastern Caribbean Central Bank regulates banking. Foreign reserves EC$5.5 billion. Minimum Savings Rate 2%. Discount rates 3% and 4.5%. XCD pegged to USD at 2.70 for 48 years. Financial Services Regulatory Authority FSRA supervises IBCs and insurance"
+      },
+      {
+        "title": "Jurisdiction Comparison",
+        "anchor": "#benchmarking",
+        "content": "Saint Lucia compared to Barbados, Grenada, Antigua, Dominica, Mauritius across corporate tax, setup time, cost, incentives, CBI programs, banking, infrastructure, labor costs, ease of doing business"
+      }
+    ]
+  },
+  {
+    "page": "Legal & Tax",
+    "url": "legal.html",
+    "sections": [
+      {
+        "title": "Corporate Income Tax",
+        "anchor": "#taxation",
+        "content": "Standard corporate tax rate 30%. IBCs foreign income 0%. Manufacturing companies as low as 10% with incentives. Tourism enterprises tax holiday up to 15 years. No separate capital gains tax. Withholding tax on dividends 15%, interest 15%, royalties 15%"
+      },
+      {
+        "title": "Personal Income Tax",
+        "anchor": "#taxation",
+        "content": "Tax-free allowance EC$40,000 annually. Progressive rates 10% up to 20,000, 20% up to 30,000, 30% above 30,000. Non-residents taxed on St Lucia income only. No inheritance tax. No wealth tax"
+      },
+      {
+        "title": "VAT Value Added Tax",
+        "anchor": "#taxation",
+        "content": "Standard VAT rate 12.5%. Tourism accommodation 7%. Hotel food and beverage 10%. Zero-rated exports and basic goods. VAT registration mandatory above EC$200,000 annual revenue. Monthly VAT returns required"
+      },
+      {
+        "title": "Property Tax",
+        "anchor": "#taxation",
+        "content": "Residential property tax 0.25% of market value. Commercial property 0.3% of market value. Undeveloped land 0.5-1% of value. Property transfer tax 5% buyer, 2.5% seller. Alien Landholding License required for non-nationals"
+      },
+      {
+        "title": "Labor Laws",
+        "anchor": "#labor",
+        "content": "Minimum wage EC$6.50 per hour. Standard work week 40 hours. Overtime 1.5x regular pay. Annual leave 2 weeks minimum. Sick leave 2 weeks per year. Maternity leave 13 weeks. Severance pay required after 5 years. Labour Code regulates employment"
+      },
+      {
+        "title": "Property & Land Ownership",
+        "anchor": "#property",
+        "content": "Alien Landholding License ALHL required for non-nationals. Fees 5% up to $100K, 6.5% $100K-250K, 7.5% $250K-500K, 10% above $500K. Processing 4-8 weeks. Annual fees 0.5% of value. No restrictions on property types. Freehold and leasehold available"
+      },
+      {
+        "title": "Business Licenses",
+        "anchor": "#licenses",
+        "content": "Trade licence required for all businesses. Professional licences for regulated professions. Liquor licence for alcohol sales. Tourism business licence. Health certificates for food businesses. Building permits for construction"
+      },
+      {
+        "title": "Environmental & Planning",
+        "anchor": "#environmental",
+        "content": "Development Control Authority approves construction. Environmental impact assessments required for major projects. Protected areas regulations. Coastal zone management. National Conservation Authority oversees heritage sites"
+      },
+      {
+        "title": "Intellectual Property",
+        "anchor": "#ip",
+        "content": "Registry of Companies and IP ROCIP handles registration. Trademarks approximately USD $1,130 per class. Patents protected. Copyright automatic protection. WIPO member. Berne Convention, Paris Convention, PCT, TRIPS. Not party to Madrid Protocol"
+      },
+      {
+        "title": "Dispute Resolution",
+        "anchor": "#disputes",
+        "content": "Eastern Caribbean Supreme Court has jurisdiction. High Court and Court of Appeal. Caribbean Court of Justice CCJ final appellate court since July 2023. Commercial arbitration available. Alternative dispute resolution mechanisms"
+      },
+      {
+        "title": "E-Commerce & Digital",
+        "anchor": "#ecommerce",
+        "content": "Data Protection Act 2021 regulates personal data. Electronic Transactions Act enables digital signatures. Cybersecurity legislation in development. NTRC regulates telecommunications. Digital business incentives in 2025/26 budget"
+      }
+    ]
+  },
+  {
+    "page": "Sectors",
+    "url": "sectors.html",
+    "sections": [
+      {
+        "title": "Tourism Sector",
+        "anchor": "#tourism",
+        "content": "Tourism accounts for 65% of GDP. Over 900,000 annual visitors. Arrivals rebounded to 85% of 2019 levels by 2023. Revenue EC$3 billion annually. Cruise tourism $72.7M economic impact. Hotel pipeline 8 major projects. Airlines connectivity from US, Canada, UK, Europe"
+      },
+      {
+        "title": "Renewable Energy",
+        "anchor": "#renewable",
+        "content": "Geothermal potential 75%+ capacity factor. Historical wells showed 270-290C temperatures. NDC 3.0 targets carbon neutrality. La Tourney solar farm $0.105 per kWh. Troumassee 10MW solar plus battery storage. Wind potential 7.5 meters per second trade winds. OECS regional geothermal 6290MW potential"
+      },
+      {
+        "title": "BPO Business Process Outsourcing",
+        "anchor": "#bpo",
+        "content": "KM2 Solutions largest BPO employer. 5 major operators Alorica, Hinduja Global, Ubiquity, VXI, KM2. Data Protection Act 2021 compliance. Starlink and GINet improve connectivity. English-speaking workforce. Time zone advantage for US clients"
+      },
+      {
+        "title": "Agriculture",
+        "anchor": "#agriculture",
+        "content": "Banana exports declined from 130,000 tonnes 1992 to 20,000 tonnes. Cocoa production growing. Chocolate estates Rabot Estate Hotel Chocolat, Fond Doux Plantation. Rum distillers Chairman's Reserve, Bounty. Baron Foods largest processor. Fisheries 1,900 tonnes annually. Investment opportunities in value-added processing"
+      },
+      {
+        "title": "Manufacturing",
+        "anchor": "#manufacturing",
+        "content": "Food and beverage processing. Rum and beer production. Corrugated cardboard and packaging. Paints and chemicals. Small-scale assembly operations. Export incentives available. Duty-free imports for manufacturers"
+      },
+      {
+        "title": "Financial Services",
+        "anchor": "#financial",
+        "content": "IBCs 0% tax on foreign income. Trust companies. Insurance. Captive insurance. Fund management. Payment services. Regulated by FSRA Financial Services Regulatory Authority. ECCB supervises banking sector"
+      },
+      {
+        "title": "Real Estate & Construction",
+        "anchor": "#real-estate",
+        "content": "Citizenship by Investment drives real estate demand. Approved CBI projects minimum $300,000 investment. Luxury villa developments. Hotel and resort construction. Commercial property development. Infrastructure projects"
+      },
+      {
+        "title": "Creative Industries",
+        "anchor": "#creative",
+        "content": "Film location services. Saint Lucia Film Commission. Music production. Jazz Festival. Carnival. Fashion design. Arts and crafts. Cultural tourism experiences"
+      },
+      {
+        "title": "Maritime Services",
+        "anchor": "#maritime",
+        "content": "Ship registry opened 2016. Open registry for commercial vessels. Antigua Registry of Companies ARC manages registry $10.3M revenue 2023. Yacht services. Marine tourism. Port services"
+      },
+      {
+        "title": "Cannabis & Hemp",
+        "anchor": "#cannabis",
+        "content": "Cannabis decriminalized September 2021. Possession up to 30 grams not criminal offense. Cannabis and Industrial Hemp Bill 2025 published January but not yet enacted. Medical cannabis framework proposed. Cultivation licensing framework under development"
+      }
+    ]
+  },
+  {
+    "page": "CBI",
+    "url": "cbi.html",
+    "sections": [
+      {
+        "title": "Citizenship by Investment Overview",
+        "anchor": "",
+        "content": "Saint Lucia CBI program offers second passport through investment. Visa-free access to 145+ countries including UK, Schengen, Singapore. Four investment routes. Processing time 6-12 months. Mandatory interviews introduced. Due diligence fees $8,000 per adult"
+      },
+      {
+        "title": "Investment Options",
+        "anchor": "#options",
+        "content": "National Economic Fund donation from $240,000 single applicant. Real estate investment from $300,000. Government bonds $500,000 refundable after 5 years interest-free. Enterprise Projects $3.5 million creating jobs. July 2024 MOU increased minimum thresholds"
+      },
+      {
+        "title": "Eligibility Requirements",
+        "anchor": "#eligibility",
+        "content": "Age 18 years minimum. Good health certificate. Clean criminal record. Source of funds declaration. No visa refusals to visa-free countries. Restricted nationalities include Afghanistan, Iran, Iraq, North Korea, Somalia, Syria, Yemen"
+      },
+      {
+        "title": "Application Process",
+        "anchor": "#process",
+        "content": "Step 1 Select investment option. Step 2 Engage authorized agent. Step 3 Complete application forms. Step 4 Submit documents and pay fees. Step 5 Due diligence checks. Step 6 Mandatory interview. Step 7 Approval and investment. Step 8 Oath of allegiance. Step 9 Passport issuance. Timeline 6-12 months"
+      },
+      {
+        "title": "Benefits",
+        "anchor": "#benefits",
+        "content": "Visa-free travel 145+ countries. No residence requirement. Family inclusion spouse, children, parents, siblings. Dual citizenship permitted. Tax advantages. Citizenship for life. Generational transfer. Commonwealth membership benefits"
+      },
+      {
+        "title": "Costs",
+        "anchor": "#costs",
+        "content": "NEF donation $240,000 single, $270,000 couple, $305,000 family of 4. Due diligence $8,000 adult, $4,000 dependent 16+. Processing fees $2,000 main applicant. Passport fees $50. Government administrative fees. Agent fees typically 5-10% of investment"
+      }
+    ]
+  },
+  {
+    "page": "Living",
+    "url": "living.html",
+    "sections": [
+      {
+        "title": "Housing & Rent",
+        "anchor": "#housing",
+        "content": "Rodney Bay 1-bed $700-1000, 2-bed $1100-1600, 3-bed $1600-2500. Castries 1-bed $500-800, 2-bed $800-1300. Soufriere 1-bed $400-600, 2-bed $650-1000. Vieux Fort 1-bed $400-650, 2-bed $700-1100. Utilities typically extra. Furnished apartments available"
+      },
+      {
+        "title": "Land & Property Prices",
+        "anchor": "#property",
+        "content": "Rodney Bay land $35-60 per sq ft. Cap Estate $50-80 per sq ft. Castries $15-30 per sq ft. Soufriere $10-25 per sq ft. Construction costs $150-250 per sq ft standard, $300-500 per sq ft luxury. Alien Landholding License required"
+      },
+      {
+        "title": "Utilities",
+        "anchor": "#utilities",
+        "content": "LUCELEC electricity EC$0.46-0.70 per kWh. WASCO water EC$1.50-3.50 per 1000 gallons. Internet Flow $79-399 monthly, Digicel plans available, Starlink $99 monthly. Mobile plans from $40 monthly"
+      },
+      {
+        "title": "Food & Groceries",
+        "anchor": "#food",
+        "content": "Milk EC$8.37 per liter. Bread EC$5.50 loaf. Rice EC$6.72 kg. Chicken EC$15.21 kg. Beef EC$27.03 kg. Imported goods 20-40% more expensive. Local produce cheaper at markets. Meal at inexpensive restaurant EC$40-60"
+      },
+      {
+        "title": "Transportation",
+        "anchor": "#transport",
+        "content": "Car rental $40-80 daily. Taxi Castries to Rodney Bay $35-40. Minibus fares $2-5. Gasoline EC$15-16 per gallon. Import duties on vehicles 35-125% depending on engine size. Driving on left side. Valid local or international license required"
+      },
+      {
+        "title": "Healthcare",
+        "anchor": "#healthcare",
+        "content": "OKEU Hospital Castries 212 beds. St Jude Hospital Vieux Fort 120 beds. Tapion Hospital private facility. International Surgical Supplies ISSL private insurance $1200-2500 annually. National Insurance Corporation NIC public healthcare. Private clinics available"
+      },
+      {
+        "title": "Education",
+        "anchor": "#education",
+        "content": "Sir Arthur Lewis Community College SALCC. Spartan Health Sciences University medical school. International School of Saint Lucia ISSL primary. Public schools free. Private schools $3000-8000 annually. Uniform requirements. Academic year September to June"
+      },
+      {
+        "title": "Monthly Budget",
+        "anchor": "#budget",
+        "content": "Single person $1200-2000. Couple $2000-3500. Family of 4 $3500-5500. Includes rent, food, utilities, transport. Lifestyle adjustments possible. Local markets reduce costs. Imported goods expensive. Healthcare extra"
+      }
+    ]
+  },
+  {
+    "page": "Events",
+    "url": "events.html",
+    "sections": [
+      {
+        "title": "Public Holidays 2025",
+        "anchor": "#holidays",
+        "content": "13 public holidays including New Year's Day, Independence Day February 22, Good Friday, Easter Monday, Labour Day May 1, Whit Monday, Emancipation Day August 1, Carnival Day July 8, Thanksgiving Day October 6, National Day December 13, Christmas, Boxing Day"
+      },
+      {
+        "title": "Major Festivals",
+        "anchor": "#festivals",
+        "content": "Saint Lucia Jazz Festival May. Carnival July 8-9 with 24,500 visitors. Jounen Kweyol October Creole Heritage Month. La Rose August 30. Chocolate Heritage Month October. Atlantic Rally for Cruisers ARC December. Independence Day celebrations February"
+      },
+      {
+        "title": "Business Events",
+        "anchor": "#business",
+        "content": "Business & Investment Forum Saint Lucia Chamber of Commerce. Discover Saint Lucia UK November tourism promotion. Networking events monthly Chamber of Commerce. Industry conferences tourism, agriculture, renewable energy"
+      },
+      {
+        "title": "Business Culture",
+        "anchor": "#culture",
+        "content": "Dress code business formal meetings. Punctuality expected but flexible. Relationship-building important. Face-to-face meetings preferred. English business language. Handshakes standard greeting. Formal titles used. Business hours 8am-4:30pm Monday-Friday"
+      },
+      {
+        "title": "Seasonal Planning",
+        "anchor": "#seasonal",
+        "content": "Peak tourism season December-April. Hurricane season June-November. Dry season January-June best for business travel. Carnival week July expect closures. Christmas week December 24-January 2 reduced services. Budget typically presented July"
+      }
+    ]
+  },
+  {
+    "page": "Map",
+    "url": "map.html",
+    "sections": [
+      {
+        "title": "Interactive Map",
+        "anchor": "",
+        "content": "52 markers across 11 categories cities, towns, airports, ports, attractions, hotels, business, government, finance, healthcare, education. Hewanorra International Airport Vieux Fort. George FL Charles Airport Castries. Port Castries commercial seaport. Castries capital city. Rodney Bay tourism hub. Soufriere Pitons town. Gros Islet Friday Night Street Party"
+      },
+      {
+        "title": "Key Locations",
+        "anchor": "#locations",
+        "content": "OKEU Hospital Castries. St Jude Hospital Vieux Fort. Tapion Hospital Castries. Sir Arthur Lewis Community College Morne Fortune. LUCELEC headquarters Castries. Immigration Department Bridge Street. Labour Department Manoel Street. 1st National Bank William Peter Boulevard. JQ Mall Rodney Bay. La Place Carenage duty-free shopping. Castries Central Market"
+      },
+      {
+        "title": "Districts",
+        "anchor": "#districts",
+        "content": "10 administrative districts Castries, Gros Islet, Dennery, Vieux Fort, Soufriere, Laborie, Choiseul, Micoud, Anse la Raye, Canaries. Castries most populous. Vieux Fort has international airport. Soufriere has Pitons UNESCO site. Gros Islet tourism center"
+      }
+    ]
+  },
+  {
+    "page": "Directory",
+    "url": "directory.html",
+    "sections": [
+      {
+        "title": "Law Firms",
+        "anchor": "#law",
+        "content": "8 verified law firms including Corporate Counsel, Caribbean Juris, KW Rouse & Co, Gordon Gordon & Co, Barnard & Associates, Clarke & Clarke, Foster Dias & Carette, Anton & Stephens. Services corporate law, litigation, conveyancing, immigration, IP"
+      },
+      {
+        "title": "Accounting Firms",
+        "anchor": "#accounting",
+        "content": "7 accounting firms RSM, Baker Tilly, Grant Thornton, VJF, PKF, Nexia, KPMG. Services audit, tax compliance, bookkeeping, payroll, financial advisory, business consulting"
+      },
+      {
+        "title": "Real Estate",
+        "anchor": "#real-estate",
+        "content": "7 agencies Terra Caribbean, Coldwell Banker, Tradewinds Realty, St Lucia Sotheby's, Sunfun Villas, ReMax, Island Properties. Commercial and residential. CBI-approved projects. Property management"
+      },
+      {
+        "title": "IBC Agents",
+        "anchor": "#ibc-agents",
+        "content": "4 licensed IBC formation agents Jaipersaud & Associates, Nerine Trust, Caribbean Trust Company, Express Formation Services. Registered agent services. Company secretarial. Nominee directors. Annual compliance"
+      },
+      {
+        "title": "Banks",
+        "anchor": "#banks",
+        "content": "7 banks 1st National Bank, Bank of Saint Lucia, CIBC Caribbean, Republic Bank, Scotiabank, First Citizens, RBTT. Corporate accounts. Personal banking. Trade finance. Foreign exchange. Online banking"
+      },
+      {
+        "title": "Government Agencies",
+        "anchor": "#government",
+        "content": "Registry of Companies. Inland Revenue Department. Labour Department. Immigration Department. Invest Saint Lucia. FSRA Financial Services Regulatory Authority. SLASPA airports and seaports. LUCELEC electricity. WASCO water. NTRC telecommunications regulator"
+      },
+      {
+        "title": "Hotels & Conference",
+        "anchor": "#hotels",
+        "content": "7 hotels Sandals resorts, Jade Mountain, Windjammer Landing, Bay Gardens, Coco Palm, Harbor Club, Rex St Lucian. Conference facilities. Business centers. Meeting rooms"
+      },
+      {
+        "title": "Insurance",
+        "anchor": "#insurance",
+        "content": "6 companies Colonial Life, St Lucia NIC, NAGICO, Beacon, British American, Guardian General. General insurance. Health insurance. Life insurance. Commercial policies"
+      },
+      {
+        "title": "Shipping & Logistics",
+        "anchor": "#shipping",
+        "content": "6 companies Tropical Shipping, CMA CGM, DHL, FedEx, Caribbean Cargo, Geest Line. Container shipping. Air freight. Customs brokerage. Warehousing"
+      },
+      {
+        "title": "Restaurants",
+        "anchor": "#restaurants",
+        "content": "12 featured restaurants Spice of India, Buzz Seafood Grill, Big Chef Steakhouse, The Coal Pot, Dasheene Ladera, Rainforest Hideaway, Jacques Waterfront, Martha's Tables, Orlando's Restaurant, Masala Bay, Bayside Grill, Elena's Restaurant. International and local cuisine"
+      }
+    ]
+  },
+  {
+    "page": "FAQ",
+    "url": "faq.html",
+    "sections": [
+      {
+        "title": "Getting Started",
+        "anchor": "#getting-started",
+        "content": "How long does it take to register a company? 48-72 hours for IBC, 5-10 days for LLC. Do I need to visit Saint Lucia? Not mandatory but recommended for banking. Can foreigners own 100% of a company? Yes for IBCs. What is minimum capital? No minimum for IBCs. What currency is used? Eastern Caribbean Dollar XCD pegged 2.70 to USD"
+      },
+      {
+        "title": "Taxation",
+        "anchor": "#taxation",
+        "content": "What is corporate tax rate? 30% standard, 0% for IBCs on foreign income. What is VAT rate? 12.5% standard, 7% tourism accommodation, 10% hotel F&B. Are there capital gains tax? No separate capital gains tax. What are withholding tax rates? 15% on dividends, interest, royalties. Tax year? January 1 to December 31"
+      },
+      {
+        "title": "Property & Immigration",
+        "anchor": "#property",
+        "content": "Can foreigners buy property? Yes with Alien Landholding License. How much is ALHL fee? 5-10% depending on property value. How long does ALHL take? 4-8 weeks. What are work permit requirements? Job offer, local recruitment proof, fees $500-2500. CARICOM nationals? Easier process with Skills Certificate 5-6 weeks"
+      },
+      {
+        "title": "Business Operations",
+        "anchor": "#operations",
+        "content": "What licenses are needed? Trade licence mandatory. Professional licence for regulated sectors. What are business hours? 8am-4:30pm Monday-Friday. Are there minimum wage laws? EC$6.50 per hour. What about labor laws? 40-hour work week, overtime, annual leave, sick leave, maternity leave required"
+      },
+      {
+        "title": "Practical Life",
+        "anchor": "#practical",
+        "content": "What is cost of living? $1200-2000 single, $3500-5500 family of 4 monthly. Is healthcare good? Public and private hospitals available. OKEU Hospital 212 beds. Is internet reliable? Yes Flow and Digicel networks, Starlink available. Is it safe? Generally safe with normal precautions"
+      },
+      {
+        "title": "Digital Nomads",
+        "anchor": "#digital-nomads",
+        "content": "Is there digital nomad visa? Not specifically but work permits available. Can I work remotely? Yes for foreign companies. What about coworking spaces? Limited but available in Rodney Bay. Internet speed? Business plans up to 1 Gbps available"
+      },
+      {
+        "title": "Legal",
+        "anchor": "#legal",
+        "content": "What legal system? English common law. What court system? Eastern Caribbean Supreme Court. CCJ final appellate. Are contracts enforced? Yes through court system. Arbitration available? Yes commercial arbitration possible. What about IP protection? Trademarks, patents, copyright protected. ROCIP registry"
+      }
+    ]
+  },
+  {
+    "page": "Resources",
+    "url": "resources.html",
+    "sections": [
+      {
+        "title": "Government Portals",
+        "anchor": "#government",
+        "content": "Government of Saint Lucia official website. Registry of Companies business registration. Inland Revenue Department tax filing. Labour Department employment. Immigration Department visas. Invest Saint Lucia investment promotion. SLASPA airports and ports"
+      },
+      {
+        "title": "Regulatory Bodies",
+        "anchor": "#regulatory",
+        "content": "FSRA Financial Services Regulatory Authority supervises IBCs and insurance. ECCB Eastern Caribbean Central Bank monetary policy and banking supervision. NURC National Utilities Regulatory Commission utilities oversight. NTRC National Telecommunications Regulatory Commission. Data Protection Commissioner. Saint Lucia Bureau of Standards SLBS"
+      },
+      {
+        "title": "Utilities & Infrastructure",
+        "anchor": "#utilities",
+        "content": "LUCELEC electricity provider 432 GWh generation. WASCO water and sewerage. Flow telecommunications broadband and mobile. Digicel mobile network. Starlink satellite internet. SLASPA airports and seaports. Global Ports Holding cruise terminal operator"
+      },
+      {
+        "title": "International Organizations",
+        "anchor": "#international",
+        "content": "World Bank data. IMF Article IV reports. OECD country statistics. CARICOM Caribbean Community. OECS Organisation of Eastern Caribbean States. Caribbean Development Bank CDB. Commonwealth Secretariat. ECLAC Economic Commission for Latin America"
+      },
+      {
+        "title": "Media & News",
+        "anchor": "#media",
+        "content": "St Lucia Times daily news. The Voice newspaper. Loop News Caribbean. Caribbean News Now. HTS News 4 Orelle. CHTA Caribbean Hotel & Tourism Association"
+      },
+      {
+        "title": "Primary Sources",
+        "anchor": "#primary",
+        "content": "IMF Article IV Consultation 2024 and 2025. Budget Address 2025/26. LUCELEC Annual Report. UNFCCC NDC 3.0. US State Department Investment Climate Statement. UHY Doing Business Guide. Laws of Saint Lucia official gazette"
+      }
+    ]
+  },
+  {
+    "page": "Trade",
+    "url": "trade.html",
+    "sections": [
+      {
+        "title": "CARICOM Overview",
+        "anchor": "#caricom",
+        "content": "Caribbean Community CARICOM 15 member states. Combined GDP $137 billion. Population 17 million. CSME Caribbean Single Market and Economy. Free movement of goods, services, capital, skilled labor. Common External Tariff CET. Rules of Origin requirements"
+      },
+      {
+        "title": "OECS Integration",
+        "anchor": "#oecs",
+        "content": "Organisation of Eastern Caribbean States 9 members including Saint Lucia. Economic Union deeper integration than CSME. Common currency XCD. Common central bank ECCB. Harmonized legislation. Free movement all factors production. OECS MSME grants available"
+      },
+      {
+        "title": "Trade Agreements",
+        "anchor": "#agreements",
+        "content": "CARIFORUM EPA with European Union market access. Caribbean Basin Initiative CBI with United States. CARIBCAN with Canada preferential access. UK EPA post-Brexit. Venezuela PetroCaribe energy agreement. China bilateral trade"
+      },
+      {
+        "title": "Export Opportunities",
+        "anchor": "#exports",
+        "content": "Agricultural products bananas cocoa spices. Manufactured goods rum beverages food products. Services BPO tourism financial services. Value-added processing. Export incentives available. Duty drawback schemes. Export development fund"
+      },
+      {
+        "title": "Import Procedures",
+        "anchor": "#imports",
+        "content": "Common External Tariff CET 0-40% depending on goods category. Customs documentation required. Bill of lading. Commercial invoice. Import permit. Certificate of origin for preferential treatment. Customs broker assistance recommended"
+      },
+      {
+        "title": "Skills Certificate",
+        "anchor": "#skills-certificate",
+        "content": "CARICOM Skills Certificate allows free movement qualified workers. Categories university graduates, artists, musicians, media workers, sports persons. 5-6 weeks processing. Work throughout CARICOM without work permit. Saint Lucia Labour Department issues certificate"
+      }
+    ]
+  },
+  {
+    "page": "Checklist",
+    "url": "checklist.html",
+    "sections": [
+      {
+        "title": "Pre-Investment Phase",
+        "anchor": "#pre-investment",
+        "content": "Research market opportunity. Assess tax implications. Evaluate infrastructure needs. Visit Saint Lucia conduct due diligence. Consult with legal and accounting advisors. Prepare business plan. Identify investment incentives. Budget startup costs including registration, licenses, professional fees"
+      },
+      {
+        "title": "Company Registration",
+        "anchor": "#registration",
+        "content": "Reserve company name Registry of Companies. Choose business entity type IBC LLC partnership. Prepare incorporation documents Memorandum Articles registered office. Engage registered agent for IBCs. Submit application with required documents and fees. Obtain Certificate of Incorporation. Register for Tax Identification Number TIN. Open corporate bank account"
+      },
+      {
+        "title": "Post-Registration Setup",
+        "anchor": "#post-registration",
+        "content": "Apply for business licenses trade professional. Register with National Insurance Corporation NIC. Set up payroll and accounting systems. Obtain work permits for foreign employees. Secure office space or registered address. Set up utilities LUCELEC WASCO internet. Purchase business insurance. Establish banking relationships. Register for VAT if applicable above EC$200K revenue"
+      },
+      {
+        "title": "CBI Application",
+        "anchor": "#cbi",
+        "content": "If pursuing citizenship Select investment option NEF real estate bonds enterprise. Engage authorized CBI agent. Complete application forms. Gather supporting documents passports medical police. Pay application and due diligence fees. Submit application to CIU. Attend mandatory interview. Make investment upon approval. Take oath of allegiance. Receive passport. Timeline 6-12 months"
+      },
+      {
+        "title": "Property Purchase",
+        "anchor": "#property",
+        "content": "If buying property Engage real estate attorney. Apply for Alien Landholding License. Conduct title search. Draft sale agreement. Pay ALHL fees 5-10% of value. Complete due diligence. Arrange financing if needed. Close transaction pay transfer tax 5% buyer 2.5% seller. Register property deed. Pay annual ALHL fees 0.5%"
+      },
+      {
+        "title": "Ongoing Compliance",
+        "anchor": "#compliance",
+        "content": "File annual returns Registry of Companies by March 31. Submit monthly VAT returns if registered. File annual income tax returns by April 30. Maintain accounting records. Renew business licenses annually. Renew work permits before expiry. Submit NIC contributions monthly. Maintain registered office and agent. Hold annual general meetings. Keep corporate records updated"
+      }
+    ]
+  },
+  {
+    "page": "Government",
+    "url": "government.html",
+    "sections": [
+      {
+        "title": "Political System",
+        "anchor": "#system",
+        "content": "Parliamentary democracy under constitutional monarchy. Westminster system inherited from British colonial rule. Commonwealth realm with King Charles III as head of state. Governor-General represents monarch. Prime Minister head of government. Cabinet appointed from parliament. Two-party system Saint Lucia Labour Party SLP and United Workers Party UWP"
+      },
+      {
+        "title": "Current Leadership",
+        "anchor": "#leadership",
+        "content": "Prime Minister Philip J. Pierre SLP elected July 2021, re-elected January 2025. Governor-General Dame Ermine Lee-Sheng Soso Vilmor since 2022. Deputy PM Ernest Hilaire. Cabinet 15 ministers. SLP holds 16 of 17 seats in House after 2025 election landslide"
+      },
+      {
+        "title": "Parliament",
+        "anchor": "#parliament",
+        "content": "Bicameral legislature. House of Assembly 17 elected members constituency-based first-past-the-post. Senate 11 appointed members 6 by PM, 3 by Opposition Leader, 2 independent. Parliamentary term 5 years. Last election January 27, 2025. Next election due 2030"
+      },
+      {
+        "title": "Judiciary",
+        "anchor": "#judiciary",
+        "content": "Eastern Caribbean Supreme Court ECSC comprises High Court and Court of Appeal. Caribbean Court of Justice CCJ replaced Privy Council as final appellate court July 2023. Magistrate Courts handle minor cases. Industrial Court labor disputes. Family Court domestic matters. Independence from executive and legislature maintained"
+      },
+      {
+        "title": "Local Government",
+        "anchor": "#local",
+        "content": "10 administrative districts Castries, Gros Islet, Dennery, Vieux Fort, Soufriere, Laborie, Choiseul, Micoud, Anse la Raye, Canaries. No elected local councils. District representatives appointed. Central government provides services. Town Councils planned reform"
+      },
+      {
+        "title": "Election Results 2025",
+        "anchor": "#elections",
+        "content": "January 27, 2025 general election. SLP won 16 seats 58.2% popular vote landslide victory. UWP won 1 seat 39.7% vote. Voter turnout 58%. Philip J. Pierre secured second consecutive term. SLP gained 5 seats from 2021 result"
+      }
+    ]
+  },
+  {
+    "page": "Immigration",
+    "url": "immigration.html",
+    "sections": [
+      {
+        "title": "Visa Categories",
+        "anchor": "#visas",
+        "content": "Tourist visa up to 6 weeks. Business visa for meetings and conferences. Transit visa for connecting flights. Visa-free entry for CARICOM nationals, US, UK, EU, Canada citizens. Visa required for some nationalities. Extensions available through Immigration Department"
+      },
+      {
+        "title": "Work Permits",
+        "anchor": "#work-permits",
+        "content": "Work permit required for non-nationals employed in Saint Lucia. Categories Temporary, Special, Trainee. Processing time 4-6 weeks. Fees $500-2500 annually. Employer must demonstrate local recruitment efforts. Application through Labour Department. Renewable annually"
+      },
+      {
+        "title": "CARICOM Skills Certificate",
+        "anchor": "#skills-certificate",
+        "content": "Free movement for qualified CARICOM nationals. Categories university graduates, artists, musicians, media workers, sports persons. Processing 5-6 weeks. Work throughout CARICOM without work permit. Issued by Labour Department"
+      },
+      {
+        "title": "Permanent Residence",
+        "anchor": "#residence",
+        "content": "Permanent residence available after extended stay. Application through Immigration Department. Requirements clean record, financial means, accommodation. CBI holders receive citizenship directly. Alien Landholding License separate requirement for property"
+      },
+      {
+        "title": "Entry Requirements",
+        "anchor": "#entry",
+        "content": "Valid passport minimum 6 months validity. Return or onward ticket. Proof of accommodation. Sufficient funds for stay. Health declaration. COVID-19 requirements check current status. Customs declaration for goods over allowance"
+      }
+    ]
+  },
+  {
+    "page": "Real Estate",
+    "url": "realestate.html",
+    "sections": [
+      {
+        "title": "Alien Landholding License",
+        "anchor": "#alhl",
+        "content": "ALHL required for non-nationals buying property. Fees 5% up to $100K, 6.5% $100K-250K, 7.5% $250K-500K, 10% above $500K. Processing 4-8 weeks. Annual renewal 0.5% of property value. Application through Attorney General's Chambers"
+      },
+      {
+        "title": "Property Buying Process",
+        "anchor": "#buying",
+        "content": "Step 1 Engage real estate attorney. Step 2 Property search and viewing. Step 3 Make offer and negotiate. Step 4 Apply for ALHL. Step 5 Title search and due diligence. Step 6 Draft sale agreement. Step 7 Close transaction. Transfer tax 5% buyer 2.5% seller. Register property deed"
+      },
+      {
+        "title": "CBI Approved Developments",
+        "anchor": "#cbi-projects",
+        "content": "Citizenship by Investment real estate option minimum $300,000. Government-approved projects only. Luxury hotel and resort developments. Must hold property minimum 5 years. Resale to another CBI applicant permitted. Projects include Canelles Resort, Harbor Club, Fairmont"
+      },
+      {
+        "title": "Land Prices",
+        "anchor": "#prices",
+        "content": "Rodney Bay $35-60 per sq ft. Cap Estate $50-80 per sq ft. Castries $15-30 per sq ft. Soufriere $10-25 per sq ft. Marigot Bay $30-50 per sq ft. Gros Islet $20-40 per sq ft. Beachfront premium 2-3x standard prices"
+      },
+      {
+        "title": "Construction Costs",
+        "anchor": "#construction",
+        "content": "Standard construction $150-250 per sq ft. Mid-range $250-350 per sq ft. Luxury $300-500+ per sq ft. Building permits required from Development Control Authority. Environmental impact assessment for large projects. Local contractors and materials available"
+      }
+    ]
+  },
+  {
+    "page": "Startups",
+    "url": "startups.html",
+    "sections": [
+      {
+        "title": "Business Incubators",
+        "anchor": "#incubators",
+        "content": "OECS Business Gateway support for entrepreneurs. Invest Saint Lucia advisory services. SEDU Small Enterprise Development Unit training and mentorship. Chamber of Commerce business development programs. Regional accelerator programs available"
+      },
+      {
+        "title": "Funding Sources",
+        "anchor": "#funding",
+        "content": "1st National Bank MSME unit dedicated small business lending. Credit unions 16 active institutions. Caribbean Development Bank CDB concessionary financing. OECS MSME grants regional programs. Government incentives tax holidays and duty concessions. Angel investors and diaspora funding"
+      },
+      {
+        "title": "MSME Support Programs",
+        "anchor": "#msme",
+        "content": "Small and medium enterprise support programs. SEDU training workshops business planning accounting marketing. Export readiness programs. Technology adoption grants. Youth entrepreneurship initiatives. Women in business programs. Duty concessions for manufacturing startups"
+      },
+      {
+        "title": "Co-working Spaces",
+        "anchor": "#coworking",
+        "content": "Co-working options in Rodney Bay area. Business centers in hotels. Virtual office services available. Internet connectivity Flow business plans up to 1 Gbps. Starlink satellite internet alternative. Meeting rooms for hire"
+      },
+      {
+        "title": "Startup Ecosystem",
+        "anchor": "#ecosystem",
+        "content": "Growing entrepreneurial community. BPO sector provides employment base. Digital economy incentives in 2025/26 budget. Cybersecurity and AI tax incentives announced. Data Protection Act 2021 enables data services. English-speaking workforce. Time zone advantage for US and European markets"
+      }
+    ]
+  },
+  {
+    "page": "Expats",
+    "url": "expats.html",
+    "sections": [
+      {
+        "title": "Relocation Guide",
+        "anchor": "#relocation",
+        "content": "Moving to Saint Lucia practical steps. Shipping household goods by container. Customs duties on personal effects. Temporary import concessions for returning nationals. Finding accommodation rental and purchase options. Setting up utilities LUCELEC WASCO internet"
+      },
+      {
+        "title": "Remote Work",
+        "anchor": "#remote-work",
+        "content": "Working remotely from Saint Lucia. Internet options Flow Digicel Starlink. Co-working spaces in Rodney Bay. Tax implications for remote workers. Work permit not required for foreign employer remote work. Digital nomad community growing"
+      },
+      {
+        "title": "Banking for Expats",
+        "anchor": "#banking",
+        "content": "Opening bank account as foreigner. 7 commercial banks available. Documents passport, proof of address, reference letter. USD and XCD accounts. International transfers via SWIFT. Mobile banking apps. Credit unions alternative option"
+      },
+      {
+        "title": "Healthcare for Foreigners",
+        "anchor": "#healthcare",
+        "content": "OKEU Hospital 212 beds main public hospital. St Jude Hospital Vieux Fort. Tapion Hospital private facility. International health insurance recommended. ISSL private coverage $1200-2500 annually. Emergency services available. Pharmacies in main towns"
+      },
+      {
+        "title": "Daily Life",
+        "anchor": "#daily-life",
+        "content": "Cost of living single $1200-2000 monthly. Driving on left side of road. Local license required. Grocery shopping supermarkets and local markets. Entertainment dining nightlife beaches hiking. Community expat groups. Safety generally safe with normal precautions. Caribbean lifestyle and culture"
+      }
+    ]
+  }
+]

@@ -1,13 +1,32 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Government &amp; Politics - St. Lucia Business Guide</title>
+  <meta name="description" content="Saint Lucia government structure: PM Philip J. Pierre, cabinet, parliament, judiciary, regulatory bodies. 2025 election results and political leadership.">
+  <meta name="keywords" content="Saint Lucia government, Philip J Pierre, SLP, parliament, cabinet ministers, FSRA, ECCB, judiciary, Governor General, political parties">
+
+  <meta property="og:title" content="Government & Politics - Saint Lucia">
+  <meta property="og:description" content="Saint Lucia government structure: PM Philip J. Pierre, cabinet, parliament, judiciary, regulatory bodies. 2025 election results and political leadership.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ibak-app.github.io/stlucia/government.html">
+  <meta property="og:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-pitons.jpg">
+  <meta property="og:site_name" content="St. Lucia Business Guide">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Government & Politics - Saint Lucia">
+  <meta name="twitter:description" content="Saint Lucia government structure: PM Philip J. Pierre, cabinet, parliament, judiciary, regulatory bodies. 2025 election results and political leadership.">
+  <meta name="twitter:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-pitons.jpg">
+
+  <link rel="canonical" href="https://ibak-app.github.io/stlucia/government.html">
+  <link rel="manifest" href="/stlucia/manifest.json">
+  <meta name="theme-color" content="#0e2f44">
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Loading...</div></div>
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia Business Guide</a>
@@ -19,6 +38,7 @@
         <a href="legal.html">Legal &amp; Tax</a>
         <a href="sectors.html">Sectors</a>
         <a href="cbi.html">CBI</a>
+        <a href="immigration.html">Immigration</a>
         <a href="living.html">Living</a>
         <a href="events.html">Events</a>
         <a href="map.html">Map</a>
@@ -26,6 +46,10 @@
         <a href="faq.html">FAQ</a>
         <a href="resources.html">Resources</a>
         <a href="government.html" class="active">Government</a>
+        <div class="navbar-tools">
+          <button id="search-toggle" class="nav-icon-btn" title="Search" aria-label="Search site">&#128269;</button>
+          <button id="dark-mode-toggle" class="nav-icon-btn" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+        </div>
         <div class="lang-selector">
           <a href="government.html" class="lang-btn active" title="English">EN</a>
           <a href="tr/government.html" class="lang-btn" title="T&uuml;rk&ccedil;e">TR</a>
@@ -33,6 +57,16 @@
       </div>
     </div>
   </nav>
+  <!-- SEARCH OVERLAY -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-content">
+      <div class="search-overlay-header">
+        <button id="search-close" class="search-overlay-close" aria-label="Close search">&times;</button>
+        <input type="text" id="search-overlay-input" class="search-overlay-input" placeholder="Search the guide..." autocomplete="off">
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
 
   <section class="hero hero--image" style="padding:50px 0 40px;background-image:url('https://upload.wikimedia.org/wikipedia/commons/8/8d/Government_House%2C_St._Lucia.jpg');">
     <div class="container">

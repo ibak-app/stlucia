@@ -1,13 +1,32 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cost of Living &amp; Practical Info - St. Lucia Business Guide</title>
+  <meta name="description" content="Saint Lucia cost of living: housing, food, utilities, transport, healthcare, education costs. Rental prices, property costs, and relocation planning guide.">
+  <meta name="keywords" content="Saint Lucia cost of living, St Lucia housing, rental prices, relocation Saint Lucia, Castries rent, Rodney Bay housing, healthcare costs">
+
+  <meta property="og:title" content="Cost of Living & Practical Info - Saint Lucia">
+  <meta property="og:description" content="Saint Lucia cost of living: housing, food, utilities, transport, healthcare, education costs. Rental prices, property costs, and relocation planning guide.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ibak-app.github.io/stlucia/living.html">
+  <meta property="og:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-pitons.jpg">
+  <meta property="og:site_name" content="St. Lucia Business Guide">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cost of Living & Practical Info - Saint Lucia">
+  <meta name="twitter:description" content="Saint Lucia cost of living: housing, food, utilities, transport, healthcare, education costs. Rental prices, property costs, and relocation planning guide.">
+  <meta name="twitter:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-pitons.jpg">
+
+  <link rel="canonical" href="https://ibak-app.github.io/stlucia/living.html">
+  <link rel="manifest" href="/stlucia/manifest.json">
+  <meta name="theme-color" content="#0e2f44">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=wrap" rel="stylesheet">
 </head>
 <body>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Loading...</div></div>
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia Business Guide</a>
@@ -19,6 +38,7 @@
         <a href="legal.html">Legal &amp; Tax</a>
         <a href="sectors.html">Sectors</a>
         <a href="cbi.html">CBI</a>
+        <a href="immigration.html">Immigration</a>
         <a href="living.html" class="active">Living</a>
         <a href="events.html">Events</a>
         <a href="map.html">Map</a>
@@ -26,6 +46,10 @@
         <a href="faq.html">FAQ</a>
         <a href="resources.html">Resources</a>
         <a href="government.html">Government</a>
+        <div class="navbar-tools">
+          <button id="search-toggle" class="nav-icon-btn" title="Search" aria-label="Search site">&#128269;</button>
+          <button id="dark-mode-toggle" class="nav-icon-btn" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+        </div>
         <div class="lang-selector">
           <a href="living.html" class="lang-btn active" title="English">EN</a>
           <a href="tr/living.html" class="lang-btn" title="T&uuml;rk&ccedil;e">TR</a>
@@ -33,6 +57,16 @@
       </div>
     </div>
   </nav>
+  <!-- SEARCH OVERLAY -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-content">
+      <div class="search-overlay-header">
+        <button id="search-close" class="search-overlay-close" aria-label="Close search">&times;</button>
+        <input type="text" id="search-overlay-input" class="search-overlay-input" placeholder="Search the guide..." autocomplete="off">
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
 
   <section class="hero hero--image" style="padding:50px 0 40px;background-image:url('assets/images/hero-living.jpg');">
     <div class="container">
@@ -56,6 +90,7 @@
           <a href="#education">Education</a>
           <a href="#lifestyle">Lifestyle &amp; Insurance</a>
           <a href="#tips">Practical Tips</a>
+          <a href="#calculator">Budget Calculator</a>
         </aside>
 
         <div class="main-content">
@@ -573,19 +608,99 @@
             </div>
 
             <h3 style="margin-bottom:12px;">Insurance</h3>
-            <div class="table-wrapper">
+
+            <h4 style="margin-top:16px;">Insurance Companies Operating in Saint Lucia</h4>
+            <p style="margin-bottom:12px;">The insurance sector is regulated by the <strong>Financial Services Regulatory Authority (FSRA)</strong> and coordinated through the <strong>Insurance Council of St. Lucia</strong> (#44 Brazil Street, Castries; Tel: 758-452-7872).</p>
+            <div class="table-wrapper" style="margin-bottom:16px;">
               <table>
-                <thead><tr><th>Coverage</th><th>Annual Cost (XCD)</th><th>Annual Cost (USD)</th></tr></thead>
+                <thead><tr><th>Company</th><th>Type</th><th>Lines of Business</th></tr></thead>
                 <tbody>
-                  <tr><td>Car &mdash; third-party (minimum legal)</td><td>$2,700+</td><td>$1,000+</td></tr>
-                  <tr><td>Car &mdash; comprehensive</td><td>$5,400&ndash;$10,800</td><td>$2,000&ndash;$4,000</td></tr>
-                  <tr><td>Home contents (basic)</td><td>$1,350&ndash;$2,700</td><td>$500&ndash;$1,000</td></tr>
-                  <tr><td>Home (building + hurricane)</td><td colspan="2">1&ndash;2.5% of insured value</td></tr>
-                  <tr><td>Business general liability (small)</td><td>$2,700&ndash;$8,100</td><td>$1,000&ndash;$3,000</td></tr>
+                  <tr><td><strong>Sagicor General Insurance</strong></td><td>General</td><td>Motor, property, marine, liability, contractor&rsquo;s all risk</td></tr>
+                  <tr><td><strong>Sagicor Life Inc.</strong></td><td>Life &amp; Health</td><td>Individual &amp; group life, health, employee benefits, annuities, pensions, mortgages</td></tr>
+                  <tr><td><strong>CG United Insurance</strong></td><td>General &amp; Life</td><td>Motor, property, home, marine, health, travel, accident, group life &amp; health</td></tr>
+                  <tr><td><strong>Caribbean Alliance Insurance</strong></td><td>General</td><td>Property, motor, marine, liability, engineering. Regional insurer (HQ Antigua)</td></tr>
+                  <tr><td><strong>Beacon Insurance</strong></td><td>General</td><td>Motor, property, marine, contract works, electronics, workmen&rsquo;s comp, group health</td></tr>
+                  <tr><td><strong>NAGICO Insurance</strong></td><td>General</td><td>Motor, property, marine, liability, health. Entered St. Lucia 2011; #2 general insurer within 3 years</td></tr>
+                  <tr><td><strong>M&amp;C Insurance</strong></td><td>General (Agent)</td><td>Agent for NEMWIL/Guardian General since 1992. Originally Lloyds agents since 1866</td></tr>
+                  <tr><td><strong>St. Lucia Motor &amp; General</strong></td><td>General</td><td>Motor and general property. Local insurer</td></tr>
+                  <tr><td><strong>Sun General Insurance</strong></td><td>General</td><td>Motor, property, general lines</td></tr>
+                  <tr><td><strong>Pan-American Life Insurance</strong></td><td>Life &amp; Health</td><td>Individual &amp; group life, health, pensions. OECS regional office</td></tr>
+                  <tr><td><strong>Island Heritage Insurance</strong></td><td>General</td><td>Property, hurricane/catastrophe, marine, liability. Caribbean specialty insurer</td></tr>
+                  <tr><td><strong>Agostini Insurance Brokers</strong></td><td>Broker</td><td>Full-line brokerage (part of Agostini&rsquo;s Group, Trinidad)</td></tr>
+                  <tr><td><strong>CGM Gallagher Insurance Brokers</strong></td><td>Broker</td><td>Full-service brokerage (Arthur J. Gallagher international network)</td></tr>
                 </tbody>
               </table>
             </div>
-            <p style="font-size:0.85rem;color:var(--text-light);margin-top:8px;"><strong>Providers:</strong> Sagicor, CG United, Caribbean Alliance, Beacon Insurance, Island Heritage, M&amp;C Insurance. Hurricane deductibles typically 2&ndash;5% of insured value.</p>
+
+            <h4 style="margin-top:20px;">Vehicle Insurance (Mandatory)</h4>
+            <p style="margin-bottom:8px;">Under the <strong>Motor Vehicles Insurance (Third Party Risks) Act</strong>, third-party liability insurance is <strong>compulsory</strong> for all vehicles on public roads.</p>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Coverage Type</th><th>Annual Cost (XCD)</th><th>Annual Cost (USD)</th><th>Notes</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Third-party only</strong> (minimum legal)</td><td>$2,700+</td><td>$1,000+</td><td>Covers damage/injury to others only</td></tr>
+                  <tr><td><strong>Third party, fire &amp; theft</strong></td><td>$3,500&ndash;$5,400</td><td>$1,300&ndash;$2,000</td><td>Adds fire and theft coverage</td></tr>
+                  <tr><td><strong>Comprehensive</strong></td><td>$5,400&ndash;$10,800</td><td>$2,000&ndash;$4,000</td><td>Full coverage incl. own damage, vandalism, roadside assist</td></tr>
+                  <tr><td><strong>Motorcycle third-party</strong></td><td>$2,160&ndash;$3,240</td><td>$800&ndash;$1,200</td><td>Premiums surged ~50% from 2022&ndash;2024</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 style="margin-top:20px;">Health Insurance</h4>
+            <p style="margin-bottom:8px;">Saint Lucia has <strong>no universal public health insurance</strong>. NIC provides limited social insurance (sickness, maternity, injury), but comprehensive coverage requires private insurance.</p>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Coverage Type</th><th>Monthly (XCD)</th><th>Monthly (USD)</th><th>Providers</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Basic individual</strong></td><td>$216&ndash;$405</td><td>$80&ndash;$150</td><td>Sagicor, CG United, Pan-American Life</td></tr>
+                  <tr><td><strong>Comprehensive individual (&lt;65)</strong></td><td>$405&ndash;$540</td><td>$150&ndash;$200</td><td>Sagicor, Caribbean Alliance, Beacon</td></tr>
+                  <tr><td><strong>Comprehensive family</strong></td><td>$675&ndash;$1,350</td><td>$250&ndash;$500</td><td>Sagicor, CG United</td></tr>
+                  <tr><td><strong>International expat</strong></td><td>$810&ndash;$2,025</td><td>$300&ndash;$750</td><td>Pacific Prime, Cigna Global, MSH International</td></tr>
+                  <tr><td><strong>Group health (employer)</strong></td><td>$150&ndash;$400/employee</td><td>$56&ndash;$148/employee</td><td>Sagicor, CG United, Beacon, NAGICO</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 style="margin-top:16px;">NIC Benefit Schedule</h4>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <thead><tr><th>NIC Benefit</th><th>Rate / Amount</th><th>Qualifying Conditions</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Sickness benefit</strong></td><td><strong>65%</strong> of avg. insurable earnings</td><td>Minimum contribution period; medical cert after 3 days</td></tr>
+                  <tr><td><strong>Maternity benefit</strong></td><td><strong>65%</strong> of avg. earnings + <strong>$600 grant</strong></td><td>7 months contributions in preceding 10 months</td></tr>
+                  <tr><td><strong>Employment injury</strong></td><td><strong>75%</strong> of avg. insurable earnings</td><td>Work-related injury or occupational disease</td></tr>
+                  <tr><td><strong>Retirement pension</strong></td><td>Formula-based</td><td>Age 65; minimum 500 weekly contributions</td></tr>
+                  <tr><td><strong>Max insurable earnings</strong></td><td><strong>XCD $8,333/month</strong> (2025)</td><td>Contributions capped at this ceiling</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 style="margin-top:20px;">Property &amp; Hurricane Insurance</h4>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Coverage</th><th>Annual Cost</th><th>Notes</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Home contents (basic)</strong></td><td>XCD $1,350&ndash;$2,700 (USD $500&ndash;$1,000)</td><td>Theft, fire, water damage</td></tr>
+                  <tr><td><strong>Building insurance</strong></td><td>0.5&ndash;1.5% of insured value</td><td>Structural coverage excl. hurricane/earthquake</td></tr>
+                  <tr><td><strong>Hurricane &amp; windstorm</strong></td><td>1&ndash;2.5% of insured value</td><td>Deductible: typically <strong>2&ndash;5%</strong> of insured value</td></tr>
+                  <tr><td><strong>Earthquake &amp; volcanic</strong></td><td>0.1&ndash;0.5% of insured value</td><td>Often bundled with hurricane coverage</td></tr>
+                  <tr><td><strong>Comprehensive property</strong></td><td>2&ndash;4% of insured value</td><td>All perils incl. hurricane, earthquake, flood, fire, theft</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="info-box">
+              <h4>Property Insurance Tips</h4>
+              <ul>
+                <li><strong>Hurricane season</strong> (Jun&ndash;Nov): Insurers may restrict new policies during active season</li>
+                <li>Properties built to <strong>OECS Building Code</strong> (150 mph wind resistance) may qualify for lower premiums</li>
+                <li>Insure for <strong>replacement cost</strong>, not market value</li>
+                <li><strong>Named storm deductible:</strong> Typically 2&ndash;5% of insured value per event (separate from standard deductible)</li>
+                <li>Saint Lucia sits at the southeastern edge of the Hurricane Belt&mdash;direct hits are rare but possible</li>
+              </ul>
+            </div>
+
+            <p style="font-size:0.85rem;color:var(--text-light);margin-top:12px;">Insurance Council of St. Lucia: <a href="https://www.icslu.com" target="_blank">icslu.com</a>. FSRA: <a href="https://fsrastlucia.org" target="_blank">fsrastlucia.org</a>.</p>
           </div>
 
           <!-- PRACTICAL TIPS -->
@@ -614,6 +729,234 @@
               </div>
             </div>
           </div>
+
+          <!-- BUDGET CALCULATOR -->
+          <div id="calculator" style="margin-bottom:40px;">
+            <h2 style="margin-bottom:16px;">Budget Calculator</h2>
+            <div class="card">
+              <div class="card-body">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:20px;">
+                  <div>
+                    <label style="display:block;font-weight:600;margin-bottom:8px;">Household Profile</label>
+                    <select id="profile" style="width:100%;padding:10px;border:2px solid var(--border);border-radius:var(--radius);font-size:0.95rem;background:var(--white);">
+                      <option value="single">Single Person</option>
+                      <option value="couple">Couple</option>
+                      <option value="family">Family of 4</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label style="display:block;font-weight:600;margin-bottom:8px;">Lifestyle</label>
+                    <select id="lifestyle" style="width:100%;padding:10px;border:2px solid var(--border);border-radius:var(--radius);font-size:0.95rem;background:var(--white);">
+                      <option value="modest">Modest</option>
+                      <option value="comfortable">Comfortable</option>
+                      <option value="luxury">Luxury</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label style="display:block;font-weight:600;margin-bottom:8px;">Location</label>
+                    <select id="area" style="width:100%;padding:10px;border:2px solid var(--border);border-radius:var(--radius);font-size:0.95rem;background:var(--white);">
+                      <option value="rodney">Rodney Bay (Premium)</option>
+                      <option value="castries">Castries (Capital)</option>
+                      <option value="soufriere">Soufriere</option>
+                      <option value="vieux">Vieux Fort</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label style="display:block;font-weight:600;margin-bottom:8px;">Currency</label>
+                    <select id="currency" style="width:100%;padding:10px;border:2px solid var(--border);border-radius:var(--radius);font-size:0.95rem;background:var(--white);">
+                      <option value="usd">USD</option>
+                      <option value="xcd">XCD</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button id="budgetCalc" style="width:100%;padding:14px;background:var(--primary);color:var(--white);border:none;border-radius:var(--radius);font-size:1rem;font-weight:600;cursor:pointer;margin-bottom:20px;">Calculate Budget</button>
+
+                <div id="budgetResults" style="display:none;">
+                  <h4 style="margin-bottom:12px;">Estimated Monthly Costs</h4>
+                  <div class="table-wrapper" style="margin-bottom:20px;">
+                    <table id="budgetTable">
+                      <thead><tr><th>Expense</th><th>Amount</th></tr></thead>
+                      <tbody id="budgetBody"></tbody>
+                    </table>
+                  </div>
+
+                  <div style="background:var(--bg-alt);padding:16px;border-radius:var(--radius);margin-bottom:16px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                      <strong>Total Monthly:</strong>
+                      <strong id="totalMonth" style="font-size:1.3rem;color:var(--primary);"></strong>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                      <strong>Total Annual:</strong>
+                      <strong id="totalYear" style="font-size:1.15rem;color:var(--text-light);"></strong>
+                    </div>
+                  </div>
+
+                  <div id="chartContainer">
+                    <h4 style="margin-bottom:12px;">Budget Breakdown</h4>
+                    <div id="budgetChart"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <style>
+            #budgetCalc:hover { background: var(--primary-light); }
+            .budget-bar {
+              display: flex;
+              align-items: center;
+              margin-bottom: 8px;
+              font-size: 0.9rem;
+            }
+            .budget-bar-label {
+              width: 120px;
+              font-weight: 600;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+            .budget-bar-visual {
+              flex: 1;
+              height: 24px;
+              background: var(--primary-light);
+              border-radius: 4px;
+              margin: 0 12px;
+              position: relative;
+              overflow: hidden;
+            }
+            .budget-bar-fill {
+              height: 100%;
+              background: var(--primary);
+              transition: width 0.6s ease;
+            }
+            .budget-bar-amount {
+              min-width: 80px;
+              text-align: right;
+              font-weight: 600;
+            }
+            @media (max-width: 960px) {
+              #profile, #lifestyle, #area, #currency {
+                font-size: 16px !important;
+              }
+              .budget-bar-label { width: 90px; font-size: 0.8rem; }
+              .budget-bar-amount { min-width: 70px; font-size: 0.85rem; }
+            }
+          </style>
+
+          <script>
+            (function() {
+              const budgetData = {
+                single: {
+                  modest: {
+                    rodney: {rent:700,elec:80,water:35,net:55,mobile:40,food:450,dining:120,transport:100,health:120,ent:80},
+                    castries: {rent:500,elec:74,water:30,net:50,mobile:37,food:400,dining:100,transport:74,health:100,ent:74},
+                    soufriere: {rent:450,elec:70,water:30,net:48,mobile:37,food:380,dining:90,transport:70,health:100,ent:70},
+                    vieux: {rent:400,elec:65,water:28,net:45,mobile:37,food:370,dining:85,transport:65,health:95,ent:65}
+                  },
+                  comfortable: {
+                    rodney: {rent:1400,elec:200,water:50,net:90,mobile:65,food:700,dining:350,transport:350,health:180,ent:250,help:150},
+                    castries: {rent:1000,elec:167,water:44,net:74,mobile:56,food:600,dining:300,transport:259,health:150,ent:200,help:148},
+                    soufriere: {rent:850,elec:150,water:40,net:68,mobile:53,food:550,dining:260,transport:220,health:140,ent:180,help:130},
+                    vieux: {rent:750,elec:140,water:38,net:60,mobile:50,food:520,dining:240,transport:200,health:130,ent:160,help:120}
+                  },
+                  luxury: {
+                    rodney: {rent:2500,elec:300,water:70,net:130,mobile:90,food:1000,dining:600,transport:500,health:250,ent:400,help:300},
+                    castries: {rent:1800,elec:250,water:60,net:110,mobile:75,food:850,dining:500,transport:400,health:220,ent:350,help:250},
+                    soufriere: {rent:1500,elec:220,water:55,net:100,mobile:70,food:750,dining:450,transport:350,health:200,ent:300,help:220},
+                    vieux: {rent:1300,elec:200,water:50,net:90,mobile:65,food:700,dining:400,transport:320,health:180,ent:280,help:200}
+                  }
+                },
+                family: {
+                  modest: {
+                    rodney: {rent:1500,elec:180,water:60,net:70,mobile:90,food:1200,dining:250,transport:320,health:300,edu:350,ent:180},
+                    castries: {rent:900,elec:148,water:50,net:60,mobile:74,food:1000,dining:200,transport:259,health:250,edu:300,ent:150},
+                    soufriere: {rent:750,elec:135,water:48,net:55,mobile:70,food:950,dining:180,transport:230,health:240,edu:280,ent:140},
+                    vieux: {rent:650,elec:125,water:45,net:50,mobile:65,food:900,dining:160,transport:210,health:230,edu:260,ent:130}
+                  },
+                  comfortable: {
+                    rodney: {rent:2800,elec:300,water:75,net:120,mobile:130,food:1800,dining:600,transport:600,health:480,edu:1200,ent:350,help:650},
+                    castries: {rent:2000,elec:250,water:60,net:100,mobile:111,food:1500,dining:500,transport:500,health:400,edu:1000,ent:300,help:592},
+                    soufriere: {rent:1600,elec:220,water:55,net:90,mobile:100,food:1350,dining:450,transport:450,health:360,edu:900,ent:270,help:530},
+                    vieux: {rent:1400,elec:200,water:50,net:80,mobile:90,food:1250,dining:400,transport:400,health:330,edu:850,ent:250,help:480}
+                  },
+                  luxury: {
+                    rodney: {rent:4500,elec:450,water:100,net:180,mobile:180,food:2500,dining:1000,transport:800,health:650,edu:2000,ent:500,help:1000},
+                    castries: {rent:3500,elec:380,water:85,net:150,mobile:160,food:2200,dining:900,transport:700,health:600,edu:1800,ent:450,help:900},
+                    soufriere: {rent:2800,elec:330,water:75,net:130,mobile:140,food:2000,dining:800,transport:600,health:550,edu:1650,ent:400,help:800},
+                    vieux: {rent:2500,elec:300,water:70,net:120,mobile:130,food:1850,dining:750,transport:550,health:520,edu:1550,ent:380,help:750}
+                  }
+                }
+              };
+
+              // Couple = 1.6x single
+              budgetData.couple = {
+                modest: {}, comfortable: {}, luxury: {}
+              };
+              for (let lifestyle in budgetData.single) {
+                for (let area in budgetData.single[lifestyle]) {
+                  budgetData.couple[lifestyle][area] = {};
+                  for (let item in budgetData.single[lifestyle][area]) {
+                    budgetData.couple[lifestyle][area][item] = Math.round(budgetData.single[lifestyle][area][item] * 1.6);
+                  }
+                }
+              }
+
+              const labels = {
+                rent: 'Rent', elec: 'Electricity', water: 'Water', net: 'Internet',
+                mobile: 'Mobile', food: 'Groceries', dining: 'Dining Out',
+                transport: 'Transport', health: 'Healthcare', edu: 'Education',
+                ent: 'Entertainment', help: 'Household Help'
+              };
+
+              document.getElementById('budgetCalc').addEventListener('click', function() {
+                const profile = document.getElementById('profile').value;
+                const lifestyle = document.getElementById('lifestyle').value;
+                const area = document.getElementById('area').value;
+                const currency = document.getElementById('currency').value;
+                const rate = currency === 'xcd' ? 2.70 : 1;
+                const sym = currency === 'xcd' ? 'XCD' : '$';
+
+                const costs = budgetData[profile][lifestyle][area];
+                const tbody = document.getElementById('budgetBody');
+                tbody.innerHTML = '';
+
+                let total = 0;
+                const chartData = [];
+                for (let key in costs) {
+                  const amount = costs[key] * rate;
+                  total += amount;
+                  chartData.push({label: labels[key], value: amount});
+                  tbody.innerHTML += `<tr><td>${labels[key]}</td><td><strong>${sym} ${amount.toLocaleString()}</strong></td></tr>`;
+                }
+
+                tbody.innerHTML += `<tr style="background:rgba(26,82,118,0.08);"><td><strong>Miscellaneous (10%)</strong></td><td><strong>${sym} ${(total*0.1).toLocaleString(undefined,{maximumFractionDigits:0})}</strong></td></tr>`;
+                total *= 1.1;
+
+                document.getElementById('totalMonth').textContent = sym + ' ' + total.toLocaleString(undefined,{maximumFractionDigits:0});
+                document.getElementById('totalYear').textContent = sym + ' ' + (total*12).toLocaleString(undefined,{maximumFractionDigits:0});
+
+                // Chart
+                chartData.sort((a,b) => b.value - a.value);
+                const maxVal = chartData[0].value;
+                let chartHTML = '';
+                chartData.forEach(item => {
+                  const pct = (item.value / maxVal * 100).toFixed(0);
+                  chartHTML += `
+                    <div class="budget-bar">
+                      <div class="budget-bar-label">${item.label}</div>
+                      <div class="budget-bar-visual">
+                        <div class="budget-bar-fill" style="width:${pct}%;"></div>
+                      </div>
+                      <div class="budget-bar-amount">${sym} ${item.value.toLocaleString()}</div>
+                    </div>
+                  `;
+                });
+                document.getElementById('budgetChart').innerHTML = chartHTML;
+                document.getElementById('budgetResults').style.display = 'block';
+              });
+            })();
+          </script>
 
           <!-- RELATED PAGES -->
           <div style="margin-top:40px;padding-top:30px;border-top:2px solid var(--border);">

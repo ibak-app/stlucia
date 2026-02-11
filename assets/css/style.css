@@ -22,6 +22,91 @@
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
+/* ===== DARK MODE VARIABLES ===== */
+html[data-theme="dark"] {
+  --primary: #2980b9;
+  --primary-light: #5dade2;
+  --primary-dark: #1a5276;
+  --accent: #f39c12;
+  --accent-light: #f7c948;
+  --success: #27ae60;
+  --danger: #e74c3c;
+  --text: #e0e0e0;
+  --text-light: #b0b0b0;
+  --bg: #1a1a2e;
+  --bg-alt: #16213e;
+  --white: #1e1e3a;
+  --border: #2d2d5a;
+  --shadow: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+html[data-theme="dark"] .navbar {
+  background: #0e1321;
+}
+
+html[data-theme="dark"] .footer {
+  background: #0e1321;
+}
+
+html[data-theme="dark"] th {
+  background: var(--primary);
+  color: var(--white);
+}
+
+html[data-theme="dark"] tr:hover td {
+  background: rgba(41,128,185,0.08);
+}
+
+html[data-theme="dark"] .info-box {
+  background: var(--white);
+}
+
+html[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, #0e1321 0%, #1a2840 50%, #2980b9 100%);
+}
+
+/* Auto dark mode based on system preference */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --primary: #2980b9;
+    --primary-light: #5dade2;
+    --primary-dark: #1a5276;
+    --text: #e0e0e0;
+    --text-light: #b0b0b0;
+    --bg: #1a1a2e;
+    --bg-alt: #16213e;
+    --white: #1e1e3a;
+    --border: #2d2d5a;
+    --shadow: 0 2px 8px rgba(0,0,0,0.3);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  html:not([data-theme="light"]) .navbar {
+    background: #0e1321;
+  }
+
+  html:not([data-theme="light"]) .footer {
+    background: #0e1321;
+  }
+
+  html:not([data-theme="light"]) th {
+    background: var(--primary);
+  }
+
+  html:not([data-theme="light"]) tr:hover td {
+    background: rgba(41,128,185,0.08);
+  }
+
+  html:not([data-theme="light"]) .info-box {
+    background: var(--white);
+  }
+
+  html:not([data-theme="light"]) .hero {
+    background: linear-gradient(135deg, #0e1321 0%, #1a2840 50%, #2980b9 100%);
+  }
+}
+
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -95,6 +180,34 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.3; color: var(--primary-dark); }
   color: var(--white);
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+/* ===== NAVBAR TOOLS (SEARCH + DARK MODE) ===== */
+.navbar-tools {
+  display: inline-flex;
+  gap: 8px;
+  margin-left: 8px;
+  align-items: center;
+}
+
+.nav-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.08);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.nav-icon-btn:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.18);
 }
 
 /* ===== LANGUAGE SELECTOR ===== */
@@ -581,17 +694,56 @@ tr:hover td { background: rgba(26,82,118,0.03); }
 }
 
 /* ===== SECTION REVEAL ANIMATION ===== */
-.section, .info-box, .card, .table-wrapper {
+/* Elements start visible by default; JS adds .will-reveal to hide them,
+   then IntersectionObserver adds .revealed to animate them in.
+   This ensures content is ALWAYS visible if JS fails or is slow. */
+.will-reveal {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
-.section.revealed, .info-box.revealed, .card.revealed, .table-wrapper.revealed {
+.will-reveal.revealed {
   opacity: 1;
   transform: translateY(0);
 }
 /* Ensure hero is always visible */
 .hero { opacity: 1 !important; transform: none !important; }
+/* Reduced motion: skip animations entirely */
+@media (prefers-reduced-motion: reduce) {
+  .will-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ===== PAGE LOADING INDICATOR ===== */
+.page-loader {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.4s ease;
+}
+.page-loader.loaded {
+  opacity: 0;
+  pointer-events: none;
+}
+.loader-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loader-text {
+  margin-top: 16px;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
 
 /* ===== PRINT STYLES ===== */
 @media print {
@@ -672,6 +824,154 @@ tr:hover td { background: rgba(26,82,118,0.03); }
 /* ===== OVERFLOW PREVENTION ===== */
 html, body { overflow-x: hidden; }
 
+/* ===== SITE-WIDE SEARCH OVERLAY ===== */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 10000;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 80px 20px 20px;
+  overflow-y: auto;
+}
+
+.search-overlay.active {
+  display: flex;
+}
+
+.search-overlay-content {
+  width: 100%;
+  max-width: 800px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-overlay-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.search-overlay-close {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+}
+
+.search-overlay-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.search-overlay-input {
+  flex: 1;
+  padding: 16px 20px;
+  font-size: 1.3rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  outline: none;
+  transition: all var(--transition);
+}
+
+.search-overlay-input:focus {
+  border-color: var(--primary-light);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.search-overlay-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.search-results {
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+}
+
+.search-result-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-light);
+  transform: translateX(4px);
+}
+
+.search-result-page {
+  color: var(--primary-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.search-result-title {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.search-result-snippet {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.search-result-snippet mark {
+  background: rgba(243, 156, 18, 0.3);
+  color: var(--accent-light);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.search-no-results {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 60px 20px;
+  font-size: 1.1rem;
+}
+
+.search-loading {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 40px 20px;
+  font-size: 1rem;
+}
+
 /* ===== RESPONSIVE ===== */
 /* Medium screens - nav compression */
 @media (max-width: 1200px) {
@@ -725,13 +1025,17 @@ html, body { overflow-x: hidden; }
   }
   .nav-links.open { display: flex; }
   .nav-toggle { display: block; min-height: 44px; min-width: 44px; }
-  .lang-selector {
-    border-left: none;
+  .navbar-tools {
     border-top: 1px solid rgba(255,255,255,0.1);
     padding: 10px 16px 4px;
     margin-left: 0;
     width: 100%;
     justify-content: flex-start;
+  }
+  .lang-selector {
+    border-left: none;
+    padding: 10px 0 4px;
+    margin-left: 0;
   }
   .lang-btn { width: 40px; height: 30px; font-size: 0.8rem; }
   .hero { padding: 50px 0 40px; }

@@ -4,10 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>St. Lucia Business Guide - Investment &amp; Opportunity Portal</title>
+  <meta name="description" content="Complete guide to investing and doing business in Saint Lucia. Company registration, tax rates, CBI program, key sectors, and practical advice for entrepreneurs.">
+  <meta name="keywords" content="Saint Lucia business, St Lucia investment, Caribbean business, IBC registration, citizenship by investment, St Lucia company formation">
+
+  <meta property="og:title" content="St. Lucia Business Guide - Investment & Opportunity Portal">
+  <meta property="og:description" content="Complete guide to investing and doing business in Saint Lucia. Company registration, tax rates, CBI program, key sectors, and practical advice for entrepreneurs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ibak-app.github.io/stlucia/">
+  <meta property="og:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-pitons.jpg">
+  <meta property="og:site_name" content="St. Lucia Business Guide">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="St. Lucia Business Guide - Investment & Opportunity Portal">
+  <meta name="twitter:description" content="Complete guide to investing and doing business in Saint Lucia. Company registration, tax rates, CBI program, key sectors, and practical advice for entrepreneurs.">
+  <meta name="twitter:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-pitons.jpg">
+
+  <link rel="canonical" href="https://ibak-app.github.io/stlucia/">
+  <link rel="manifest" href="/stlucia/manifest.json">
+  <meta name="theme-color" content="#0e2f44">
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Loading...</div></div>
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="container">
@@ -22,6 +41,7 @@
         <a href="legal.html">Legal &amp; Tax</a>
         <a href="sectors.html">Sectors</a>
         <a href="cbi.html">CBI</a>
+        <a href="immigration.html">Immigration</a>
         <a href="living.html">Living</a>
         <a href="events.html">Events</a>
         <a href="map.html">Map</a>
@@ -29,6 +49,10 @@
         <a href="faq.html">FAQ</a>
         <a href="resources.html">Resources</a>
         <a href="government.html">Government</a>
+        <div class="navbar-tools">
+          <button id="search-toggle" class="nav-icon-btn" title="Search" aria-label="Search site">&#128269;</button>
+          <button id="dark-mode-toggle" class="nav-icon-btn" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+        </div>
         <div class="lang-selector">
           <a href="index.html" class="lang-btn active" title="English">EN</a>
           <a href="tr/index.html" class="lang-btn" title="T&uuml;rk&ccedil;e">TR</a>
@@ -36,6 +60,17 @@
       </div>
     </div>
   </nav>
+
+  <!-- SEARCH OVERLAY -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-content">
+      <div class="search-overlay-header">
+        <button id="search-close" class="search-overlay-close" aria-label="Close search">&times;</button>
+        <input type="text" id="search-overlay-input" class="search-overlay-input" placeholder="Search the guide..." autocomplete="off">
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero hero--image" style="background-image:url('assets/images/hero-pitons.jpg');">
@@ -296,6 +331,38 @@
           </div>
         </a>
 
+        <a href="immigration.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="assets/images/hero-cbi.jpg" alt="Immigration" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#2980b9;">
+            <span class="icon">&#9992;</span>
+            <h3>Immigration &amp; Visas</h3>
+          </div>
+          <div class="card-body">
+            <p>Work permits, residency options, visa requirements, stay extensions &amp; permanent residence pathways.</p>
+            <ul>
+              <li>Work permit categories &amp; fees</li>
+              <li>CARICOM Skills Certificate</li>
+              <li>Permanent residence routes</li>
+            </ul>
+          </div>
+        </a>
+
+        <a href="realestate.html" class="nav-card">
+          <img src="assets/images/hero-cbi.jpg" alt="Real Estate" class="card-thumb" loading="lazy">
+          <h3>Real Estate</h3>
+          <p>Property investment, Alien Landholding License, buying process &amp; development projects</p>
+        </a>
+        <a href="startups.html" class="nav-card">
+          <img src="assets/images/hero-business.jpg" alt="Startups" class="card-thumb" loading="lazy">
+          <h3>Startups &amp; Entrepreneurs</h3>
+          <p>Business incubators, funding sources, MSME support programs &amp; co-working spaces</p>
+        </a>
+        <a href="expats.html" class="nav-card">
+          <img src="assets/images/hero-living.jpg" alt="Expat Guide" class="card-thumb" loading="lazy">
+          <h3>Expat &amp; Nomad Guide</h3>
+          <p>Relocation, remote work, banking, healthcare, shipping &amp; daily life for foreigners</p>
+        </a>
+
       </div>
     </div>
   </section>
@@ -328,6 +395,78 @@
           <tr><td><strong>International Memberships</strong></td><td>CARICOM, OECS, Commonwealth, UN, OAS, Caribbean Development Bank</td></tr>
         </table>
       </div>
+
+      <!-- CURRENCY CONVERTER -->
+      <div style="margin-top:30px;">
+        <div class="card" style="max-width:500px;margin:0 auto;">
+          <div class="card-header" style="background:var(--accent);">
+            <span class="icon">&#128176;</span>
+            <h3>Currency Converter</h3>
+          </div>
+          <div class="card-body">
+            <div style="display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:12px;">
+              <div>
+                <label style="display:block;font-weight:600;margin-bottom:6px;font-size:0.9rem;">Amount</label>
+                <input type="number" id="currAmount" value="100" placeholder="Enter amount" style="width:100%;padding:10px;border:2px solid var(--border);border-radius:var(--radius);font-size:1rem;">
+              </div>
+              <div>
+                <label style="display:block;font-weight:600;margin-bottom:6px;font-size:0.9rem;">From</label>
+                <select id="currFrom" style="width:100%;padding:10px;border:2px solid var(--border);border-radius:var(--radius);font-size:0.95rem;background:var(--white);">
+                  <option value="usd">USD</option>
+                  <option value="eur">EUR</option>
+                  <option value="gbp">GBP</option>
+                  <option value="cad">CAD</option>
+                  <option value="xcd">XCD</option>
+                </select>
+              </div>
+            </div>
+            <div style="text-align:center;margin:16px 0;">
+              <span style="font-size:1.5rem;color:var(--primary);">&#8645;</span>
+            </div>
+            <div style="background:var(--bg-alt);padding:20px;border-radius:var(--radius);text-align:center;">
+              <div style="font-size:0.85rem;color:var(--text-light);margin-bottom:6px;">Eastern Caribbean Dollar (XCD)</div>
+              <div id="currResult" style="font-size:2rem;font-weight:800;color:var(--primary);">XCD 270.00</div>
+            </div>
+            <div style="margin-top:16px;padding:12px;background:rgba(243,156,18,0.1);border-radius:var(--radius);font-size:0.85rem;">
+              <strong>Note:</strong> The XCD is pegged to USD at a fixed rate of 2.70:1 since 1976. Other rates are approximate and for reference only.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        #currAmount, #currFrom {
+          font-size: 16px !important; /* Prevent zoom on iOS */
+        }
+      </style>
+
+      <script>
+        (function() {
+          const rates = {
+            usd: 2.70,
+            eur: 2.95,
+            gbp: 3.45,
+            cad: 1.95,
+            xcd: 1.00
+          };
+
+          const amountInput = document.getElementById('currAmount');
+          const fromSelect = document.getElementById('currFrom');
+          const resultDiv = document.getElementById('currResult');
+
+          function convert() {
+            const amount = parseFloat(amountInput.value) || 0;
+            const from = fromSelect.value;
+            const xcdAmount = amount * rates[from];
+            resultDiv.textContent = 'XCD ' + xcdAmount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+          }
+
+          amountInput.addEventListener('input', convert);
+          fromSelect.addEventListener('change', convert);
+          convert();
+        })();
+      </script>
+
     </div>
   </section>
 

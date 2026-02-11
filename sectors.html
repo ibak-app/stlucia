@@ -1,13 +1,32 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Key Sectors - St. Lucia Business Guide</title>
+  <meta name="description" content="Investment opportunities in Saint Lucia: tourism (65% GDP), renewable energy, agriculture, BPO, technology, construction. Detailed sector analysis and incentives.">
+  <meta name="keywords" content="Saint Lucia tourism, Caribbean renewable energy, St Lucia BPO, geothermal energy, agriculture investment, Hotel Chocolat, KM2 Solutions">
+
+  <meta property="og:title" content="Key Investment Sectors - Saint Lucia">
+  <meta property="og:description" content="Investment opportunities in Saint Lucia: tourism (65% GDP), renewable energy, agriculture, BPO, technology, construction. Detailed sector analysis and incentives.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ibak-app.github.io/stlucia/sectors.html">
+  <meta property="og:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-sectors.jpg">
+  <meta property="og:site_name" content="St. Lucia Business Guide">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Key Investment Sectors - Saint Lucia">
+  <meta name="twitter:description" content="Investment opportunities in Saint Lucia: tourism (65% GDP), renewable energy, agriculture, BPO, technology, construction. Detailed sector analysis and incentives.">
+  <meta name="twitter:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-sectors.jpg">
+
+  <link rel="canonical" href="https://ibak-app.github.io/stlucia/sectors.html">
+  <link rel="manifest" href="/stlucia/manifest.json">
+  <meta name="theme-color" content="#0e2f44">
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Loading...</div></div>
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia Business Guide</a>
@@ -19,6 +38,7 @@
         <a href="legal.html">Legal &amp; Tax</a>
         <a href="sectors.html" class="active">Sectors</a>
         <a href="cbi.html">CBI</a>
+        <a href="immigration.html">Immigration</a>
         <a href="living.html">Living</a>
         <a href="events.html">Events</a>
         <a href="map.html">Map</a>
@@ -26,6 +46,10 @@
         <a href="faq.html">FAQ</a>
         <a href="resources.html">Resources</a>
         <a href="government.html">Government</a>
+        <div class="navbar-tools">
+          <button id="search-toggle" class="nav-icon-btn" title="Search" aria-label="Search site">&#128269;</button>
+          <button id="dark-mode-toggle" class="nav-icon-btn" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+        </div>
         <div class="lang-selector">
           <a href="sectors.html" class="lang-btn active" title="English">EN</a>
           <a href="tr/sectors.html" class="lang-btn" title="T&uuml;rk&ccedil;e">TR</a>
@@ -33,6 +57,16 @@
       </div>
     </div>
   </nav>
+  <!-- SEARCH OVERLAY -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-content">
+      <div class="search-overlay-header">
+        <button id="search-close" class="search-overlay-close" aria-label="Close search">&times;</button>
+        <input type="text" id="search-overlay-input" class="search-overlay-input" placeholder="Search the guide..." autocomplete="off">
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
 
   <section class="hero hero--image" style="padding:50px 0 40px;background-image:url('assets/images/hero-sectors.jpg');">
     <div class="container">
@@ -55,6 +89,7 @@
           <a href="#cannabis">Cannabis &amp; Hemp</a>
           <a href="#maritime">Maritime Services</a>
           <a href="#finance">Financial Services</a>
+          <a href="#climate">Climate Resilience</a>
         </aside>
 
         <div class="main-content">
@@ -340,16 +375,108 @@
             <h3>Creative Industries</h3>
           </div>
           <div class="card-body">
-            <p>Saint Lucia has a rich cultural heritage, being home to two Nobel laureates (Sir Derek Walcott for Literature, Sir Arthur Lewis for Economics). The government actively promotes the creative economy.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/St._Lucia_-_Pigeon_Island_from_Fort_Rodney.jpg" alt="Pigeon Island National Landmark, Saint Lucia - venue for Jazz Festival" class="img-float-right" loading="lazy">
+            <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+              <span class="badge badge-primary">2 Nobel Laureates</span>
+              <span class="badge badge-accent">Orange Economy focus</span>
+              <span class="badge badge-success">Ministry-level support</span>
+            </div>
+            <p>Saint Lucia has a remarkably rich cultural heritage for its size, being the birthplace of two Nobel laureates: <strong>Sir Derek Walcott</strong> (Literature, 1992) and <strong>Sir W. Arthur Lewis</strong> (Economics, 1979). The government actively promotes the creative or "Orange Economy" under the Ministry of Tourism, Investment, <strong>Creative Industries</strong>, Culture, and Information, recognising the sector's potential for job creation, cultural capital, and tourism enhancement.</p>
 
-            <h4 style="margin-top:16px;">Sub-sectors</h4>
+            <!-- MUSIC ECOSYSTEM -->
+            <h4 style="margin-top:20px;">Music Industry</h4>
+            <p>Music is central to Saint Lucian identity and is the beating heart of the island's festival economy.</p>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Genre / Tradition</th><th>Description</th><th>Key Events</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Soca</strong></td><td>Dominant carnival genre. Power Soca and Groovy Soca sub-genres drive the July Carnival season. Emerging artists compete in the <strong>Soca Monarch</strong> competition</td><td>Carnival (July): Soca Monarch finals, J'Ouvert</td></tr>
+                  <tr><td><strong>Calypso (Kaiso)</strong></td><td>Traditional narrative song form with social commentary. Four calypso tents operate during carnival, including the new SALCC Academia Tent. <strong>Calypso Monarch</strong> competition is a cultural highlight</td><td>Carnival (July): Calypso Monarch finals, Kaiso tents</td></tr>
+                  <tr><td><strong>Zouk / Kweyol music</strong></td><td>French Creole-influenced music reflecting the island's dual colonial heritage. Zouk and Kadans popular for social dancing</td><td>Jounen Kweyol (October), La Rose/La Marguerite festivals</td></tr>
+                  <tr><td><strong>Steelpan (Panorama)</strong></td><td>Steel drum ensembles compete in Senior and Junior Panorama competitions. Growing school programmes develop young players</td><td>Carnival: National Panorama finals</td></tr>
+                  <tr><td><strong>Jazz &amp; Contemporary</strong></td><td>The <strong>Saint Lucia Jazz &amp; Arts Festival</strong> (est. 1992) at Pigeon Island National Landmark is the Caribbean's premier jazz festival. 2025 headliners: John Legend, Earth Wind &amp; Fire, Summer Walker, Samara Joy</td><td>Late April-early May annually</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="font-size:0.85rem;">Carnival 2025 attracted <strong>24,500 visitor arrivals</strong> (a 36% increase over 2024), with additional flights added from Miami and New York. A new School Soca Monarch competition was introduced in 2025 to develop youth talent.</p>
+
+            <!-- VISUAL ARTS & CRAFTS -->
+            <h4 style="margin-top:20px;">Visual Arts &amp; Traditional Crafts</h4>
+            <p>Saint Lucia has a vibrant visual arts scene rooted in both African and European traditions, with a growing contemporary movement.</p>
             <ul>
-              <li><strong>Music &amp; Entertainment</strong> - Annual Jazz &amp; Arts Festival, Carnival, soca, calypso, zouk</li>
-              <li><strong>Visual Arts &amp; Crafts</strong> - Pottery (Choiseul), painting, sculpture, textile arts</li>
-              <li><strong>Film &amp; Media</strong> - Growing interest in film location services, local content creation</li>
-              <li><strong>Publishing &amp; Literature</strong> - Legacy of Derek Walcott, local publishing</li>
-              <li><strong>Fashion &amp; Design</strong> - Caribbean fashion, textile design</li>
-              <li><strong>Digital Content</strong> - Social media, digital marketing, content creation</li>
+              <li><strong>Choiseul Arts &amp; Crafts Centre</strong> &mdash; The crafting heartland of Saint Lucia. Artisans produce handmade <strong>clay pottery</strong> (a tradition passed from mothers to daughters through generations), woven straw products (hats, baskets, mats, bags), wood carvings, and hand-painted jewellery. Operated by the Choiseul Arts, Craft &amp; Tourism Heritage Association</li>
+              <li><strong>Batik &amp; textile arts</strong> &mdash; Locally made batik fabrics available at Howelton Estate near Castries and at Caribelle Batik workshop. Traditional dyeing and printing techniques applied to clothing, wall hangings, and accessories</li>
+              <li><strong>Painting &amp; sculpture</strong> &mdash; A thriving community of painters and sculptors, many concentrated in the Choiseul and Anse la Raye areas. The "Art &amp; The City" programme during Jazz Festival transforms Castries into an open-air gallery with live art, spoken word, and folk performances</li>
+              <li><strong>Galleries</strong> &mdash; Inner Gallery Rodney Heights, Alliance Francaise exhibitions, Llewellyn Xavier studio. Hotel galleries at Anse Chastanet, Jade Mountain, and Cap Maison feature local artists</li>
+              <li><strong>Craft markets</strong> &mdash; Castries Central Market (Saturday), Rodney Bay craft market (Sunday), Pointe Seraphine vendors, La Place Carenage. The <strong>"Taste of Saint Lucia" / Shop Local</strong> initiative promotes locally made products</li>
+            </ul>
+
+            <!-- LITERATURE & THEATRE -->
+            <h4 style="margin-top:20px;">Literature, Theatre &amp; Publishing</h4>
+            <div class="info-box" style="margin-bottom:12px;">
+              <h4>Derek Walcott's Legacy</h4>
+              <p><strong>Sir Derek Walcott</strong> (1930-2017), Saint Lucia's Nobel Laureate for Literature, produced an extraordinary body of work: over 25 published collections of poetry (including <em>Omeros</em>, a Caribbean reimagining of Homer), more than 10 plays, and founded the <strong>Trinidad Theatre Workshop</strong>. His work blended Caribbean Creole, English, and West Indian experience into a unique literary voice. Walcott's legacy is celebrated through the annual <strong>Nobel Laureate Festival</strong> (January).</p>
+            </div>
+            <ul>
+              <li><strong>Local publishing</strong> &mdash; Small but active publishing scene. Jako Productions publishes work on Saint Lucian culture, history, and identity</li>
+              <li><strong>Theatre</strong> &mdash; Community theatre groups perform throughout the year. The National Cultural Centre in Castries hosts theatrical productions and cultural performances</li>
+              <li><strong>Kweyol literature</strong> &mdash; Growing body of Creole-language literature, poetry, and oral tradition. Jounen Kweyol (last Sunday of October) celebrates this linguistic heritage</li>
+            </ul>
+
+            <!-- FASHION -->
+            <h4 style="margin-top:20px;">Fashion &amp; Design</h4>
+            <ul>
+              <li><strong>Carnival costume design</strong> &mdash; The Parade of the Bands and King &amp; Queen of the Bands competition drive a significant costume design and manufacturing industry. Mas band leaders commission elaborate creations each year</li>
+              <li><strong>Caribbean fashion designers</strong> &mdash; Local designers showcase collections during Caribbean Fashion Week and regional events</li>
+              <li><strong>Resort wear &amp; swimwear</strong> &mdash; Growing niche for locally designed resort and beachwear catering to the tourism market</li>
+              <li><strong>Jewellery &amp; accessories</strong> &mdash; Handcrafted jewellery using local materials (coconut shell, seeds, clay beads) sold through craft markets and hotel gift shops</li>
+            </ul>
+
+            <!-- FILM & DIGITAL CREATIVE -->
+            <h4 style="margin-top:20px;">Film, Media &amp; Digital Creative Economy</h4>
+            <p>Saint Lucia's dramatic landscapes &mdash; the Pitons, rainforests, volcanic springs, colonial architecture, and beaches &mdash; make it attractive for film and photography production.</p>
+            <ul>
+              <li><strong>Film location services</strong> &mdash; The island has been used for international film, television, and advertising shoots. The Ministry of Creative Industries facilitates location permits and crew coordination. No formal film tax credit programme currently exists, though incentives may be available through Invest Saint Lucia on a project-by-project basis</li>
+              <li><strong>Content creation</strong> &mdash; A growing community of YouTubers, TikTok creators, and social media influencers. Travel content creation is a significant driver of destination marketing</li>
+              <li><strong>Digital creative services</strong> &mdash; Web design, graphic design, digital marketing, and app development. The digital nomad visa ("Live It" programme) attracts international creative professionals</li>
+              <li><strong>Music production</strong> &mdash; Local recording studios produce soca, calypso, and contemporary music. Growing demand for Caribbean sounds in international markets</li>
+            </ul>
+
+            <!-- CULTURAL TOURISM -->
+            <h4 style="margin-top:20px;">Cultural Tourism Connection</h4>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Cultural Product</th><th>Tourism Impact</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Jazz &amp; Arts Festival</strong></td><td>Peak hotel occupancy (May); international networking event; "Art &amp; The City" gallery trail</td></tr>
+                  <tr><td><strong>Lucian Carnival</strong></td><td>24,500 visitors (2025); additional airline capacity; 36% growth over 2024</td></tr>
+                  <tr><td><strong>Jounen Kweyol</strong></td><td>Month-long Creole heritage celebration drawing cultural tourists; host community rotation</td></tr>
+                  <tr><td><strong>Chocolate Heritage Month</strong></td><td>August cocoa farm tours, artisan workshops, resort chocolate-pairing experiences</td></tr>
+                  <tr><td><strong>La Rose / La Marguerite</strong></td><td>UNESCO-recognised flower society festivals; authentic cultural immersion</td></tr>
+                  <tr><td><strong>Craft markets &amp; galleries</strong></td><td>Year-round visitor spending on locally made arts, crafts, and souvenirs</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- CREATIVE HUBS -->
+            <h4 style="margin-top:20px;">Creative Spaces &amp; Institutions</h4>
+            <ul>
+              <li><strong>National Cultural Centre</strong> (Castries) &mdash; Performance venue for theatre, music, and cultural events</li>
+              <li><strong>Pigeon Island National Landmark</strong> &mdash; Open-air waterside concert venue for Jazz Festival; Fort Rodney ruins and interpretive centre</li>
+              <li><strong>Alliance Francaise</strong> (Castries) &mdash; French-Creole cultural centre with exhibition space, library, and event programming</li>
+              <li><strong>Choiseul Arts &amp; Crafts Centre</strong> &mdash; Artisan workshop and retail space for traditional crafts</li>
+              <li><strong>Folk Research Centre</strong> &mdash; Preserves and promotes Saint Lucian folk culture, Kweyol language, and oral traditions</li>
+            </ul>
+
+            <h4 style="margin-top:20px;">Investment Opportunities</h4>
+            <ul>
+              <li>Festival event management and production services</li>
+              <li>Artisan product export (pottery, batik, hot sauces as gift products)</li>
+              <li>Digital content and influencer marketing partnerships with Tourism Authority</li>
+              <li>Music production studio and recording facilities</li>
+              <li>Culinary tourism and cooking experience operators</li>
+              <li>Film location scouting and production services</li>
+              <li>Creative co-working spaces catering to digital nomads</li>
             </ul>
           </div>
         </div>
@@ -758,39 +885,176 @@
             <h3>Maritime Services</h3>
           </div>
           <div class="card-body">
-            <img src="assets/images/sector-maritime.jpg" alt="Rodney Bay Marina with yachts" class="img-float-right" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Rodney_Bay_Marina_St_Lucia.JPG" alt="Rodney Bay Marina, Saint Lucia - IGY marina with yachts" class="img-float-right" loading="lazy">
             <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
-              <span class="badge badge-primary">2 major marinas</span>
-              <span class="badge badge-accent">ARC rally host</span>
-              <span class="badge badge-success">Growing yacht charter sector</span>
+              <span class="badge badge-primary">2 major marinas + 60 SMMA moorings</span>
+              <span class="badge badge-accent">ARC rally host since 1986</span>
+              <span class="badge badge-success">US$10.3M annual ARC impact</span>
             </div>
-            <p>Saint Lucia's strategic position in the Windward Islands and its established port infrastructure make maritime services a growing sector. The island sits on major Caribbean shipping routes and is a premier yachting destination.</p>
+            <p>Saint Lucia's strategic position in the Windward Islands, its deep-water harbours, and world-class marina infrastructure make maritime services one of the island's most promising growth sectors. Located on major Caribbean shipping lanes, less than 150 nautical miles from Barbados, Martinique, Antigua, and St. Vincent, the island serves as both a yachting destination and a regional maritime hub. The government's Blue Economy agenda &mdash; endorsed through Cabinet Conclusion No. 457 of 2024 with the adoption of a National Coastal and Marine Spatial Plan &mdash; signals a strategic pivot toward sustainable ocean-based economic development.</p>
 
-            <h4 style="margin-top:16px;">Marinas &amp; Yachting</h4>
+            <!-- MARINA INFRASTRUCTURE -->
+            <h4 style="margin-top:20px;">Marina Infrastructure</h4>
             <div class="table-wrapper" style="margin-bottom:12px;">
               <table>
-                <thead><tr><th>Marina</th><th>Capacity</th><th>Facilities</th></tr></thead>
+                <thead><tr><th>Marina</th><th>Capacity</th><th>Max Vessel</th><th>Key Facilities</th></tr></thead>
                 <tbody>
-                  <tr><td><strong>Rodney Bay Marina</strong> (IGY)</td><td>253 slips; vessels up to 285 ft</td><td>Full-service boatyard, 75-ton travel lift, fuel dock, chandlery, customs/immigration. Host venue for ARC rally finish.</td></tr>
-                  <tr><td><strong>Marigot Bay Marina</strong></td><td>40+ berths; mega-yachts welcome</td><td>Boutique marina in protected bay. Hurricane hole reputation. Fuel, water, electricity.</td></tr>
-                  <tr><td><strong>Soufriere</strong></td><td>Mooring field</td><td>Day-use anchorage; managed by SMMA. Popular yacht stop for Pitons views.</td></tr>
+                  <tr><td><strong>IGY Rodney Bay Marina</strong></td><td>253 slips + 120 dry dock</td><td>285 ft LOA</td><td>Full-service 4.5-acre boatyard, 75-ton travel lift, fuel dock, chandlery, customs &amp; immigration clearance on-site, provisioning, free Wi-Fi. Host venue for ARC rally finish. Managed by Island Global Yachting (IGY Marinas).</td></tr>
+                  <tr><td><strong>Marigot Bay Yacht Haven</strong> (Capella Marina)</td><td>42 berths + 20 moorings</td><td>280 ft LOA, 20 ft draft</td><td>Deep-water protected cove, 70-ton mooring buoys, fuel, water, electricity, resort amenities. Favourite yacht charter base-point. Hurricane hole reputation with excellent natural shelter.</td></tr>
+                  <tr><td><strong>Soufriere Marine Management Area</strong> (SMMA)</td><td>60 yacht moorings</td><td>Varies by zone</td><td>Managed mooring field in the Pitons UNESCO zone. Scuba dive/snorkel permits. ~3,600 yachts and 5,000 boats annually; 21,000+ snorkelers, 12,000+ divers per year.</td></tr>
                 </tbody>
               </table>
             </div>
+            <p style="font-size:0.85rem;">SMMA mooring fees: vessels up to 70 ft &mdash; EC$54/US$20 per night (EC$324/US$120 per week); 70-120 ft &mdash; EC$270/US$100 per night; 120 ft+ &mdash; EC$540/US$200 per day. Crewed charters: EC$1,350/US$500 per annum.</p>
 
-            <h4 style="margin-top:16px;">Atlantic Rally for Cruisers (ARC)</h4>
-            <p>The <strong>ARC</strong> (organized by World Cruising Club) is the world's largest transatlantic sailing rally, finishing at Rodney Bay Marina each December since 1986. Approximately <strong>200+ yachts</strong> and <strong>1,200+ crew members</strong> arrive annually from Las Palmas, Gran Canaria (2,700+ nautical miles). The event pumps an estimated <strong>US$10.3 million</strong> into the local economy annually through marina fees, provisioning, hospitality, tours, and boat repairs. The 2024 edition (40th anniversary) attracted 234 yachts across ARC and ARC+ combined.</p>
+            <!-- ARC RALLY -->
+            <h4 style="margin-top:20px;">Atlantic Rally for Cruisers (ARC)</h4>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Marigot_Bay%2C_St._Lucia.jpg" alt="Marigot Bay, Saint Lucia - protected yacht harbour" class="img-float-right" style="max-width:280px;" loading="lazy">
+            <p>The <strong>ARC</strong> (organized by World Cruising Club, UK) is the world's largest transatlantic sailing rally, finishing at IGY Rodney Bay Marina each December since 1986. The ARC is co-sponsored by the <strong>Saint Lucia Tourism Authority</strong> and IGY Rodney Bay Marina.</p>
+            <div class="table-wrapper" style="margin-top:12px;margin-bottom:12px;">
+              <table>
+                <tr><td><strong>Route</strong></td><td>Las Palmas de Gran Canaria to Rodney Bay (~2,700 nautical miles)</td></tr>
+                <tr><td><strong>Duration</strong></td><td>Departs late November; fleet arrives ~Dec 10-21 (14-21 day crossing)</td></tr>
+                <tr><td><strong>Fleet Size (annual)</strong></td><td>~150-200+ yachts across ARC and ARC+ divisions</td></tr>
+                <tr><td><strong>Crew</strong></td><td>~1,200+ crew members per edition</td></tr>
+                <tr><td><strong>Cumulative Totals (1986-2025)</strong></td><td>Over <strong>8,000 boats</strong> and <strong>40,000 sailors</strong> across 40 editions</td></tr>
+                <tr><td><strong>2024 Edition</strong></td><td>40th anniversary. 234 yachts across ARC and ARC+ combined</td></tr>
+                <tr><td><strong>Annual Economic Impact</strong></td><td>Estimated <strong>US$10.3 million</strong> (marina fees, provisioning, hospitality, tours, boat repairs)</td></tr>
+                <tr><td><strong>World ARC</strong></td><td>13th edition (2024-25): 39 yachts, 330 crew, 26,000 nm circumnavigation departing and returning to Rodney Bay</td></tr>
+              </table>
+            </div>
+            <p style="font-size:0.85rem;">The ARC prizegiving ceremony at Rodney Bay Marina is a high-profile social and networking event attracting affluent international participants. Post-rally, many crews spend 2-4 weeks in Saint Lucia for boat maintenance, tourism, and onward provisioning, multiplying the economic impact.</p>
 
-            <h4 style="margin-top:16px;">Maritime Services</h4>
+            <!-- YACHT CHARTER INDUSTRY -->
+            <h4 style="margin-top:20px;">Yacht Charter Industry</h4>
+            <p>Saint Lucia's dramatic coastline, year-round trade winds (15-25 knots), and world-class anchorages make it a premier Caribbean charter destination. The island is a favoured starting and turnaround point for bareboat, crewed, and catamaran charters.</p>
             <ul>
-              <li><strong>Ship registration</strong> &mdash; Saint Lucia has operated an <strong>open ship registry since 2016</strong> through SLASPA&rsquo;s Division of Maritime Affairs (governed by the Shipping Act No. 11 of 1994). Foreign-owned vessels can register under the Saint Lucia flag, with processing within 48 hours. Contact: maritime@slaspa.com</li>
-              <li><strong>Yacht registration</strong> &mdash; Vessels can be registered under the Saint Lucia flag; popular for charter operations</li>
-              <li><strong>Charter licensing</strong> &mdash; Charter vessels require licensing from the Department of Maritime Affairs; tourism operator license also required</li>
-              <li><strong>SLASPA</strong> &mdash; Saint Lucia Air and Sea Ports Authority manages both commercial ports (Castries, Vieux Fort) and regulates maritime activity</li>
-              <li><strong>Port logistics &amp; warehousing</strong> &mdash; Container handling at both ports; GPH cruise port expansion underway</li>
-              <li><strong>Marine tourism</strong> &mdash; Whale watching, diving, catamaran tours, deep-sea fishing</li>
-              <li><strong>Boat building &amp; repair</strong> &mdash; Rodney Bay boatyard offers haul-out and repair services</li>
+              <li><strong>The Moorings / Sunsail</strong> &mdash; International charter companies maintain fleets based out of Marigot Bay and Rodney Bay</li>
+              <li><strong>DSL Yachting</strong> &mdash; Saint Lucia's premiere locally-owned yacht charter operator, offering day sails, private charters, and multi-day itineraries</li>
+              <li><strong>Catamaran day charters</strong> &mdash; The most popular tourist activity: full-day catamaran trips from Rodney Bay to Soufriere (snorkeling, Pitons, mud baths, waterfalls). Typically US$100-175 per person</li>
+              <li><strong>Superyacht sector</strong> &mdash; Both marinas accommodate superyachts; Marigot Bay Yacht Haven markets specifically to the superyacht segment with full resort amenities</li>
+              <li><strong>Charter licensing</strong> &mdash; Charter vessels require licensing from the Department of Maritime Affairs (DMA) plus a tourism operator license from the Ministry of Tourism. Crewed charter annual permit: US$500</li>
             </ul>
+
+            <!-- SHIP REGISTRY -->
+            <h4 style="margin-top:20px;">Ship Registry &amp; Maritime Administration</h4>
+            <div class="info-box" style="margin-bottom:12px;">
+              <h4>Saint Lucia Open Ship Registry</h4>
+              <p>Saint Lucia has operated an <strong>open ship registry since 2016</strong> through SLASPA's Division of Maritime Affairs (DMA), governed by the Shipping Act No. 11 of 1994 (amended 2016). Foreign-owned vessels can register under the Saint Lucia flag regardless of the owner's nationality.</p>
+            </div>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <tr><td><strong>Governing Law</strong></td><td>Shipping Act No. 11 of 1994, as amended</td></tr>
+                <tr><td><strong>Administered By</strong></td><td>Division of Maritime Affairs (DMA), SLASPA</td></tr>
+                <tr><td><strong>Registry Type</strong></td><td>Open registry (flag of convenience); foreign ownership permitted</td></tr>
+                <tr><td><strong>Processing Time</strong></td><td>48 hours (once all documents submitted)</td></tr>
+                <tr><td><strong>Vessel Types</strong></td><td>Commercial, pleasure, fishing, charter</td></tr>
+                <tr><td><strong>Registered Domestic Fleet</strong></td><td>~994 fishing vessels (470 fiberglass pirogues, 356 canoes, 94 transoms, 4 longliners) + commercial &amp; pleasure craft</td></tr>
+                <tr><td><strong>Flag State Obligations</strong></td><td>IMO compliance, ISM Code, SOLAS, MARPOL, STCW</td></tr>
+                <tr><td><strong>Contact</strong></td><td>maritime@slaspa.com | SLASPA, Manoel Street, Castries</td></tr>
+              </table>
+            </div>
+            <p style="font-size:0.85rem;">Saint Lucia is a member of the <strong>International Maritime Organization (IMO)</strong> and party to major maritime conventions. The DMA provides seafarer certification, vessel surveys, and maritime safety oversight. Yacht registration under the Saint Lucia flag is popular for charter operations due to competitive fees and efficient processing.</p>
+
+            <!-- CRUISE SUPPLY CHAIN -->
+            <h4 style="margin-top:20px;">Cruise Industry Supply Chain</h4>
+            <p>With <strong>723,500 cruise passengers</strong> in 2024 (334 ship calls) and a target of 1M+ annual visitors following the GPH US$135M port expansion, cruise-related business opportunities are growing significantly.</p>
+            <ul>
+              <li><strong>Shore excursion operators</strong> &mdash; Licensed tour operators can contract with cruise lines for passenger excursions (catamaran tours, Pitons hikes, Sulphur Springs, zip-lining, chocolate tours)</li>
+              <li><strong>Provisioning &amp; ship chandlery</strong> &mdash; Supply of fresh produce, water, fuel, and consumables to cruise vessels and yachts at berth</li>
+              <li><strong>Local craft &amp; vendor concessions</strong> &mdash; GPH's new Fishermen's Village at Bananes Bay and vendors arcade at Pointe Seraphine provide dedicated vendor space</li>
+              <li><strong>Ground transportation</strong> &mdash; Taxi, minibus, and private transfer services for cruise passengers</li>
+              <li><strong>Duty-free retail</strong> &mdash; Pointe Seraphine and La Place Carenage duty-free shopping centres cater to cruise visitors</li>
+              <li><strong>Port services</strong> &mdash; Pilotage, towing, gangway, and waste reception services managed by SLASPA</li>
+            </ul>
+
+            <!-- COMMERCIAL PORTS -->
+            <h4 style="margin-top:20px;">Commercial Ports &amp; Cargo</h4>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Port</th><th>Capacity</th><th>Key Features</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Port Castries</strong></td><td>150,000 TEU/year</td><td>Primary cargo port. PS#1 and PS#2 cruise berths. 6 cargo berths. RoRo facilities. Liebherr mobile harbour crane. GPH 30-year concession (since May 2024). Berth expansion underway for Oasis-class mega-ships.</td></tr>
+                  <tr><td><strong>Vieux Fort Port</strong></td><td>50,000 TEU/year</td><td>Secondary cargo port. Finger pier for small vessels. Transshipment capabilities. Near Hewanorra Airport and Free Zone.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="font-size:0.85rem;">Major shipping lines serving Saint Lucia: <strong>CMA CGM, Tropical Shipping, Geest Line, Maersk, MSC</strong>. Transit times: Miami ~4-6 days, Fort Lauderdale ~5-7 days, UK ~14-18 days. SLASPA manages all port operations and maritime regulation.</p>
+
+            <!-- FISHING INDUSTRY -->
+            <h4 style="margin-top:20px;">Fishing Industry &amp; Commercial Opportunities</h4>
+            <p>While predominantly artisanal, Saint Lucia's fishing industry offers commercial development potential, particularly in value-added processing and sport fishing tourism.</p>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <tr><td><strong>Annual Landings</strong></td><td>~1,695 tonnes</td></tr>
+                <tr><td><strong>Fleet</strong></td><td>~994 vessels; ~2,100 fishers</td></tr>
+                <tr><td><strong>Top Species</strong></td><td>Tunas &amp; mackerels (47.5%), dolphinfish/mahi-mahi (33.3%), flying fish (18.2%)</td></tr>
+                <tr><td><strong>Peak Season</strong></td><td>December-June (pelagics); lobster Aug-Feb</td></tr>
+                <tr><td><strong>Landing Sites</strong></td><td>8 locations: Gros Islet, Castries, Choiseul, Laborie, Vieux Fort, Soufriere, Micoud, Dennery</td></tr>
+                <tr><td><strong>Modern Facility</strong></td><td>Daito Complex, Dennery (Japan-funded) &mdash; most modern fish landing facility</td></tr>
+              </table>
+            </div>
+            <ul>
+              <li><strong>Sport fishing tourism</strong> &mdash; Saint Lucia is emerging as a blue marlin destination. Deep waters close to shore support year-round big-game fishing (blue marlin, yellowfin tuna, wahoo, sailfish). Charter operators offer half-day and full-day deep-sea fishing trips from US$550-1,200</li>
+              <li><strong>Sea moss cultivation</strong> &mdash; Sea moss (Gracilaria/Eucheuma) has become one of Saint Lucia's fastest-growing agricultural exports, driven by international health food demand. Opportunities in cultivation, processing, and export</li>
+              <li><strong>Aquaculture</strong> &mdash; Underdeveloped sector with significant potential for tilapia, shrimp, and seaweed farming</li>
+              <li><strong>Fish processing &amp; export</strong> &mdash; Value-added processing (smoking, salting, canning) for regional and international markets</li>
+            </ul>
+
+            <!-- MARINE TOURISM -->
+            <h4 style="margin-top:20px;">Marine Tourism &amp; Diving</h4>
+            <p>Marine tourism is one of Saint Lucia's fastest-growing sub-sectors, leveraging the island's pristine underwater environment and UNESCO-designated coastal zones.</p>
+            <ul>
+              <li><strong>Scuba diving</strong> &mdash; World-class dive sites including Anse Chastanet reef, Superman's Flight, Lesleen M wreck, and the Pitons Marine Reserve. PADI-certified operators include Dive Saint Lucia, Scuba Steve's, and resort-based dive centres. 12,000+ divers visit the SMMA zone annually</li>
+              <li><strong>Whale &amp; dolphin watching</strong> &mdash; Sperm whales, humpback whales, pilot whales, and several dolphin species are regularly sighted off the west coast. Best season: December-April. Tours from US$55-100</li>
+              <li><strong>Catamaran &amp; sailing tours</strong> &mdash; Full-day catamaran tours to Soufriere are the island's most popular tourist activity. Operators include Carnival Sailing, Mystic Man Tours, and Sea Spray Cruises</li>
+              <li><strong>Deep-sea fishing</strong> &mdash; Growing sport fishing sector; potential for tournament hosting</li>
+              <li><strong>Snorkeling</strong> &mdash; 21,000+ snorkelers annually in the SMMA zone alone; Anse Cochon, Anse Chastanet, and Sugar Beach are top sites</li>
+            </ul>
+
+            <!-- BOAT BUILDING & REPAIR -->
+            <h4 style="margin-top:20px;">Boat Building, Repair &amp; Bunkering</h4>
+            <ul>
+              <li><strong>Rodney Bay Boatyard</strong> &mdash; Full-service 4.5-acre facility at IGY Marina with 75-ton travel lift, 120 dry dock spaces, hull maintenance, engine repair, rigging, painting, and anti-fouling services. Serves as a hurricane haul-out facility</li>
+              <li><strong>Traditional boat building</strong> &mdash; Choiseul is notable for traditional gommier-tree canoe construction, still used in artisanal fishing. Cultural heritage and niche tourism interest</li>
+              <li><strong>Fuel bunkering</strong> &mdash; Fuel dock facilities at both major marinas (Rodney Bay and Marigot Bay). Commercial bunkering services available at Port Castries for cargo and cruise vessels</li>
+              <li><strong>Marine supplies</strong> &mdash; Chandlery services at Rodney Bay Marina; imported marine hardware and equipment</li>
+            </ul>
+
+            <!-- BLUE ECONOMY -->
+            <h4 style="margin-top:20px;">Blue Economy Initiatives</h4>
+            <div class="info-box success" style="margin-bottom:12px;">
+              <h4>National Coastal &amp; Marine Spatial Plan (2024)</h4>
+              <p>Saint Lucia formally endorsed its <strong>Coastal and Marine Spatial Plan</strong> through Cabinet Conclusion No. 457 of 2024, developed under the Caribbean Regional Oceanscape Project (CROP). The plan provides an integrated framework for sustainable use, management, and development of the island's coastal and marine resources, including fisheries, tourism, conservation, and energy.</p>
+            </div>
+            <ul>
+              <li><strong>OECS Blue Economy grants</strong> &mdash; Eligible MSMEs in Saint Lucia can access USD $5,000-$25,000 in matching grants for blue economy businesses (marine tourism, sustainable fishing, coastal services)</li>
+              <li><strong>World Maritime University training</strong> &mdash; WMU delivered Marine Spatial Planning workshops and High-Level Blue Economy Roundtable events in Saint Lucia, bringing together Ministers and senior officials</li>
+              <li><strong>SMMA model</strong> &mdash; The Soufriere Marine Management Area (est. 1995) is internationally recognised as a successful marine co-management model, balancing conservation with fishing livelihoods and tourism revenue</li>
+              <li><strong>Coral reef conservation</strong> &mdash; Active reef monitoring and restoration programmes. Marine protected areas cover key nursery habitats</li>
+              <li><strong>Emerging opportunities</strong> &mdash; Marine renewable energy (ocean thermal), coastal resilience infrastructure, sustainable aquaculture, marine biotechnology</li>
+            </ul>
+
+            <!-- MARITIME INVESTMENT OPPORTUNITIES -->
+            <h4 style="margin-top:20px;">Investment Opportunities</h4>
+            <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin-top:12px;">
+              <div class="info-box success" style="margin:0;">
+                <h4>Marina &amp; Boatyard Expansion</h4>
+                <p>Growing yacht traffic and ARC rally popularity create demand for additional berths, haul-out facilities, and marine services. Both major marinas at capacity during peak season.</p>
+              </div>
+              <div class="info-box success" style="margin:0;">
+                <h4>Charter Fleet Development</h4>
+                <p>Expanding catamaran and power boat charter fleets. Day charter operators report strong demand, especially during cruise ship days and high season.</p>
+              </div>
+              <div class="info-box success" style="margin:0;">
+                <h4>Marine Tourism Services</h4>
+                <p>Sport fishing charters, luxury yacht provisioning, underwater photography, PADI dive centre expansion, glass-bottom boat tours.</p>
+              </div>
+              <div class="info-box success" style="margin:0;">
+                <h4>Seafood Processing</h4>
+                <p>Value-added fish and sea moss processing for export. Modern cold chain infrastructure at Dennery Daito Complex. Regional and North American market access via CARICOM and CBTPA.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -803,15 +1067,311 @@
             <h3>Financial Services</h3>
           </div>
           <div class="card-body">
-            <p>Saint Lucia is developing its international financial services sector, leveraging the IBC framework and regulatory environment.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/East_caribbean_states_eccb_5_dollars_2019.00.00_b240_pnl_ad_000000_f.jpg" alt="Eastern Caribbean Dollar banknote - ECCB currency" class="img-float-right" style="max-width:240px;" loading="lazy">
+            <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+              <span class="badge badge-primary">~3,000 IBCs registered</span>
+              <span class="badge badge-accent">FSRA-regulated</span>
+              <span class="badge badge-success">7 commercial banks</span>
+            </div>
+            <p>Saint Lucia's financial services sector operates across both domestic banking and an international financial centre (IFC) framework. The sector is regulated by the <strong>Financial Services Regulatory Authority (FSRA)</strong>, established under the FSRA Act of 2011, and the <strong>Eastern Caribbean Central Bank (ECCB)</strong> for monetary policy and banking supervision. With approximately <strong>3,000 International Business Companies (IBCs)</strong> registered and growing demand from the CBI programme, the sector represents a significant economic contributor.</p>
+
+            <!-- REGULATORY FRAMEWORK -->
+            <h4 style="margin-top:20px;">Regulatory Framework</h4>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Regulator</th><th>Scope</th><th>Key Functions</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>FSRA</strong></td><td>Insurance, pensions, international financial services, money services businesses</td><td>Licensing, supervision, compliance enforcement, AML/CFT oversight for non-banking financial sector</td></tr>
+                  <tr><td><strong>ECCB</strong></td><td>Commercial banking, monetary policy, currency management</td><td>Bank licensing and supervision, reserves management (EC$5.5B), EC dollar peg management (XCD 2.70 = USD 1.00)</td></tr>
+                  <tr><td><strong>Pinnacle Registry</strong></td><td>IBC registration and compliance</td><td>Online IBC incorporation, annual returns, registered agent licensing</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- IBC & INTERNATIONAL FINANCIAL SERVICES -->
+            <h4 style="margin-top:20px;">International Business Companies (IBCs)</h4>
+            <p>Saint Lucia's IBC framework, governed by the International Business Companies Act, provides a competitive structure for international business structuring.</p>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <tr><td><strong>Registered IBCs</strong></td><td>~3,000 companies</td></tr>
+                <tr><td><strong>Tax Treatment</strong></td><td>IBCs incorporated after 1 January 2019 are deemed resident and subject to the Income Tax Act; however, foreign-sourced income may qualify for exemptions. Pre-2019 IBCs retain legacy 1% rate</td></tr>
+                <tr><td><strong>Incorporation Speed</strong></td><td>48-72 hours via Pinnacle online registry</td></tr>
+                <tr><td><strong>Minimum Capital</strong></td><td>No minimum required; standard authorised share capital US$50,000</td></tr>
+                <tr><td><strong>Registered Agent</strong></td><td>Required; must be licensed under the Registered Agent and Trustee Licensing Act (RATLA)</td></tr>
+                <tr><td><strong>Use Cases</strong></td><td>Holding companies, trading companies, investment vehicles, IP holding, regional management companies</td></tr>
+              </table>
+            </div>
+
+            <!-- INTERNATIONAL LEGISLATION -->
+            <h4 style="margin-top:20px;">International Financial Services Legislation</h4>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Legislation</th><th>Scope</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>International Business Companies Act</strong></td><td>Formation, governance, and regulation of IBCs</td></tr>
+                  <tr><td><strong>International Banks Act</strong></td><td>Licensing of Class A (full banking) and Class B (limited) international banks. Capital requirements: US$3M (Class A), US$1M (Class B)</td></tr>
+                  <tr><td><strong>International Insurance Act</strong></td><td>International insurance companies, Incorporated Cell Companies (ICCs), and Incorporated Cells (ICs)</td></tr>
+                  <tr><td><strong>International Trusts Act</strong></td><td>Formation and administration of international trusts. Settlor identity and trust instrument remain confidential with registered trustee</td></tr>
+                  <tr><td><strong>International Mutual Funds Act</strong></td><td>Licensing and regulation of mutual funds domiciled in Saint Lucia</td></tr>
+                  <tr><td><strong>International Partnership Act</strong></td><td>Formation of international limited partnerships</td></tr>
+                  <tr><td><strong>Registered Agent and Trustee Licensing Act (RATLA)</strong></td><td>Licensing requirements for registered agents and trustees</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- INSURANCE -->
+            <h4 style="margin-top:20px;">Insurance Industry</h4>
+            <p>Saint Lucia has both a domestic insurance market and an international insurance framework for captive and offshore insurance structures.</p>
             <ul>
-              <li><strong>International Business Companies</strong> - Holding companies, trading companies, investment vehicles</li>
-              <li><strong>Offshore Banking</strong> - Regulated under the Banking Act and International Banks Act</li>
-              <li><strong>Insurance</strong> - Captive insurance potential</li>
-              <li><strong>Trust Services</strong> - International trust formation</li>
-              <li><strong>Fund Management</strong> - Investment fund structuring</li>
-              <li><strong>Citizenship by Investment</strong> - Growing CBI program driving financial services demand</li>
+              <li><strong>Domestic insurers</strong> &mdash; Major operators include EC Global Insurance (local), Guardian General, Sagicor General, NAGICO, and Caribbean Alliance Insurance. Registration required under the Insurance Act, supervised by the FSRA</li>
+              <li><strong>International insurance</strong> &mdash; The International Insurance Act allows IBCs to obtain international insurance licenses. <strong>Incorporated Cell Companies (ICCs)</strong> and their Incorporated Cells provide protected-cell-like structures for captive insurance and risk segregation</li>
+              <li><strong>Captive insurance potential</strong> &mdash; Saint Lucia's IBC framework, competitive costs, and ICC legislation make it a viable jurisdiction for captive insurance formation, though the sector remains underdeveloped compared to Barbados or Cayman Islands</li>
+              <li><strong>Reinsurance</strong> &mdash; Caribbean Catastrophe Risk Insurance Facility (CCRIF SPC) provides parametric insurance coverage to CARICOM governments for hurricanes, earthquakes, and excess rainfall</li>
             </ul>
+
+            <!-- TRUST & ESTATE PLANNING -->
+            <h4 style="margin-top:20px;">Trust &amp; Estate Planning Services</h4>
+            <p>The International Trusts Act provides a flexible framework for wealth structuring and estate planning.</p>
+            <ul>
+              <li><strong>International trusts</strong> &mdash; Can be established with a licensed registered trustee in Saint Lucia. Settlor identity and trust instrument are not public records; confidentiality is maintained with the registered trustee</li>
+              <li><strong>Asset protection trusts</strong> &mdash; Trusts can hold international assets including real estate, securities, and business interests outside Saint Lucia</li>
+              <li><strong>Registered trustees</strong> &mdash; Must be licensed under RATLA and regulated by the FSRA. Several licensed trust companies and law firms offer trustee services</li>
+              <li><strong>No forced heirship</strong> &mdash; Common law jurisdiction; no forced inheritance rules (unlike some civil law Caribbean jurisdictions)</li>
+            </ul>
+
+            <!-- MUTUAL FUNDS -->
+            <h4 style="margin-top:20px;">Mutual Funds &amp; Investment Management</h4>
+            <ul>
+              <li><strong>Regulatory framework</strong> &mdash; The International Mutual Funds Act governs fund domiciliation and licensing. Funds must be registered with the FSRA and comply with prospectus and reporting requirements</li>
+              <li><strong>Bank of Saint Lucia fund</strong> &mdash; Bank of Saint Lucia Ltd operates an investment banking division offering mutual fund products for the local market, using institutional-grade NAV and CRM tools for lifecycle management</li>
+              <li><strong>ECSE</strong> &mdash; The Eastern Caribbean Securities Exchange (based in St. Kitts) lists equities and debt securities from OECS countries, including LUCELEC shares. Saint Lucian companies can list on the ECSE</li>
+            </ul>
+
+            <!-- FINTECH & DCASH -->
+            <h4 style="margin-top:20px;">Fintech &amp; DCash (ECCB Digital Currency)</h4>
+            <div class="info-box warning" style="margin-bottom:12px;">
+              <h4>DCash Status: Offline &mdash; 2.0 In Development</h4>
+              <p>The ECCB's DCash digital currency (CBDC) was <strong>officially shut down on 14 January 2024</strong> after 34 months of operation due to persistent technical issues preventing wallet access. At shutdown, 21 financial institutions and 400+ businesses had adopted DCash. The ECCB kicked off the <strong>"DCash 2.0" project</strong> in December 2023 with an RFI for new vendors. Stakeholder engagement rounds were conducted in Q2-Q3 2024. DCash 2.0 launch is anticipated in <strong>2026</strong>. Three wallet types are planned: Registered, Value-Based, and Merchant.</p>
+            </div>
+            <ul>
+              <li><strong>Fintech ecosystem</strong> &mdash; Approximately 59 fintech startups registered in Saint Lucia (Tracxn data), spanning digital banking, blockchain, payment processing, and trading platforms</li>
+              <li><strong>Penny Pinch Inc.</strong> &mdash; Award-winning locally-based fintech offering a mobile digital wallet with cashback rewards. Licensed under the Money Services Business Act; partnered with 1st National Bank and Digicel</li>
+              <li><strong>MSB licensing</strong> &mdash; The FSRA licenses Money Services Businesses (MSBs) across 5 classes: money transmission, payment services, foreign exchange, check cashing, and stored value</li>
+              <li><strong>Mobile banking</strong> &mdash; All 7 commercial banks offer mobile and online banking. Digital payment adoption accelerated post-COVID</li>
+            </ul>
+
+            <!-- BANKING SECTOR -->
+            <h4 style="margin-top:20px;">Domestic Banking Sector</h4>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Bank</th><th>Type</th><th>Notes</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Bank of Saint Lucia (BOSL)</strong></td><td>Commercial (local)</td><td>Largest local bank; government-linked. Investment banking division</td></tr>
+                  <tr><td><strong>1st National Bank</strong></td><td>Commercial (local)</td><td>Acquired RBC's SLU operations. MSME unit. Fintech partnerships (Penny Pinch)</td></tr>
+                  <tr><td><strong>CIBC Caribbean</strong></td><td>Commercial (regional)</td><td>Rebranded from CIBC FirstCaribbean Jan 2024. Full-service corporate banking</td></tr>
+                  <tr><td><strong>Republic Bank</strong></td><td>Commercial (regional)</td><td>Trinidad-based. Full retail and commercial services</td></tr>
+                  <tr><td><strong>First Citizens</strong></td><td>Commercial (regional)</td><td>Trinidad-based. Major LUCELEC shareholder (~20%)</td></tr>
+                  <tr><td><strong>Bank of Nova Scotia</strong></td><td>Commercial (international)</td><td>Canadian. Strong mortgage and FX services</td></tr>
+                  <tr><td><strong>Caribbean Commercial Bank</strong></td><td>Development (local)</td><td>Small business lending focus</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="font-size:0.85rem;">Banking sector health (IMF 2024): NPLs 11.6%, credit growth 5.6%, CAR 15.4%. Saint Lucia has 16+ credit unions (federated under the League of Credit Unions) serving ~80,000 members. See the <a href="business.html#banking">Banking &amp; Payments section</a> on the Business page for full details.</p>
+
+            <!-- CHALLENGES & OPPORTUNITIES -->
+            <h4 style="margin-top:20px;">Challenges &amp; Opportunities</h4>
+            <div class="card-grid grid-2col" style="margin-top:12px;">
+              <div class="info-box warning" style="margin:0;">
+                <h4>Challenges</h4>
+                <ul>
+                  <li><strong>Correspondent banking de-risking</strong> &mdash; US and EU banks have withdrawn correspondent relationships from Caribbean financial institutions, making international transfers more difficult and costly, especially for IBCs</li>
+                  <li><strong>AML/CFT compliance burden</strong> &mdash; Growing regulatory requirements increase compliance costs for smaller financial institutions</li>
+                  <li><strong>DCash interruption</strong> &mdash; The 2024 shutdown of DCash set back digital payments; DCash 2.0 relaunch critical for fintech momentum</li>
+                  <li><strong>Credit union capital</strong> &mdash; Some credit unions face capital adequacy challenges (IMF flagged)</li>
+                </ul>
+              </div>
+              <div class="info-box success" style="margin:0;">
+                <h4>Opportunities</h4>
+                <ul>
+                  <li><strong>CBI-driven demand</strong> &mdash; Growing CBI programme creates demand for registered agents, trustees, legal and accounting services</li>
+                  <li><strong>Captive insurance development</strong> &mdash; ICC legislation in place but sector underdeveloped; marketing opportunity</li>
+                  <li><strong>Fintech innovation</strong> &mdash; 59 startups and growing; regulatory sandbox potential</li>
+                  <li><strong>Green finance</strong> &mdash; Blue/green bonds, climate resilience financing, geothermal project financing</li>
+                  <li><strong>Regional fund management</strong> &mdash; OECS single market facilitates cross-border fund distribution</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLIMATE RESILIENCE -->
+      <div id="climate" style="margin-bottom:40px;">
+        <div class="card">
+          <div class="card-header" style="background:#1b5e20;">
+            <span class="icon">&#127754;</span>
+            <h3>Climate Resilience &amp; Environmental Management</h3>
+          </div>
+          <div class="card-body">
+            <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+              <span class="badge badge-primary">NAP 2018&ndash;2028</span>
+              <span class="badge badge-accent">US$27M PPCR investment</span>
+              <span class="badge badge-success">CCRIF SPC member</span>
+            </div>
+            <p>Climate resilience is a critical consideration for any business operating in Saint Lucia. As a Small Island Developing State (SIDS) in the Atlantic hurricane belt, the island faces risks from tropical cyclones, flooding, landslides, drought, earthquakes, and volcanic activity. The government has developed a comprehensive framework for climate adaptation and disaster risk management.</p>
+
+            <!-- NEMO -->
+            <h4 style="margin-top:24px;">National Emergency Management Organisation (NEMO)</h4>
+            <p><strong>NEMO</strong> is the lead agency for disaster preparedness, response, and recovery in Saint Lucia, operating under the <strong>Disaster Management Act of 2006</strong>. It is directed by the Prime Minister, who chairs the National Emergency Management Advisory Committee (NEMAC).</p>
+            <div class="table-wrapper" style="margin-top:8px;margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Component</th><th>Details</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Legal framework</strong></td><td>Disaster Management Act 2006; National Emergency Management Plan (2007)</td></tr>
+                  <tr><td><strong>Structure</strong></td><td>13 National Committees + 18 District Disaster Management Committees + volunteer network</td></tr>
+                  <tr><td><strong>National Shelters</strong></td><td>158 emergency shelters across 18 districts (retrofitted and inspected annually)</td></tr>
+                  <tr><td><strong>Early warning</strong></td><td>National Early Warning System; NEMO alerts via media, SMS, social media</td></tr>
+                  <tr><td><strong>Hurricane season</strong></td><td>June 1 &ndash; November 30 (peak: August&ndash;October). Businesses must have documented contingency plans</td></tr>
+                  <tr><td><strong>Contact</strong></td><td>NEMO HQ: Bisee, Castries. Emergency: 452-3802. Website: <a href="https://nemo.gov.lc" target="_blank">nemo.gov.lc</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- BUSINESS PREPAREDNESS -->
+            <h4 style="margin-top:24px;">Hurricane Preparedness for Businesses</h4>
+            <div class="info-box warning" style="margin-bottom:12px;">
+              <h4>Essential Business Continuity Checklist</h4>
+              <ul>
+                <li><strong>Insurance:</strong> Ensure adequate property, business interruption, and windstorm coverage <strong>before</strong> hurricane season (policies may not be available/modifiable during active season)</li>
+                <li><strong>Physical protection:</strong> Hurricane shutters, roof tie-downs, secure outdoor equipment, backup generator with fuel reserve (minimum 72 hours)</li>
+                <li><strong>Data backup:</strong> Off-site/cloud backup of all critical business data, financial records, and customer information</li>
+                <li><strong>Cash reserves:</strong> Maintain emergency cash (ATMs and card processing may be offline for days or weeks)</li>
+                <li><strong>Communication plan:</strong> Employee contact tree, designated assembly points, alternative communication channels (satellite phone, WhatsApp groups)</li>
+                <li><strong>Supply chain:</strong> Diversify suppliers; maintain buffer stock of critical materials. Shipping disruptions typical 2&ndash;4 weeks post-storm</li>
+                <li><strong>Documentation:</strong> Keep certified copies of all business documents (incorporation, insurance policies, bank information) in a waterproof safe and off-site</li>
+                <li><strong>Building code compliance:</strong> Ensure property meets <strong>OECS Building Code</strong> standards (150 mph wind resistance). Hip roofs preferred.</li>
+              </ul>
+            </div>
+
+            <!-- CCRIF -->
+            <h4 style="margin-top:24px;">CCRIF SPC&mdash;Sovereign Catastrophe Insurance</h4>
+            <p>Saint Lucia is a member of the <strong>Caribbean Catastrophe Risk Insurance Facility (CCRIF SPC)</strong>, a multi-country parametric risk pool providing governments with rapid post-disaster liquidity.</p>
+            <div class="table-wrapper" style="margin-top:8px;margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Feature</th><th>Details</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Coverage</strong></td><td>Tropical cyclones, excess rainfall, earthquakes</td></tr>
+                  <tr><td><strong>Annual premium (St. Lucia)</strong></td><td>~<strong>USD $2.42 million</strong></td></tr>
+                  <tr><td><strong>Payout mechanism</strong></td><td>Parametric (triggered by event intensity, not assessed damage)</td></tr>
+                  <tr><td><strong>Payout speed</strong></td><td><strong>Within 14 days</strong> of qualifying event</td></tr>
+                  <tr><td><strong>Historical payouts to St. Lucia</strong></td><td>~US$1M (Nov 2007 earthquake); ~US$3.2M (Hurricane Tomas 2010)</td></tr>
+                  <tr><td><strong>COAST programme</strong></td><td>Caribbean Ocean and Aquaculture Sustainability insurance&mdash;piloted in St. Lucia and Grenada (2019) for fisheries sector</td></tr>
+                  <tr><td><strong>Livelihood Protection Policy</strong></td><td>Parametric micro-insurance for individual farmers and fishers&mdash;available in St. Lucia from <strong>2026</strong></td></tr>
+                  <tr><td><strong>Total CCRIF payouts (all members)</strong></td><td>78 payouts totalling ~US$390M (Jun 2007 &ndash; Apr 2025)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="font-size:0.85rem;">CCRIF provides <strong>government-level</strong> liquidity for public infrastructure repair and emergency response. Private businesses must maintain separate commercial insurance policies. Canada-CARICOM Climate Adaptation Fund (2024) enabled 7 CCRIF members including St. Lucia to increase coverage.</p>
+
+            <!-- NATIONAL ADAPTATION PLAN -->
+            <h4 style="margin-top:24px;">National Adaptation Plan (NAP) 2018&ndash;2028</h4>
+            <p>Saint Lucia&rsquo;s NAP is a 10-year strategic framework identifying priority sectors for climate adaptation. Key features include:</p>
+            <div class="table-wrapper" style="margin-top:8px;margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Priority Sector</th><th>Key Adaptation Measures</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Water</strong></td><td>Watershed protection, demand management, infrastructure rehabilitation (Millet-Vanard, Theobalds, Ciceron projects)</td></tr>
+                  <tr><td><strong>Agriculture</strong></td><td>Climate-resilient crops, irrigation systems, crop insurance (CCRIF COAST/LPP), soil conservation</td></tr>
+                  <tr><td><strong>Fisheries</strong></td><td>Improved landing facilities (Daito Complex, Dennery), fleet modernization, marine ecosystem protection</td></tr>
+                  <tr><td><strong>Infrastructure</strong></td><td>Climate-proofing roads, bridges, buildings. LiDAR mapping for flood/landslide risk. Resilient bridge design training</td></tr>
+                  <tr><td><strong>Tourism</strong></td><td>Climate risk assessment for tourism assets, coastal zone management, beach restoration</td></tr>
+                  <tr><td><strong>Health</strong></td><td>Heat action plans, vector-borne disease surveillance, health facility resilience</td></tr>
+                  <tr><td><strong>Natural Resources</strong></td><td>Resilient Ecosystems Adaptation Strategy (REASAP 2020&ndash;2028), coral reef protection, mangrove restoration</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- CLIMATE RISK PROFILE -->
+            <h4 style="margin-top:24px;">Climate Risk Profile</h4>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Hazard</th><th>Risk Level</th><th>Business Impact</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Tropical cyclones</strong></td><td>Moderate-High</td><td>Property damage, supply chain disruption, power outages (days-weeks). SE hurricane belt position provides some protection</td></tr>
+                  <tr><td><strong>Flooding / excess rainfall</strong></td><td>High</td><td>Flash floods in rainy season (Jun-Nov). Low-lying areas and river valleys most vulnerable. Road closures</td></tr>
+                  <tr><td><strong>Landslides</strong></td><td>Moderate</td><td>Mountainous terrain vulnerable after heavy rain. Road blockages on West Coast highway (Castries-Soufriere)</td></tr>
+                  <tr><td><strong>Drought</strong></td><td>Moderate</td><td>Water rationing possible (WASCO 2026 drought advisory). Agricultural losses. Increased utility costs</td></tr>
+                  <tr><td><strong>Earthquake</strong></td><td>Low-Moderate</td><td>Volcanic island in seismic zone. Last significant: Nov 2007 (CCRIF payout triggered). Building code requires seismic design</td></tr>
+                  <tr><td><strong>Volcanic activity</strong></td><td>Low</td><td>Qualibou caldera (Soufriere) is dormant. Sulphur Springs shows continuous fumarolic activity. Monitored by UWI Seismic Research Centre</td></tr>
+                  <tr><td><strong>Sea level rise</strong></td><td>Long-term</td><td>Coastal erosion, saltwater intrusion. Affects property values and coastal infrastructure (25&ndash;100 ft setback required)</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- CLIMATE FINANCE & PROJECTS -->
+            <h4 style="margin-top:24px;">Climate Finance &amp; Adaptation Projects</h4>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Project / Fund</th><th>Value</th><th>Focus</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>PPCR Investment Plan</strong></td><td>US$27 million</td><td>Climate-proofing infrastructure, flood/landslide risk info, climate adaptation financing facility</td></tr>
+                  <tr><td><strong>Adaptation Fund (Agriculture)</strong></td><td>~US$10 million</td><td>Building agricultural resilience to climate change and variability</td></tr>
+                  <tr><td><strong>Green Climate Fund (Readiness)</strong></td><td>US$1.2 million</td><td>Institutional capacity, climate finance access framework, low-emission pathways</td></tr>
+                  <tr><td><strong>CARDTP (World Bank)</strong></td><td>Part of US$94M regional</td><td>Digital resilience: smart classrooms, e-government, broadband expansion</td></tr>
+                  <tr><td><strong>Urban Resilient Flood Investment</strong></td><td>US$60 million (proposed)</td><td>Castries urban flood infrastructure, drainage, slope stabilization</td></tr>
+                  <tr><td><strong>NDC Financing Strategy</strong></td><td>US$509 million (total)</td><td>Renewable energy transition, geothermal, grid modernization (see <a href="#energy">Renewable Energy</a>)</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- EIA PROCESS -->
+            <h4 style="margin-top:24px;">Environmental Impact Assessment (EIA) Process</h4>
+            <p>Businesses planning development projects should note that <strong>18 categories of development</strong> require an EIA under Schedule 4 of the Physical Planning and Development Act. All coastal zone developments automatically trigger an EIA. The DCA cannot grant planning permission without considering the environmental impact statement. Processing: approximately <strong>90 days</strong> from complete submission. Full details on the <a href="legal.html#environmental">Legal &amp; Tax page</a>.</p>
+
+            <!-- GREEN BUILDING -->
+            <h4 style="margin-top:24px;">Green Building &amp; Sustainable Construction</h4>
+            <div class="info-box success" style="margin-bottom:12px;">
+              <h4>Building Standards &amp; Incentives</h4>
+              <ul>
+                <li><strong>OECS Building Code (2016):</strong> 150 mph wind resistance (Category 4/5 hurricane). Hip roof design preferred for wind resistance</li>
+                <li><strong>2025 DCA update:</strong> Enhanced disaster resilience and sustainable construction provisions mandatory from March 1, 2025</li>
+                <li><strong>Solar PV incentives:</strong> Import duty exemptions on panels, inverters, and energy-saving equipment (since 1999). LUCELEC net-billing programme</li>
+                <li><strong>VAT waiver on building materials:</strong> 12.5% waiver on plywood, lumber, cement, steel, galvanize, and solar PV systems (extended to May 2026)</li>
+                <li><strong>Rainwater harvesting:</strong> Encouraged for new construction. Reduces WASCO dependency and drought risk</li>
+                <li><strong>Insurance benefits:</strong> Code-compliant buildings qualify for lower hurricane/property insurance premiums</li>
+              </ul>
+            </div>
+
+            <!-- WASTE MANAGEMENT -->
+            <h4 style="margin-top:24px;">Waste Management for Businesses</h4>
+            <div class="table-wrapper" style="margin-bottom:12px;">
+              <table>
+                <thead><tr><th>Requirement</th><th>Details</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Commercial waste collection</strong></td><td>SLSWMA does <strong>not</strong> collect commercial waste&mdash;businesses must contract private waste haulers</td></tr>
+                  <tr><td><strong>Development applications</strong></td><td>Must include waste management plan</td></tr>
+                  <tr><td><strong>Disposal site</strong></td><td>Deglos Sanitary Landfill (no tipping fees for licensed haulers)</td></tr>
+                  <tr><td><strong>Penalties</strong></td><td>Commercial violations: up to EC$150,000 or 5 years. Illegal dumping: EC$2,500+ first offence</td></tr>
+                  <tr><td><strong>Recycling</strong></td><td>Limited formal recycling infrastructure. Some private initiatives for plastics and metals</td></tr>
+                  <tr><td><strong>E-waste</strong></td><td>No formal e-waste framework. Growing concern with increased electronics imports</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- PRIVATE SECTOR ENGAGEMENT -->
+            <h4 style="margin-top:24px;">Private Sector Climate Engagement</h4>
+            <p>Saint Lucia launched its <strong>Private Sector Engagement Strategy</strong> (2020) to encourage private-sector actors to lead national adaptation efforts. The <strong>Climate Investment Forum</strong> (CIF) has identified Saint Lucia as a priority country for private-sector climate adaptation. Key opportunities for businesses include:</p>
+            <ul style="margin-top:8px;">
+              <li><strong>Renewable energy:</strong> IPP licensing anticipated under revised Electricity Supply Act (see <a href="#energy">Renewable Energy</a>)</li>
+              <li><strong>Resilient construction:</strong> Hurricane-resistant building materials, green building design services</li>
+              <li><strong>Climate-smart agriculture:</strong> Drought-resistant crops, protected agriculture, cold chain logistics</li>
+              <li><strong>Water management:</strong> Desalination, rainwater harvesting systems, smart water metering</li>
+              <li><strong>Disaster recovery services:</strong> Clean-up, reconstruction, generator rental, emergency supplies</li>
+              <li><strong>Insurance innovation:</strong> Parametric micro-insurance distribution, climate risk assessment consulting</li>
+              <li><strong>Green finance:</strong> Climate bonds, carbon credit projects, impact investment vehicles</li>
+            </ul>
+
+            <p style="font-size:0.85em;color:#666;margin-top:12px;">Sources: NEMO, CCRIF SPC, Saint Lucia NAP 2018-2028, GFDRR, CIF, World Bank, OECS, Adaptation Fund, NDC 3.0 (Feb 2025), Physical Planning Act 2001.</p>
           </div>
         </div>
       </div>

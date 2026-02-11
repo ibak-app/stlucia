@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - St. Lucia Business Guide</title>
+  <style>
+    :root {
+      --primary: #1a5276;
+      --primary-dark: #0e2f44;
+      --accent: #f39c12;
+      --text: #2c3e50;
+      --text-light: #7f8c8d;
+      --bg: #f8f9fa;
+      --white: #ffffff;
+      --border: #dee2e6;
+      --radius: 8px;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .offline-container {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      padding: 3rem 2rem;
+      max-width: 600px;
+      text-align: center;
+    }
+    .offline-icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.5;
+    }
+    h1 {
+      font-size: 1.75rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+    p {
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.875rem 2rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(26, 82, 118, 0.3);
+    }
+    .cached-pages {
+      margin-top: 3rem;
+      text-align: left;
+    }
+    .cached-pages h2 {
+      font-size: 1.25rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+    .page-list {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .page-list ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+    .page-list li a {
+      color: var(--primary);
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+    .page-list li a:hover {
+      background: var(--white);
+      color: var(--primary-dark);
+    }
+    .flag {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    @media (max-width: 640px) {
+      .offline-container {
+        padding: 2rem 1.5rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      .page-list ul {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-container">
+    <div class="offline-icon">📡</div>
+    <span class="flag">&#127473;&#127464;</span>
+    <h1>You Appear to Be Offline</h1>
+    <p>Please check your internet connection to access the latest content from the St. Lucia Business Guide.</p>
+    <button class="btn" onclick="window.location.reload()">Try Again</button>
+
+    <div class="cached-pages">
+      <h2>Cached Pages Available Offline</h2>
+      <div class="page-list">
+        <ul>
+          <li><a href="/stlucia/index.html">Home</a></li>
+          <li><a href="/stlucia/overview.html">Overview</a></li>
+          <li><a href="/stlucia/business.html">Business</a></li>
+          <li><a href="/stlucia/legal.html">Legal & Tax</a></li>
+          <li><a href="/stlucia/sectors.html">Sectors</a></li>
+          <li><a href="/stlucia/cbi.html">CBI</a></li>
+          <li><a href="/stlucia/living.html">Living</a></li>
+          <li><a href="/stlucia/events.html">Events</a></li>
+          <li><a href="/stlucia/map.html">Map</a></li>
+          <li><a href="/stlucia/directory.html">Directory</a></li>
+          <li><a href="/stlucia/faq.html">FAQ</a></li>
+          <li><a href="/stlucia/resources.html">Resources</a></li>
+          <li><a href="/stlucia/trade.html">Trade</a></li>
+          <li><a href="/stlucia/checklist.html">Checklist</a></li>
+          <li><a href="/stlucia/government.html">Government</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

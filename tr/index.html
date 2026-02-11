@@ -1,13 +1,34 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>St. Lucia İş Rehberi - Yatırım ve Fırsat Portalı</title>
+  <meta name="description" content="Saint Lucia'da iş kurma ve yatırım rehberi. Şirket kayıt, vergi oranları, vatandaşlık programı, sektörler ve girişimciler için pratik tavsiyeler.">
+  <meta name="keywords" content="Saint Lucia iş, St Lucia yatırım, Karayip iş, IBC kayıt, yatırımla vatandaşlık, şirket kurma">
+
+  <meta property="og:title" content="St. Lucia İş Rehberi - Yatırım ve Fırsat Portalı">
+  <meta property="og:description" content="Saint Lucia'da iş kurma ve yatırım rehberi. Şirket kayıt, vergi oranları, vatandaşlık programı, sektörler ve girişimciler için pratik tavsiyeler.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ibak-app.github.io/stlucia/tr/">
+  <meta property="og:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-pitons.jpg">
+  <meta property="og:site_name" content="St. Lucia İş Rehberi">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="St. Lucia İş Rehberi - Yatırım ve Fırsat Portalı">
+  <meta name="twitter:description" content="Saint Lucia'da iş kurma ve yatırım rehberi. Şirket kayıt, vergi oranları, vatandaşlık programı, sektörler ve girişimciler için pratik tavsiyeler.">
+  <meta name="twitter:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-pitons.jpg">
+
+  <link rel="canonical" href="https://ibak-app.github.io/stlucia/tr/">
+  <link rel="alternate" hreflang="en" href="https://ibak-app.github.io/stlucia/">
+  <link rel="alternate" hreflang="tr" href="https://ibak-app.github.io/stlucia/tr/">
+  <link rel="manifest" href="/stlucia/manifest.json">
+  <meta name="theme-color" content="#0e2f44">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Yükleniyor...</div></div>
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="container">
@@ -22,6 +43,7 @@
         <a href="legal.html">Hukuk &amp; Vergi</a>
         <a href="sectors.html">Sektörler</a>
         <a href="cbi.html">Vatandaşlık</a>
+        <a href="immigration.html">Göç</a>
         <a href="living.html">Yaşam</a>
         <a href="events.html">Etkinlikler</a>
         <a href="map.html">Harita</a>
@@ -29,6 +51,10 @@
         <a href="faq.html">SSS</a>
         <a href="resources.html">Kaynaklar</a>
         <a href="government.html">Hükümet</a>
+        <div class="navbar-tools">
+          <button id="search-toggle" class="nav-icon-btn" title="Ara" aria-label="Sitede ara">&#128269;</button>
+          <button id="dark-mode-toggle" class="nav-icon-btn" title="Koyu mod" aria-label="Koyu modu aÃ§/kapat">&#9790;</button>
+        </div>
         <div class="lang-selector">
           <a href="../index.html" class="lang-btn" title="English">EN</a>
           <a href="index.html" class="lang-btn active" title="T&uuml;rk&ccedil;e">TR</a>
@@ -36,6 +62,16 @@
       </div>
     </div>
   </nav>
+  <!-- SEARCH OVERLAY -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-content">
+      <div class="search-overlay-header">
+        <button id="search-close" class="search-overlay-close" aria-label="Close search">&times;</button>
+        <input type="text" id="search-overlay-input" class="search-overlay-input" placeholder="Rehberde ara..." autocomplete="off">
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero hero--image" style="background-image:url('../assets/images/hero-pitons.jpg');">
@@ -294,6 +330,38 @@
               <li>CCJ nihai temyiz mahkemesi</li>
             </ul>
           </div>
+        </a>
+
+        <a href="immigration.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/hero-cbi.jpg" alt="G&ouml;&ccedil; ve Vizeler" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#2980b9;">
+            <span class="icon">&#9992;</span>
+            <h3>G&ouml;&ccedil; &amp; Vizeler</h3>
+          </div>
+          <div class="card-body">
+            <p>&Ccedil;alışma izinleri, oturma se&ccedil;enekleri, vize gereksinimleri, kalış uzatmaları &amp; daimi oturma yolları.</p>
+            <ul>
+              <li>&Ccedil;alışma izni kategorileri &amp; &uuml;cretleri</li>
+              <li>CARICOM Beceri Sertifikası</li>
+              <li>Daimi oturma yolları</li>
+            </ul>
+          </div>
+        </a>
+
+        <a href="realestate.html" class="nav-card">
+          <img src="../assets/images/hero-cbi.jpg" alt="Gayrimenkul" class="card-thumb" loading="lazy">
+          <h3>Gayrimenkul</h3>
+          <p>M&uuml;lk yatırımı, Yabancı Arazi Ruhsatı, satın alma s&uuml;reci &amp; geliştirme projeleri</p>
+        </a>
+        <a href="startups.html" class="nav-card">
+          <img src="../assets/images/hero-business.jpg" alt="Girişimler" class="card-thumb" loading="lazy">
+          <h3>Girişimcilik</h3>
+          <p>İş kulu&ccedil;kaları, finansman kaynakları, KOBİ destek programları &amp; ortak &ccedil;alışma alanları</p>
+        </a>
+        <a href="expats.html" class="nav-card">
+          <img src="../assets/images/hero-living.jpg" alt="Gurbetçi Rehberi" class="card-thumb" loading="lazy">
+          <h3>Gurbet&ccedil;i &amp; G&ouml;&ccedil;ebe Rehberi</h3>
+          <p>Taşınma, uzaktan &ccedil;alışma, bankacılık, sağlık, kargo &amp; yabancılar i&ccedil;in g&uuml;nl&uuml;k yaşam</p>
         </a>
 
       </div>

@@ -34,7 +34,17 @@
     restaurants:  { label: 'Restaurants', icon: 'fa-utensils', badge: 'badge-success' },
     courier:      { label: 'Courier & Shipping', icon: 'fa-truck-fast', badge: 'badge-accent' },
     hardware:     { label: 'Hardware & Supplies', icon: 'fa-hammer', badge: 'badge-primary' },
-    fitness:      { label: 'Fitness & Gyms', icon: 'fa-dumbbell', badge: 'badge-accent' }
+    fitness:      { label: 'Fitness & Gyms', icon: 'fa-dumbbell', badge: 'badge-accent' },
+    dentists:     { label: 'Dentists', icon: 'fa-tooth', badge: 'badge-primary' },
+    veterinary:   { label: 'Veterinary', icon: 'fa-paw', badge: 'badge-accent' },
+    salon:        { label: 'Hair Salons & Barbers', icon: 'fa-scissors', badge: 'badge-success' },
+    laundry:      { label: 'Laundry & Dry Cleaning', icon: 'fa-shirt', badge: 'badge-accent' },
+    printing:     { label: 'Printing & Signage', icon: 'fa-print', badge: 'badge-primary' },
+    venues:       { label: 'Event & Wedding Venues', icon: 'fa-champagne-glasses', badge: 'badge-success' },
+    photography:  { label: 'Photography', icon: 'fa-camera-retro', badge: 'badge-accent' },
+    automotive:   { label: 'Automotive & Repair', icon: 'fa-car-side', badge: 'badge-primary' },
+    plumbing_electrical: { label: 'Plumbing & Electrical', icon: 'fa-wrench', badge: 'badge-accent' },
+    associations: { label: 'Associations & Bodies', icon: 'fa-people-group', badge: 'badge-primary' }
   };
 
   // Default visible categories in directory (business-relevant ones)
@@ -42,7 +52,9 @@
     'government', 'banks', 'law', 'accounting', 'realestate', 'ibc',
     'insurance', 'shipping', 'business', 'technology', 'construction',
     'hotels', 'utilities', 'healthcare', 'education', 'embassies',
-    'supermarkets', 'fuel', 'carrental', 'restaurants', 'courier', 'hardware', 'fitness'
+    'supermarkets', 'fuel', 'carrental', 'restaurants', 'courier', 'hardware', 'fitness',
+    'dentists', 'veterinary', 'salon', 'laundry', 'printing', 'venues',
+    'photography', 'automotive', 'plumbing_electrical', 'associations'
   ];
 
   let allBusinesses = [];

@@ -1,13 +1,32 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Legal &amp; Tax Framework - St. Lucia Business Guide</title>
+  <meta name="description" content="Saint Lucia tax rates, labor laws, property regulations, and legal framework. 30% corporate tax, 12.5% VAT, 0% for IBCs. No capital gains or inheritance tax.">
+  <meta name="keywords" content="Saint Lucia tax, St Lucia VAT, Caribbean labor law, property tax Saint Lucia, alien landholding license, IBC tax rate, corporate tax">
+
+  <meta property="og:title" content="Legal & Tax Framework - Saint Lucia">
+  <meta property="og:description" content="Saint Lucia tax rates, labor laws, property regulations, and legal framework. 30% corporate tax, 12.5% VAT, 0% for IBCs. No capital gains or inheritance tax.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ibak-app.github.io/stlucia/legal.html">
+  <meta property="og:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-legal.jpg">
+  <meta property="og:site_name" content="St. Lucia Business Guide">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Legal & Tax Framework - Saint Lucia">
+  <meta name="twitter:description" content="Saint Lucia tax rates, labor laws, property regulations, and legal framework. 30% corporate tax, 12.5% VAT, 0% for IBCs. No capital gains or inheritance tax.">
+  <meta name="twitter:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-legal.jpg">
+
+  <link rel="canonical" href="https://ibak-app.github.io/stlucia/legal.html">
+  <link rel="manifest" href="/stlucia/manifest.json">
+  <meta name="theme-color" content="#0e2f44">
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Loading...</div></div>
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia Business Guide</a>
@@ -19,6 +38,7 @@
         <a href="legal.html" class="active">Legal &amp; Tax</a>
         <a href="sectors.html">Sectors</a>
         <a href="cbi.html">CBI</a>
+        <a href="immigration.html">Immigration</a>
         <a href="living.html">Living</a>
         <a href="events.html">Events</a>
         <a href="map.html">Map</a>
@@ -26,6 +46,10 @@
         <a href="faq.html">FAQ</a>
         <a href="resources.html">Resources</a>
         <a href="government.html">Government</a>
+        <div class="navbar-tools">
+          <button id="search-toggle" class="nav-icon-btn" title="Search" aria-label="Search site">&#128269;</button>
+          <button id="dark-mode-toggle" class="nav-icon-btn" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+        </div>
         <div class="lang-selector">
           <a href="legal.html" class="lang-btn active" title="English">EN</a>
           <a href="tr/legal.html" class="lang-btn" title="T&uuml;rk&ccedil;e">TR</a>
@@ -33,6 +57,16 @@
       </div>
     </div>
   </nav>
+  <!-- SEARCH OVERLAY -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-content">
+      <div class="search-overlay-header">
+        <button id="search-close" class="search-overlay-close" aria-label="Close search">&times;</button>
+        <input type="text" id="search-overlay-input" class="search-overlay-input" placeholder="Search the guide..." autocomplete="off">
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
 
   <section class="hero hero--image" style="padding:50px 0 40px;background-image:url('assets/images/hero-legal.jpg');">
     <div class="container">
@@ -56,6 +90,8 @@
           <a href="#ip">Intellectual Property</a>
           <a href="#disputes">Dispute Resolution</a>
           <a href="#ecommerce">E-Commerce &amp; Digital</a>
+          <a href="#dta">Tax Treaties &amp; TIEAs</a>
+          <a href="#calculator">Tax Calculator</a>
         </aside>
 
         <div class="main-content">
@@ -629,6 +665,348 @@
               </table>
             </div>
           </div>
+
+          <!-- DOUBLE TAXATION AGREEMENTS & TIEAs -->
+          <div id="dta" style="margin-bottom:40px;">
+            <h2 style="margin-bottom:16px;">Double Taxation Agreements &amp; Tax Information Exchange</h2>
+            <p>Saint Lucia's treaty network is limited compared to major international financial centres but provides key protections for regional trade and meets global tax transparency standards. The country has <strong>one comprehensive DTA</strong> (the CARICOM multilateral treaty) and <strong>15 bilateral Tax Information Exchange Agreements (TIEAs)</strong>, alongside participation in the OECD's multilateral exchange frameworks.</p>
+
+            <h3 style="margin-top:24px;margin-bottom:12px;">CARICOM Double Taxation Agreement</h3>
+            <p>Saint Lucia's sole comprehensive DTA is the <strong>CARICOM Double Taxation Agreement</strong>, a multilateral treaty among CARICOM member states. It covers income tax, withholding tax, and provides relief from double taxation through tax credits.</p>
+            <div class="table-wrapper" style="margin-top:12px;">
+              <table>
+                <thead>
+                  <tr><th>Treaty Partner</th><th>Type</th><th>Key Benefits</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Antigua &amp; Barbuda</strong></td><td>CARICOM DTA</td><td>WHT reduced to 15% on interest, royalties, management fees; 0% on dividends</td></tr>
+                  <tr><td><strong>Barbados</strong></td><td>CARICOM DTA</td><td>WHT reduced to 15% on interest, royalties, management fees; 0% on dividends</td></tr>
+                  <tr><td><strong>Belize</strong></td><td>CARICOM DTA</td><td>WHT reduced to 15% on interest, royalties, management fees; 0% on dividends</td></tr>
+                  <tr><td><strong>Dominica</strong></td><td>CARICOM DTA</td><td>WHT reduced to 15% on interest, royalties, management fees; 0% on dividends</td></tr>
+                  <tr><td><strong>Grenada</strong></td><td>CARICOM DTA</td><td>WHT reduced to 15% on interest, royalties, management fees; 0% on dividends</td></tr>
+                  <tr><td><strong>Guyana</strong></td><td>CARICOM DTA</td><td>WHT reduced to 15% on interest, royalties, management fees; 0% on dividends</td></tr>
+                  <tr><td><strong>Jamaica</strong></td><td>CARICOM DTA</td><td>WHT reduced to 15% on interest, royalties, management fees; 0% on dividends</td></tr>
+                  <tr><td><strong>Montserrat</strong></td><td>CARICOM DTA</td><td>WHT reduced to 15% on interest, royalties, management fees; 0% on dividends</td></tr>
+                  <tr><td><strong>St. Kitts &amp; Nevis</strong></td><td>CARICOM DTA</td><td>WHT reduced to 15% on interest, royalties, management fees; 0% on dividends</td></tr>
+                  <tr><td><strong>St. Vincent &amp; the Grenadines</strong></td><td>CARICOM DTA</td><td>WHT reduced to 15% on interest, royalties, management fees; 0% on dividends</td></tr>
+                  <tr><td><strong>Trinidad &amp; Tobago</strong></td><td>CARICOM DTA</td><td>WHT reduced to 15% on interest, royalties, management fees; 0% on dividends</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 style="margin-top:16px;">Withholding Tax Rates: Treaty vs. Domestic</h4>
+            <div class="table-wrapper" style="margin-top:8px;">
+              <table>
+                <thead>
+                  <tr><th>Payment Type</th><th>Domestic Rate (Non-Resident)</th><th>CARICOM Treaty Rate</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Dividends</strong></td><td>None (no dividend WHT)</td><td><strong>0%</strong></td></tr>
+                  <tr><td><strong>Interest</strong></td><td>15%</td><td><strong>15%</strong></td></tr>
+                  <tr><td><strong>Royalties</strong></td><td>25%</td><td><strong>15%</strong></td></tr>
+                  <tr><td><strong>Management fees</strong></td><td>25%</td><td><strong>15%</strong></td></tr>
+                  <tr><td><strong>Commissions / fees</strong></td><td>25%</td><td>Treaty silent (25% may apply)</td></tr>
+                  <tr><td><strong>Insurance premiums</strong></td><td>25%</td><td>Treaty silent (25% may apply)</td></tr>
+                  <tr><td><strong>Other income</strong></td><td>25%</td><td>15% (general provision)</td></tr>
+                  <tr><td><strong>Contractor payments</strong></td><td>10% (resident; exempt if &lt;EC$10,000)</td><td>N/A</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-light);margin-top:8px;">A <strong>foreign tax credit</strong> is allowed for the lesser of: (a) tax actually payable in the foreign CARICOM country, or (b) the tax that would be charged under Saint Lucia law on the same income.</p>
+
+            <h3 style="margin-top:24px;margin-bottom:12px;">Tax Information Exchange Agreements (TIEAs)</h3>
+            <p>Saint Lucia has signed <strong>15 bilateral TIEAs</strong> with the following jurisdictions. TIEAs enable exchange of tax information on request but do <strong>not</strong> provide reduced withholding rates (unlike DTAs).</p>
+            <div class="table-wrapper" style="margin-top:8px;">
+              <table>
+                <thead>
+                  <tr><th>#</th><th>Country</th><th>Type</th><th>Date Signed</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>Aruba</td><td>TIEA</td><td>2009</td></tr>
+                  <tr><td>2</td><td>Australia</td><td>TIEA</td><td>2010</td></tr>
+                  <tr><td>3</td><td>Belgium</td><td>TIEA</td><td>2010</td></tr>
+                  <tr><td>4</td><td>Denmark</td><td>TIEA</td><td>2010</td></tr>
+                  <tr><td>5</td><td>Finland</td><td>TIEA</td><td>2010</td></tr>
+                  <tr><td>6</td><td>France</td><td>TIEA</td><td>2010</td></tr>
+                  <tr><td>7</td><td>Germany</td><td>TIEA</td><td>2010</td></tr>
+                  <tr><td>8</td><td>Iceland</td><td>TIEA</td><td>2010</td></tr>
+                  <tr><td>9</td><td>Ireland</td><td>TIEA</td><td>2010</td></tr>
+                  <tr><td>10</td><td>Netherlands</td><td>TIEA</td><td>2 Dec 2009</td></tr>
+                  <tr><td>11</td><td>Netherlands Antilles</td><td>TIEA</td><td>29 Oct 2009</td></tr>
+                  <tr><td>12</td><td>Norway</td><td>TIEA</td><td>2010</td></tr>
+                  <tr><td>13</td><td>Portugal</td><td>TIEA</td><td>14 Jul 2010</td></tr>
+                  <tr><td>14</td><td>Sweden</td><td>TIEA</td><td>2010</td></tr>
+                  <tr><td>15</td><td>United Kingdom</td><td>TIEA</td><td>2010</td></tr>
+                  <tr><td>16</td><td>United States</td><td>TIEA</td><td>2010</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 style="margin-top:24px;margin-bottom:12px;">Multilateral Agreements &amp; OECD Compliance</h3>
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr><th>Agreement</th><th>Status</th><th>Details</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Multilateral Convention on Mutual Administrative Assistance in Tax Matters</strong></td>
+                    <td><span class="badge badge-success">Signed Nov 2016</span></td>
+                    <td>Enables exchange of tax information with 140+ jurisdictions. Broadest multilateral framework for tax cooperation.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Common Reporting Standard (CRS) MCAA</strong></td>
+                    <td><span class="badge badge-success">Active since Sep 2018</span></td>
+                    <td>Automatic exchange of financial account information. Signed 29 Oct 2015. First exchanges commenced September 2018.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>FATCA IGA (United States)</strong></td>
+                    <td><span class="badge badge-success">Signed 2014</span></td>
+                    <td>Intergovernmental Agreement with the US for automatic reporting of financial accounts held by US persons.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>OECD Global Forum Peer Review</strong></td>
+                    <td><span class="badge badge-success">Largely Compliant (2023)</span></td>
+                    <td>Second Round review published 2023. Upgraded from "Partially Compliant" (2016). Inland Revenue Dept. achieved highly efficient response times. Beneficial ownership framework requires minor refinement.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>FATF / CFATF Status</strong></td>
+                    <td><span class="badge badge-success">Not on grey/black list</span></td>
+                    <td>Saint Lucia is not on the FATF grey list or black list. Compliant with AML/CFT standards under the Money Laundering (Prevention) Act.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 style="margin-top:24px;margin-bottom:12px;">Tax Residency Determination</h3>
+            <div class="card" style="margin-bottom:16px;">
+              <div class="card-body">
+                <p>Saint Lucia uses the following rules to determine tax residency under the Income Tax Act:</p>
+                <div class="table-wrapper" style="margin-top:12px;">
+                  <table>
+                    <thead>
+                      <tr><th>Residency Category</th><th>Test</th><th>Tax Scope</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td><strong>Resident &amp; ordinarily resident</strong></td><td>Present <strong>183+ days</strong> in the income year</td><td>Taxed on <strong>worldwide income</strong></td></tr>
+                      <tr><td><strong>Resident but not ordinarily resident</strong></td><td>&lt;183 days but resident in the <strong>preceding or succeeding</strong> year</td><td>Taxed on St. Lucia-sourced income <strong>+ foreign income remitted</strong> to St. Lucia</td></tr>
+                      <tr><td><strong>Non-resident</strong></td><td>Not meeting either test above</td><td>Taxed on St. Lucia-sourced income + foreign income remitted</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p style="margin-top:12px;font-size:0.9rem;">Each case is evaluated on its specific circumstances by the Inland Revenue Department. The 183-day rule is the primary statutory test. Digital nomad visa holders are <strong>not</strong> considered tax resident&mdash;their foreign-sourced income is exempt from local income tax.</p>
+              </div>
+            </div>
+
+            <div class="info-box warning">
+              <h4>Limited Treaty Network&mdash;Planning Implications</h4>
+              <p>Saint Lucia has <strong>no bilateral DTAs</strong> outside of the CARICOM agreement. This means:</p>
+              <ul style="margin-top:8px;">
+                <li>Payments to non-CARICOM countries are subject to <strong>full domestic WHT rates</strong> (up to 25%)</li>
+                <li>No treaty-based WHT reductions for payments to the US, UK, EU, or other major trading partners</li>
+                <li>IBCs are <strong>exempt</strong> from WHT on outward payments (0% on dividends, royalties, interest, management fees to non-residents)</li>
+                <li>For <strong>holding company structures</strong> requiring DTAs, consider Barbados (31+ DTAs) or Mauritius (46+ DTAs) as complementary jurisdictions</li>
+                <li>The TIEAs and CRS framework ensure compliance with global transparency standards without imposing additional taxes</li>
+              </ul>
+            </div>
+
+            <div class="info-box" style="margin-top:16px;">
+              <h4>CARICOM Tax Coordination</h4>
+              <p>Under the CARICOM Single Market and Economy (CSME), member states have agreed to harmonize tax incentives and work toward common standards. The CARICOM DTA provides for <strong>mutual recognition of tax credits</strong>, meaning Saint Lucian businesses operating across the 11 CARICOM treaty partners can claim foreign tax credits to avoid double taxation. The ECCB region further coordinates through common reporting requirements and financial sector regulation.</p>
+            </div>
+            <p style="font-size:0.85em;color:#666;margin-top:8px;">Sources: PwC Tax Summaries (Jan 2026), OECD Global Forum Peer Review Saint Lucia 2023, CARICOM Secretariat, Inland Revenue Department of Saint Lucia.</p>
+          </div>
+
+          <!-- TAX CALCULATOR -->
+          <div id="calculator" style="margin-bottom:40px;">
+            <h2 style="margin-bottom:16px;">Tax Calculator</h2>
+            <div class="card">
+              <div class="card-body">
+                <div style="margin-bottom:20px;">
+                  <label style="display:block;font-weight:600;margin-bottom:8px;">Entity Type</label>
+                  <select id="entityType" style="width:100%;padding:10px;border:2px solid var(--border);border-radius:var(--radius);font-size:0.95rem;background:var(--white);">
+                    <option value="local">Local Company (30% tax)</option>
+                    <option value="ibc">International Business Company (0% tax)</option>
+                    <option value="individual">Individual</option>
+                  </select>
+                </div>
+
+                <div id="individualFields" style="display:none;">
+                  <div style="margin-bottom:20px;">
+                    <label style="display:block;font-weight:600;margin-bottom:8px;">Annual Income</label>
+                    <div style="display:flex;gap:12px;">
+                      <input type="number" id="incomeAmount" placeholder="Enter amount" style="flex:1;padding:10px;border:2px solid var(--border);border-radius:var(--radius);font-size:0.95rem;">
+                      <select id="incomeCurrency" style="width:100px;padding:10px;border:2px solid var(--border);border-radius:var(--radius);font-size:0.95rem;background:var(--white);">
+                        <option value="xcd">XCD</option>
+                        <option value="usd">USD</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="companyFields" style="display:none;">
+                  <div style="margin-bottom:20px;">
+                    <label style="display:block;font-weight:600;margin-bottom:8px;">Annual Revenue (USD)</label>
+                    <input type="number" id="companyRevenue" placeholder="Enter revenue" style="width:100%;padding:10px;border:2px solid var(--border);border-radius:var(--radius);font-size:0.95rem;">
+                  </div>
+                  <div style="margin-bottom:20px;">
+                    <label style="display:block;font-weight:600;margin-bottom:8px;">Estimated Profit Margin: <span id="marginValue">20%</span></label>
+                    <input type="range" id="profitMargin" min="5" max="50" value="20" style="width:100%;height:8px;border-radius:4px;outline:none;">
+                  </div>
+                </div>
+
+                <button id="calculateBtn" style="width:100%;padding:14px;background:var(--primary);color:var(--white);border:none;border-radius:var(--radius);font-size:1rem;font-weight:600;cursor:pointer;margin-bottom:16px;">Calculate Tax</button>
+
+                <div id="compareToggle" style="display:none;margin-bottom:16px;">
+                  <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                    <input type="checkbox" id="compareIBC" style="width:20px;height:20px;">
+                    <span style="font-weight:600;">Compare with IBC (0% tax)</span>
+                  </label>
+                </div>
+
+                <div id="results" style="display:none;">
+                  <h4 style="margin-bottom:12px;">Tax Breakdown</h4>
+                  <div class="table-wrapper">
+                    <table id="resultsTable">
+                      <thead>
+                        <tr><th>Item</th><th id="column1Header">Amount</th><th id="column2Header" style="display:none;">IBC Comparison</th></tr>
+                      </thead>
+                      <tbody id="resultsBody"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <style>
+            #calculateBtn:hover { background: var(--primary-light); }
+            #profitMargin { accent-color: var(--primary); }
+            #results table td { vertical-align: middle; }
+            @media (max-width: 960px) {
+              #companyFields input, #individualFields input, #entityType, #incomeCurrency {
+                font-size: 16px !important; /* Prevent zoom on iOS */
+              }
+            }
+          </style>
+
+          <script>
+            (function() {
+              const entityType = document.getElementById('entityType');
+              const individualFields = document.getElementById('individualFields');
+              const companyFields = document.getElementById('companyFields');
+              const calculateBtn = document.getElementById('calculateBtn');
+              const results = document.getElementById('results');
+              const compareToggle = document.getElementById('compareToggle');
+              const compareIBC = document.getElementById('compareIBC');
+              const profitMargin = document.getElementById('profitMargin');
+              const marginValue = document.getElementById('marginValue');
+
+              entityType.addEventListener('change', function() {
+                individualFields.style.display = this.value === 'individual' ? 'block' : 'none';
+                companyFields.style.display = (this.value === 'local') ? 'block' : 'none';
+                compareToggle.style.display = (this.value === 'local') ? 'block' : 'none';
+                results.style.display = 'none';
+              });
+
+              profitMargin.addEventListener('input', function() {
+                marginValue.textContent = this.value + '%';
+              });
+
+              compareIBC.addEventListener('change', function() {
+                if (results.style.display === 'block') calculateBtn.click();
+              });
+
+              calculateBtn.addEventListener('click', function() {
+                const type = entityType.value;
+                const tbody = document.getElementById('resultsBody');
+                const column2 = document.getElementById('column2Header');
+                tbody.innerHTML = '';
+
+                if (type === 'individual') {
+                  const income = parseFloat(document.getElementById('incomeAmount').value) || 0;
+                  const currency = document.getElementById('incomeCurrency').value;
+                  const incomeXCD = currency === 'usd' ? income * 2.70 : income;
+
+                  const allowance = 40000;
+                  const chargeableIncome = Math.max(0, incomeXCD - allowance);
+
+                  let incomeTax = 0;
+                  if (chargeableIncome > 30000) {
+                    incomeTax = 2250 + 3000 + (chargeableIncome - 30000) * 0.30;
+                  } else if (chargeableIncome > 15000) {
+                    incomeTax = 2250 + (chargeableIncome - 15000) * 0.20;
+                  } else if (chargeableIncome > 0) {
+                    incomeTax = chargeableIncome * 0.15;
+                  }
+
+                  const nicEmployee = incomeXCD * 0.05;
+                  const nicEmployer = incomeXCD * 0.05;
+                  const totalTax = incomeTax + nicEmployee;
+                  const totalBurden = totalTax + nicEmployer;
+                  const effectiveRate = income > 0 ? (totalBurden / incomeXCD * 100).toFixed(1) : 0;
+
+                  column2.style.display = 'none';
+                  tbody.innerHTML = `
+                    <tr><td>Gross Income</td><td>XCD ${incomeXCD.toLocaleString()}</td></tr>
+                    <tr><td>Personal Allowance</td><td>XCD ${allowance.toLocaleString()}</td></tr>
+                    <tr><td>Chargeable Income</td><td>XCD ${chargeableIncome.toLocaleString()}</td></tr>
+                    <tr><td>Income Tax</td><td>XCD ${incomeTax.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td></tr>
+                    <tr><td>NIC Employee (5%)</td><td>XCD ${nicEmployee.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td></tr>
+                    <tr><td>NIC Employer (5%)</td><td>XCD ${nicEmployer.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td></tr>
+                    <tr style="background:rgba(26,82,118,0.08);font-weight:700;"><td>Total Employee Tax</td><td>XCD ${totalTax.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td></tr>
+                    <tr style="background:rgba(26,82,118,0.08);font-weight:700;"><td>Total Tax Burden (incl. employer NIC)</td><td>XCD ${totalBurden.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td></tr>
+                    <tr><td>Effective Rate</td><td>${effectiveRate}%</td></tr>
+                  `;
+                  results.style.display = 'block';
+
+                } else if (type === 'local') {
+                  const revenue = parseFloat(document.getElementById('companyRevenue').value) || 0;
+                  const margin = parseFloat(profitMargin.value) / 100;
+                  const profit = revenue * margin;
+                  const corporateTax = profit * 0.30;
+                  const vat = revenue * 0.125; // Estimate
+                  const total = corporateTax + vat;
+                  const showCompare = compareIBC.checked;
+
+                  if (showCompare) {
+                    column2.style.display = 'table-cell';
+                    tbody.innerHTML = `
+                      <tr><td>Revenue (USD)</td><td>$${revenue.toLocaleString()}</td><td>$${revenue.toLocaleString()}</td></tr>
+                      <tr><td>Est. Profit (${(margin*100).toFixed(0)}%)</td><td>$${profit.toLocaleString()}</td><td>$${profit.toLocaleString()}</td></tr>
+                      <tr><td>Corporate Tax (30% / 0%)</td><td>$${corporateTax.toLocaleString()}</td><td><strong style="color:var(--success);">$0</strong></td></tr>
+                      <tr><td>VAT (12.5% est.)</td><td>$${vat.toLocaleString()}</td><td><strong style="color:var(--success);">$0</strong> (exports)</td></tr>
+                      <tr style="background:rgba(26,82,118,0.08);font-weight:700;"><td>Total Tax</td><td>$${total.toLocaleString()}</td><td><strong style="color:var(--success);">$0</strong></td></tr>
+                      <tr style="background:rgba(39,174,96,0.12);font-weight:700;"><td>Tax Savings with IBC</td><td colspan="2"><strong style="color:var(--success);">$${total.toLocaleString()}</strong></td></tr>
+                    `;
+                  } else {
+                    column2.style.display = 'none';
+                    tbody.innerHTML = `
+                      <tr><td>Revenue (USD)</td><td>$${revenue.toLocaleString()}</td></tr>
+                      <tr><td>Est. Profit (${(margin*100).toFixed(0)}%)</td><td>$${profit.toLocaleString()}</td></tr>
+                      <tr><td>Corporate Tax (30%)</td><td>$${corporateTax.toLocaleString()}</td></tr>
+                      <tr><td>VAT (12.5% est.)</td><td>$${vat.toLocaleString()}</td></tr>
+                      <tr style="background:rgba(26,82,118,0.08);font-weight:700;"><td>Total Tax</td><td>$${total.toLocaleString()}</td></tr>
+                      <tr><td>Effective Tax Rate</td><td>${(total/revenue*100).toFixed(1)}%</td></tr>
+                    `;
+                  }
+                  results.style.display = 'block';
+
+                } else if (type === 'ibc') {
+                  column2.style.display = 'none';
+                  tbody.innerHTML = `
+                    <tr><td>Corporate Tax on Foreign Income</td><td><strong style="color:var(--success);">0%</strong></td></tr>
+                    <tr><td>VAT on Exports</td><td><strong style="color:var(--success);">0%</strong></td></tr>
+                    <tr><td>Withholding Tax on Foreign Payments</td><td><strong style="color:var(--success);">0%</strong></td></tr>
+                    <tr><td>Annual Government Tax</td><td>USD $300</td></tr>
+                    <tr><td>Annual Registration Fee</td><td>USD $300</td></tr>
+                    <tr style="background:rgba(26,82,118,0.08);font-weight:700;"><td>Total Annual Cost</td><td><strong>USD $600</strong></td></tr>
+                  `;
+                  results.style.display = 'block';
+                }
+              });
+            })();
+          </script>
 
           <!-- RELATED PAGES -->
           <div style="margin-top:40px;padding-top:30px;border-top:2px solid var(--border);">

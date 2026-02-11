@@ -1,9 +1,27 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Events &amp; Calendar - St. Lucia Business Guide</title>
+  <meta name="description" content="Saint Lucia events calendar: public holidays, Jazz Festival, Carnival, CPL cricket, Golf Open, sporting events, conference venues, business events, seasonal planning. Complete 2025-2026 calendar and cultural etiquette guide.">
+  <meta name="keywords" content="Saint Lucia Jazz Festival, St Lucia Carnival, public holidays, business culture, Jounen Kweyol, Chocolate Heritage Month, festival calendar, CPL cricket, Saint Lucia Golf Open, conference venues, Billfish Tournament, ARC sailing">
+
+  <meta property="og:title" content="Events & Calendar - Saint Lucia">
+  <meta property="og:description" content="Saint Lucia events calendar: public holidays, Jazz Festival, Carnival, business events, seasonal planning. Complete 2025-2026 calendar and cultural etiquette guide.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ibak-app.github.io/stlucia/events.html">
+  <meta property="og:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-pitons.jpg">
+  <meta property="og:site_name" content="St. Lucia Business Guide">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Events & Calendar - Saint Lucia">
+  <meta name="twitter:description" content="Saint Lucia events calendar: public holidays, Jazz Festival, Carnival, business events, seasonal planning. Complete 2025-2026 calendar and cultural etiquette guide.">
+  <meta name="twitter:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-pitons.jpg">
+
+  <link rel="canonical" href="https://ibak-app.github.io/stlucia/events.html">
+  <link rel="manifest" href="/stlucia/manifest.json">
+  <meta name="theme-color" content="#0e2f44">
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -26,6 +44,7 @@
   </style>
 </head>
 <body>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Loading...</div></div>
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia Business Guide</a>
@@ -37,6 +56,7 @@
         <a href="legal.html">Legal &amp; Tax</a>
         <a href="sectors.html">Sectors</a>
         <a href="cbi.html">CBI</a>
+        <a href="immigration.html">Immigration</a>
         <a href="living.html">Living</a>
         <a href="events.html" class="active">Events</a>
         <a href="map.html">Map</a>
@@ -44,6 +64,10 @@
         <a href="faq.html">FAQ</a>
         <a href="resources.html">Resources</a>
         <a href="government.html">Government</a>
+        <div class="navbar-tools">
+          <button id="search-toggle" class="nav-icon-btn" title="Search" aria-label="Search site">&#128269;</button>
+          <button id="dark-mode-toggle" class="nav-icon-btn" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+        </div>
         <div class="lang-selector">
           <a href="events.html" class="lang-btn active" title="English">EN</a>
           <a href="tr/events.html" class="lang-btn" title="T&uuml;rk&ccedil;e">TR</a>
@@ -51,6 +75,16 @@
       </div>
     </div>
   </nav>
+  <!-- SEARCH OVERLAY -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-content">
+      <div class="search-overlay-header">
+        <button id="search-close" class="search-overlay-close" aria-label="Close search">&times;</button>
+        <input type="text" id="search-overlay-input" class="search-overlay-input" placeholder="Search the guide..." autocomplete="off">
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
 
   <section class="hero hero--image" style="padding:50px 0 40px;background-image:url('assets/images/hero-events.jpg');">
     <div class="container">
@@ -67,7 +101,9 @@
           <a href="#seasons">Tourism Seasons</a>
           <a href="#holidays">Public Holidays</a>
           <a href="#festivals">Festivals &amp; Events</a>
+          <a href="#sporting">Sporting Events</a>
           <a href="#business-events">Business Events</a>
+          <a href="#venues">Conference Venues</a>
           <a href="#weekly">Weekly Events</a>
           <a href="#planning">Seasonal Planning</a>
           <a href="#culture">Business Culture</a>
@@ -162,6 +198,7 @@
       <!-- MAJOR EVENTS -->
       <div id="festivals" style="margin-bottom:40px;">
         <h2 style="margin-bottom:16px;">Major Annual Events &amp; Festivals</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/St_Croix_Roadstead%2C_Rodney_Bay%2C_St_Lucia%2C_Pidgeon_Island_2011_1085.jpg" alt="Pigeon Island National Landmark and Rodney Bay, Saint Lucia - venue for the Jazz Festival" class="section-image" style="max-height:300px;object-fit:cover;" loading="lazy">
         <img src="assets/images/event-carnival.jpg" alt="Saint Lucia Carnival parade celebration" class="section-image" loading="lazy">
         <div class="calendar-grid">
 
@@ -222,7 +259,7 @@
             </div>
             <div class="event-info">
               <h4>Chocolate Heritage Month</h4>
-              <p>Celebrating Saint Lucia's cacao heritage. Cocoa farm tours, resort chocolate-pairing packages, artisan chocolate workshops, and culinary experiences across the island.</p>
+              <p>Celebrating Saint Lucia's cacao heritage. Cocoa farm tours at estates like Fond Doux and Rabot, resort chocolate-pairing packages, artisan chocolate workshops, bean-to-bar demonstrations, and culinary experiences across the island. Organised by the Saint Lucia Tourism Authority and local cocoa producers.</p>
               <span class="event-tag tag-festival">Festival</span>
             </div>
           </div>
@@ -270,8 +307,32 @@
             </div>
             <div class="event-info">
               <h4>Creole Heritage Month / Jounen Kweyol</h4>
-              <p>Month-long celebration of Creole culture, language, food, and music. 2025 theme: <em>&ldquo;Kweyol Se Fos Nou&rdquo;</em> (Creole is Our Strength). Highlights: Woulelaba Festival, La Wenn Kweyol Pageant, concerts, and the grand finale <strong>Jounen Kweyol</strong> on the last Sunday of October (Oct 26, 2025; Oct 25, 2026) with celebrations in designated host communities.</p>
+              <p>Month-long celebration of Creole culture, language, food, and music since 1981. 2025 theme: <em>&ldquo;Kweyol Se Fos Nou&rdquo;</em> (Creole is Our Strength). Kicks off October 1 with Oktoberfest en Kweyol. Highlights: Woulelaba Festival, La Wenn Kweyol Pageant, seminars, art exhibitions, culinary experiences, concerts, and the grand finale <strong>Jounen Kweyol</strong> on the last Sunday of October (Oct 26, 2025; Oct 25, 2026) with celebrations in designated host communities. Neighbouring Dominica hosts the <strong>World Creole Music Festival</strong> the same month &mdash; Caribbean travellers often combine both.</p>
               <span class="event-tag tag-festival">Cultural</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#e67e22;">
+              <div class="month">Oct-Nov</div>
+              <div class="day">Varies</div>
+            </div>
+            <div class="event-info">
+              <h4>Diwali (Festival of Lights)</h4>
+              <p>Celebrated by Saint Lucia's small but vibrant Hindu and Indo-Caribbean community. Private gatherings, prayers, and community events with traditional lighting of diyas (oil lamps), rangoli art, sweets, and cultural performances. Some hotels and restaurants offer Diwali-themed menus. Date follows the Hindu calendar (Oct 20, 2025; Nov 8, 2026).</p>
+              <span class="event-tag tag-festival">Cultural</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#1a5276;">
+              <div class="month">November</div>
+              <div class="day">Varies</div>
+            </div>
+            <div class="event-info">
+              <h4>SLHTA Tourism Awards</h4>
+              <p>The Saint Lucia Hospitality &amp; Tourism Association (SLHTA) hosts annual tourism awards recognising outstanding service, innovation, and leadership in hospitality. The <strong>Tourism Legends Awards</strong> honour long-serving industry professionals. Networking reception and gala dinner attended by tourism stakeholders, government officials, and international partners.</p>
+              <span class="event-tag tag-business">Industry Event</span>
             </div>
           </div>
 
@@ -300,6 +361,109 @@
             </div>
           </div>
 
+        </div>
+      </div>
+
+      <!-- SPORTING EVENTS -->
+      <div id="sporting" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">Annual Sporting Events</h2>
+        <img src="assets/images/Beausejour_Stadium_Cricket_St_Lucia.jpg" alt="Daren Sammy National Cricket Stadium, Gros Islet, Saint Lucia" class="section-image" loading="lazy">
+        <span class="img-caption">Daren Sammy National Cricket Stadium (15,000 capacity), home of the Saint Lucia Kings &mdash; Wikimedia Commons, CC BY-SA 3.0</span>
+
+        <div class="calendar-grid" style="margin-top:20px;">
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#27ae60;">
+              <div class="month">January</div>
+              <div class="day">6</div>
+            </div>
+            <div class="event-info">
+              <h4>Piton's Peak Challenge</h4>
+              <p>Annual mass-start trail running race on New Year's week. Runners tackle the steep Gros Piton trail (2,619 ft) in Gros Islet. Part of the broader <strong>Three Peaks Challenge</strong> (Gros Piton, Petit Piton, and Mount Gimie at 3,117 ft). Requires excellent fitness and attracts ultra-running enthusiasts from across the region.</p>
+              <span class="event-tag tag-sport">Running</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#2980b9;">
+              <div class="month">April-May</div>
+              <div class="day">Weekend</div>
+            </div>
+            <div class="event-info">
+              <h4>Saint Lucia Golf Open</h4>
+              <p>Relaunched in 2025 after a nine-year absence at the <strong>Sandals Cap Estate Golf &amp; Country Club</strong> (Greg Norman-designed 18-hole course). Nearly 80 players from 16 territories competed across 3 days and 56 holes. Timed to precede the Jazz Festival (&ldquo;Come For Golf, Stay For Jazz&rdquo;). The <strong>Cabot Saint Lucia</strong> (Point Hardy) championship course opening nearby will further elevate the event.</p>
+              <p style="font-size:0.8rem;margin-top:6px;"><strong>2026:</strong> Weekend before Jazz Festival (late April)</p>
+              <span class="event-tag tag-sport">Golf</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#16a085;">
+              <div class="month">June</div>
+              <div class="day">Varies</div>
+            </div>
+            <div class="event-info">
+              <h4>Mango Bowl Regatta</h4>
+              <p>Annual sailing regatta hosted by the <strong>Saint Lucia Yacht Club</strong> at Rodney Bay. Welcomes sailors from across the Caribbean and beyond. Four racing classes: Racing, J24/Surprise, Cruising I, and Cruising II. Social events and prizegiving at the yacht club.</p>
+              <span class="event-tag tag-sport">Sailing</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#e74c3c;">
+              <div class="month">Aug-Sep</div>
+              <div class="day">15&ndash;22</div>
+            </div>
+            <div class="event-info">
+              <h4>CPL Cricket &mdash; Saint Lucia Kings</h4>
+              <p>The <strong>Saint Lucia Kings</strong> (2024 champions) host Caribbean Premier League T20 matches at the <strong>Daren Sammy National Cricket Stadium</strong> in Gros Islet. Typically 4-5 home matches during August&ndash;September. Affordable tickets, electric atmosphere, and excellent networking opportunities with regional business leaders.</p>
+              <p style="font-size:0.8rem;margin-top:6px;"><strong>2025:</strong> Home matches Aug 24-31 | Full tournament: Aug 15 &ndash; Sep 22</p>
+              <span class="event-tag tag-sport">Cricket</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#2c3e50;">
+              <div class="month">September</div>
+              <div class="day">30</div>
+            </div>
+            <div class="event-info">
+              <h4>Saint Lucia International Billfish Tournament</h4>
+              <p>Presented by the <strong>St. Lucia Game Fishing Association</strong> and <strong>IGY Rodney Bay Marina</strong>, sponsored by Republic Bank. Five-day catch-and-release tournament attracting 130+ anglers from the UK, US, Antigua, Martinique, Barbados, Grenada, and Trinidad. Prizegiving ceremony is a high-profile social event.</p>
+              <span class="event-tag tag-sport">Fishing</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#e67e22;">
+              <div class="month">Nov-Dec</div>
+              <div class="day">Varies</div>
+            </div>
+            <div class="event-info">
+              <h4>Atlantic Rally for Cruisers (ARC)</h4>
+              <p>World's largest transatlantic sailing rally. ~200+ yachts depart Las Palmas (late November), finishing at <strong>IGY Rodney Bay Marina</strong> after 14-21 days. Prizegiving ceremony brings affluent international sailing community. Estimated <strong>EC$10.3 million</strong> economic impact. The ARC fleet marks the start of the yachting high season.</p>
+              <p style="font-size:0.8rem;margin-top:6px;"><strong>2025:</strong> Fleet arrives ~Dec 10-15 | <strong>2026:</strong> Prizegiving ~Dec 19</p>
+              <span class="event-tag tag-sport">Sailing</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#8e44ad;">
+              <div class="month">Varies</div>
+              <div class="day">TBC</div>
+            </div>
+            <div class="event-info">
+              <h4>Road Races, Cycling &amp; Fitness Events</h4>
+              <p>The Saint Lucia Tourism Authority is developing a calendar of road races, cycling events, open-water swimming, triathlons, beach volleyball, and motocross to fill low-season gaps. <strong>Boxing, rugby, and bodybuilding</strong> regional championships are also planned. Check local listings for confirmed dates.</p>
+              <span class="event-tag tag-sport">Multi-Sport</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="info-box" style="margin-top:16px;">
+          <h4>Sports Tourism Opportunity</h4>
+          <p>Saint Lucia is actively targeting the <strong>multi-billion-dollar sports tourism market</strong>. Key facilities include the Daren Sammy National Cricket Stadium (15,000 seats), Sandals Cap Estate Golf &amp; Country Club, the upcoming Cabot Saint Lucia golf resort, and IGY Rodney Bay Marina (253 berths). The government is creating new signature sporting events to attract visitors during the traditionally quieter green season (July&ndash;November).</p>
         </div>
       </div>
 
@@ -337,12 +501,138 @@
                 <td>Nov 16-19, 2026</td>
                 <td>Barbados. Culinary and hospitality talent development.</td>
               </tr>
+              <tr style="background:rgba(41,128,185,0.06);">
+                <td><strong>Chamber of Commerce Monthly Mixers</strong></td>
+                <td>Monthly (typically last Thursday)</td>
+                <td>Rotating venues across Rodney Bay and Castries. Informal networking for members and prospective members. Food and beverages provided. Registration via <a href="https://www.stluciachamber.org" target="_blank">stluciachamber.org</a>.</td>
+              </tr>
+              <tr>
+                <td><strong>Invest Saint Lucia Investor Forums</strong></td>
+                <td>Periodic (2-3 per year)</td>
+                <td>Hosted by Invest Saint Lucia at various hotel venues. Sector-specific briefings for prospective investors in tourism, agriculture, manufacturing, and renewable energy. One-on-one sessions with government agencies available.</td>
+              </tr>
+              <tr style="background:rgba(41,128,185,0.06);">
+                <td><strong>OECS Business Council Meetings</strong></td>
+                <td>Quarterly (rotating host island)</td>
+                <td>Organisation of Eastern Caribbean States private-sector coordination. When hosted in Saint Lucia, held at hotel conference facilities. Focuses on trade facilitation, OECS common market, and regional investment.</td>
+              </tr>
+              <tr>
+                <td><strong>SLHTA Tourism Awards &amp; AGM</strong></td>
+                <td>March (AGM) / November (Awards)</td>
+                <td>Annual General Meeting (March) includes Tourism Legends Awards. Tourism Awards gala (November) recognises hospitality excellence. Attended by industry stakeholders and government officials.</td>
+              </tr>
+              <tr style="background:rgba(41,128,185,0.06);">
+                <td><strong>ECCB / Banking &amp; Finance Forum</strong></td>
+                <td>Varies (annual)</td>
+                <td>Eastern Caribbean Central Bank regional conferences and financial sector workshops. Hosted in ECCB member territories on rotation. Topics include monetary policy, de-risking, fintech, and financial inclusion.</td>
+              </tr>
+              <tr>
+                <td><strong>Rotary District 7030 Conference</strong></td>
+                <td>May 2026</td>
+                <td>Saint Lucia is hosting the 2026 Rotary District 7030 Conference. Rotarians from across the southern Caribbean &mdash; excellent networking with business and civic leaders.</td>
+              </tr>
             </tbody>
           </table>
         </div>
         <div class="info-box">
           <h4>Conference Infrastructure</h4>
           <p>A <strong>2,000-seat convention centre</strong> is being developed as part of the A'ila Resorts complex at Mount Pimard. Once operational, this will significantly expand Saint Lucia's capacity to host international conferences. Currently, major business events use hotel conference facilities (Bay Gardens, Royalton, Sandals) and the Expo Salon. The Chamber of Commerce is located at Orange Park Commercial Building, Bois D'Orange, Gros Islet (<a href="https://www.stluciachamber.org" target="_blank">stluciachamber.org</a>).</p>
+        </div>
+      </div>
+
+      <!-- CONFERENCE VENUES -->
+      <div id="venues" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">Conference &amp; Event Venues</h2>
+        <p style="margin-bottom:16px;">Saint Lucia offers a range of conference and meeting facilities, from intimate boardrooms to large ballrooms. Most are located in the Rodney Bay / Gros Islet corridor, close to hotels, restaurants, and the marina. Contact venues directly for rates and availability.</p>
+
+        <div class="table-wrapper" style="margin-bottom:16px;">
+          <table>
+            <thead>
+              <tr><th>Venue</th><th>Location</th><th>Max Capacity</th><th>Key Facilities</th><th>Contact</th></tr>
+            </thead>
+            <tbody>
+              <tr style="background:rgba(39,174,96,0.08);">
+                <td><strong>Sandals Grande St. Lucian</strong></td>
+                <td>Pigeon Island Causeway, Gros Islet</td>
+                <td>550 (reception) / 300 (banquet)</td>
+                <td>William Jefferson Clinton Ballroom (4,800 sq ft), boardroom, courtyard, multiple salons (2,704 &amp; 2,000 sq ft), A/V equipment, beachfront setting</td>
+                <td><a href="https://www.sandals.com/groups/" target="_blank">sandals.com/groups</a></td>
+              </tr>
+              <tr>
+                <td><strong>Sandals Halcyon Beach</strong></td>
+                <td>Choc Bay, Castries</td>
+                <td>200 (reception) / 150 (banquet)</td>
+                <td>4,300 sq ft total meeting space, conference room (auditorium 150, classroom 100, U-shape), beachfront, A/V</td>
+                <td><a href="https://www.sandals.com/groups/" target="_blank">sandals.com/groups</a></td>
+              </tr>
+              <tr style="background:rgba(39,174,96,0.08);">
+                <td><strong>Royalton Saint Lucia</strong></td>
+                <td>Cap Estate, Gros Islet</td>
+                <td>700 (reception) / 240 (banquet)</td>
+                <td>3,600 sq ft ballroom (divisible), 6,000+ sq ft total event space, air-conditioned, A/V, breakout rooms</td>
+                <td><a href="https://www.royaltonresorts.com/resorts/st-lucia/special-occasions/groups" target="_blank">royaltonresorts.com</a></td>
+              </tr>
+              <tr>
+                <td><strong>Harbor Club (Curio by Hilton)</strong></td>
+                <td>Rodney Bay Marina</td>
+                <td>300 (Golden Grove Ballroom)</td>
+                <td>7,000 sq ft total (5 rooms), Golden Grove Ballroom (marina views, high ceilings), Leeward/Windward rooms (divisible), Julia Vassel Boardroom (15 pax), Compass Room, 3,000 sq ft outdoor deck</td>
+                <td><a href="https://www.theharborclub.com/meetings-events/" target="_blank">theharborclub.com</a></td>
+              </tr>
+              <tr style="background:rgba(39,174,96,0.08);">
+                <td><strong>Bay Gardens Hotel</strong></td>
+                <td>Rodney Bay</td>
+                <td>200 (Bougainvillea Centre)</td>
+                <td>Bougainvillea Conference Room (160 pax, 1,680 sq ft + terrace), Lantana Room (60 pax), Begonia Room (60 pax). Total: 7 rooms across Bay Gardens properties</td>
+                <td><a href="https://www.baygardensresorts.com/corporate-events/groups-and-events" target="_blank">baygardensresorts.com</a></td>
+              </tr>
+              <tr>
+                <td><strong>Bay Gardens Beach Resort</strong></td>
+                <td>Reduit Beach, Rodney Bay</td>
+                <td>100 (Dolphins Centre)</td>
+                <td>Dolphins Conference Centre, beachfront setting, breakout space, A/V, catering services</td>
+                <td><a href="https://www.baygardensresorts.com/meetings-events/event-spaces-rfp" target="_blank">baygardensresorts.com</a></td>
+              </tr>
+              <tr style="background:rgba(39,174,96,0.08);">
+                <td><strong>Coco Palm Resort</strong></td>
+                <td>Rodney Bay</td>
+                <td>350 (theatre) / 90 (banquet)</td>
+                <td>5 meeting rooms (combined 630 pax). Configurations: theatre 350, classroom 60, boardroom 50, U-shape 40. High-speed Wi-Fi</td>
+                <td><a href="http://www.coco-resorts.com/events-conference.php" target="_blank">coco-resorts.com</a></td>
+              </tr>
+              <tr>
+                <td><strong>National Cultural Centre</strong></td>
+                <td>Barnard Hill, Castries</td>
+                <td>700 (seated auditorium)</td>
+                <td>Premier arts/cultural venue (145.5' x 68.5'). Indoor auditorium with moveable/fixed seating, lush garden setting, ample parking. Harbour views. Managed by CDF</td>
+                <td><a href="mailto:info@cdfstlucia.org">info@cdfstlucia.org</a><br>+1 758 457 9021</td>
+              </tr>
+              <tr style="background:rgba(39,174,96,0.08);">
+                <td><strong>Trade Winds Building / Chamber of Commerce</strong></td>
+                <td>Bois D'Orange, Gros Islet</td>
+                <td>~80 (meeting room)</td>
+                <td>Orange Park Commercial Building. Meeting room, projection facilities. Used for Chamber events, training workshops, and business seminars</td>
+                <td><a href="https://www.stluciachamber.org" target="_blank">stluciachamber.org</a></td>
+              </tr>
+              <tr>
+                <td><strong>Expo Salon</strong></td>
+                <td>Union, Castries</td>
+                <td>~500</td>
+                <td>Multi-purpose exhibition hall. Used for the Saint Lucia Business Forum, trade shows, and large-format events. Flexible layout</td>
+                <td>Via Invest Saint Lucia</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box warning">
+          <h4>Upcoming: A'ila Convention Centre</h4>
+          <p>A <strong>2,000-seat purpose-built convention centre</strong> is under development at Mount Pimard as part of the A'ila Resorts complex. This will be Saint Lucia's first dedicated large-scale conference facility, capable of hosting international summits, trade expos, and major corporate events. Until it opens, the Royalton ballroom (700 capacity) and National Cultural Centre (700 seats) are the largest options on the island.</p>
+        </div>
+
+        <div class="info-box success">
+          <h4>Meetings &amp; Incentive Travel</h4>
+          <p>The <strong>Saint Lucia Tourism Authority</strong> operates a dedicated Meetings &amp; Incentives desk to assist event planners with venue selection, logistics, group rates, and cultural add-ons. Request proposals via <a href="https://www.stlucia.org/en/meetings-incentives/" target="_blank">stlucia.org/meetings-incentives</a>. Many hotels offer complimentary meeting rooms with minimum room-night bookings.</p>
         </div>
       </div>
 
@@ -386,7 +676,7 @@
                 <td><strong>Low / Green Season</strong></td>
                 <td>Jul &ndash; Nov</td>
                 <td>Wet, hurricane risk</td>
-                <td>Lowest hotel rates (30-50% off high season). Carnival (July). Business Forum (Aug). Creole Heritage (Oct). Reduced international business travel. Peak hurricane risk: Aug-Oct.</td>
+                <td>Lowest hotel rates (30-50% off high season). Carnival (July). CPL Cricket &amp; Business Forum (Aug). Billfish Tournament &amp; Food &amp; Rum Festival (Sep). Creole Heritage (Oct). ARC sailing fleet (Nov-Dec). Reduced international business travel. Peak hurricane risk: Aug-Oct.</td>
               </tr>
             </tbody>
           </table>
@@ -404,7 +694,7 @@
           </div>
           <div class="info-box" style="margin:0;">
             <h4>Aug &ndash; Sep (Events)</h4>
-            <p>Business Forum (late August) is the flagship investment conference. Lower travel costs. Some business disruption from hurricane risk. Food &amp; Rum Festival (September).</p>
+            <p>Business Forum (late August) is the flagship investment conference. CPL Cricket (Aug-Sep) brings regional energy. Lower travel costs. Some business disruption from hurricane risk. Billfish Tournament and Food &amp; Rum Festival (September).</p>
           </div>
           <div class="info-box" style="margin:0;">
             <h4>Oct &ndash; Nov (Transition)</h4>
@@ -474,6 +764,14 @@
           <a href="map.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
             <h4>Map &amp; Districts</h4>
             <p>Event locations &amp; venues</p>
+          </a>
+          <a href="directory.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Business Directory</h4>
+            <p>Hotels, venues, service providers</p>
+          </a>
+          <a href="trade.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Trade &amp; OECS</h4>
+            <p>Regional trade &amp; business councils</p>
           </a>
         </div>
       </div>
