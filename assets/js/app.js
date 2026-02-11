@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initSidebarScrollSpy();
   initResponsiveTables();
   initSectionReveal();
-  initDarkMode();
   initSiteSearch();
+  initLikesAndReadTracking();
 });
 
 // Mobile nav toggle
@@ -244,48 +244,249 @@ function scrollTo(selector) {
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// ===== DARK MODE =====
-function initDarkMode() {
-  const html = document.documentElement;
-  const darkModeBtn = document.getElementById('dark-mode-toggle');
+// ===== LIKES & READ TRACKING =====
+function initLikesAndReadTracking() {
+  const pageKey = getPageKey();
+  const likesBtn = document.getElementById('likes-toggle');
+  const likesBadge = document.getElementById('likes-badge');
+  if (!likesBtn) return;
 
-  if (!darkModeBtn) return;
+  // Create likes panel
+  const panel = document.createElement('div');
+  panel.className = 'likes-panel';
+  panel.id = 'likes-panel';
+  panel.innerHTML = `
+    <div class="likes-panel-header">
+      <h4>&#9829; Liked Sections</h4>
+      <button class="likes-panel-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="likes-panel-body" id="likes-panel-body"></div>
+  `;
+  document.body.appendChild(panel);
 
-  // Check saved preference or system preference
-  const savedTheme = localStorage.getItem('theme');
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  // Toggle panel
+  likesBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    panel.classList.toggle('open');
+    if (panel.classList.contains('open')) renderLikesPanel();
+  });
 
-  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-    html.setAttribute('data-theme', 'dark');
-    updateDarkModeButton(darkModeBtn, true);
+  panel.querySelector('.likes-panel-close').addEventListener('click', () => {
+    panel.classList.remove('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!panel.contains(e.target) && !likesBtn.contains(e.target)) {
+      panel.classList.remove('open');
+    }
+  });
+
+  // Find content sections (div[id] with h2 inside .main-content)
+  const mainContent = document.querySelector('.main-content');
+  if (!mainContent) { updateLikesBadge(); return; }
+
+  const sections = mainContent.querySelectorAll('div[id]');
+  if (!sections.length) { updateLikesBadge(); return; }
+
+  // Load saved state
+  const likes = getLikes();
+  const readSections = getReadSections(pageKey);
+
+  // Inject like buttons and read markers into each section
+  sections.forEach(section => {
+    const h2 = section.querySelector('h2');
+    if (!h2) return;
+
+    const sectionId = section.id;
+    const sectionTitle = h2.textContent.trim();
+
+    // Like button
+    const likeBtn = document.createElement('button');
+    likeBtn.className = 'section-like-btn' + (isLiked(pageKey, sectionId) ? ' liked' : '');
+    likeBtn.innerHTML = '<span class="like-heart-icon">&#9825;</span><span class="like-heart-filled">&#9829;</span>';
+    likeBtn.title = isLiked(pageKey, sectionId) ? 'Unlike this section' : 'Like this section';
+    likeBtn.addEventListener('click', () => {
+      toggleLike(pageKey, sectionId, sectionTitle);
+      const liked = isLiked(pageKey, sectionId);
+      likeBtn.classList.toggle('liked', liked);
+      likeBtn.title = liked ? 'Unlike this section' : 'Like this section';
+      likeBtn.classList.add('animate');
+      setTimeout(() => likeBtn.classList.remove('animate'), 300);
+      updateLikesBadge();
+    });
+    h2.appendChild(likeBtn);
+
+    // Read marker
+    const readMarker = document.createElement('span');
+    readMarker.className = 'section-read-marker';
+    readMarker.innerHTML = '&#10003; Read';
+    readMarker.id = 'read-' + sectionId;
+    if (readSections.includes(sectionId)) {
+      readMarker.classList.add('visible');
+    }
+    h2.appendChild(readMarker);
+  });
+
+  // Read tracking with IntersectionObserver
+  if ('IntersectionObserver' in window) {
+    const readTimers = {};
+    const readObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        if (entry.isIntersecting) {
+          if (!readTimers[id] && !readSections.includes(id)) {
+            readTimers[id] = setTimeout(() => {
+              markAsRead(pageKey, id);
+              readSections.push(id);
+              const marker = document.getElementById('read-' + id);
+              if (marker) marker.classList.add('visible');
+              readObserver.unobserve(entry.target);
+            }, 3000);
+          }
+        } else {
+          if (readTimers[id]) {
+            clearTimeout(readTimers[id]);
+            delete readTimers[id];
+          }
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(section => {
+      if (section.querySelector('h2') && !readSections.includes(section.id)) {
+        readObserver.observe(section);
+      }
+    });
   }
 
-  // Toggle dark mode
-  darkModeBtn.addEventListener('click', () => {
-    const isDark = html.getAttribute('data-theme') === 'dark';
-    if (isDark) {
-      html.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light');
-      updateDarkModeButton(darkModeBtn, false);
-    } else {
-      html.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-      updateDarkModeButton(darkModeBtn, true);
-    }
-  });
-
-  // Listen for system theme changes
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('theme')) {
-      html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-      updateDarkModeButton(darkModeBtn, e.matches);
-    }
-  });
+  updateLikesBadge();
 }
 
-function updateDarkModeButton(btn, isDark) {
-  btn.innerHTML = isDark ? '&#9788;' : '&#9790;';
-  btn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+function getPageKey() {
+  const path = window.location.pathname;
+  const page = path.split('/').pop() || 'index.html';
+  const isTR = path.includes('/tr/');
+  return (isTR ? 'tr/' : '') + page;
+}
+
+function getPageTitle() {
+  const h1 = document.querySelector('.hero h1');
+  return h1 ? h1.textContent.trim() : document.title;
+}
+
+function getLikes() {
+  try {
+    return JSON.parse(localStorage.getItem('stlucia_likes') || '[]');
+  } catch { return []; }
+}
+
+function saveLikes(likes) {
+  localStorage.setItem('stlucia_likes', JSON.stringify(likes));
+}
+
+function isLiked(pageKey, sectionId) {
+  return getLikes().some(l => l.page === pageKey && l.section === sectionId);
+}
+
+function toggleLike(pageKey, sectionId, sectionTitle) {
+  let likes = getLikes();
+  const idx = likes.findIndex(l => l.page === pageKey && l.section === sectionId);
+  if (idx >= 0) {
+    likes.splice(idx, 1);
+  } else {
+    likes.push({
+      page: pageKey,
+      section: sectionId,
+      title: sectionTitle,
+      pageTitle: getPageTitle(),
+      timestamp: Date.now()
+    });
+  }
+  saveLikes(likes);
+}
+
+function removeLike(pageKey, sectionId) {
+  let likes = getLikes();
+  likes = likes.filter(l => !(l.page === pageKey && l.section === sectionId));
+  saveLikes(likes);
+  updateLikesBadge();
+  renderLikesPanel();
+  // Update section button if on same page
+  const currentPage = getPageKey();
+  if (pageKey === currentPage) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const btn = section.querySelector('.section-like-btn');
+      if (btn) {
+        btn.classList.remove('liked');
+        btn.title = 'Like this section';
+      }
+    }
+  }
+}
+
+function getReadSections(pageKey) {
+  try {
+    const all = JSON.parse(localStorage.getItem('stlucia_read') || '{}');
+    return all[pageKey] || [];
+  } catch { return []; }
+}
+
+function markAsRead(pageKey, sectionId) {
+  try {
+    const all = JSON.parse(localStorage.getItem('stlucia_read') || '{}');
+    if (!all[pageKey]) all[pageKey] = [];
+    if (!all[pageKey].includes(sectionId)) all[pageKey].push(sectionId);
+    localStorage.setItem('stlucia_read', JSON.stringify(all));
+  } catch {}
+}
+
+function updateLikesBadge() {
+  const badge = document.getElementById('likes-badge');
+  const btn = document.getElementById('likes-toggle');
+  if (!badge || !btn) return;
+  const count = getLikes().length;
+  badge.textContent = count;
+  badge.style.display = count > 0 ? 'flex' : 'none';
+  btn.classList.toggle('has-likes', count > 0);
+  btn.innerHTML = (count > 0 ? '&#9829;' : '&#9825;') + badge.outerHTML;
+}
+
+function renderLikesPanel() {
+  const body = document.getElementById('likes-panel-body');
+  if (!body) return;
+  const likes = getLikes();
+
+  if (likes.length === 0) {
+    body.innerHTML = '<div class="likes-panel-empty">No liked sections yet.<br>Click the &#9825; on any section to save it here.</div>';
+    return;
+  }
+
+  // Sort by most recent first
+  const sorted = [...likes].sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+  const isTR = window.location.pathname.includes('/tr/');
+  const prefix = isTR ? '' : '';
+
+  body.innerHTML = sorted.map(like => {
+    let href = like.page;
+    const currentPage = getPageKey();
+    // Build relative URL
+    if (isTR && !like.page.startsWith('tr/')) {
+      href = '../' + like.page;
+    } else if (!isTR && like.page.startsWith('tr/')) {
+      href = like.page;
+    }
+    href += '#' + like.section;
+
+    return `<div class="likes-panel-item">
+      <span class="like-heart">&#9829;</span>
+      <a href="${href}" class="like-info" onclick="document.getElementById('likes-panel').classList.remove('open');">
+        <div class="like-section">${escapeHtml(like.title)}</div>
+        <div class="like-page">${escapeHtml(like.pageTitle || like.page)}</div>
+      </a>
+      <button class="like-remove" title="Remove" onclick="event.stopPropagation();removeLike('${like.page}','${like.section}');">&times;</button>
+    </div>`;
+  }).join('');
 }
 
 // ===== SITE-WIDE SEARCH =====
