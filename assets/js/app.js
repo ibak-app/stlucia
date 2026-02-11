@@ -826,7 +826,7 @@ function initTopPageNav() {
 
   var prevPage = getPrevPage();
   var nextPage = getNextPage();
-  var labels = getBookLabels();
+  var currentPage = pages[idx];
 
   var bar = document.createElement('div');
   bar.className = 'top-page-nav';
@@ -834,21 +834,54 @@ function initTopPageNav() {
 
   var html = '<div class="tpn-progress"><div class="tpn-progress-fill"></div></div>';
   html += '<div class="tpn-controls">';
+
+  // Prev button
   if (prevPage) {
-    html += '<a href="' + prevPage.file + '" class="tpn-link tpn-prev">&#9664; ' + prevPage.title + '</a>';
+    html += '<a href="' + prevPage.file + '" class="tpn-btn" title="' + prevPage.title + '">&#9664;</a>';
   } else {
-    html += '<span class="tpn-link tpn-disabled"></span>';
+    html += '<span class="tpn-btn tpn-disabled">&#9664;</span>';
   }
-  html += '<span class="tpn-counter">' + (idx + 1) + ' / ' + pages.length + '</span>';
-  if (nextPage) {
-    html += '<a href="' + nextPage.file + '" class="tpn-link tpn-next">' + nextPage.title + ' &#9654;</a>';
-  } else {
-    html += '<span class="tpn-link tpn-disabled"></span>';
-  }
+
+  // Current page title + counter
+  html += '<div class="tpn-info">';
+  html += '<div class="tpn-title">' + currentPage.title + '</div>';
+  html += '<div class="tpn-counter">' + (idx + 1) + ' / ' + pages.length + '</div>';
   html += '</div>';
 
+  // Next button
+  if (nextPage) {
+    html += '<a href="' + nextPage.file + '" class="tpn-btn" title="' + nextPage.title + '">&#9654;</a>';
+  } else {
+    html += '<span class="tpn-btn tpn-disabled">&#9654;</span>';
+  }
+
+  // Liked feed button (heart)
+  html += '<button class="tpn-btn tpn-heart" id="tpn-likes-btn" title="Liked sections">&#9825;</button>';
+
+  html += '</div>';
   bar.innerHTML = html;
   document.body.appendChild(bar);
+
+  // Heart button opens liked feed overlay
+  var heartBtn = bar.querySelector('#tpn-likes-btn');
+  heartBtn.addEventListener('click', function() {
+    var overlay = document.getElementById('liked-feed-overlay');
+    if (overlay) {
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      renderLikedFeed();
+    }
+  });
+
+  // Sync heart icon state
+  function updateHeart() {
+    var count = getLikes().length;
+    heartBtn.innerHTML = count > 0 ? '&#9829;' : '&#9825;';
+    heartBtn.classList.toggle('has-likes', count > 0);
+  }
+  updateHeart();
+  // Re-check periodically (likes can change via dblclick)
+  setInterval(updateHeart, 1000);
 
   // Update page-level progress on scroll
   var progressFill = bar.querySelector('.tpn-progress-fill');
