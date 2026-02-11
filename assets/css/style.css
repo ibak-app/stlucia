@@ -62,8 +62,11 @@ html[data-theme="dark"] .info-box {
   background: var(--white);
 }
 
-html[data-theme="dark"] .hero {
+html[data-theme="dark"] .hero:not(.hero--image) {
   background: linear-gradient(135deg, #0e1321 0%, #1a2840 50%, #2980b9 100%);
+}
+html[data-theme="dark"] .hero--image::before {
+  background: linear-gradient(135deg, rgba(14,19,33,0.92) 0%, rgba(26,40,64,0.85) 50%, rgba(41,128,185,0.80) 100%);
 }
 
 /* Auto dark mode based on system preference */
@@ -102,8 +105,11 @@ html[data-theme="dark"] .hero {
     background: var(--white);
   }
 
-  html:not([data-theme="light"]) .hero {
+  html:not([data-theme="light"]) .hero:not(.hero--image) {
     background: linear-gradient(135deg, #0e1321 0%, #1a2840 50%, #2980b9 100%);
+  }
+  html:not([data-theme="light"]) .hero--image::before {
+    background: linear-gradient(135deg, rgba(14,19,33,0.92) 0%, rgba(26,40,64,0.85) 50%, rgba(41,128,185,0.80) 100%);
   }
 }
 
