@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sıkça Sorulan Sorular - St. Lucia İş Rehberi</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .faq-category-header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 14px 20px;
+      border-radius: var(--radius) var(--radius) 0 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .faq-category-header:first-of-type { margin-top: 0; }
+    .faq-group { margin-bottom: 32px; }
+    .faq-group .accordion-item { border-radius: 0; margin-bottom: 0; border-bottom: 1px solid var(--border); }
+    .faq-group .accordion-item:last-child { border-radius: 0 0 var(--radius) var(--radius); border-bottom: none; }
+    .faq-group .accordion-header { font-size: 0.95rem; }
+    .faq-group .accordion-body-inner { font-size: 0.92rem; line-height: 1.7; color: var(--text); }
+    .faq-group .accordion-body-inner p { margin-bottom: 8px; }
+    .faq-group .accordion-body-inner p:last-child { margin-bottom: 0; }
+    .faq-count { font-size: 0.85rem; opacity: 0.85; font-weight: 400; margin-left: auto; }
+    #search-count { text-align: center; font-size: 0.85rem; color: var(--text-light); margin-top: -10px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia İş Rehberi</a>
+      <button class="nav-toggle" aria-label="Men&uuml;y&uuml; a&ccedil;">&#9776;</button>
+      <div class="nav-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="overview.html">Genel Bakış</a>
+        <a href="business.html">İş Kurulumu</a>
+        <a href="legal.html">Hukuk &amp; Vergi</a>
+        <a href="sectors.html">Sekt&ouml;rler</a>
+        <a href="cbi.html">Vatandaşlık</a>
+        <a href="living.html">Yaşam</a>
+        <a href="events.html">Etkinlikler</a>
+        <a href="map.html">Harita</a>
+        <a href="directory.html">Rehber</a>
+        <a href="faq.html" class="active">SSS</a>
+        <a href="resources.html">Kaynaklar</a>
+        <a href="government.html">H&uuml;k&uuml;met</a>
+        <div class="lang-selector">
+          <a href="../faq.html" class="lang-btn" title="English">EN</a>
+          <a href="faq.html" class="lang-btn active" title="T&uuml;rk&ccedil;e">TR</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero hero--image" style="padding:50px 0 40px;background-image:url('../assets/images/hero-faq.jpg');">
+    <div class="container">
+      <h1>Sık&ccedil;a Sorulan Sorular</h1>
+      <p>Saint Lucia'da iş kurma ve y&ouml;netme hakkında 54 yaygın soru</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="page-layout">
+        <aside class="sidebar">
+          <h3>Kategoriler</h3>
+          <a href="#getting-started">Başlarken</a>
+          <a href="#taxation">Vergilendirme</a>
+          <a href="#property-immigration">M&uuml;lkiyet &amp; G&ouml;&ccedil;</a>
+          <a href="#operations">İş Operasyonları</a>
+          <a href="#practical">Pratik Yaşam</a>
+          <a href="#digital-nomads">Dijital G&ouml;&ccedil;ebeler</a>
+          <a href="#legal-compliance">Hukuk &amp; Uyum</a>
+          <a href="#regulatory">D&uuml;zenleyici &amp; İzinler</a>
+          <a href="#specialized">&Ouml;zel Sekt&ouml;rler</a>
+        </aside>
+
+        <div class="main-content">
+
+          <!-- ARAMA -->
+          <div class="search-box" style="margin-bottom:20px;">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" placeholder="Soru ara... (&ouml;rn. vergi, vize, banka hesabı)">
+          </div>
+          <div id="search-count"></div>
+
+          <!-- ============================== -->
+          <!-- BAŞLARKEN -->
+          <!-- ============================== -->
+          <div id="getting-started">
+            <div class="faq-category-header">
+              <span class="cat-icon">&#128640;</span> Başlarken
+              <span class="faq-count">7 soru</span>
+            </div>
+            <div class="faq-group accordion-group">
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  İş kayıt ettirmek i&ccedil;in St. Lucia'ya gitmem gerekiyor mu?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Hayır, bir şirket kayıt ettirmek i&ccedil;in Saint Lucia'yı şahsen ziyaret etmenize gerek yoktur. Uluslararası İş Şirketi (IBC) i&ccedil;in t&uuml;m kuruluş s&uuml;reci, adada bulunan lisanslı bir kayıtlı acenta aracılığıyla uzaktan tamamlanabilir. Pasaportunuzun noter tasdikli kopyalarını, adres kanıtını ve bir banka referans mektubunu sağlamanız gerekecek olup bunların t&uuml;m&uuml; elektronik ortamda veya kargo ile g&ouml;nderilebilir. Yerel bir avukatın Uluslararası İş Şirketleri Yasası'na uyumu doğrulayan bir Yasal Beyanname imzalaması gerekmektedir, ancak kayıtlı acentanız bunu sizin adınıza y&uuml;r&uuml;t&uuml;r.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Şirket kaydı ne kadar s&uuml;rer?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'da şirket kaydı b&ouml;lgesel standartlara g&ouml;re hızlıdır. Kayıt belgeleri genellikle 2 iş g&uuml;n&uuml; i&ccedil;inde işlenir ve Kuruluş Belgesi 3 ila 7 iş g&uuml;n&uuml; i&ccedil;inde d&uuml;zenlenir. T&uuml;m belgeler hazırsa bir IBC 48 ila 72 saat gibi kısa bir s&uuml;rede tam olarak kayıt ettirilebilir. Vergi Kimlik Numarası (TIN) almak ve Ulusal Sigorta Kurumu'na (NIC) kaydolmak gibi kayıt sonrası adımlar birka&ccedil; g&uuml;n daha ekleyebilir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Yerel bir ortak veya y&ouml;neticiye ihtiyacım var mı?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Hayır. Saint Lucia, yerli şirketler veya IBC'ler i&ccedil;in y&ouml;netici veya hissedar &uuml;zerinde herhangi bir ikamet veya uyruk kısıtlaması getirmemektedir. En az bir y&ouml;netici ve bir hissedara ihtiyacınız vardır ve aynı kişi her iki rol&uuml; de &uuml;stlenebilir. Y&ouml;neticiler ve hissedarlar herhangi bir uyruktan bireyler veya t&uuml;zel kişiler olabilir. Ancak her şirket, Saint Lucia i&ccedil;inde bir kayıtlı acenta atamalı ve kayıtlı bir ofis s&uuml;rd&uuml;rmelidir -- bunlar genellikle yıllık bir &uuml;cret karşılığında lisanslı kurumsal hizmet sağlayıcıları tarafından temin edilir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Asgari sermaye gereksinimi nedir?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'da bir IBC i&ccedil;in asgari &ouml;denmiş sermaye gereksinimi yoktur -- yalnızca en az bir hisse &ccedil;ıkarmanız gerekir. Standart kayıtlı sermaye genellikle her biri 1,00 USD değerinde 50.000 hisseye b&ouml;l&uuml;nm&uuml;ş 50.000 USD olarak belirlenir, ancak bu nominal bir rakamdır ve ihtiya&ccedil;larınıza g&ouml;re ayarlanabilir. H&uuml;k&uuml;met kayıt &uuml;cretleri kayıtlı sermaye tutarına dayandığından, standart d&uuml;zeyde tutmak maliyetleri en aza indirir. Hisseyle sınırlı yerli şirketler i&ccedil;in de benzer şekilde zorunlu bir asgari sermaye yoktur.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Uzaktan banka hesabı a&ccedil;abilir miyim?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Evet, Saint Lucia'daki birka&ccedil; banka, kapsamlı belge gerektirmekle birlikte mukim olmayanların uzaktan hesap a&ccedil;masına izin vermektedir. Genellikle ge&ccedil;erli bir pasaport, ikamet adresi kanıtı, mevcut bankanızdan bir referans mektubu, fon kaynağı kanıtı ve şirket kuruluş belgeleriniz gerekecektir. Bazı bankalar ayrıca video doğrulama g&ouml;r&uuml;şmesi isteyebilir. Bank of Saint Lucia, 1st National Bank ve Eastern Caribbean Amalgamated Bank (ECAB) gibi b&uuml;y&uuml;k kuruluşların t&uuml;m&uuml;, &ccedil;evrimi&ccedil;i bankacılık erişimi dahil olmak &uuml;zere yabancı sermayeli şirketlere kurumsal bankacılık hizmetleri sunmaktadır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Hangi t&uuml;r iş yapıları kurulabilir?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia &ccedil;eşitli iş yapıları sunmaktadır: vergi avantajları ve gizlilik korumaları nedeniyle yabancı yatırımcılar arasında en pop&uuml;ler olan Uluslararası İş Şirketi (IBC); yerel ticaret i&ccedil;in standart yapı olan Hisseyle Sınırlı Şirket (halka a&ccedil;ık veya &ouml;zel); Sınırlı Sorumlu Şirket (LLC); şahıs şirketi; ve ortaklık. IBC'ler Uluslararası İş Şirketleri Yasası tarafından y&ouml;netilir ve Saint Lucia mukimleriyle ticaret yapamaz veya adada gayrimenkul sahibi olamaz. Yerel olarak faaliyet g&ouml;stermeyi planlıyorsanız, hisseyle sınırlı yerli şirket uygun se&ccedil;imdir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Kayıtlı bir acentaya ihtiyacım var mı?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Evet. IBC'ler dahil olmak &uuml;zere Saint Lucia'da kurulan her şirket, adada kayıtlı bir ofis s&uuml;rd&uuml;ren lisanslı bir kayıtlı acenta atamalıdır. Kayıtlı acenta, yasal belgelerin dosyalanmasından, şirket sicilinin tutulmasından ve Şirketler ve Fikri M&uuml;lkiyet Sicili (ROCIP) ile resmi iletişim noktası olarak hizmet vermekten sorumludur. Kuruluş başvurusunun bir par&ccedil;ası olarak yerel bir avukatın da Yasal Beyanname imzalaması gerekmektedir. Yıllık kayıtlı acenta &uuml;cretleri, sağlayıcıya ve dahil edilen hizmetlere bağlı olarak genellikle 500 ila 1.500 USD arasında değişmektedir.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ============================== -->
+          <!-- VERGİLENDİRME -->
+          <!-- ============================== -->
+          <div id="taxation">
+            <div class="faq-category-header">
+              <span class="cat-icon">&#128176;</span> Vergilendirme
+              <span class="faq-count">7 soru</span>
+            </div>
+            <div class="faq-group accordion-group">
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  İşletmem Saint Lucia'da hangi vergileri &ouml;deyecek?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'da faaliyet g&ouml;steren bir yerli şirket, yerel kaynaklı gelir &uuml;zerinden %30 sabit oranlı kurumlar vergisine tabidir. Ayrıca işletmeler, standart oran %12,5 olan Katma Değer Vergisi (KDV) (turizm konaklama i&ccedil;in %7, otel yiyecek/i&ccedil;ecek ve ilgili turizm hizmetleri i&ccedil;in %10) tahsil etmelidir. İşverenler, her &ccedil;alışanın sigortalanabilir kazancının %5'i oranında Ulusal Sigorta Kurumu'na (NIC) katkıda bulunmak zorundadır; &ccedil;alışanlar da %5 katkıda bulunur. Saint Lucia'da sermaye kazancı vergisi, servet vergisi ve miras vergisi yoktur; bu da genel vergi y&uuml;k&uuml;n&uuml; karşılaştırmalı olarak avantajlı kılmaktadır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Yerli şirket ile IBC arasındaki fark nedir?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Yerli bir şirket Saint Lucia i&ccedil;inde ticaret yapabilir ve yerel kaynaklı gelir &uuml;zerinden %30 oranında vergilendirilir. Uluslararası İş Şirketi (IBC) yalnızca uluslararası operasyonlar i&ccedil;in tasarlanmıştır: Saint Lucia mukimleriyle ticaret yapamaz, yerel gayrimenkul sahibi olamaz veya adada bankacılık ya da sigorta işi y&uuml;r&uuml;temez. Karşılığında IBC'ler t&uuml;m yabancı kaynaklı gelir &uuml;zerinden vergi muafiyeti, d&ouml;viz kontrollerinden muafiyet, varlık transferlerinde damga vergisi olmaması ve mukim olmayanlara &ouml;denen temett&uuml;, telif hakkı veya faiz &uuml;zerinde stopaj vergisi olmamasından yararlanır. IBC'ler ayrıca daha g&uuml;&ccedil;l&uuml; gizlilik korumalarından yararlanır; hissedar ve y&ouml;netici bilgileri kamusal kaydın par&ccedil;ası değildir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  IBC'ler hi&ccedil; vergi &ouml;der mi?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Temmuz 2021'den itibaren, t&uuml;m IBC'ler Saint Lucia'nın b&ouml;lgesel vergi sistemi kapsamında teknik olarak standart %30 kurumlar vergisi oranına tabidir. Ancak pratikte IBC'ler genellikle sıfır vergi &ouml;der &ccedil;&uuml;nk&uuml; yabancı kaynaklı gelir vergilendirmeden muaftır ve IBC'lerin yerel gelir elde etmesi yasaktır. Bir IBC tarafından kazanılan temett&uuml;ler ve sermaye kazancı, kaynağı ne olursa olsun kurumlar vergisine tabi değildir. IBC'ler ayrıca m&uuml;lk, hisse veya menkul kıymet transferlerinde damga vergisi &ouml;demez ve Saint Lucia dışındaki kişilere &ouml;denen temett&uuml;, telif hakkı, faiz veya y&ouml;netim &uuml;cretlerinin havalesinde stopaj vergisi uygulanmaz. Ana maliyet yıllık h&uuml;k&uuml;met yenileme &uuml;creti ve kayıtlı acenta &uuml;cretidir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  &Uuml;lkemle vergi anlaşması var mı?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'nın &ccedil;ifte vergilendirme anlaşmaları &ccedil;ok sınırlıdır. Y&uuml;r&uuml;rl&uuml;kteki tek resmi &ccedil;ifte vergilendirme anlaşması, Karayip Topluluğu &uuml;ye devletlerini kapsayan CARICOM &Ccedil;ifte Vergilendirme Anlaşması'dır. ABD, İngiltere, Kanada veya AB &uuml;ye devletleriyle ikili &ccedil;ifte vergilendirme anlaşması bulunmamaktadır. Ancak Saint Lucia, OECD'nin Ortak Raporlama Standardı (CRS) aracılığıyla AB &uuml;lkeleri, Avustralya, Kanada, Yeni Zelanda, Singapur, İsvi&ccedil;re ve Birleşik Krallık dahil &ccedil;ok sayıda yarg&icirc; b&ouml;lgesiyle Vergi Bilgi Değişimi Anlaşmaları (TIEA) imzalamıştır. Geniş kapsamlı &ccedil;ifte vergilendirme anlaşmalarının olmaması, kendi &uuml;lkenizdeki potansiyel &ccedil;ifte vergilendirme konusunda bir vergi danışmanına başvurmanız gerektiği anlamına gelir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Vergi beyannameleri ne zaman verilir?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Bireysel gelir vergisi beyannameleri, bir &ouml;nceki vergi yılı i&ccedil;in her yılın 31 Mart'ına kadar verilmelidir. Kurumlar vergisi beyannameleri, şirketin mali yıl sonundan itibaren &uuml;&ccedil; ay i&ccedil;inde verilmelidir. Ge&ccedil; başvuru, vergilendirilebilir gelir &uuml;zerinden %5 ceza ve &ouml;denmemiş vergi &uuml;zerine faiz doğurur. KDV beyannameleri, işletmenin cirosuna bağlı olarak aylık veya &uuml;&ccedil; aylık olarak verilir ve &ouml;deme raporlama d&ouml;nemini takip eden ayın 21'ine kadar yapılmalıdır. T&uuml;m başvurular, &ccedil;evrimi&ccedil;i vergi hizmetleri portalı da sunan İ&ccedil; Gelirler Dairesi'ne (IRD) yapılır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Yatırımcılar i&ccedil;in hangi vergi teşvikleri mevcut?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia, Mali Teşvikler Yasası ve Turizm Teşvikleri Yasası kapsamında c&ouml;mert vergi teşvikleri sunmaktadır. Nitelikli işletmeler 15 yıla kadar gelir vergisi muafiyeti, ekipman ve malzemelerin g&uuml;mr&uuml;ks&uuml;z ithalatı ve yeni gelişmelerde emlak vergisi muafiyeti alabilir. Belirli teşvik paketi sekt&ouml;r&uuml;n&uuml;ze, yatırımın b&uuml;y&uuml;kl&uuml;ğ&uuml;ne ve yaratılan iş sayısına bağlıdır. Turizm, imalat ve tarımla ilgili işletmeler &ouml;zellikle tercih edilmektedir. Teşvik başvuruları, h&uuml;k&uuml;metin yatırım tanıtım ajansı olan Invest Saint Lucia aracılığıyla işlenmektedir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Kişisel gelir vergisi oranı nedir?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'da kişisel gelir vergisi yalnızca vergiden muaf tutarı aşan gelir &uuml;zerinden alınır; bu tutar 2025/26 b&uuml;t&ccedil;esiyle yıllık <strong>40.000 XCD</strong>'ye (yaklaşık 14.815 USD) y&uuml;kseltilmiştir. Vergi sistemi ar tan oranlıdır: vergilendirilebilir gelirin ilk 15.000 EC$'ı &uuml;zerinden %15, sonraki 15.000 EC$ &uuml;zerinden %20 ve &uuml;zeri i&ccedil;in %30. %30'luk en y&uuml;ksek oran, yıllık yaklaşık 70.000 EC$'ın &uuml;zerindeki br&uuml;t gelire fiilen uygulanır. Mukim olmayan yerleşikler i&ccedil;in d&uuml;nya genelindeki gelir &uuml;zerinde vergi yoktur &mdash; yalnızca Saint Lucia kaynaklı gelir vergilendirilebilir. Bu, &ouml;ncelikle uluslararası kaynaklardan gelir elde edip adada ikamet eden iş sahipleri i&ccedil;in &ccedil;ekici kılmaktadır.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ============================== -->
+          <!-- M&Uuml;LKİYET & G&Ouml;&Ccedil; -->
+          <!-- ============================== -->
+          <div id="property-immigration">
+            <div class="faq-category-header">
+              <span class="cat-icon">&#127968;</span> M&uuml;lkiyet &amp; G&ouml;&ccedil;
+              <span class="faq-count">7 soru</span>
+            </div>
+            <div class="faq-group accordion-group">
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Yabancılar Saint Lucia'da arazi satın alabilir mi?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Evet, yabancılar Saint Lucia'da arazi ve m&uuml;lk satın alabilir, ancak &ouml;nce Yabancılar (Ruhsatlandırma) Yasası kapsamında bir Yabancı Arazi Sahipliği Lisansı almaları gerekmektedir. Lisans verildikten sonra, yabancı alıcılar m&uuml;lklerini satma, kiralama veya geliştirme dahil olmak &uuml;zere vatandaşlarla aynı m&uuml;lkiyet haklarına sahiptir. Lisans, belirli bir m&uuml;lk i&ccedil;in alıcının &ouml;m&uuml;r boyu ge&ccedil;erlidir ve yenileme gerektirmez. Yatırım Yoluyla Vatandaşlık Programı (CIP) aracılığıyla vatandaşlık elde eden yabancılar lisansa ihtiya&ccedil; duymaktan tamamen muaftır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Yabancı Arazi Sahipliği Lisansı nedir ve maliyeti ne kadardır?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Yabancı Arazi Sahipliği Lisansı, yabancı uyrukluların Saint Lucia'da yasal olarak m&uuml;lk sahibi olmasına yetki veren bir h&uuml;k&uuml;met iznidir. S&uuml;re&ccedil;, Yatırım Yoluyla Vatandaşlık Birimi'nden Uygunluk Belgesi başvurusuyla başlar; bu belge 1 yıllık i&ccedil;in 3.000 USD veya 10 yıllık i&ccedil;in 10.000 USD'dir. Lisansın kendisi, m&uuml;lk&uuml;n b&uuml;y&uuml;kl&uuml;ğ&uuml;ne bağlı olarak 2.500 ila 20.000 USD arasında değişmektedir. İşlem genellikle 3 ila 6 ay s&uuml;rer ve ge&ccedil;miş araştırması, mali a&ccedil;ıklamalar ve planlanan m&uuml;lk hakkında ayrıntılar gerektirir. Ek satın alma maliyetleri arasında %2 damga vergisi ve satın alma fiyatının %0,5 ila %2,5'i oranında hukuki &uuml;cretler bulunmaktadır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  &Ccedil;alışma izni nasıl alınır?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'da &ccedil;alışmak isteyen her yabancı uyruklunun, işe başlamadan &ouml;nce &Ccedil;alışma Bakanlığı İş G&uuml;c&uuml; Departmanı'ndan &ccedil;alışma izni alması gerekmektedir. İşveren, neden yabancı uyruklunun gerekli olduğunu ve pozisyon i&ccedil;in uygun bir Saint Lucia veya CARICOM vatandaşının bulunmadığını g&ouml;steren bir başvuru dosyalamalıdır. Gerekli belgeler arasında ge&ccedil;erli pasaport, yeterlilik kanıtı, adli sicil belgesi ve sağlık kayıtları yer almaktadır. İşlem yaklaşık 4 ila 6 hafta s&uuml;rer. Ge&ccedil;ici izinler bir yılın altındaki istihdam i&ccedil;in, uzun s&uuml;reli izinler ise bir yılı aşan s&ouml;zleşmeler i&ccedil;in verilmektedir. Serbest &ccedil;alışan bireyler, yerel ekonomiye katkılarını g&ouml;steren bir iş planı sunmalıdır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Yatırım yoluyla vatandaşlık alabilir miyim?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Evet. Saint Lucia'nın Yatırım Yoluyla Vatandaşlık Programı (CIP) d&ouml;rt yol sunmaktadır: tek başvuru sahibi veya d&ouml;rt kişiye kadar aile i&ccedil;in Ulusal Ekonomik Fon'a (NEF) 240.000 USD bağış; onaylı bir projede en az 300.000 USD'lik gayrimenkul yatırımı (5 yıl tutulur); 500.000 USD'lik iade edilebilir H&uuml;k&uuml;met Tahvili (5 yıl tutulur, vade sonunda iade edilir); veya girişim yatırımı. İşlem, geliştirilmiş &ouml;zenli inceleme ve zorunlu m&uuml;lakat (Temmuz 2024 Mutabakat Muhtırası sonrası) dahil olmak &uuml;zere yaklaşık 6 ila 12 ay s&uuml;rer. Saint Lucia pasaportu, İngiltere ve Schengen b&ouml;lgesi dahil 145'ten fazla &uuml;lkeye vizesiz veya varışta vize erişimi sağlar. Eş, 30 yaşına kadar bağımlı &ccedil;ocuklar ve 55 yaş &uuml;st&uuml; ebeveynler/b&uuml;y&uuml;k ebeveynler dahil aile &uuml;yeleri de dahil edilebilir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Ailem Saint Lucia'ya bana katılabilir mi?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Evet. &Ccedil;alışma izniniz varsa, bakmakla y&uuml;k&uuml;ml&uuml; olduğunuz kişiler (eş ve re&scedil;it olmayan &ccedil;ocuklar) Saint Lucia'da ikamet etmek &uuml;zere bağımlı izin başvurusunda bulunabilir. Yatırım Yoluyla Vatandaşlık Programı kapsamında, asıl başvuru sahibi eşini, 30 yaşına kadar bağımlı &ccedil;ocuklarını, herhangi bir yaştaki engelli &ccedil;ocuklarını, 55 yaş &uuml;st&uuml; bağımlı ebeveyn veya b&uuml;y&uuml;k ebeveynlerini ve 18 yaş altı evlenmemiş kardeşlerini dahil edebilir. Birçok &uuml;lke vatandaşı (ABD, İngiltere, Kanada, AB, CARICOM) 6 haftaya kadar vizesiz ziyaret edebilir; daha uzun kalışlar İ&ccedil; G&ouml;&ccedil; Departmanı aracılığıyla ikamet izni başvurusu gerektirir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Emeklilik vizesi veya ikamet programı var mı?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia şu anda &ouml;zel bir emeklilik vizesi programı sunmamaktadır. Ancak emekliler, İ&ccedil; G&ouml;&ccedil; Departmanı aracılığıyla standart ikamet izni başvurusunda bulunabilir veya aynı anda daimi ikamet ve vatandaşlık hakları veren CIP programı &uuml;zerinden vatandaşlık alabilirler. Uzaktan &ccedil;alışanları ve uzun s&uuml;reli ziyaret&ccedil;ileri &ccedil;ekmek i&ccedil;in başlatılan &ldquo;Live It&rdquo; programı, bireylerin yurt dışındaki işverenler i&ccedil;in uzaktan &ccedil;alışırken adada yaşamalarına olanak tanır. İlk vizesiz kalış s&uuml;resinin (genellikle 6 hafta) &ouml;tesinde kalmak isteyen yabancı uyrukluların s&uuml;re uzatma veya ikamet izni başvurusunda bulunması gerekmektedir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  M&uuml;lk devir vergileri ve &uuml;cretleri nelerdir?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'da m&uuml;lk satın alırken alıcılar m&uuml;lk değerinin %2'si oranında damga vergisi &ouml;derken, satıcılar %2,5 &ouml;der. Hukuki &uuml;cretler genellikle satın alma fiyatının %0,5 ila %2,5'i arasında değişir. Yabancı alıcılar ek olarak Yabancı Arazi Sahipliği Lisansı &uuml;creti (2.500 ila 20.000 USD) ve Uygunluk Belgesi (3.000 ila 10.000 USD) i&ccedil;in b&uuml;t&ccedil;e ayırmalıdır. &Ccedil;oğu durumda konut m&uuml;lk&uuml; &uuml;zerinde yıllık emlak vergisi yoktur, ancak ticari m&uuml;lkler yerel meclis tarafından belirlenen bir emlak vergisine tabi olabilir. Emlak&ccedil;ı komisyonları genellikle %5'tir ve satıcı tarafından &ouml;denir.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ============================== -->
+          <!-- İŞ OPERASYONLARI -->
+          <!-- ============================== -->
+          <div id="operations">
+            <div class="faq-category-header">
+              <span class="cat-icon">&#9881;</span> İş Operasyonları
+              <span class="faq-count">7 soru</span>
+            </div>
+            <div class="faq-group accordion-group">
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Ticari bankacılık se&ccedil;enekleri nelerdir?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'da Bank of Saint Lucia, 1st National Bank, Royal Bank of Canada (RBC), CIBC FirstCaribbean ve Eastern Caribbean Amalgamated Bank (ECAB) dahil olmak &uuml;zere yaklaşık 12 banka bulunmaktadır. T&uuml;m b&uuml;y&uuml;k bankalar &ccedil;evrimi&ccedil;i bankacılık, havale, &ccedil;oklu para birimi hesapları ve ticari hizmetler sunan ticari hesaplar sağlamaktadır. Birka&ccedil; banka, uygun belgelerle mukim olmayanlara uzaktan hesap a&ccedil;maya izin vermektedir. Doğu Karayip Doları (XCD), ABD dolarına sabit kur &uuml;zerinden sabitlenmiştir (XCD 2,70 = USD 1,00) ve bu durum kur istikrarı sağlar. Wise ve Payoneer gibi uluslararası dijital bankacılık hizmetleri de adadan faaliyet g&ouml;steren işletmeler tarafından yaygın olarak kullanılmaktadır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Adada internet bağlantısı nasıl?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'daki internet altyapısı son yıllarda &ouml;nemli &ouml;l&ccedil;&uuml;de iyileşmiştir. Ana sağlayıcılar Flow (Liberty Latin America) ve Digicel'dir ve Castries, Rodney Bay ve Gros Islet gibi kentsel alanlarda &ccedil;oğu iş ihtiyacı i&ccedil;in uygun geniş bant hızları sunmaktadır. H&uuml;k&uuml;metin kalkınma ortaklarıyla yaptığı anlaşma &ccedil;er&ccedil;evesinde ada genelinde bir fiber optik geniş bant ağı yaygınlaştırılmaktadır. 60 Mbps hızdaki internet planları aylık yaklaşık 43 ila 55 USD'ye mal olmaktadır. Mobil veri (4G LTE) yaygın olarak mevcuttur; 10 GB planlar yaklaşık 35 USD civarındadır. Ana ticari b&ouml;lgelerde bağlantı g&uuml;venilirdir, ancak daha uzak ve kırsal konumlarda hızlar d&uuml;ş&uuml;k olabilir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  İşletmem i&ccedil;in yabancı işçi &ccedil;alıştırabilir miyim?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Evet, ancak her yabancı &ccedil;alışan &Ccedil;alışma Bakanlığı'ndan &ccedil;alışma izni almak zorundadır. İşveren, pozisyonun nitelikli bir Saint Lucia veya CARICOM vatandaşı tarafından doldurulamayacağını kanıtlamalıdır. Belirli mesleki niteliklere sahip CARICOM vatandaşları (&uuml;niversite mezunları, medya &ccedil;alışanları, sanat&ccedil;ılar, m&uuml;zisyenler, sporcular) CARICOM Tek Pazar ve Ekonomisi (CSME) serbest dolaşım h&uuml;k&uuml;mleri kapsamında daha &ouml;zg&uuml;rce hareket edebilir. &Ccedil;alışma izni başvuruları 4 ila 6 haftada işlenir. İşverenler, yerli veya yabancı t&uuml;m &ccedil;alışanlar i&ccedil;in NIC katkılarını (işveren payı %5) &ouml;demekle y&uuml;k&uuml;ml&uuml;d&uuml;r. Asgari &uuml;cret ve iş yasası korumaları yabancı işçilere eşit olarak uygulanır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Başlıca iş alanları ve ticari konumlar nerelerdir?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Başkent Castries, ana liman, &ccedil;oğu banka, devlet daireleri ve Merkez Pazar'a ev sahipliği yapan birincil ticari ve y&ouml;netim merkezidir. Gros Islet'teki Rodney Bay, Baywalk Mall, marina, &ccedil;ok sayıda restoran ve giderek artan sayıda profesyonel hizmet ofisiyle adanın turizm ve perakende merkezidir -- birçok g&ouml;&ccedil;men iş sahibinin tercih ettiği &uuml;st&uuml;r. G&uuml;neydeki Vieux Fort, Hewanorra Uluslararası Havalimanı'na ve hafif imalat ve ihracata y&ouml;nelik işletmeler i&ccedil;in tasarlanmış Vieux Fort Serbest B&ouml;lgesi'ne ev sahipliği yapmaktadır. G&uuml;neybatı kıyısındaki Soufriere, Pitons UNESCO D&uuml;nya Mirası Alanı yakınında miras turizmi ve eko-turizm işletmelerinin merkezidir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Ortak &ccedil;alışma alanları (co-working) mevcut mu?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'daki ortak &ccedil;alışma alanı sahnesinde, h&uuml;k&uuml;metin &ldquo;Live It&rdquo; programının &ccedil;ektiği dijital g&ouml;&ccedil;ebe ve uzaktan &ccedil;alışan artışıyla birlikte gelişme s&uuml;rmektedir. Rodney Bay ve Castries'te az sayıda ama b&uuml;y&uuml;yen sayıda ortak &ccedil;alışma alanı se&ccedil;eneği bulunmaktadır. Birka&ccedil; otel ve tatil k&ouml;y&uuml; de konferans odaları ve y&uuml;ksek hızlı internet sunan iş merkezleri sağlamaktadır. Daha kalıcı d&uuml;zenlemeler i&ccedil;in Castries ve Rodney Bay'de ticari ofis alanı aylık yaklaşık metrekare başına 10 ila 20 USD arasındadır. Birçok uzaktan &ccedil;alışan ve girişimci, Rodney Bay b&ouml;lgesindeki g&uuml;venilir WiFi'lı kafeleri resmi olmayan ortak &ccedil;alışma alanı olarak kullanmaktadır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  İthalat/ihracat d&uuml;zenlemeleri nelerdir?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia, &uuml;ye olmayan &uuml;lkelerden yapılan ithalata Ortak Dış Tarife (CET) uygulayan CARICOM &uuml;yesidir. İthalat g&uuml;mr&uuml;k vergileri &uuml;r&uuml;n kategorisine g&ouml;re değişir ve belirli mallar Ticaret Bakanlığı'ndan ithalat lisansı gerektirir. Vieux Fort Serbest B&ouml;lgesi'ndeki işletmeler, ihracata y&ouml;nelik imalat i&ccedil;in hammadde ve ekipmanın g&uuml;mr&uuml;ks&uuml;z ithalatından yararlanır. Saint Lucia'dan diğer CARICOM &uuml;ye devletlerine yapılan ihracat, tek pazar kapsamında tercihli tarife uygulamasından faydalanır. İthalatta giriş noktasında %12,5 oranında KDV uygulanır. Saint Lucia ayrıca Ekonomik Ortaklık Anlaşması (EPA) kapsamında Avrupa Birliği ile tercihli ticaret anlaşmalarından yararlanmaktadır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Hangi para birimi kullanılır ve d&ouml;viz kontrolleri var mı?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Resmi para birimi, ABD dolarına sabit kur &uuml;zerinden sabitlenen Doğu Karayip Doları'dır (XCD) (XCD 2,70 = USD 1,00). ABD doları, &ouml;zellikle turistik b&ouml;lgelerde ada genelinde yaygın olarak kabul edilmektedir. Yerli şirketler, Doğu Karayip Merkez Bankası (ECCB) tarafından y&ouml;netilen d&ouml;viz kontrol d&uuml;zenlemelerine tabidir ve b&uuml;y&uuml;k dışarı d&ouml;viz işlemleri i&ccedil;in onay gerektirir. Ancak IBC'ler d&ouml;viz kontrollerinden tamamen muaftır, yani herhangi bir para biriminde herhangi bir kısıtlama olmaksızın serbestçe tutabilir, transfer edebilir ve işlem yapabilirler. Bu, uluslararası işletmeler i&ccedil;in IBC yapısının b&uuml;y&uuml;k avantajlarından biridir.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ============================== -->
+          <!-- PRATİK YAŞAM -->
+          <!-- ============================== -->
+          <div id="practical">
+            <div class="faq-category-header">
+              <span class="cat-icon">&#127796;</span> Pratik Yaşam
+              <span class="faq-count">7 soru</span>
+            </div>
+            <div class="faq-group accordion-group">
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Saint Lucia'da yaşam maliyeti nasıl?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'da yaşam maliyeti ABD'ye g&ouml;re yaklaşık %40-55 daha d&uuml;ş&uuml;kt&uuml;r, ancak ithal &uuml;r&uuml;nler pahalı olabilir. Tek bir kişi, kira hari&ccedil; aylık yaklaşık 1.200 USD harcama bekleyebilirken, d&ouml;rt kişilik bir ailenin yaklaşık 3.200 USD'ye ihtiyacı olacaktır. Tek yatak odalı bir dairenin kirası aylık 400 ila 800 USD arasında değişir; l&uuml;ks sahil kenarı m&uuml;lkler &ccedil;ok daha y&uuml;ksektir. Faturalar (elektrik, su, internet) aylık yaklaşık 150 ila 200 USD'dir. Orta segment bir restoranda iki kişilik yemek yaklaşık 35 ila 75 USD'ye mal olur. Yerel &uuml;retim &uuml;r&uuml;nler, taze deniz &uuml;r&uuml;nleri ve sokak yemeği ithal &uuml;r&uuml;nlerden &ouml;nemli &ouml;l&ccedil;&uuml;de daha ucuzdur.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Saint Lucia, iş sahipleri ve g&ouml;&ccedil;menler i&ccedil;in g&uuml;venli mi?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia, &ouml;zellikle ana ticari ve turistik alanlarda iş sahipleri ve g&ouml;&ccedil;menler i&ccedil;in genel olarak g&uuml;venlidir. Rodney Bay, Soufriere, Marigot Bay ve Gros Islet gibi turistik merkezler yoğun şekilde polis g&ouml;zetimindedir ve g&uuml;venli kabul edilir. Su&ccedil; vakaları yaşanır, ağırlıklı olarak Castries ve Vieux Fort'un d&uuml;ş&uuml;k gelirli mahallelerinde olup yabancılara veya turistlere y&ouml;nelik değil, genellikle &ccedil;etelerle bağlantılıdır. Toplam raporlanan su&ccedil;lar, iyileşen dava &ccedil;&ouml;z&uuml;m oranlarıyla son yıllarda azalmıştır. Standart &ouml;nlemler ge&ccedil;erlidir: pahalı eşyaları g&ouml;sterişli taşımayın, g&uuml;venilir ulaşım kullanın ve ev ve iş yerlerinizi g&uuml;venli tutun. G&ouml;&ccedil;men iş sahiplerinin &ccedil;oğunluğu adada rahat&ccedil;a yaşadıklarını ve &ccedil;alıştıklarını bildirmektedir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Sağlık sistemi nasıl?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'da Castries'teki adanın ana acil tesis olan Victoria Hastanesi'nin &ouml;nc&uuml;l&uuml;ğ&uuml;nde, birka&ccedil; b&ouml;lge hastanesi ve sağlık merkeziyle desteklenen bir kamu sağlık sistemi bulunmaktadır. Sağlık altyapısı genel tıbbi ihtiya&ccedil;ları karşılayabilir, ancak Martinik, Barbados veya ABD'ye tıbbi tahliye gerektirebilecek uzman veya karmaşık i&ccedil;lem i&ccedil;in sınırlıdır. Tapion Hastanesi, daha y&uuml;ksek standartlarda bakım sunan &ouml;zel bir tesistir. G&ouml;&ccedil;menler ve iş sahipleri i&ccedil;in &ouml;zel sağlık sigortası şiddetle tavsiye edilir, &ccedil;&uuml;nk&uuml; genellikle peşin nakit &ouml;deme gerekir. H&uuml;k&uuml;met, yeni poliklinikler ve genişletilmiş acil hizmetler dahil sağlık iyileştirmelerine aktif olarak yatırım yapmaktadır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Adada nasıl ulaşım sağlarım?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>İş sahipleri i&ccedil;in en pratik se&ccedil;enek araba kiralamak veya satın almaktır. Kiralık arabalar g&uuml;nl&uuml;k yaklaşık 70 USD'den başlar ve ziyaret&ccedil;ilerin havalimanı, kiralama acentası veya polis karakolundan alınan ge&ccedil;ici s&uuml;r&uuml;c&uuml; belgesi gerekir (20 USD, 3 ay ge&ccedil;erli). Trafik İngiltere tarzı sol şerittendir ve adanın dağlık arazisi, dikkatli s&uuml;r&uuml;ş gerektiren virajlı ve dar yollar anlamına gelir. Toplu minib&uuml;sler ucuzdur (sefer başına 2,50 ila 8,00 EC$) ve kasabalar arası &ccedil;oğu g&uuml;zergahı kapsar. Taksiler taksimetresizdir, ancak &uuml;cretler pazarlık edilebilir veya &ouml;nceden ayarlanabilir. Su taksileri Castries'i Soufriere'e bağlar ve l&uuml;ks tatil k&ouml;ylerine hizmet verir; feribot hatları Saint Lucia'yı Martinik, Dominika ve Guadeloupe'a bağlar.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Hangi diller konuşuluyor?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>İngilizce, Saint Lucia'nın resmi dilidir ve t&uuml;m h&uuml;k&uuml;met, hukuk ve iş bağlamlarında kullanılır. Ancak n&uuml;fusun yaklaşık %95'i aynı zamanda adanın hem Fransa hem İngiltere altındaki s&ouml;m&uuml;rge tarihini yansıtan Fransızca tabanlı bir kreol dili olan Saint Lucia Kreolcesi'ni (Kweyol veya Patwa) konuşur. Kweyol g&uuml;nl&uuml;k konuşmada, yerel medyada ve k&uuml;lt&uuml;rel etkinliklerde yaygın olarak kullanılır. İngilizce ile iş y&uuml;r&uuml;tmekte hi&ccedil;bir zorluk yaşamazsınız, ancak birka&ccedil; Kweyol ifade &ouml;ğrenmek yerel ortaklar ve &ccedil;alışanlarla yakınlık kurmaya yardımcı olabilir. H&uuml;k&uuml;met ve medya bilgileri d&uuml;zenli olarak hem İngilizce hem de Kweyol olarak sunmaktadır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Yıl boyunca iklim nasıl?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia, yıl boyunca ortalama 25-29 derece Celsius (77-85 derece Fahrenheit) sıcak sıcaklıklarla tropikal deniz iklimine sahiptir. Kurak mevsim Ocak'tan Haziran'a kadar s&uuml;rer ve zirve turizm sezonudur. Yağışlı mevsim Temmuz'dan Aralık'a kadardır; Atlantik kasırga sezonu resmi olarak 1 Haziran'dan 30 Kasım'a kadardır. Yağmur yağışları genellikle uzun s&uuml;reli olmaktan ziyade kısa ve şiddetlidir. Adanın dağlık i&ccedil; kısımları kıyı b&ouml;lgelerinden daha fazla yağış alır. İş faaliyetleri nadiren hava koşulları nedeniyle aksatılır, ancak adadaki fiziksel operasyonlar i&ccedil;in kasırga hazırlık planlaması tavsiye edilir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Elektrik sistemi nasıl?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia, İngiltere tarzı Type G &uuml;&ccedil; pinli dikd&ouml;rtgen fişlerle 50 Hz'de 240 volt kullanmaktadır. ABD, Kanada veya 110V sistem kullanan diğer &uuml;lkelerden ekipman getiriyorsanız, hem voltaj d&ouml;n&uuml;şt&uuml;r&uuml;c&uuml; hem de fiş adapt&ouml;r&uuml;ne ihtiyacınız olacaktır. Birçok modern elektronik cihaz (diz&uuml;st&uuml; bilgisayarlar, telefon şarj cihazları) &ccedil;ift voltaj &ouml;zelliğine sahiptir (110-240V) ve yalnızca fiş adapt&ouml;r&uuml; gerektirir. Elektrik St. Lucia Electricity Services Limited (LUCELEC) tarafından sağlanmaktadır ve tipik bir hane i&ccedil;in aylık ortalama elektrik maliyeti yaklaşık 100 ila 150 USD'dir. Kentsel alanlarda elektrik kesintileri nadirdir ancak olabilir, bu nedenle iş a&ccedil;ısından kritik operasyonlar i&ccedil;in yedek jenerat&ouml;r veya UPS &ouml;nerilmektedir.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ============================== -->
+          <!-- DİJİTAL G&Ouml;&Ccedil;EBELER -->
+          <!-- ============================== -->
+          <div id="digital-nomads">
+            <div class="faq-category-header">
+              <span class="cat-icon">&#128187;</span> Dijital G&ouml;&ccedil;ebeler &amp; Uzaktan &Ccedil;alışma
+              <span class="faq-count">3 soru</span>
+            </div>
+            <div class="faq-group accordion-group">
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Saint Lucia'da dijital g&ouml;&ccedil;ebe vizesi var mı?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Evet. Saint Lucia, uzaktan &ccedil;alışanların ve dijital g&ouml;&ccedil;ebelerin yurt dışında bulunan işverenler veya m&uuml;şteriler i&ccedil;in &ccedil;alışırken adada yaşamalarına olanak tanıyan &ldquo;Live It&rdquo; programını başlatmıştır. Program, Saint Lucia dışından gelir elde eden ve ge&ccedil;ici olarak yerleşmek isteyen bireyler i&ccedil;in tasarlanmıştır. Başvuru sahipleri, yurt dışı m&uuml;şterilerle uzaktan istihdam veya serbest &ccedil;alışma kanıtı ve kalış s&uuml;releri boyunca kendilerini ge&ccedil;indirecek yeterli gelir g&ouml;stermelidir. Program, standart 6 haftalık vizesiz girişe uzun vadeli bir alternatif sağlar ve h&uuml;k&uuml;metin g&ouml;&ccedil; portalı &uuml;zerinden işlenmektedir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Dijital g&ouml;&ccedil;ebeler Saint Lucia'da vergi &ouml;der mi?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia b&ouml;lgesel vergi sistemi uygulamaktadır, yani yalnızca Saint Lucia kaynaklı gelir vergilendirilebilir. Yalnızca yabancı m&uuml;şteriler veya işverenlerden gelir elde eden dijital g&ouml;&ccedil;ebeler genellikle Saint Lucia gelir vergisine tabi değildir. Ancak birçok &uuml;lke vatandaşlarını veya mukimlerini fiziksel olarak nerede bulunduklarına bakılmaksızın d&uuml;nya genelindeki gelir &uuml;zerinden vergilendirdiğinden, kendi &uuml;lkenizdeki vergi y&uuml;k&uuml;ml&uuml;l&uuml;klerinizi doğrulamanız gerekir. &Ccedil;oğu &uuml;lkeyle geniş kapsamlı &ccedil;ifte vergilendirme anlaşmalarının olmaması, yabancı vergi kredisi alamayabileceğiniz anlamına gelir; bu nedenle her iki yarg&icirc; b&ouml;lgesine de aşina bir vergi uzmanına danışmak &ouml;nemlidir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Adada uzaktan &ccedil;alışanlar i&ccedil;in g&uuml;nl&uuml;k yaşam nasıl?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'daki uzaktan &ccedil;alışanlar genellikle internet bağlantısının en g&uuml;venilir olduğu ve olanakların bol olduğu Rodney Bay veya Castries'i &uuml;s olarak se&ccedil;er. Rodney Bay b&ouml;lgesi restoranlar, plajlar, alışveriş ve marina ile yakın mesafede y&uuml;r&uuml;nebilir bir yaşam tarzı sunar. Saat dilimi (AST, UTC-4) yaz aylarında ABD Doğu iş saatleriyle uyumludur ve kış aylarında bir saat ileridedir; bu da Kuzey Amerikalı ekiplerle işbirliği yapmayı pratik kılar. Nispeten d&uuml;ş&uuml;k yaşam maliyeti, tropikal iklim ve a&ccedil;ık hava yaşam tarzı (Pitons'a tırmanma, plaj erişimi, dalış) onu &ccedil;ekici bir &uuml;s haline getirir. &Ccedil;oğu uzaktan &ccedil;alışan i&ccedil;in ana uyum, b&uuml;y&uuml;k metropol alanlarından daha rahat olan ada yaşam temposudur.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ============================== -->
+          <!-- HUKUK & UYUM -->
+          <!-- ============================== -->
+          <div id="legal-compliance">
+            <div class="faq-category-header">
+              <span class="cat-icon">&#9878;</span> Hukuk &amp; Uyum
+              <span class="faq-count">4 soru</span>
+            </div>
+            <div class="faq-group accordion-group">
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Saint Lucia hangi hukuk sistemini kullanıyor?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia, ABD, İngiltere, Kanada ve diğer İngiliz Milletler Topluluğu &uuml;lkelerinden gelen iş sahiplerine tanıdık gelecek olan İngiliz ortak hukuk sistemini takip etmektedir. Mahkeme sistemi, bir Y&uuml;ksek Adalet Mahkemesi ve bir Temyiz Mahkemesi ile Doğu Karayip Y&uuml;ksek Mahkemesi'nin (ECSC) par&ccedil;asıdır. Temmuz 2023'ten itibaren nihai temyizler, daha &ouml;nce Londra'daki Privy Council'in yerini alan Port of Spain, Trinidad'daki <strong>Karayip Adalet Divanı (CCJ)</strong> tarafından dinlenmektedir. Şirketler hukuku esas olarak Şirketler Yasası ve Uluslararası İş Şirketleri Yasası tarafından y&ouml;netilmektedir. Yasal &ccedil;er&ccedil;eve k&ouml;kl&uuml;d&uuml;r ve m&uuml;lkiyet hakları, s&ouml;zleşme uygulanması ve fikri m&uuml;lkiyet i&ccedil;in g&uuml;&ccedil;l&uuml; korumalar sağlamaktadır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Bir IBC i&ccedil;in yıllık uyum gereksinimleri nelerdir?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>IBC'ler, Şirketler Sicili'nde aktif statüllerini korumak i&ccedil;in yıllık h&uuml;k&uuml;met yenileme &uuml;creti &ouml;demek zorundadır. Her zaman Saint Lucia'da bir kayıtlı acenta ve kayıtlı ofis bulundurmalıdırlar. IBC'lerin h&uuml;k&uuml;mete yıllık mali tablo sunması veya zorunlu denetimden ge&ccedil;mesi gerekmemekle birlikte, şirketin mali durumunu yansıtan yeterli muhasebe kayıtları tutmaları gerekir. Y&ouml;neticilerin yılda en az bir y&ouml;netim kurulu toplantısı yapması gerekmektedir ve bu toplantı telefon veya video konferans yoluyla ger&ccedil;ekleştirilebilir. Yıllık yenileme &uuml;cretinin &ouml;denmemesi şirketin sicilden d&uuml;ş&uuml;r&uuml;lmesiyle sonu&ccedil;lanır, ancak &ouml;denmemiş &uuml;cretler ve cezaların &ouml;denmesiyle sınırlı bir s&uuml;re i&ccedil;inde geri y&uuml;kleme yapılabilir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Kara para aklamayı &ouml;nleme (AML) uyumu var mı?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Evet. Saint Lucia kapsamlı kara para aklama &ouml;nleme mevzuatına sahiptir ve uluslararası standartlara bağlıdır. Kara Para Aklamayı &Ouml;nleme Yasası ve Su&ccedil; Gelirlerini &Ouml;nleme Yasası, t&uuml;m finansal kuruluşların ve belirlenmiş finansal olmayan işletmelerin m&uuml;şteri durum tespiti (KYC) yapmasını, şüpheli işlemleri bildirmesini ve kayıt tutmasını gerektirmektedir. IBC'ler i&ccedil;in kayıtlı acentalar, ger&ccedil;ek lehdarların kimliğini doğrulamak ve bu bilgileri saklamakla y&uuml;k&uuml;ml&uuml;d&uuml;r. Saint Lucia, Karayip Mali Eylem G&ouml;rev G&uuml;c&uuml;'ne (CFATF) katılmakta ve otomatik finansal bilgi değişimi i&ccedil;in OECD'nin Ortak Raporlama Standardı'nı (CRS) imzalamıştır. AML d&uuml;zenlemelerine uyumsuzluk &ouml;nemli cezalara yol a&ccedil;abilir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Saint Lucia'da fikri m&uuml;lkiyeti koruyabilir miyim?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Evet. Saint Lucia, Şirketler ve Fikri M&uuml;lkiyet Sicili (ROCIP) aracılığıyla fikri m&uuml;lkiyet koruması sağlamaktadır. Marka, patent ve end&uuml;striyel tasarım tescil ettirebilirsiniz. Saint Lucia, D&uuml;nya Fikri M&uuml;lkiyet &Ouml;rg&uuml;t&uuml;'n&uuml;n (WIPO) &uuml;yesidir ve Sınai M&uuml;lkiyetin Korunması i&ccedil;in Paris S&ouml;zleşmesi'ne katılmıştır. Telif hakkı koruması Telif Hakkı Yasası kapsamında otomatiktir ve tescil gerektirmez. Uluslararası d&uuml;zeyde faaliyet g&ouml;steren işletmeler i&ccedil;in, iş yaptığınız her yarg&icirc; b&ouml;lgesinde fikri m&uuml;lkiyetinizi tescil ettirmeniz tavsiye edilir, &ccedil;&uuml;nk&uuml; Saint Lucia tescili yalnızca &uuml;lke i&ccedil;inde koruma sağlar.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ============================== -->
+          <!-- D&Uuml;ZENLEYİCİ & İZİNLER -->
+          <!-- ============================== -->
+          <div id="regulatory">
+            <div class="faq-category-header">
+              <span class="cat-icon">&#128220;</span> D&uuml;zenleyici &amp; İzinler
+              <span class="faq-count">6 soru</span>
+            </div>
+            <div class="faq-group accordion-group">
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  İşletmem i&ccedil;in &ccedil;evresel izin gerekiyor mu?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>İşletmenizin t&uuml;r&uuml;ne ve konumuna bağlıdır. Fiziksel Planlama ve Kalkınma Yasası kapsamında 18 kalkınma kategorisi zorunlu &Ccedil;evresel Etki Değerlendirmesi (EIA) gerektirmektedir. Bunlar arasında belirli bir b&uuml;y&uuml;kl&uuml;ğ&uuml; aşan oteller, t&uuml;m kıyı şeridi geliştirmeleri, marinalar, end&uuml;striyel tesisler, taş ocakları ve sulak alanlar veya ulusal parklar gibi hassas alanlardaki projeler yer almaktadır. Pitons Y&ouml;netim Alanı'ndaki (UNESCO D&uuml;nya Mirası Alanı) t&uuml;m gelişmeler &ouml;zellikle sıkı &ccedil;evresel d&uuml;zenlemelerle karşı karşıyadır. Projeniz 18 kategoriye girmese bile, Kalkınma Kontrol Otoritesi (DCA) projenizin &ccedil;evreyi &ouml;nemli &ouml;l&ccedil;&uuml;de etkileyebileceğini belirlerse yine de EIA isteyebilir. Projeniz kıyı yakınındaysa veya &ouml;nemli arazi kullanımı değişiklikleri i&ccedil;eriyorsa profesyonel EIA danışmanlığı i&ccedil;in b&uuml;t&ccedil;e ayırın.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Saint Lucia'da inşaat ruhsatı nasıl alınır?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>T&uuml;m inşaatlar Kalkınma Kontrol Otoritesi'nin (DCA) onayını gerektirir. S&uuml;re&ccedil; genellikle yaklaşık 42 g&uuml;n (6 hafta) s&uuml;rer. Onaylı mimari ve m&uuml;hendislik &ccedil;izimleri, arazi tapusu veya harita planı ve Sağlık Bakanlığı, İtfaiye ve (gerekiyorsa) &Ccedil;evresel Etki Değerlendirmesi'nden &ouml;n izinler sunmanız gerekecektir. &Uuml;cretler konutlar i&ccedil;in 20 EC$'dan ve ticari projeler i&ccedil;in metrekare başına 0,30 EC$'dan başlar, ancak g&uuml;ncellenmiş &uuml;cret yapısı Mart 2025'te y&uuml;r&uuml;rl&uuml;ğe girmiştir. Onaylandıktan sonra inşaata 12 ay i&ccedil;inde başlamanız ve 30 ay i&ccedil;inde tamamlamanız gerekmektedir. DCA'ya 1-758-468-4438 numarasından ulaşılabilir. T&uuml;m binalar, 150 mph'ye kadar r&uuml;zgar hızlarına dayanacak yapılar gerektiren OECS İnşaat Y&ouml;netmeliği'ne uygun olmalıdır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Marka tescili veya fikri m&uuml;lkiyet koruması nasıl yapılır?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'da fikri m&uuml;lkiyet, Şirketler ve Fikri M&uuml;lkiyet Sicili (ROCIP) aracılığıyla tescil edilir. Markalar, Markalar Yasası (Cap. 13.10) kapsamında korunur ve s&uuml;resiz olarak yenilenebilir şekilde 10 yıl ge&ccedil;erlidir. Tescil s&uuml;reci başvuru, inceleme ve ilan aşamalarını i&ccedil;erir ve genellikle 6 ila 12 ay s&uuml;rer. Patentler dosyalama tarihinden itibaren 20 yıl korunur. Telif hakkı koruması Telif Hakkı Yasası kapsamında otomatiktir ve yazarın hayatı art&icirc; 50 yıl ge&ccedil;erlidir. Saint Lucia WIPO ve Paris S&ouml;zleşmesi &uuml;yesidir, ancak Madrid Protokol&uuml; &uuml;yesi değildir; bu nedenle uluslararası marka tescilleri ayrı olarak ROCIP'e yapılmalıdır. Fikri m&uuml;lkiyet hakları Doğu Karayip Y&uuml;ksek Mahkemesi aracılığıyla uygulanabilir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Saint Lucia'dan &ccedil;evrimi&ccedil;i iş y&uuml;r&uuml;tebilir miyim?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Evet. Saint Lucia, elektronik s&ouml;zleşmelere ve dijital imzalara kağıt tabanlılarla aynı yasal ge&ccedil;erliliği veren Elektronik İşlemler Yasası (2011) aracılığıyla dijital işletmeyi destekleyen bir yasal &ccedil;er&ccedil;eveye sahiptir. IBC Pinnacle Sicili tamamen &ccedil;evrimi&ccedil;i şirket kuruluşuna izin vermektedir. Veri yerelleştirme gereksinimleri olmadığından, yurt dışında barındırılan bulut hizmetlerini kullanabilirsiniz. Yeni &Ouml;deme Sistemi ve Hizmetleri Yasası (2025), fintech inovasyonu i&ccedil;in d&uuml;zenleyici deneme alanı dahil &ouml;deme hizmeti sağlayıcıları i&ccedil;in bir &ccedil;er&ccedil;eve oluşturmaktadır. Kentsel alanlarda internet bağlantısı iyidir (Digicel fiber &uuml;zerinden 1 Gbps'ye kadar) ve Starlink uydu hizmeti 2024 sonundan itibaren ada genelinde mevcuttur. Başlıca zorluklar sınırlı yerel &ouml;deme ağ ge&ccedil;idi se&ccedil;enekleri ve sınır &ouml;tesi işlemler i&ccedil;in &ouml;zel bir dijital hizmetler KDV rejiminin olmamasıdır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  İşletmeler i&ccedil;in kasırga sigortası zorunlu mu?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'da işletmeler i&ccedil;in kasırga sigortası yasal zorunluluk değildir, ancak şiddetle tavsiye edilmektedir. Atlantik kasırga sezonu 1 Haziran'dan 30 Kasım'a kadar s&uuml;rer. T&uuml;m binalar, Kategori 4/5 kasırga kuvvetindeki r&uuml;zgarlara (150 mph) dayanacak yapılar gerektiren OECS İnşaat Y&ouml;netmeliği'ne uygun olmalıdır. &Ccedil;oğu ticari kredi kuruluşu, kredi koşulu olarak m&uuml;lk sigortası isteyecektir. Birka&ccedil; yerel ve b&ouml;lgesel sigorta şirketi, kasırga, sel ve deprem risklerini kapsayan kapsamlı m&uuml;lk teminatı sunmaktadır. Yaygın sağlayıcılar arasında NAGICO, Guardian General Caribbean ve ECICS bulunmaktadır. İş kesintisi teminatı da mevcuttur. H&uuml;k&uuml;met afet yardımı sınırlıdır, bu nedenle iş s&uuml;rekliliği i&ccedil;in &ouml;zel teminat şarttır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Yabancı mahkeme kararları Saint Lucia'da nasıl icra edilir?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>İngiliz Milletler Topluluğu &uuml;lkelerinden gelen yabancı mahkeme kararları Karşılıklı Kararların İcrası Yasası kapsamında icra edilebilir. Diğer &uuml;lkeler i&ccedil;in icra, karara dayalı bor&ccedil; davası yoluyla ortak hukuk yollarıyla m&uuml;mk&uuml;nd&uuml;r. Saint Lucia'nın New York S&ouml;zleşmesi'ne (1958) <strong>taraf olmadığını</strong> unutmayın; bu nedenle yabancı tahkim kararları ortak hukuk ilkeleri veya yerli Tahkim Yasası aracılığıyla icra edilmelidir. Ancak Saint Lucia yatırımcı-devlet uyuşmazlıkları i&ccedil;in ICSID S&ouml;zleşmesi'ne taraftır. Temmuz 2023'ten itibaren <strong>Karayip Adalet Divanı (CCJ)</strong>, Privy Council'in yerini alarak nihai temyiz mahkemesi olarak g&ouml;rev yapmaktadır. Y&uuml;ksek Mahkeme'deki hukuk davaları genellikle 12 ila 24 ay s&uuml;rer; avukat maliyetleri saatlik yaklaşık 300 ila 500 EC$'dır. New York S&ouml;zleşmesi'ne &uuml;ye bir devlette merkez belirleyen tahkim maddeleri &ouml;nerilmektedir.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ============================== -->
+          <!-- &Ouml;ZEL SEKT&Ouml;RLER -->
+          <!-- ============================== -->
+          <div id="specialized">
+            <div class="faq-category-header">
+              <span class="cat-icon">&#128161;</span> &Ouml;zel Sekt&ouml;rler
+              <span class="faq-count">6 soru</span>
+            </div>
+            <div class="faq-group accordion-group">
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Saint Lucia'da kenevir veya esrar işletmesi kurabilir miyim?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Hen&uuml;z ticari olarak değil. Saint Lucia, Esrar Reformu Yasası (2022) kapsamında 30 grama kadar kişisel kullanım i&ccedil;in esrar bulundurma ve hane başına 4 bitkiye kadar ev i&ccedil;i yetiştirmeyi su&ccedil; olmaktan &ccedil;ıkarmıştır. Lisanslama &ccedil;er&ccedil;evesini geliştirmek &uuml;zere bir Esrar Komisyonu kurulmuştur, ancak 2026 başı itibarıyla hi&ccedil;bir ticari ekim, işleme veya perakende satış lisansı verilmemiştir. Tıbbi esrar mevzuatı beklenmekte ancak hen&uuml;z yasalaşmamıştır. Yatırımcılar lisanslama konusundaki g&uuml;ncellemeler i&ccedil;in Esrar Komisyonu'nu takip etmelidir. ABD bankalarıyla muhabir bankacılık ilişkileri nedeniyle esrarla ilgili faaliyetler i&ccedil;in bankacılık son derece zorludur. Jamaika, esrar lisanslamada en ileri Karayip &uuml;lkesidir ve Saint Lucia'nın nihai &ccedil;er&ccedil;evesi i&ccedil;in model olabilir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Yat veya kiralık tekne işletmesini nasıl tescil ederim?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Gemiler, Denizcilik İşleri Departmanı aracılığıyla Saint Lucia bayrağı altında tescil edilebilir. Kiralama operasyonları i&ccedil;in hem gemi tescili hem de turizm operat&ouml;r lisansı gereklidir. Rodney Bay Marina (IGY), 285 feet'e kadar tekneler i&ccedil;in 253 bağlama yeri ve tam hizmet tersanesiyle birincil yatçılık merkezidir. Marigot Bay butik marina hizmetleri sunmaktadır. Ada, her Aralık ayında 200'den fazla yat ve 1.200'den fazla m&uuml;rettebat getiren Atlantic Rally for Cruisers (ARC) yarışının bitişine ev sahipliği yapmaktadır. Kiralama lisansı gereksinimleri gemi denetimlerini, g&uuml;venlik ekipmanı uyumunu ve m&uuml;rettebat sertifikasyonunu i&ccedil;ermektedir. SLASPA denizcilik d&uuml;zenlemelerini denetlerken, turizmle ilgili izinler Turizm Bakanlığı aracılığıyla koordine edilmektedir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Ticari uyuşmazlıklar i&ccedil;in hangi tahkim se&ccedil;enekleri mevcuttur?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia, geleneksel davanın &ouml;tesinde &ccedil;eşitli uyuşmazlık &ccedil;&ouml;z&uuml;m se&ccedil;enekleri sunmaktadır. Tahkim Yasası (2001) hem yerli hem de uluslararası tahkim i&ccedil;in bir &ccedil;er&ccedil;eve sağlamaktadır. Saint Lucia'nın New York S&ouml;zleşmesi'ne <strong>taraf olmadığını</strong> unutmayın; bu nedenle yabancı tahkim kararlarının icrası ortak hukuk ilkelerine dayanır; ancak Saint Lucia yatırımcı-devlet uyuşmazlıkları i&ccedil;in ICSID S&ouml;zleşmesi'ne taraftır. Arabuluculuk hizmetleri istihdam uyuşmazlıkları i&ccedil;in &Ccedil;alışma Departmanı ve ticari konular i&ccedil;in &ouml;zel uygulamacılar aracılığıyla mevcuttur. İş Mahkemesi haksız işten &ccedil;ıkarma davalarını, T&uuml;ketici Koruma Mahkemesi ise t&uuml;ketici şikayetlerini ele almaktadır. Uluslararası iş uyuşmazlıkları i&ccedil;in, New York S&ouml;zleşmesi'ne &uuml;ye bir devlette (Londra, New York, Barbados gibi) harici merkez belirleyen tahkim maddeleri &ouml;nerilmektedir. Temmuz 2023'ten itibaren <strong>Karayip Adalet Divanı (CCJ)</strong>, Privy Council'in yerini alarak nihai temyiz mahkemesi olarak g&ouml;rev yapmaktadır.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Saint Lucia'da franchise d&uuml;zenlemeleri var mı?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia'da &ouml;zel bir franchise mevzuatı bulunmamaktadır. Franchise anlaşmaları İngiliz ortak hukuk sistemi kapsamında genel s&ouml;zleşme hukukuyla y&ouml;netilmektedir. Franchise tescil veya bildirim gereksinimleri yoktur. Saint Lucia'da faaliyet g&ouml;steren uluslararası franchise verenler genellikle anlaşmalarını franchise verenin kendi &uuml;lkesi hukuku veya tarafsız bir yarg&icirc; b&ouml;lgesi hukuku kapsamında yapılandırır. Mukim olmayan franchise verenlere &ouml;denen franchise &uuml;cretleri ve telif hakları %25 oranında stopaj vergisine tabi olabilir. Subway ve KFC dahil olmak &uuml;zere birçok uluslararası franchise markası Saint Lucia'da başarılı bir şekilde faaliyet g&ouml;stermektedir. Diğer t&uuml;m işletmelerde olduğu gibi franchise operasyonları i&ccedil;in de Ticaret Bakanlığı'ndan ticaret lisansı gerekmektedir.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Teknoloji işletmeleri i&ccedil;in veri bağlantı durumu nedir?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia, Doğu Karayipler i&ccedil;in iyi bir dijital altyapıya sahiptir. Ada, 15 adayı birbirine bağlayan Southern Caribbean Fiber (Deep Blue 1) denizaltı kablo sistemi ve D&uuml;nya Bankası tarafından finanse edilen CARCIP denizaltı kablosuyla bağlantılıdır. Digicel eve kadar fiber &uuml;zerinden 1 Gbps'ye kadar hız sunmakta, Flow ise kentsel alanlarda geniş bant sağlamaktadır. &Ouml;l&ccedil;&uuml;len ortalama hız 91,4 Mbps'dir. Starlink uydu geniş bandı (50-150 Mbps) 2024 sonundan itibaren aylık yaklaşık 80 USD'ye mevcuttur. H&uuml;k&uuml;metin GINet programı altı b&ouml;lgede 28'den fazla konumda &uuml;cretsiz Wi-Fi sağlamaktadır. KM2 Solutions gibi BPO operasyonları (2.500+ kapasite) adanın veri yoğun işletmeleri destekleyebildiğini g&ouml;stermektedir. Veri Koruma Yasası (2011) kişisel verileri y&ouml;netir ve veri yerelleştirme gereksinimleri yoktur.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-searchable>
+                <div class="accordion-header">
+                  Saint Lucia'da captive sigorta uygulanabilir bir se&ccedil;enek mi?
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <p>Saint Lucia, Uluslararası Sigorta Yasası ve Mali Hizmetler D&uuml;zenleme Otoritesi'nin (FSRA) d&uuml;zenleyici g&ouml;zetimi aracılığıyla captive sigortayı destekleyen yasal &ccedil;er&ccedil;eveye sahiptir. IBC yapısı, uluslararası risklere hizmet eden captive sigorta ara&ccedil;ları i&ccedil;in kullanılabilir. Ancak Saint Lucia'daki captive sigorta pazarı, Barbados, Cayman Adaları veya Bermuda gibi k&ouml;kl&uuml; merkezlere kıyasla nispeten gelişmemiştir. Saint Lucia'yı kullanmanın başlıca avantajları, IBC'ler i&ccedil;in yabancı kaynaklı sigorta geliri &uuml;zerinde vergi olmaması, d&ouml;viz kontrol&uuml; olmaması ve g&ouml;rece d&uuml;ş&uuml;k kurulum ve operasyonel maliyetlerdir. FSRA g&ouml;zetim ve lisanslama sağlamaktadır. Captive sigortayla ilgilenen işletmeler, uluslararası bir sigorta danışmanına başvurmalı ve Saint Lucia'nın teklifini daha k&ouml;kl&uuml; Karayip captive yarg&icirc; b&ouml;lgeleriyle karşılaştırmalıdır.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- YASAL UYARI -->
+          <div class="info-box warning" style="margin-top:32px;">
+            <h4>Yasal Uyarı</h4>
+            <p>Bu SSS yalnızca genel bilgilendirme ama&ccedil;lıdır ve hukuki, vergisel veya mali danışmanlık teşkil etmemektedir. Saint Lucia'daki yasalar ve y&ouml;netmelikler değişikliğe tabidir. İş veya yatırım kararları almadan &ouml;nce her zaman resmi h&uuml;k&uuml;met kaynakları ile g&uuml;ncel gereksinimleri doğrulayın veya yetkin bir uzmana danışın.</p>
+          </div>
+
+          <!-- İLGİLİ SAYFALAR -->
+          <div style="margin-top:40px;padding-top:30px;border-top:2px solid var(--border);">
+            <h3 style="margin-bottom:16px;">Rehberin Tamamını Keşfedin</h3>
+            <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+              <a href="business.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>İş Kurulumu</h4>
+                <p>Ayrıntılı kayıt rehberi</p>
+              </a>
+              <a href="legal.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>Hukuk &amp; Vergi</h4>
+                <p>Vergi oranları, iş yasaları, d&uuml;zenlemeler</p>
+              </a>
+              <a href="cbi.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>CBI Programı</h4>
+                <p>Yatırım yoluyla vatandaşlık detayları</p>
+              </a>
+              <a href="checklist.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>Yatırım Kontrol Listesi</h4>
+                <p>Adım adım eylem planı</p>
+              </a>
+              <a href="directory.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>İş Rehberi</h4>
+                <p>Avukatlar, bankalar, acentalar</p>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>St. Lucia İş Rehberi &mdash; Araştırmaya dayalı rehber. T&uuml;m bilgileri resmi kaynaklarla doğrulayın. Son g&uuml;ncelleme: Şubat 2026.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

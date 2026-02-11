@@ -62,7 +62,8 @@
   }
 
   function loadData() {
-    fetch('data/businesses.json')
+    var dataPath = (window.DATA_BASE_PATH || '') + 'data/businesses.json';
+    fetch(dataPath)
       .then(function (res) { return res.json(); })
       .then(function (data) {
         allBusinesses = data;
@@ -163,8 +164,8 @@
       if (activeDistrict && b.district !== activeDistrict) return false;
       // Search filter
       if (searchQuery) {
-        var q = searchQuery.toLowerCase();
-        var searchable = (b.name + ' ' + (b.description || '') + ' ' + (b.address || '') + ' ' + (b.subcategory || '') + ' ' + (b.tags || []).join(' ')).toLowerCase();
+        var q = searchQuery.toLocaleLowerCase('tr');
+        var searchable = (b.name + ' ' + (b.description || '') + ' ' + (b.address || '') + ' ' + (b.subcategory || '') + ' ' + (b.tags || []).join(' ')).toLocaleLowerCase('tr');
         if (!searchable.includes(q)) return false;
       }
       return true;
@@ -219,7 +220,8 @@
     if (b.website) card += '<div class="dir-detail"><i class="fa-solid fa-globe"></i> <a href="' + b.website + '" target="_blank" rel="noopener">' + b.website.replace(/^https?:\/\//, '').replace(/\/$/, '') + '</a></div>';
     // Show on Map link
     if (b.lat && b.lng) {
-      card += '<a href="map.html?id=' + b.id + '" class="dir-map-link"><i class="fa-solid fa-map-location-dot"></i> Show on Map</a>';
+      var mapLabel = document.documentElement.lang === 'tr' ? 'Haritada G\u00f6ster' : 'Show on Map';
+      card += '<a href="map.html?id=' + b.id + '" class="dir-map-link"><i class="fa-solid fa-map-location-dot"></i> ' + mapLabel + '</a>';
     }
     card += '</div></div>';
     return card;

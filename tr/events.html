@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etkinlikler ve Takvim - St. Lucia İş Rehberi</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .calendar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .event-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; transition: transform 0.3s; }
+    .event-card:hover { transform: translateY(-3px); }
+    .event-date { background: var(--primary); color: white; padding: 12px 16px; text-align: center; }
+    .event-date .month { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+    .event-date .day { font-size: 1.8rem; font-weight: 800; line-height: 1; }
+    .event-info { padding: 16px; }
+    .event-info h4 { margin-bottom: 6px; color: var(--primary-dark); }
+    .event-info p { font-size: 0.9rem; color: var(--text-light); }
+    .event-tag { display: inline-block; padding: 2px 8px; border-radius: 50px; font-size: 0.7rem; font-weight: 600; margin-top: 8px; }
+    .tag-holiday { background: #e74c3c22; color: #c0392b; }
+    .tag-festival { background: #8e44ad22; color: #8e44ad; }
+    .tag-business { background: #2980b922; color: #2980b9; }
+    .tag-sport { background: #27ae6022; color: #27ae60; }
+    .season-bar { display: flex; border-radius: var(--radius); overflow: hidden; height: 40px; margin-bottom: 24px; box-shadow: var(--shadow); }
+    .season-bar div { display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; color: white; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia İş Rehberi</a>
+      <button class="nav-toggle" aria-label="Men&uuml;y&uuml; a&ccedil;">&#9776;</button>
+      <div class="nav-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="overview.html">Genel Bakış</a>
+        <a href="business.html">İş Kurulumu</a>
+        <a href="legal.html">Hukuk &amp; Vergi</a>
+        <a href="sectors.html">Sekt&ouml;rler</a>
+        <a href="cbi.html">Vatandaşlık</a>
+        <a href="living.html">Yaşam</a>
+        <a href="events.html" class="active">Etkinlikler</a>
+        <a href="map.html">Harita</a>
+        <a href="directory.html">Rehber</a>
+        <a href="faq.html">SSS</a>
+        <a href="resources.html">Kaynaklar</a>
+        <a href="government.html">H&uuml;k&uuml;met</a>
+        <div class="lang-selector">
+          <a href="../events.html" class="lang-btn" title="English">EN</a>
+          <a href="events.html" class="lang-btn active" title="T&uuml;rk&ccedil;e">TR</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero hero--image" style="padding:50px 0 40px;background-image:url('../assets/images/hero-events.jpg');">
+    <div class="container">
+      <h1>Etkinlikler &amp; Takvim</h1>
+      <p>Resmi tatiller, festivaller, iş etkinlikleri ve mevsimsel planlama rehberi</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="page-layout">
+        <aside class="sidebar">
+          <h3>Bu Sayfada</h3>
+          <a href="#seasons">Turizm Sezonları</a>
+          <a href="#holidays">Resmi Tatiller</a>
+          <a href="#festivals">Festivaller &amp; Etkinlikler</a>
+          <a href="#business-events">İş Etkinlikleri</a>
+          <a href="#weekly">Haftalık Etkinlikler</a>
+          <a href="#planning">Mevsimsel Planlama</a>
+          <a href="#culture">İş K&uuml;lt&uuml;r&uuml;</a>
+        </aside>
+
+        <div class="main-content">
+
+      <!-- TURİZM SEZONLARI -->
+      <div id="seasons" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">Turizm &amp; İş Sezonları</h2>
+        <div class="season-bar">
+          <div style="background:#27ae60;flex:2;">Oca</div>
+          <div style="background:#2ecc71;flex:2;">Şub</div>
+          <div style="background:#27ae60;flex:2;">Mar</div>
+          <div style="background:#2ecc71;flex:2;">Nis</div>
+          <div style="background:#f39c12;flex:2;">May</div>
+          <div style="background:#e67e22;flex:2;">Haz</div>
+          <div style="background:#e74c3c;flex:2;">Tem</div>
+          <div style="background:#c0392b;flex:2;">Ağu</div>
+          <div style="background:#e74c3c;flex:2;">Eyl</div>
+          <div style="background:#e67e22;flex:2;">Eki</div>
+          <div style="background:#f39c12;flex:2;">Kas</div>
+          <div style="background:#27ae60;flex:2;">Ara</div>
+        </div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:0.85rem;">
+          <span><span style="display:inline-block;width:12px;height:12px;background:#27ae60;border-radius:3px;vertical-align:middle;"></span> Y&uuml;ksek Sezon (Ara-Nis) &mdash; Zirve turizm, en y&uuml;ksek otel fiyatları, en iyi hava</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:#f39c12;border-radius:3px;vertical-align:middle;"></span> Ge&ccedil;iş D&ouml;nemi (May-Haz, Kas) &mdash; Uygun fiyatlar, daha az kalabalık</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:#e74c3c;border-radius:3px;vertical-align:middle;"></span> Kasırga Sezonu (Tem-Eki) &mdash; D&uuml;ş&uuml;k fiyatlar, yağmur olasılığı, bazı kapanışlar</span>
+        </div>
+      </div>
+
+      <!-- RESMİ TATİLLER -->
+      <div id="holidays" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">Resmi Tatiller 2025&ndash;2026</h2>
+
+        <h3 style="margin-bottom:12px;">2025 (13 Resmi Tatil)</h3>
+        <div class="table-wrapper" style="margin-bottom:24px;">
+          <table>
+            <thead>
+              <tr><th>Tarih</th><th>G&uuml;n</th><th>Tatil</th><th>T&uuml;r</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1 Ocak</td><td>&Ccedil;arşamba</td><td><strong>Yılbaşı</strong></td><td>Sabit</td></tr>
+              <tr><td>2 Ocak</td><td>Perşembe</td><td><strong>Yılbaşı Ertesi</strong></td><td>Sabit</td></tr>
+              <tr><td>22 Şubat</td><td>Cumartesi</td><td><strong>Bağımsızlık G&uuml;n&uuml;</strong></td><td>Sabit &mdash; 46. yıld&ouml;n&uuml;m&uuml;</td></tr>
+              <tr><td>18 Nisan</td><td>Cuma</td><td><strong>Kutsal Cuma</strong></td><td>Değişken (Paskalya)</td></tr>
+              <tr><td>21 Nisan</td><td>Pazartesi</td><td><strong>Paskalya Pazartesisi</strong></td><td>Değişken</td></tr>
+              <tr><td>1 Mayıs</td><td>Perşembe</td><td><strong>İş&ccedil;i Bayramı</strong></td><td>Sabit</td></tr>
+              <tr><td>9 Haziran</td><td>Pazartesi</td><td><strong>Whit Monday (Hamsin Pazartesisi)</strong></td><td>Değişken (Paskalya'dan 49 g&uuml;n sonra)</td></tr>
+              <tr><td>19 Haziran</td><td>Perşembe</td><td><strong>Corpus Christi</strong></td><td>Değişken (Paskalya'dan 60 g&uuml;n sonra)</td></tr>
+              <tr><td>1 Ağustos</td><td>Cuma</td><td><strong>K&ouml;leliğin Kaldırılması G&uuml;n&uuml;</strong></td><td>Sabit &mdash; k&ouml;leliğin sona ermesi</td></tr>
+              <tr><td>6 Ekim</td><td>Pazartesi</td><td><strong>Ş&uuml;k&uuml;r G&uuml;n&uuml;</strong></td><td>Sabit (Ekim'in ilk Pazartesisi)</td></tr>
+              <tr><td>13 Aralık</td><td>Cumartesi</td><td><strong>Ulusal G&uuml;n (Azize Lucy G&uuml;n&uuml;)</strong></td><td>Sabit &mdash; Işıklar Festivali</td></tr>
+              <tr><td>25 Aralık</td><td>Perşembe</td><td><strong>Noel</strong></td><td>Sabit</td></tr>
+              <tr><td>26 Aralık</td><td>Cuma</td><td><strong>Boxing Day</strong></td><td>Sabit</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-bottom:12px;">2026 (13 Resmi Tatil + 2 Telafi G&uuml;n&uuml;)</h3>
+        <div class="table-wrapper" style="margin-bottom:24px;">
+          <table>
+            <thead>
+              <tr><th>Tarih</th><th>G&uuml;n</th><th>Tatil</th><th>T&uuml;r</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1 Ocak</td><td>Perşembe</td><td><strong>Yılbaşı</strong></td><td>Sabit</td></tr>
+              <tr><td>2 Ocak</td><td>Cuma</td><td><strong>Yılbaşı Ertesi</strong></td><td>Sabit</td></tr>
+              <tr><td>22 Şubat</td><td>Pazar</td><td><strong>Bağımsızlık G&uuml;n&uuml;</strong></td><td>Sabit &mdash; 47. yıld&ouml;n&uuml;m&uuml;</td></tr>
+              <tr><td>23 Şubat</td><td>Pazartesi</td><td><strong>Bağımsızlık G&uuml;n&uuml; (telafi)</strong></td><td>İkame</td></tr>
+              <tr><td>3 Nisan</td><td>Cuma</td><td><strong>Kutsal Cuma</strong></td><td>Değişken</td></tr>
+              <tr><td>6 Nisan</td><td>Pazartesi</td><td><strong>Paskalya Pazartesisi</strong></td><td>Değişken</td></tr>
+              <tr><td>1 Mayıs</td><td>Cuma</td><td><strong>İş&ccedil;i Bayramı</strong></td><td>Sabit</td></tr>
+              <tr><td>25 Mayıs</td><td>Pazartesi</td><td><strong>Whit Monday (Hamsin Pazartesisi)</strong></td><td>Değişken</td></tr>
+              <tr><td>4 Haziran</td><td>Perşembe</td><td><strong>Corpus Christi</strong></td><td>Değişken</td></tr>
+              <tr><td>1 Ağustos</td><td>Cumartesi</td><td><strong>K&ouml;leliğin Kaldırılması G&uuml;n&uuml;</strong></td><td>Sabit</td></tr>
+              <tr><td>5 Ekim</td><td>Pazartesi</td><td><strong>Ş&uuml;k&uuml;r G&uuml;n&uuml;</strong></td><td>Sabit (Ekim'in ilk Pazartesisi)</td></tr>
+              <tr><td>13 Aralık</td><td>Pazar</td><td><strong>Ulusal G&uuml;n</strong></td><td>Sabit</td></tr>
+              <tr><td>14 Aralık</td><td>Pazartesi</td><td><strong>Ulusal G&uuml;n (telafi)</strong></td><td>İkame</td></tr>
+              <tr><td>25 Aralık</td><td>Cuma</td><td><strong>Noel</strong></td><td>Sabit</td></tr>
+              <tr><td>26 Aralık</td><td>Cumartesi</td><td><strong>Boxing Day</strong></td><td>Sabit</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box">
+          <h4>İş Hayatına Etkisi</h4>
+          <p>Devlet daireleri, bankalar ve &ccedil;oğu işletme resmi tatillerde kapalıdır. <strong>Sabit bir tatil Pazar g&uuml;n&uuml;ne denk geldiğinde, ertesi Pazartesi g&uuml;n&uuml; resmi tatil olarak (telafi) uygulanır.</strong> Değişken tatiller (Kutsal Cuma, Paskalya Pazartesisi, Whit Monday, Corpus Christi) her yıl Paskalya'ya g&ouml;re değişir. Aralık ayı birden fazla tatille yoğundur &mdash; Aralık ortasından Ocak başına kadar iş faaliyetlerinde azalma beklenir.</p>
+        </div>
+      </div>
+
+      <!-- B&Uuml;Y&Uuml;K ETKİNLİKLER -->
+      <div id="festivals" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">B&uuml;y&uuml;k Yıllık Etkinlikler &amp; Festivaller</h2>
+        <img src="../assets/images/event-carnival.jpg" alt="Saint Lucia Karnaval geçit töreni kutlaması" class="section-image" loading="lazy">
+        <div class="calendar-grid">
+
+          <div class="event-card" data-searchable>
+            <div class="event-date">
+              <div class="month">Ocak</div>
+              <div class="day">10-12</div>
+            </div>
+            <div class="event-info">
+              <h4>Nobel &Ouml;d&uuml;ll&uuml;leri Festivali</h4>
+              <p>Saint Lucia'nın iki Nobel &Ouml;d&uuml;ll&uuml;s&uuml;n&uuml; kutlar: Sir Derek Walcott (Edebiyat, 1992) ve Sir W. Arthur Lewis (Ekonomi, 1979). Konferanslar, edebi okumalar, k&uuml;lt&uuml;rel etkinlikler ve okul programları.</p>
+              <span class="event-tag tag-festival">Festival</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date">
+              <div class="month">Şubat</div>
+              <div class="day">21-22</div>
+            </div>
+            <div class="event-info">
+              <h4>Bağımsızlık G&uuml;n&uuml; Kutlamaları</h4>
+              <p>İngiltere'den bağımsızlığı (1979) kutlayan ulusal kutlamalar. 2025 teması: <em>&ldquo;Douvan Ansanm &mdash; M&uuml;reffeh Bir Ulus İ&ccedil;in Sağlık ve İyi Oluş.&rdquo;</em> Heroes Park'ta bayrak &ccedil;ekme ve havai fişek (21 Şubat akşamı), Mindoo Philip Park'ta askeri ge&ccedil;it t&ouml;reni, Castries sokaklarında &ldquo;Annou We-y&rdquo; &ouml;ğleden sonra ge&ccedil;idi, Deniz &Uuml;r&uuml;nleri Festivali.</p>
+              <span class="event-tag tag-holiday">Resmi Tatil</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#8e44ad;">
+              <div class="month">Nis-May</div>
+              <div class="day">30&ndash;11</div>
+            </div>
+            <div class="event-info">
+              <h4>Saint Lucia Caz &amp; Sanat Festivali</h4>
+              <p>Karayipler'in en &ouml;nemli caz festivali. Ana sahne <strong>Pigeon Island Ulusal Anıtı</strong>'nda (a&ccedil;ık hava, deniz kenarı). 2025 başlıkları John Legend, Earth Wind &amp; Fire, Summer Walker ve Samara Joy idi. &ldquo;Art &amp; The City&rdquo; Castries'i canlı sanat, s&ouml;zl&uuml; performans ve halk g&ouml;sterileriyle a&ccedil;ık hava galerisine d&ouml;n&uuml;şt&uuml;r&uuml;r. En y&uuml;ksek otel doluluk oranı ve m&uuml;kemmel ağ kurma fırsatları.</p>
+              <p style="font-size:0.8rem;margin-top:6px;"><strong>2025:</strong> 30 Nis &ndash; 11 May | <strong>2026:</strong> 30 Nis &ndash; 10 May</p>
+              <span class="event-tag tag-festival">Festival</span> <span class="event-tag tag-business">İş Ağı Kurma</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#e67e22;">
+              <div class="month">Temmuz</div>
+              <div class="day">1-23</div>
+            </div>
+            <div class="event-info">
+              <h4>Lucian Karnavalı</h4>
+              <p>Adanın en b&uuml;y&uuml;k etkinliği. Ulusal Karnaval Krali&ccedil;esi Yarışması, Groovy &amp; Power Soca Monarch, Calypso &amp; Panorama finalleri, J'Ouvert (sabah 4'ten itibaren sokak partisi) ve Castries sokaklarından ge&ccedil;en Bandoların Ge&ccedil;idi. Karnaval 2025'te <strong>24.500 ziyaret&ccedil;i gelişi</strong> (2024'e g&ouml;re %36 artış). Talebi karşılamak i&ccedil;in Miami ve New York'tan ek u&ccedil;uşlar eklendi.</p>
+              <p style="font-size:0.8rem;margin-top:6px;"><strong>2025 Ge&ccedil;it G&uuml;nleri:</strong> 21-22 Tem | <strong>2026:</strong> 20-21 Tem</p>
+              <span class="event-tag tag-festival">Festival</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#6c3483;">
+              <div class="month">Ağustos</div>
+              <div class="day">T&uuml;m Ay</div>
+            </div>
+            <div class="event-info">
+              <h4>&Ccedil;ikolata Miras Ayı</h4>
+              <p>Saint Lucia'nın kakao mirasını kutlama. Kakao &ccedil;iftliği turları, tatil k&ouml;ylerinde &ccedil;ikolata eşleştirme paketleri, zanaatkar &ccedil;ikolata at&ouml;lyeleri ve ada genelinde gastronomi deneyimleri.</p>
+              <span class="event-tag tag-festival">Festival</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#27ae60;">
+              <div class="month">Ağustos</div>
+              <div class="day">30</div>
+            </div>
+            <div class="event-info">
+              <h4>La Rose Festivali (Gwan Fet Lawoz)</h4>
+              <p>La Rose &ccedil;i&ccedil;ek topluluğunun (İngiliz/Britanya etkisini temsil eden) k&uuml;lt&uuml;rel kutlaması. &Uuml;yeler kırmızı giyinip şarkılar, dans ve ziyafetlerle topluluklar boyunca y&uuml;r&uuml;y&uuml;ş yapar. UNESCO tarafından tanınan somut olmayan k&uuml;lt&uuml;rel miras.</p>
+              <span class="event-tag tag-festival">K&uuml;lt&uuml;rel</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#2980b9;">
+              <div class="month">Eyl&uuml;l</div>
+              <div class="day">21-23</div>
+            </div>
+            <div class="event-info">
+              <h4>Yemek &amp; Rom Festivali</h4>
+              <p>Saint Lucia mutfağı ve rom k&uuml;lt&uuml;r&uuml;n&uuml;n kutlanması. &Uuml;nl&uuml; şefler, uluslararası yemek eleştirmenleri, rom tadımları, gastronomi yarışmaları ve yerel yemek satıcıları.</p>
+              <span class="event-tag tag-festival">Festival</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#16a085;">
+              <div class="month">Ekim</div>
+              <div class="day">17</div>
+            </div>
+            <div class="event-info">
+              <h4>La Marguerite Festivali (La Magewit)</h4>
+              <p>La Rose'un karşılığı, Fransız etkisini temsil eder. &Uuml;yeler geleneksel Kreol t&ouml;renleri, m&uuml;zik ve topluluk buluşmaları i&ccedil;in mavi/mor giyinir. La Rose ile birlikte UNESCO tarafından somut olmayan k&uuml;lt&uuml;rel miras olarak tanınmıştır.</p>
+              <span class="event-tag tag-festival">K&uuml;lt&uuml;rel</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#2c3e50;">
+              <div class="month">Ekim</div>
+              <div class="day">T&uuml;m Ay</div>
+            </div>
+            <div class="event-info">
+              <h4>Kreol Miras Ayı / Jounen Kweyol</h4>
+              <p>Kreol k&uuml;lt&uuml;r&uuml;, dili, yemeği ve m&uuml;ziğinin ay boyu kutlanması. 2025 teması: <em>&ldquo;Kweyol Se Fos Nou&rdquo;</em> (Kreol Bizim G&uuml;c&uuml;m&uuml;zd&uuml;r). &Ouml;ne &ccedil;ıkanlar: Woulelaba Festivali, La Wenn Kweyol Yarışması, konserler ve Ekim'in son Pazarı'nda (25 Ekim 2025; 25 Ekim 2026) belirlenen ev sahibi topluluklarda kutlanan b&uuml;y&uuml;k final <strong>Jounen Kweyol</strong>.</p>
+              <span class="event-tag tag-festival">K&uuml;lt&uuml;rel</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#e74c3c;">
+              <div class="month">Aralık</div>
+              <div class="day">10-15</div>
+            </div>
+            <div class="event-info">
+              <h4>Atlantic Rally for Cruisers (ARC)</h4>
+              <p>D&uuml;nyanın en b&uuml;y&uuml;k transatlantik yelken rallisi. ~200+ yat Las Palmas'tan (Kasım sonunda hareket) Atlantik'i ge&ccedil;erek <strong>IGY Rodney Bay Marina</strong>'da bitirir. Ge&ccedil;iş 14-21 g&uuml;n s&uuml;rer. &Ouml;d&uuml;l t&ouml;reni y&uuml;ksek profilli bir sosyal/ağ kurma etkinliğidir. Varlıklı yelken topluluğunun &ouml;nemli harcamaları.</p>
+              <p style="font-size:0.8rem;margin-top:6px;"><strong>2025:</strong> Filo varışı ~10-15 Ara | <strong>2026:</strong> &Ouml;d&uuml;l t&ouml;reni ~19 Ara</p>
+              <span class="event-tag tag-sport">Spor Etkinliği</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-searchable>
+            <div class="event-date" style="background:#c0392b;">
+              <div class="month">Aralık</div>
+              <div class="day">12-13</div>
+            </div>
+            <div class="event-info">
+              <h4>Ulusal G&uuml;n / Işıklar &amp; Yenilenme Festivali</h4>
+              <p>Azize Lucy G&uuml;n&uuml; (koruyucu azize). 12 Aralık akşamı Işıklar Festivali, Castries'i dekoratif ışıklar ve fener yarışmalarıyla aydınlatır, havai fişeklerle son bulur. Noel sezonunun başlangıcını işaret eder. Ulusal G&uuml;n (13 Aralık) resmi tatildir.</p>
+              <span class="event-tag tag-holiday">Resmi Tatil</span> <span class="event-tag tag-festival">Festival</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- İŞ ETKİNLİKLERİ -->
+      <div id="business-events" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">İş Etkinlikleri &amp; Konferanslar</h2>
+        <div class="table-wrapper" style="margin-bottom:16px;">
+          <table>
+            <thead>
+              <tr><th>Etkinlik</th><th>Tarihler</th><th>Mekan / Notlar</th></tr>
+            </thead>
+            <tbody>
+              <tr style="background:rgba(39,174,96,0.08);">
+                <td><strong>Saint Lucia İş Forumu 2025</strong></td>
+                <td>29-30 Ağustos 2025</td>
+                <td>Expo Salon, Saint Lucia. Ev sahibi: Invest Saint Lucia. Tema: &ldquo;Cennete Yatırım: İş Fırsatlarının Kilidini A&ccedil;mak.&rdquo; Turizm, imalat, tarımsal işletme ve yenilenebilir enerji panelleri.</td>
+              </tr>
+              <tr>
+                <td><strong>Ticaret Odası &mdash; CEO Ka Pale</strong></td>
+                <td>D&uuml;zenli (&uuml;&ccedil; ayda bir)</td>
+                <td>Karayip iş liderlerini bir araya getiren &ouml;zel panel tartışması. Sagicor Life işbirliğiyle.</td>
+              </tr>
+              <tr>
+                <td><strong>Ticaret Odası Yıllık İş &Ouml;d&uuml;lleri</strong></td>
+                <td>Başvurular ~Eyl&uuml;l'e kadar</td>
+                <td>Sekin Saint Lucia işletmeleri ve girişimcilerini tanır.</td>
+              </tr>
+              <tr>
+                <td><strong>Caribbean Travel Marketplace</strong> (CHTA)</td>
+                <td>12-15 Mayıs 2026</td>
+                <td>Antigua &amp; Barbuda. En b&uuml;y&uuml;k Karayip turizm B2B ticaret forumu.</td>
+              </tr>
+              <tr>
+                <td><strong>Taste of the Caribbean</strong> (CHTA)</td>
+                <td>16-19 Kasım 2026</td>
+                <td>Barbados. Gastronomi ve konaklama sekt&ouml;r&uuml; yetenek geliştirme.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info-box">
+          <h4>Konferans Altyapısı</h4>
+          <p>Mount Pimard'daki A'ila Resorts kompleksinin par&ccedil;ası olarak <strong>2.000 kişilik bir kongre merkezi</strong> geliştirilmektedir. Faaliyete ge&ccedil;tiğinde, Saint Lucia'nın uluslararası konferans ev sahipliği kapasitesini &ouml;nemli &ouml;l&ccedil;&uuml;de genişletecektir. Şu anda b&uuml;y&uuml;k iş etkinlikleri otel konferans tesislerini (Bay Gardens, Royalton, Sandals) ve Expo Salon'u kullanmaktadır. Ticaret Odası, Orange Park Commercial Building, Bois D'Orange, Gros Islet adresindedir (<a href="https://www.stluciachamber.org" target="_blank">stluciachamber.org</a>).</p>
+        </div>
+      </div>
+
+      <!-- HAFTALIK ETKİNLİKLER -->
+      <div id="weekly" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">Haftalık D&uuml;zenli Etkinlikler</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>G&uuml;n</th><th>Etkinlik</th><th>Konum</th><th>A&ccedil;ıklama</th></tr>
+            <tr><td><strong>Cuma</strong></td><td>Anse la Raye Balık Şenliği</td><td>Anse la Raye</td><td>&Uuml;nl&uuml; sokak deniz &uuml;r&uuml;nleri partisi. Taze ızgara balık, ıstakoz, m&uuml;zik, dans. Turistler ve yerliler arasında &ccedil;ok pop&uuml;ler.</td></tr>
+            <tr><td><strong>Cuma</strong></td><td>Gros Islet Jump-Up</td><td>Gros Islet k&ouml;y&uuml;</td><td>M&uuml;zik, yemek tezgahları, i&ccedil;ecekler ve mangal eşliğinde haftalık sokak partisi. Adanın en &uuml;nl&uuml; Cuma gecesi etkinliği.</td></tr>
+            <tr><td><strong>Cumartesi</strong></td><td>Castries Merkez Pazarı</td><td>Castries</td><td>Ana pazar g&uuml;n&uuml;. Taze &uuml;r&uuml;nler, baharatlar, el sanatları, giyim. Yerel k&uuml;lt&uuml;r&uuml; deneyimlemek i&ccedil;in en iyi g&uuml;n.</td></tr>
+            <tr><td><strong>Cumartesi</strong></td><td>Dennery Balık Festivali</td><td>Dennery</td><td>Doğu kıyısında mevsimlik Cumartesi balık şenliği ve k&uuml;lt&uuml;rel etkinlik.</td></tr>
+            <tr><td><strong>Pazar</strong></td><td>Rodney Bay El Sanatları Pazarı</td><td>Rodney Bay</td><td>Marina b&ouml;lgesinde sanat, el sanatları ve hediyelik eşyalar.</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- MEVSİMSEL PLANLAMA -->
+      <div id="planning" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">Mevsimsel İş Planlaması</h2>
+        <div class="table-wrapper" style="margin-bottom:16px;">
+          <table>
+            <thead>
+              <tr><th>Sezon</th><th>Aylar</th><th>Hava Durumu</th><th>İş Ortamı</th></tr>
+            </thead>
+            <tbody>
+              <tr style="background:rgba(39,174,96,0.08);">
+                <td><strong>Y&uuml;ksek Sezon</strong></td>
+                <td>Ara &ndash; Nis</td>
+                <td>Kuru, g&uuml;neşli (24-29&deg;C)</td>
+                <td>Zirve turizm &amp; iş d&ouml;nemi. Tam kapasite devlet faaliyetleri. En y&uuml;ksek otel fiyatları. Toplantılar, saha ziyaretleri ve anlaşmalar i&ccedil;in en uygun d&ouml;nem. ARC filosu ve kruvaziyer gemi sezonu zirvede.</td>
+              </tr>
+              <tr>
+                <td><strong>Ge&ccedil;iş D&ouml;nemi</strong></td>
+                <td>May &ndash; Haz</td>
+                <td>Sıcak, ara sıra yağmur</td>
+                <td>Daha az kalabalık, d&uuml;ş&uuml;k fiyatlar. Caz Festivali (Mayıs) uluslararası ağ kurma fırsatları sunar. İş seyahati i&ccedil;in iyi değer.</td>
+              </tr>
+              <tr>
+                <td><strong>D&uuml;ş&uuml;k / Yeşil Sezon</strong></td>
+                <td>Tem &ndash; Kas</td>
+                <td>Yağışlı, kasırga riski</td>
+                <td>En d&uuml;ş&uuml;k otel fiyatları (y&uuml;ksek sezona g&ouml;re %30-50 indirim). Karnaval (Temmuz). İş Forumu (Ağustos). Kreol Mirası (Ekim). Azalmış uluslararası iş seyahati. En y&uuml;ksek kasırga riski: Ağu-Eki.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 style="margin-bottom:8px;">İş Seyahati İ&ccedil;in En İyi Aylar</h4>
+        <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(250px,1fr));">
+          <div class="info-box success" style="margin:0;">
+            <h4>Oca &ndash; Mar (Zirve)</h4>
+            <p>H&uuml;k&uuml;met tam oturumda. T&uuml;m işletmeler tam kapasitede. En iyi hava. Şubat'ta Bağımsızlık kutlamaları. &Uuml;st d&uuml;zey toplantılar ve h&uuml;k&uuml;met temasları i&ccedil;in en uygun d&ouml;nem.</p>
+          </div>
+          <div class="info-box success" style="margin:0;">
+            <h4>Nis &ndash; May (G&uuml;&ccedil;l&uuml;)</h4>
+            <p>Caz Festivali uluslararası ziyaret&ccedil;iler ve ağ kurma fırsatları getirir. H&uuml;k&uuml;met mali yılı faaliyetleri. Hala uygun hava koşulları. İş ve k&uuml;lt&uuml;rel katılımı birleştirmek i&ccedil;in iyi.</p>
+          </div>
+          <div class="info-box" style="margin:0;">
+            <h4>Ağu &ndash; Eyl (Etkinlikler)</h4>
+            <p>İş Forumu (Ağustos sonu) amiral gemisi yatırım konferansıdır. D&uuml;ş&uuml;k seyahat maliyetleri. Kasırga riskinden dolayı bazı iş aksaklıkları. Yemek &amp; Rom Festivali (Eyl&uuml;l).</p>
+          </div>
+          <div class="info-box" style="margin:0;">
+            <h4>Eki &ndash; Kas (Ge&ccedil;iş)</h4>
+            <p>Kreol Miras Ayı k&uuml;lt&uuml;rel boyut ekler. Kasırga sezonu 30 Kasım'da sona erer. Y&uuml;ksek sezona ge&ccedil;iş. Uygun fiyatlı konaklama. D&uuml;ş&uuml;k turizm trafiği.</p>
+          </div>
+        </div>
+
+        <div class="info-box warning" style="margin-top:16px;">
+          <h4>Kasırga Sezonu (1 Haziran &ndash; 30 Kasım)</h4>
+          <p>En y&uuml;ksek riskli aylar: Ağustos, Eyl&uuml;l, Ekim. İş etkileri: seyahat sigortası şart, olası u&ccedil;uş aksaklıkları, bazı a&ccedil;ık hava projelerinde gecikmeler. Riske rağmen, Saint Lucia tarihsel olarak kuzeydeki adalara g&ouml;re daha az sıklıkla etkilenir. Bu d&ouml;nemde otel fiyatları en d&uuml;ş&uuml;k seviyededir.</p>
+        </div>
+      </div>
+
+      <!-- İŞ K&Uuml;LT&Uuml;R&Uuml; -->
+      <div id="culture" style="margin-bottom:40px;">
+        <h2 style="margin-bottom:16px;">İş K&uuml;lt&uuml;r&uuml; &amp; G&ouml;rg&uuml; Kuralları</h2>
+        <div class="card-grid grid-2col">
+          <div class="info-box">
+            <h4>&Ccedil;alışma Saatleri</h4>
+            <p><strong>H&uuml;k&uuml;met:</strong> Pzt-Cum 08:00 &ndash; 16:30<br>
+            <strong>Bankalar:</strong> Pzt-Per 08:00 &ndash; 14:00; Cum 08:00 &ndash; 16:00; Cmt 08:30 &ndash; 11:00<br>
+            <strong>Genel İşletmeler:</strong> Pzt-Cum 08:00 &ndash; 17:00; Cmt 08:30 &ndash; 12:30<br>
+            <strong>D&uuml;kkanlar/Perakende:</strong> Pzt-Cum 08:00 &ndash; 16:30; Cmt 08:30 &ndash; 13:00<br>
+            <strong>Pazar G&uuml;nleri:</strong> Hemen hemen t&uuml;m işletmeler kapalı (bazı s&uuml;permarketler ve mini marketler a&ccedil;ık)</p>
+          </div>
+          <div class="info-box warning">
+            <h4>Kıyafet Kuralları &amp; &Ouml;nemli Yasak</h4>
+            <p><strong>İş:</strong> Kravatlı kısa/uzun kollu g&ouml;mlek veya hafif takım elbise. Turizm ve yaratıcı sekt&ouml;rlerde smart casual giderek daha kabul g&ouml;rmektedir.<br>
+            <strong>Genel:</strong> Mayo sadece plajda uygundur, asla şehirde veya iş ortamlarında giymeyiniz.<br>
+            <strong style="color:#c0392b;">Kamuflaj kıyafetler Saint Lucia'da YASAKTIR</strong> (&ccedil;ocuklar dahil herkes i&ccedil;in). Hi&ccedil;bir kamuflaj deseni paketlemeyiniz veya giymeyiniz.</p>
+          </div>
+          <div class="info-box">
+            <h4>Selamlaşma &amp; Toplantı K&uuml;lt&uuml;r&uuml;</h4>
+            <p><strong>Selamlaşma &ccedil;ok &ouml;nemlidir:</strong> Herhangi bir ofise veya d&uuml;kkana girdiğinizde mutlaka &ldquo;G&uuml;naydın/İyi g&uuml;nler/İyi akşamlar&rdquo; ile başlayın. Selamlamayı atlamak kabalık sayılır. Tanışırken ve ayrılırken sıkı el sıkışma. Birinci isimle hitap etmeye davet edilene kadar resmi unvanlar (Mr., Mrs., Dr., Honourable) kullanın. İlk toplantılarda iş tartışmalarından &ouml;nce yakınlık kurmaya odaklanılır. Sabır ve sıcaklık doğrudanlıktan daha &ccedil;ok değer g&ouml;r&uuml;r.</p>
+          </div>
+          <div class="info-box">
+            <h4>İletişim &amp; Takip</h4>
+            <p>İletişim sıcak ama biraz dolaylıdır. Doğrudan y&uuml;zleşme veya agresif m&uuml;zakere taktikleri iyi karşılanmaz. Halka a&ccedil;ık y&uuml;ksek sesle tartışmalar tabudur. Toplantı sonrası yazılı takip takdir edilir. <strong>E-posta ve WhatsApp</strong> standart iş iletişim ara&ccedil;larıdır. Adayı eleştirmeyiniz &mdash; ulusal gurur g&uuml;&ccedil;l&uuml;d&uuml;r.</p>
+          </div>
+          <div class="info-box">
+            <h4>İlişki Kurma</h4>
+            <p><strong>İlişkiler işlemlerden &ouml;nce gelir.</strong> İş tartışmalarına dalmadan &ouml;nce muhataplarınızı tanımaya zaman ayırın. S&uuml;re&ccedil;ler Kuzey Amerika veya Avrupa'dan farklı bir tempoda ilerleyebilir &mdash; &ccedil;ok agresif bir şekilde zorlamak ters tepebilir. Kilise ve aile ağları g&uuml;vene a&ccedil;ılan kapılardır. Sosyal davetleri kabul edin. Yemek veya i&ccedil;ki ikram etmek ilişkileri g&uuml;&ccedil;lendirir.</p>
+          </div>
+          <div class="info-box">
+            <h4>Hediye Verme &amp; K&uuml;lt&uuml;rel Notlar</h4>
+            <p>İş d&uuml;nyasında hediye verme m&uuml;tevazıdır ve ilk toplantılarda beklenmez. Ev ziyaretleri i&ccedil;in: yerel yapım rom, &ccedil;ikolata veya kendi &uuml;lkenizden k&uuml;&ccedil;&uuml;k bir hediye. G&ouml;sterişli hediyelerden ka&ccedil;ının. Bir anlaşmayı kapattıktan sonra kaliteli bir şişe rom iyi karşılanır. Saint Lucialıların &ccedil;oğunluğu Roman Katolik'tir &mdash; dini geleneklere saygı g&ouml;sterin. Birka&ccedil; <strong>Kweyol</strong> (Kreol Fransızcası) ifade &ouml;ğrenmek k&uuml;lt&uuml;rel farkındalık g&ouml;sterir.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- İLGİLİ SAYFALAR -->
+      <div style="margin-top:40px;padding-top:30px;border-top:2px solid var(--border);">
+        <h3 style="margin-bottom:16px;">İlgili Sayfalar</h3>
+        <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+          <a href="overview.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>&Uuml;lke Genel Bakışı</h4>
+            <p>K&uuml;lt&uuml;r, demografi, tarih</p>
+          </a>
+          <a href="living.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Yaşam Maliyeti</h4>
+            <p>Konut, yiyecek, g&uuml;nl&uuml;k giderler</p>
+          </a>
+          <a href="sectors.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Kilit Sekt&ouml;rler</h4>
+            <p>Turizm &amp; konaklama end&uuml;strisi</p>
+          </a>
+          <a href="map.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+            <h4>Harita &amp; B&ouml;lgeler</h4>
+            <p>Etkinlik mekanları &amp; yerler</p>
+          </a>
+        </div>
+      </div>
+
+        </div><!-- /.main-content -->
+      </div><!-- /.page-layout -->
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>St. Lucia İş Rehberi &mdash; Etkinlik tarihleri yaklaşık olup değişiklik g&ouml;sterebilir. Kesinleşmiş tarihler i&ccedil;in yerel kaynakları kontrol edin. Son g&uuml;ncelleme: Şubat 2026.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

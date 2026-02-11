@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initReadingProgress();
   initSidebarScrollSpy();
   initResponsiveTables();
+  initSectionReveal();
 });
 
 // Mobile nav toggle
@@ -78,11 +79,11 @@ function initSearch() {
   if (!searchInput) return;
 
   searchInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase().trim();
+    const query = e.target.value.toLocaleLowerCase('tr').trim();
     const searchableItems = document.querySelectorAll('[data-searchable]');
 
     searchableItems.forEach(item => {
-      const text = item.textContent.toLowerCase();
+      const text = item.textContent.toLocaleLowerCase('tr');
       item.style.display = text.includes(query) || query === '' ? '' : 'none';
     });
 
@@ -112,8 +113,11 @@ function initBackToTop() {
   btn.className = 'back-to-top';
   btn.innerHTML = '&#9650;';
   btn.setAttribute('aria-label', 'Back to top');
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   });
   document.body.appendChild(btn);
 
@@ -184,6 +188,23 @@ function initResponsiveTables() {
       });
     });
   });
+}
+
+// Section reveal on scroll
+function initSectionReveal() {
+  const targets = document.querySelectorAll('.section, .info-box, .card, .table-wrapper');
+  if (!targets.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach(el => observer.observe(el));
 }
 
 // Utility: smooth scroll to element

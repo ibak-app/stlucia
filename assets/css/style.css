@@ -97,6 +97,39 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.3; color: var(--primary-dark); }
   cursor: pointer;
 }
 
+/* ===== LANGUAGE SELECTOR ===== */
+.lang-selector {
+  display: inline-flex;
+  gap: 4px;
+  margin-left: 8px;
+  align-items: center;
+  border-left: 1px solid rgba(255,255,255,0.2);
+  padding-left: 10px;
+}
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 24px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.08);
+  transition: all var(--transition);
+  text-decoration: none;
+}
+.lang-btn:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.18);
+}
+.lang-btn.active {
+  color: var(--white);
+  background: var(--primary-light);
+}
+
 /* ===== HERO ===== */
 .hero {
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
@@ -537,14 +570,28 @@ tr:hover td { background: rgba(26,82,118,0.03); }
 /* ===== PROGRESS BAR ===== */
 .reading-progress {
   position: fixed;
-  top: 64px;
+  top: 0;
   left: 0;
   width: 0%;
   height: 3px;
   background: var(--accent);
-  z-index: 999;
+  z-index: 1001;
   transition: width 0.1s linear;
+  pointer-events: none;
 }
+
+/* ===== SECTION REVEAL ANIMATION ===== */
+.section, .info-box, .card, .table-wrapper {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.section.revealed, .info-box.revealed, .card.revealed, .table-wrapper.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Ensure hero is always visible */
+.hero { opacity: 1 !important; transform: none !important; }
 
 /* ===== PRINT STYLES ===== */
 @media print {
@@ -676,6 +723,15 @@ html, body { overflow-x: hidden; }
   }
   .nav-links.open { display: flex; }
   .nav-toggle { display: block; min-height: 44px; min-width: 44px; }
+  .lang-selector {
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 10px 16px 4px;
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .lang-btn { width: 40px; height: 30px; font-size: 0.8rem; }
   .hero { padding: 50px 0 40px; }
   .section { padding: 40px 0; }
   .footer-grid { grid-template-columns: 1fr; }
