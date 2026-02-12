@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initIndexReadBadges();
   initNextPageButton();
   initWelcomeWalkthrough();
+  initTRYCurrency();
 });
 
 // Mobile nav toggle
@@ -1575,5 +1576,41 @@ if ('serviceWorker' in navigator) {
       .catch((error) => {
         console.log('Service Worker registration failed:', error);
       });
+  });
+}
+
+// ===== TRY CURRENCY FOR TURKISH PAGES =====
+function initTRYCurrency() {
+  var isTR = window.location.pathname.indexOf('/tr/') !== -1;
+  if (!isTR) return;
+  var USD_TO_TRY = 36.5;
+  var EC_TO_TRY = USD_TO_TRY / 2.70;
+  var main = document.querySelector('.main-content');
+  if (!main) return;
+  var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, null, false);
+  var nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(function(node) {
+    var text = node.nodeValue;
+    if (!text || text.trim().length < 3) return;
+    if (node.parentElement && (node.parentElement.closest('.try-converted') || node.parentElement.classList.contains('try-tag'))) return;
+    var re = /US\$\s?([\d,.]+(?:\.\d+)?)\s?(milyon|billion|million|milyar)?/gi;
+    var match = re.exec(text);
+    if (match) {
+      var numStr = match[1].replace(/,/g, '');
+      var num = parseFloat(numStr);
+      if (isNaN(num) || num === 0) return;
+      var mult = match[2] ? 1 : 1;
+      var tryVal = num * USD_TO_TRY * mult;
+      var formatted;
+      if (tryVal >= 1000000) formatted = (tryVal / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+      else if (tryVal >= 1000) formatted = Math.round(tryVal).toLocaleString('tr-TR');
+      else formatted = tryVal.toFixed(0);
+      var span = document.createElement('span');
+      span.className = 'try-tag';
+      span.textContent = ' (~\u20BA' + formatted + ')';
+      node.parentElement.classList.add('try-converted');
+      node.parentElement.insertBefore(span, node.nextSibling);
+    }
   });
 }

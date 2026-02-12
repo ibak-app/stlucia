@@ -143,7 +143,7 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.3; color: var(--primary-dark); }
 .liked-feed-close { background: rgba(255,255,255,0.1); border: none; color: #fff; font-size: 1.5rem; width: 44px; height: 44px; border-radius: 6px; cursor: pointer; }
 .liked-feed-card { display: flex; align-items: center; gap: 14px; padding: 16px; background: rgba(255,255,255,0.06); border-radius: 8px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s; text-decoration: none; }
 .liked-feed-card:hover { background: rgba(255,255,255,0.12); transform: translateX(4px); }
-.liked-feed-icon { color: #e74c3c; font-size: 1.3rem; flex-shrink: 0; }
+.liked-feed-icon { color: #e74c3c; font-size: 1rem; flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: rgba(231,76,60,0.12); display: inline-flex; align-items: center; justify-content: center; }
 .liked-feed-info { flex: 1; min-width: 0; }
 .liked-feed-title { color: #fff; font-weight: 600; font-size: 0.95rem; }
 .liked-feed-page { color: rgba(255,255,255,0.5); font-size: 0.75rem; text-transform: uppercase; }
@@ -155,9 +155,9 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.3; color: var(--primary-dark); }
 /* ===== CONTENT CHUNKS ===== */
 .content-chunk {
   border-radius: var(--radius);
-  padding: 2px 0;
-  margin-bottom: 8px;
-  transition: background 0.2s, box-shadow 0.2s;
+  padding: 4px 0;
+  margin-bottom: 6px;
+  transition: background 0.2s, box-shadow 0.3s;
   cursor: default;
   -webkit-user-select: text;
   user-select: text;
@@ -166,9 +166,9 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.3; color: var(--primary-dark); }
   background: rgba(26,82,118,0.04);
 }
 .section-liked {
-  border-left: 3px solid #e74c3c;
-  padding-left: 10px;
-  background: rgba(231,76,60,0.03) !important;
+  box-shadow: 0 0 0 2px rgba(231,76,60,0.35), 0 4px 16px rgba(231,76,60,0.10);
+  background: rgba(231,76,60,0.02) !important;
+  border-radius: var(--radius-lg);
 }
 /* Bullet list from split paragraphs */
 .chunk-list {
@@ -401,6 +401,17 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.3; color: var(--primary-dark); }
   background: rgba(231,76,60,0.04);
   cursor: pointer;
   transition: background var(--transition);
+}
+.tpn-list-liked span:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(231,76,60,0.10);
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 .tpn-list-liked:hover { background: rgba(231,76,60,0.08); }
 .tpn-list-liked .tpn-liked-count {
@@ -1394,6 +1405,15 @@ body.scroll-locked {
   color: var(--text);
 }
 
+/* ===== TRY CURRENCY TAG ===== */
+.try-tag {
+  display: inline;
+  font-size: 0.8em;
+  color: var(--text-light);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
 /* ===== PRINT STYLES ===== */
 @media print {
   .navbar, .nav-toggle, .back-to-top, .reading-progress, .book-progress-bar, .sidebar, .liked-feed-overlay, .heart-pop, .swipe-indicator, .top-page-nav, .bottom-section-nav, .card-read-progress, .collapsible-arrow, .read-more-btn, .walkthrough-overlay, .next-page-btn { display: none !important; }
@@ -1705,8 +1725,8 @@ body.has-bottom-nav .back-to-top { bottom: 80px; }
   .main-content > div[id] {
     background: var(--white);
     border-radius: var(--radius-lg);
-    padding: 20px 16px;
-    margin-bottom: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
   .main-content > div[id] > h2,
@@ -1716,27 +1736,41 @@ body.has-bottom-nav .back-to-top { bottom: 80px; }
     z-index: 50;
     background: var(--white);
     padding: 12px 16px 10px;
-    margin: -20px -16px 16px;
+    margin: -16px -16px 12px;
     border-bottom: 2px solid var(--accent);
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
   section.section > .container > .section-header > h2 {
     background: var(--bg);
-    margin: 0 0 16px;
+    margin: 0 0 12px;
     padding: 12px 0 10px;
   }
   section.section.section-alt > .container > .section-header > h2 {
     background: var(--bg-alt);
   }
-  /* Better paragraph spacing */
-  .main-content p { line-height: 1.7; }
-  /* Nested cards get border instead of shadow */
+  /* Consistent inner spacing */
+  .main-content p { line-height: 1.7; margin-bottom: 10px; }
+  .main-content h3 { margin-top: 16px; margin-bottom: 8px; }
+  .main-content h4 { margin-top: 12px; margin-bottom: 6px; }
+  /* Nested cards get border, consistent margin */
   .main-content > div[id] .card,
   .main-content > div[id] .info-box,
   .main-content > div[id] .table-wrapper {
     box-shadow: none;
     border: 1px solid var(--border);
+    margin-bottom: 12px;
   }
+  .main-content > div[id] .card { border-radius: var(--radius); }
+  .main-content > div[id] .card-body { padding: 14px; }
+  .main-content > div[id] .card-header { padding: 14px 16px; }
+  .main-content > div[id] .info-box { padding: 14px; margin-bottom: 12px; }
+  /* Card grid consistent gap */
+  .main-content > div[id] .card-grid { gap: 12px; }
+  .main-content > div[id] .grid-2col { gap: 12px; }
+  /* Table uniform spacing */
+  .main-content > div[id] .table-wrapper { margin-bottom: 12px; border-radius: var(--radius); }
+  /* Liked section on mobile */
+  .section-liked { margin: -4px; padding: 4px; }
 
   /* Responsive table card-view for wide tables */
   .table-card-mobile thead { display: none; }
@@ -1776,9 +1810,14 @@ body.has-bottom-nav .back-to-top { bottom: 80px; }
   .hero-stats { gap: 12px; }
   .section { padding: 30px 0; }
   .section-header h2 { font-size: 1.5rem; }
-  .container { padding: 0 12px; }
-  .card-body { padding: 16px; }
-  .info-box { padding: 14px 16px; }
+  .container { padding: 0 10px; }
+  .main-content > div[id] { padding: 14px 12px; margin-bottom: 10px; }
+  .main-content > div[id] > h2 { margin: -14px -12px 10px; padding: 10px 12px 8px; font-size: 1.15rem; }
+  .main-content > div[id] .info-box { padding: 12px; }
+  .main-content > div[id] .card-body { padding: 12px; }
+  .main-content > div[id] .card-header { padding: 12px 14px; }
+  .card-body { padding: 14px; }
+  .info-box { padding: 12px 14px; }
   .search-box input { padding: 12px 16px 12px 44px; font-size: 0.9rem; }
   td, th { padding: 6px 8px; font-size: 0.78rem; }
   .tabs { gap: 2px; }
