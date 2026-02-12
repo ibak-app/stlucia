@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initResponsiveTables();
   initSectionReveal();
   initSiteSearch();
+  initContentChunking();
   initLikesAndReadTracking();
   initGlobalBookProgress();
   initTopPageNav();
@@ -368,18 +369,65 @@ function scrollTo(selector) {
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+// ===== CONTENT CHUNKING =====
+function initContentChunking() {
+  const mainContent = document.querySelector('.main-content');
+  if (!mainContent) return;
+  const pageFile = getPageFile();
+  if (pageFile === 'index.html' || pageFile === 'map.html' || pageFile === 'directory.html') return;
+
+  var chunkId = 0;
+
+  // Wrap likeable elements in .content-chunk wrappers
+  mainContent.querySelectorAll('div[id]').forEach(function(section) {
+    var children = Array.from(section.children);
+    children.forEach(function(el) {
+      // Skip headings, already-wrapped, and non-content elements
+      if (el.matches('h2, h3, .content-chunk, script, style, .next-page-btn')) return;
+
+      // Wrap tables, info-boxes, paragraphs, lists, details in chunks
+      if (el.matches('p, table, .info-box, ul, ol, details, blockquote, .table-responsive, div.table-responsive')) {
+        // Split long paragraphs into bullet lists
+        if (el.tagName === 'P' && el.textContent.length > 300) {
+          var text = el.innerHTML;
+          // Split on sentences that start with patterns like "Name:", "Title -", etc.
+          var sentences = text.split(/(?<=[.!?])\s+(?=[A-Z])/);
+          if (sentences.length >= 3) {
+            var ul = document.createElement('ul');
+            ul.className = 'chunk-list';
+            sentences.forEach(function(s) {
+              if (s.trim().length < 10) return;
+              var li = document.createElement('li');
+              li.innerHTML = s.trim();
+              ul.appendChild(li);
+            });
+            el.parentNode.replaceChild(ul, el);
+            el = ul;
+          }
+        }
+
+        var wrapper = document.createElement('div');
+        wrapper.className = 'content-chunk';
+        wrapper.id = 'chunk-' + chunkId++;
+        el.parentNode.insertBefore(wrapper, el);
+        wrapper.appendChild(el);
+      }
+    });
+  });
+}
+
 // ===== LIKES & READ TRACKING =====
 function initLikesAndReadTracking() {
   const pageKey = getPageKey();
 
-  // Create full-screen liked feed overlay (same pattern as search overlay)
+  // Create full-screen liked feed overlay
   const overlay = document.createElement('div');
   overlay.className = 'liked-feed-overlay';
   overlay.id = 'liked-feed-overlay';
   overlay.innerHTML = `
     <div class="liked-feed-content">
       <div class="liked-feed-header">
-        <h3>&#9829; Liked Sections</h3>
+        <h3>&#9829; Liked</h3>
         <button class="liked-feed-close" aria-label="Close">&times;</button>
       </div>
       <div id="liked-feed-body"></div>
@@ -391,24 +439,24 @@ function initLikesAndReadTracking() {
     closeLikedFeed();
   });
 
-  // Close on overlay background click
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeLikedFeed();
   });
 
-  // Close on Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('active')) closeLikedFeed();
   });
 
-  // Find content sections
   const mainContent = document.querySelector('.main-content');
   const pageFile = getPageFile();
   const isHome = pageFile === 'index.html';
-  let sections;
 
+  // Granular: find all .content-chunk elements for liking
+  var chunks = mainContent ? Array.from(mainContent.querySelectorAll('.content-chunk')) : [];
+
+  // Also find sections for read tracking
+  let sections;
   if (isHome) {
-    // Homepage uses <section class="section"> with <h2> inside .section-header
     sections = [];
     document.querySelectorAll('section.section').forEach((sec, i) => {
       const h2 = sec.querySelector('.section-header h2') || sec.querySelector('h2');
@@ -416,11 +464,12 @@ function initLikesAndReadTracking() {
       if (!sec.id) sec.id = 'home-section-' + i;
       sections.push(sec);
     });
+    // On homepage, chunks are the sections themselves
+    chunks = sections;
   } else if (!mainContent) {
     storeSectionCount(); return;
   } else {
     const isFaq = pageFile === 'faq.html';
-
     if (isFaq) {
       sections = [];
       mainContent.querySelectorAll('.faq-category-header').forEach((header, i) => {
@@ -434,37 +483,43 @@ function initLikesAndReadTracking() {
     }
   }
 
-  if (!sections.length) { storeSectionCount(); return; }
+  if (!sections.length && !chunks.length) { storeSectionCount(); return; }
 
   const readSections = getReadSections(pageKey);
 
-  // Apply .section-liked class to already-liked sections
-  sections.forEach(section => {
-    if (isLiked(pageKey, section.id)) {
-      section.classList.add('section-liked');
+  // Apply .section-liked class to already-liked chunks
+  chunks.forEach(function(chunk) {
+    if (isLiked(pageKey, chunk.id)) {
+      chunk.classList.add('section-liked');
     }
   });
 
-  // Double-click to like/unlike sections (NO like buttons in headings)
-  sections.forEach(section => {
-    const isFaq = pageFile === 'faq.html';
-    const heading = isFaq ? section.querySelector('.faq-category-header h3, .faq-category-header') : (section.querySelector('.section-header h2') || section.querySelector('h2'));
-    if (!heading) return;
-    const sectionId = section.id;
-    const sectionTitle = heading.textContent.trim();
+  // Get chunk title: find nearest heading above, or first N chars of text
+  function getChunkTitle(chunk) {
+    // Walk up to find parent section's h2/h3
+    var parent = chunk.closest('div[id]:not(.content-chunk)');
+    var heading = parent ? (parent.querySelector('h2') || parent.querySelector('h3')) : null;
+    var headingText = heading ? heading.textContent.trim() : '';
+    // Get first line of chunk content
+    var preview = chunk.textContent.trim().substring(0, 60).replace(/\s+/g, ' ');
+    if (preview.length >= 60) preview += '...';
+    return headingText ? headingText + ' — ' + preview : preview;
+  }
 
-    section.addEventListener('dblclick', (e) => {
-      // Skip if double-click was on interactive elements
-      if (e.target.closest('a, button, input, textarea, select, details, summary')) return;
+  // Double-tap on individual content chunks to like
+  chunks.forEach(function(chunk) {
+    chunk.addEventListener('dblclick', function(e) {
+      if (e.target.closest('a, button, input, textarea, select')) return;
 
-      toggleLike(pageKey, sectionId, sectionTitle);
-      const liked = isLiked(pageKey, sectionId);
-      section.classList.toggle('section-liked', liked);
+      var title = getChunkTitle(chunk);
+      toggleLike(pageKey, chunk.id, title);
+      var liked = isLiked(pageKey, chunk.id);
+      chunk.classList.toggle('section-liked', liked);
       showHeartAnimation(e.clientX, e.clientY, liked);
     });
   });
 
-  // Read tracking with IntersectionObserver
+  // Read tracking with IntersectionObserver (on sections, not chunks)
   if ('IntersectionObserver' in window) {
     const readTimers = {};
     const readObserver = new IntersectionObserver((entries) => {
