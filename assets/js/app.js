@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCollapsibleDetails();
   initReadMore();
   initIndexReadBadges();
+  initNextPageButton();
   initWelcomeWalkthrough();
 });
 
@@ -997,9 +998,9 @@ function initBottomSectionNav() {
 
   nav.innerHTML = listHtml + trackHtml +
     '<div class="bsn-controls">' +
-    '<button class="bsn-btn bsn-prev" aria-label="Previous section">&#9664;</button>' +
+    '<button class="bsn-btn bsn-prev" aria-label="Previous section">&#9650;</button>' +
     '<div class="bsn-info"><div class="bsn-title"></div></div>' +
-    '<button class="bsn-btn bsn-next" aria-label="Next section">&#9654;</button></div>';
+    '<button class="bsn-btn bsn-next" aria-label="Next section">&#9660;</button></div>';
   document.body.appendChild(nav);
   document.body.classList.add('has-bottom-nav');
 
@@ -1182,6 +1183,49 @@ function initIndexReadBadges() {
       card.appendChild(badge);
     });
   } catch {}
+}
+
+// ===== REMOVE RELATED PAGES & ADD NEXT PAGE BUTTON =====
+function initNextPageButton() {
+  var isTR = window.location.pathname.includes('/tr/');
+
+  // Remove all "Related Pages" sections
+  document.querySelectorAll('h3').forEach(function(h3) {
+    var text = h3.textContent.trim();
+    if (text === 'Related Pages' || text === 'İlgili Sayfalar') {
+      var container = h3.parentElement;
+      if (container) container.remove();
+    }
+  });
+
+  // Add "Next Page" button at the bottom
+  var nextPage = getNextPage();
+  if (!nextPage) return;
+
+  var prefix = isTR ? '' : '';
+  var label = isTR ? 'Sonraki Sayfa' : 'Next Page';
+
+  var btn = document.createElement('a');
+  btn.href = prefix + nextPage.file;
+  btn.className = 'next-page-btn';
+  btn.innerHTML = '<div class="next-page-info">' +
+    '<span class="next-page-label">' + label + '</span>' +
+    '<span class="next-page-title">' + nextPage.icon + ' ' + nextPage.title + '</span>' +
+    '</div>' +
+    '<span class="next-page-arrow">&#8594;</span>';
+
+  // Insert before footer (which is hidden) or at end of body
+  var footer = document.querySelector('.footer');
+  if (footer) {
+    footer.parentElement.insertBefore(btn, footer);
+  } else {
+    var script = document.querySelector('body > script[src*="app.js"]');
+    if (script) {
+      script.parentElement.insertBefore(btn, script);
+    } else {
+      document.body.appendChild(btn);
+    }
+  }
 }
 
 // ===== WELCOME WALKTHROUGH =====
