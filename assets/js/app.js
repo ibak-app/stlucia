@@ -837,6 +837,14 @@ function initTopPageNav() {
   listHtml += '<span>&#9829;</span> <span>' + (isTR ? 'Beğenilen Bölümler' : 'Liked Sections') + '</span>';
   listHtml += '<span class="tpn-liked-count" id="tpn-liked-count">' + likeCount + '</span>';
   listHtml += '</div>';
+  // Language switcher
+  var currentFile = pages[idx].file;
+  var enHref = isTR ? '../' + currentFile : currentFile;
+  var trHref = isTR ? currentFile : 'tr/' + currentFile;
+  listHtml += '<div class="tpn-list-lang">';
+  listHtml += '<a href="' + enHref + '" class="tpn-lang-btn' + (isTR ? '' : ' active') + '">&#127468;&#127463; English</a>';
+  listHtml += '<a href="' + trHref + '" class="tpn-lang-btn' + (isTR ? ' active' : '') + '">&#127481;&#127479; T\u00fcrk\u00e7e</a>';
+  listHtml += '</div>';
   // Page links
   pages.forEach(function(p, i) {
     var activeClass = i === idx ? ' active' : '';
