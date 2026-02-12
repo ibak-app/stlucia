@@ -336,12 +336,26 @@ function initSectionReveal() {
   }, 2000);
 }
 
+// Enhance page loader with animated bar
+(function() {
+  var loader = document.querySelector('.page-loader');
+  if (loader) {
+    // Add loading bar if not present
+    if (!loader.querySelector('.loader-bar')) {
+      var bar = document.createElement('div');
+      bar.className = 'loader-bar';
+      bar.innerHTML = '<div class="loader-bar-fill"></div>';
+      loader.appendChild(bar);
+    }
+  }
+})();
+
 // Hide page loader when content is ready
 function hidePageLoader() {
   const loader = document.querySelector('.page-loader');
   if (loader) {
     loader.classList.add('loaded');
-    setTimeout(() => loader.remove(), 500);
+    setTimeout(() => loader.remove(), 600);
   }
 }
 window.addEventListener('load', hidePageLoader);
@@ -937,18 +951,21 @@ function initTopPageNav() {
   // Tap title to expand/collapse page list
   bar.querySelector('.tpn-info').addEventListener('click', function() {
     bar.classList.toggle('expanded');
+    document.body.classList.toggle('scroll-locked', bar.classList.contains('expanded'));
   });
 
   // Close page list when clicking a page link
   bar.querySelectorAll('.tpn-list-item').forEach(function(item) {
     item.addEventListener('click', function() {
       bar.classList.remove('expanded');
+      document.body.classList.remove('scroll-locked');
     });
   });
 
   // Search entry opens search overlay
   bar.querySelector('#tpn-open-search').addEventListener('click', function() {
     bar.classList.remove('expanded');
+    document.body.classList.remove('scroll-locked');
     var searchOverlay = document.getElementById('search-overlay');
     var searchInput = document.getElementById('search-overlay-input');
     if (searchOverlay) {
@@ -961,6 +978,7 @@ function initTopPageNav() {
   // Liked feed entry opens overlay
   bar.querySelector('#tpn-open-liked').addEventListener('click', function() {
     bar.classList.remove('expanded');
+    document.body.classList.remove('scroll-locked');
     var overlay = document.getElementById('liked-feed-overlay');
     if (overlay) {
       overlay.classList.add('active');
@@ -983,6 +1001,7 @@ function initTopPageNav() {
   document.addEventListener('click', function(e) {
     if (!bar.contains(e.target)) {
       bar.classList.remove('expanded');
+      document.body.classList.remove('scroll-locked');
     }
   });
 
@@ -1131,6 +1150,7 @@ function initBottomSectionNav() {
   // Tap title area to expand/collapse section list
   nav.querySelector('.bsn-info').addEventListener('click', function() {
     nav.classList.toggle('expanded');
+    document.body.classList.toggle('scroll-locked', nav.classList.contains('expanded'));
   });
 
   // List item click: scroll to section and collapse
@@ -1138,8 +1158,9 @@ function initBottomSectionNav() {
     item.addEventListener('click', function(e) {
       e.preventDefault();
       var i = parseInt(item.getAttribute('data-idx'));
-      sections[i].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       nav.classList.remove('expanded');
+      document.body.classList.remove('scroll-locked');
+      sections[i].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
@@ -1156,6 +1177,14 @@ function initBottomSectionNav() {
   });
   nextBtn.addEventListener('click', function() {
     if (currentIdx < sections.length - 1) sections[currentIdx + 1].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // Close bottom menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!nav.contains(e.target)) {
+      nav.classList.remove('expanded');
+      document.body.classList.remove('scroll-locked');
+    }
   });
 
   window.addEventListener('scroll', update, { passive: true });
