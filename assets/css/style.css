@@ -155,7 +155,7 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.3; color: var(--primary-dark); }
 /* ===== CONTENT CHUNKS ===== */
 .content-chunk {
   border-radius: var(--radius);
-  padding: 4px 0;
+  padding: 4px 6px;
   margin-bottom: 6px;
   transition: background 0.2s, outline-color 0.3s;
   cursor: default;
