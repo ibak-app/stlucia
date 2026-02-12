@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGlobalBookProgress();
   initTopPageNav();
   initBottomSectionNav();
+  initSwipeNavigation();
   initCollapsibleDetails();
   initReadMore();
   initIndexReadBadges();
@@ -1262,6 +1263,71 @@ function initBottomSectionNav() {
     };
     window.visualViewport.addEventListener('resize', fixBottom);
   }
+}
+
+// ===== SWIPE NAVIGATION BETWEEN PAGES =====
+function initSwipeNavigation() {
+  var startX = 0, startY = 0, startTime = 0;
+
+  document.addEventListener('touchstart', function(e) {
+    startX = e.changedTouches[0].clientX;
+    startY = e.changedTouches[0].clientY;
+    startTime = Date.now();
+  }, { passive: true });
+
+  document.addEventListener('touchend', function(e) {
+    var endX = e.changedTouches[0].clientX;
+    var endY = e.changedTouches[0].clientY;
+    var elapsed = Date.now() - startTime;
+
+    var diffX = endX - startX;
+    var diffY = endY - startY;
+    var absDiffX = Math.abs(diffX);
+    var absDiffY = Math.abs(diffY);
+
+    // Must be fast, mostly horizontal, and long enough
+    if (elapsed > 500 || absDiffX < 80 || absDiffY > absDiffX * 0.6) return;
+
+    // Don't swipe when menus are open
+    var topNav = document.getElementById('top-page-nav');
+    var bottomNav = document.getElementById('bottom-section-nav');
+    if (topNav && topNav.classList.contains('expanded')) return;
+    if (bottomNav && bottomNav.classList.contains('expanded')) return;
+
+    // Don't swipe inside scrollable containers (tabs, table-wrappers, maps)
+    var target = e.target;
+    if (target.closest('.tabs, .table-wrapper, .bsn-list, .tpn-list, #map, .leaflet-container, .search-overlay, .liked-feed-overlay, .walkthrough-overlay')) return;
+
+    var targetPage;
+    if (diffX < 0) {
+      // Swipe left → next page
+      targetPage = getNextPage();
+    } else {
+      // Swipe right → previous page
+      targetPage = getPrevPage();
+    }
+
+    if (!targetPage) return;
+
+    var dir = diffX < 0 ? 'next' : 'prev';
+    showSwipeIndicator(dir, targetPage);
+
+    setTimeout(function() {
+      showPageTransition(targetPage, function() {
+        var isTR = window.location.pathname.includes('/tr/');
+        window.location.href = (isTR ? '' : '') + targetPage.file;
+      });
+    }, 250);
+  }, { passive: true });
+}
+
+function showSwipeIndicator(dir, page) {
+  var indicator = document.createElement('div');
+  indicator.className = 'swipe-indicator swipe-' + dir;
+  var arrow = dir === 'next' ? '&#9654;' : '&#9664;';
+  indicator.innerHTML = arrow + ' ' + page.icon + ' ' + page.title;
+  document.body.appendChild(indicator);
+  setTimeout(function() { indicator.remove(); }, 600);
 }
 
 // ===== COLLAPSIBLE INFO BOXES (mobile) =====
