@@ -355,8 +355,6 @@ function scrollTo(selector) {
 // ===== LIKES & READ TRACKING =====
 function initLikesAndReadTracking() {
   const pageKey = getPageKey();
-  const likesBtn = document.getElementById('likes-toggle');
-  if (!likesBtn) return;
 
   // Create full-screen liked feed overlay (same pattern as search overlay)
   const overlay = document.createElement('div');
@@ -372,14 +370,6 @@ function initLikesAndReadTracking() {
     </div>
   `;
   document.body.appendChild(overlay);
-
-  // Toggle liked feed overlay
-  likesBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    renderLikedFeed();
-  });
 
   overlay.querySelector('.liked-feed-close').addEventListener('click', () => {
     closeLikedFeed();
@@ -397,7 +387,7 @@ function initLikesAndReadTracking() {
 
   // Find content sections (div[id] with h2 inside .main-content)
   const mainContent = document.querySelector('.main-content');
-  if (!mainContent) { updateLikesBadge(); storeSectionCount(); return; }
+  if (!mainContent) { storeSectionCount(); return; }
 
   const pageFile = getPageFile();
   let sections;
@@ -415,7 +405,7 @@ function initLikesAndReadTracking() {
     sections = Array.from(mainContent.querySelectorAll('div[id]')).filter(s => s.querySelector('h2'));
   }
 
-  if (!sections.length) { updateLikesBadge(); storeSectionCount(); return; }
+  if (!sections.length) { storeSectionCount(); return; }
 
   const readSections = getReadSections(pageKey);
 
@@ -441,7 +431,6 @@ function initLikesAndReadTracking() {
       const liked = isLiked(pageKey, sectionId);
       section.classList.toggle('section-liked', liked);
       showHeartAnimation(e.clientX, e.clientY, liked);
-      updateLikesBadge();
     });
   });
 
@@ -477,7 +466,6 @@ function initLikesAndReadTracking() {
   }
 
   storeSectionCount();
-  updateLikesBadge();
 }
 
 function showHeartAnimation(x, y, liked) {
@@ -543,7 +531,6 @@ function removeLike(pageKey, sectionId) {
   let likes = getLikes();
   likes = likes.filter(l => !(l.page === pageKey && l.section === sectionId));
   saveLikes(likes);
-  updateLikesBadge();
   renderLikedFeed();
   // Remove .section-liked class if on same page
   const currentPage = getPageKey();
@@ -567,17 +554,6 @@ function markAsRead(pageKey, sectionId) {
     if (!all[pageKey].includes(sectionId)) all[pageKey].push(sectionId);
     localStorage.setItem('stlucia_read', JSON.stringify(all));
   } catch {}
-}
-
-function updateLikesBadge() {
-  const badge = document.getElementById('likes-badge');
-  const btn = document.getElementById('likes-toggle');
-  if (!badge || !btn) return;
-  const count = getLikes().length;
-  badge.textContent = count;
-  badge.style.display = count > 0 ? 'flex' : 'none';
-  btn.classList.toggle('has-likes', count > 0);
-  btn.innerHTML = (count > 0 ? '&#9829;' : '&#9825;') + badge.outerHTML;
 }
 
 function renderLikedFeed() {
@@ -827,10 +803,30 @@ function initTopPageNav() {
   var prevPage = getPrevPage();
   var nextPage = getNextPage();
   var currentPage = pages[idx];
+  var isTR = window.location.pathname.includes('/tr/');
 
   var bar = document.createElement('div');
   bar.className = 'top-page-nav';
   bar.id = 'top-page-nav';
+
+  // Build expandable page list
+  var listHtml = '<div class="tpn-list" id="tpn-list">';
+  // Liked feed entry at top of list
+  var likeCount = getLikes().length;
+  listHtml += '<div class="tpn-list-liked" id="tpn-open-liked">';
+  listHtml += '<span>&#9829;</span> <span>Liked Sections</span>';
+  listHtml += '<span class="tpn-liked-count" id="tpn-liked-count">' + likeCount + '</span>';
+  listHtml += '</div>';
+  // Page links
+  pages.forEach(function(p, i) {
+    var activeClass = i === idx ? ' active' : '';
+    var prefix = isTR ? '' : '';
+    listHtml += '<a href="' + prefix + p.file + '" class="tpn-list-item' + activeClass + '">';
+    listHtml += '<span class="tpn-list-icon">' + p.icon + '</span>';
+    listHtml += '<span class="tpn-list-label">' + p.title + '</span>';
+    listHtml += '</a>';
+  });
+  listHtml += '</div>';
 
   var html = '<div class="tpn-progress"><div class="tpn-progress-fill"></div></div>';
   html += '<div class="tpn-controls">';
@@ -842,10 +838,9 @@ function initTopPageNav() {
     html += '<span class="tpn-btn tpn-disabled">&#9664;</span>';
   }
 
-  // Current page title + counter
+  // Current page title (tappable to expand page list)
   html += '<div class="tpn-info">';
-  html += '<div class="tpn-title">' + currentPage.title + '</div>';
-  html += '<div class="tpn-counter">' + (idx + 1) + ' / ' + pages.length + '</div>';
+  html += '<div class="tpn-title">' + currentPage.icon + ' ' + currentPage.title + '</div>';
   html += '</div>';
 
   // Next button
@@ -855,16 +850,29 @@ function initTopPageNav() {
     html += '<span class="tpn-btn tpn-disabled">&#9654;</span>';
   }
 
-  // Liked feed button (heart)
-  html += '<button class="tpn-btn tpn-heart" id="tpn-likes-btn" title="Liked sections">&#9825;</button>';
+  // Search button
+  html += '<button class="tpn-btn tpn-search" id="tpn-search-btn" title="Search">&#128269;</button>';
 
   html += '</div>';
+  html += listHtml;
   bar.innerHTML = html;
   document.body.appendChild(bar);
 
-  // Heart button opens liked feed overlay
-  var heartBtn = bar.querySelector('#tpn-likes-btn');
-  heartBtn.addEventListener('click', function() {
+  // Tap title to expand/collapse page list
+  bar.querySelector('.tpn-info').addEventListener('click', function() {
+    bar.classList.toggle('expanded');
+  });
+
+  // Close page list when clicking a page link
+  bar.querySelectorAll('.tpn-list-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      bar.classList.remove('expanded');
+    });
+  });
+
+  // Liked feed entry opens overlay
+  bar.querySelector('#tpn-open-liked').addEventListener('click', function() {
+    bar.classList.remove('expanded');
     var overlay = document.getElementById('liked-feed-overlay');
     if (overlay) {
       overlay.classList.add('active');
@@ -873,15 +881,33 @@ function initTopPageNav() {
     }
   });
 
-  // Sync heart icon state
-  function updateHeart() {
-    var count = getLikes().length;
-    heartBtn.innerHTML = count > 0 ? '&#9829;' : '&#9825;';
-    heartBtn.classList.toggle('has-likes', count > 0);
-  }
-  updateHeart();
-  // Re-check periodically (likes can change via dblclick)
-  setInterval(updateHeart, 1000);
+  // Sync liked count periodically
+  setInterval(function() {
+    var countEl = document.getElementById('tpn-liked-count');
+    if (countEl) {
+      var c = getLikes().length;
+      countEl.textContent = c;
+      countEl.style.display = c > 0 ? 'flex' : 'none';
+    }
+  }, 1000);
+
+  // Search button opens search overlay
+  bar.querySelector('#tpn-search-btn').addEventListener('click', function() {
+    var searchOverlay = document.getElementById('search-overlay');
+    var searchInput = document.getElementById('search-overlay-input');
+    if (searchOverlay) {
+      searchOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      if (searchInput) searchInput.focus();
+    }
+  });
+
+  // Close expanded menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!bar.contains(e.target)) {
+      bar.classList.remove('expanded');
+    }
+  });
 
   // Update page-level progress on scroll
   var progressFill = bar.querySelector('.tpn-progress-fill');
