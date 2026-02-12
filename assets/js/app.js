@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCollapsibleDetails();
   initReadMore();
   initIndexReadBadges();
+  initWelcomeWalkthrough();
 });
 
 // Mobile nav toggle
@@ -385,24 +386,37 @@ function initLikesAndReadTracking() {
     if (e.key === 'Escape' && overlay.classList.contains('active')) closeLikedFeed();
   });
 
-  // Find content sections (div[id] with h2 inside .main-content)
+  // Find content sections
   const mainContent = document.querySelector('.main-content');
-  if (!mainContent) { storeSectionCount(); return; }
-
   const pageFile = getPageFile();
+  const isHome = pageFile === 'index.html';
   let sections;
-  const isFaq = pageFile === 'faq.html';
 
-  if (isFaq) {
+  if (isHome) {
+    // Homepage uses <section class="section"> with <h2> inside .section-header
     sections = [];
-    mainContent.querySelectorAll('.faq-category-header').forEach((header, i) => {
-      const parent = header.closest('div[id]') || header.parentElement;
-      if (!parent.id) parent.id = 'faq-section-' + i;
-      sections.push(parent);
+    document.querySelectorAll('section.section').forEach((sec, i) => {
+      const h2 = sec.querySelector('.section-header h2') || sec.querySelector('h2');
+      if (!h2) return;
+      if (!sec.id) sec.id = 'home-section-' + i;
+      sections.push(sec);
     });
-    sections = sections.filter((s, i, arr) => arr.indexOf(s) === i);
+  } else if (!mainContent) {
+    storeSectionCount(); return;
   } else {
-    sections = Array.from(mainContent.querySelectorAll('div[id]')).filter(s => s.querySelector('h2'));
+    const isFaq = pageFile === 'faq.html';
+
+    if (isFaq) {
+      sections = [];
+      mainContent.querySelectorAll('.faq-category-header').forEach((header, i) => {
+        const parent = header.closest('div[id]') || header.parentElement;
+        if (!parent.id) parent.id = 'faq-section-' + i;
+        sections.push(parent);
+      });
+      sections = sections.filter((s, i, arr) => arr.indexOf(s) === i);
+    } else {
+      sections = Array.from(mainContent.querySelectorAll('div[id]')).filter(s => s.querySelector('h2'));
+    }
   }
 
   if (!sections.length) { storeSectionCount(); return; }
@@ -418,7 +432,8 @@ function initLikesAndReadTracking() {
 
   // Double-click to like/unlike sections (NO like buttons in headings)
   sections.forEach(section => {
-    const heading = isFaq ? section.querySelector('.faq-category-header h3, .faq-category-header') : section.querySelector('h2');
+    const isFaq = pageFile === 'faq.html';
+    const heading = isFaq ? section.querySelector('.faq-category-header h3, .faq-category-header') : (section.querySelector('.section-header h2') || section.querySelector('h2'));
     if (!heading) return;
     const sectionId = section.id;
     const sectionTitle = heading.textContent.trim();
@@ -593,13 +608,12 @@ function renderLikedFeed() {
 let searchIndex = null;
 
 function initSiteSearch() {
-  const searchBtn = document.getElementById('search-toggle');
   const searchOverlay = document.getElementById('search-overlay');
   const searchClose = document.getElementById('search-close');
   const searchInput = document.getElementById('search-overlay-input');
   const searchResults = document.getElementById('search-results');
 
-  if (!searchBtn || !searchOverlay) return;
+  if (!searchOverlay) return;
 
   // Load search index (handle both EN and TR paths)
   const searchIndexPath = window.location.pathname.includes('/tr/')
@@ -613,22 +627,15 @@ function initSiteSearch() {
     })
     .catch(err => console.error('Failed to load search index:', err));
 
-  // Open search
-  searchBtn.addEventListener('click', () => {
-    searchOverlay.classList.add('active');
-    searchInput.focus();
-    document.body.style.overflow = 'hidden';
-  });
-
   // Close search
   function closeSearch() {
     searchOverlay.classList.remove('active');
     document.body.style.overflow = '';
-    searchInput.value = '';
-    searchResults.innerHTML = '';
+    if (searchInput) searchInput.value = '';
+    if (searchResults) searchResults.innerHTML = '';
   }
 
-  searchClose.addEventListener('click', closeSearch);
+  if (searchClose) searchClose.addEventListener('click', closeSearch);
 
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
@@ -645,20 +652,22 @@ function initSiteSearch() {
   });
 
   // Search as user types
-  let searchTimeout;
-  searchInput.addEventListener('input', (e) => {
-    clearTimeout(searchTimeout);
-    const query = e.target.value.trim();
+  if (searchInput && searchResults) {
+    let searchTimeout;
+    searchInput.addEventListener('input', (e) => {
+      clearTimeout(searchTimeout);
+      const query = e.target.value.trim();
 
-    if (query.length < 2) {
-      searchResults.innerHTML = '';
-      return;
-    }
+      if (query.length < 2) {
+        searchResults.innerHTML = '';
+        return;
+      }
 
-    searchTimeout = setTimeout(() => {
-      performSearch(query, searchResults);
-    }, 300);
-  });
+      searchTimeout = setTimeout(() => {
+        performSearch(query, searchResults);
+      }, 300);
+    });
+  }
 }
 
 function performSearch(query, resultsContainer) {
@@ -751,12 +760,17 @@ function initGlobalBookProgress() {
 
 function storeSectionCount() {
   const pageFile = getPageFile();
+  const isHome = pageFile === 'index.html';
   const mainContent = document.querySelector('.main-content');
-  if (!mainContent) return;
 
-  // Count sections: div[id] with h2, or faq-category-header
   let count = 0;
-  if (pageFile === 'faq.html') {
+  if (isHome) {
+    document.querySelectorAll('section.section').forEach(sec => {
+      if (sec.querySelector('h2')) count++;
+    });
+  } else if (!mainContent) {
+    return;
+  } else if (pageFile === 'faq.html') {
     count = mainContent.querySelectorAll('.faq-category-header').length;
   } else {
     mainContent.querySelectorAll('div[id]').forEach(s => {
@@ -811,10 +825,15 @@ function initTopPageNav() {
 
   // Build expandable page list
   var listHtml = '<div class="tpn-list" id="tpn-list">';
-  // Liked feed entry at top of list
+  // Search entry at top
+  var searchLabel = isTR ? 'Rehberde Ara...' : 'Search the guide...';
+  listHtml += '<div class="tpn-list-search" id="tpn-open-search">';
+  listHtml += '<span>&#128269;</span> <span>' + searchLabel + '</span>';
+  listHtml += '</div>';
+  // Liked feed entry
   var likeCount = getLikes().length;
   listHtml += '<div class="tpn-list-liked" id="tpn-open-liked">';
-  listHtml += '<span>&#9829;</span> <span>Liked Sections</span>';
+  listHtml += '<span>&#9829;</span> <span>' + (isTR ? 'Beğenilen Bölümler' : 'Liked Sections') + '</span>';
   listHtml += '<span class="tpn-liked-count" id="tpn-liked-count">' + likeCount + '</span>';
   listHtml += '</div>';
   // Page links
@@ -850,9 +869,6 @@ function initTopPageNav() {
     html += '<span class="tpn-btn tpn-disabled">&#9654;</span>';
   }
 
-  // Search button
-  html += '<button class="tpn-btn tpn-search" id="tpn-search-btn" title="Search">&#128269;</button>';
-
   html += '</div>';
   html += listHtml;
   bar.innerHTML = html;
@@ -868,6 +884,18 @@ function initTopPageNav() {
     item.addEventListener('click', function() {
       bar.classList.remove('expanded');
     });
+  });
+
+  // Search entry opens search overlay
+  bar.querySelector('#tpn-open-search').addEventListener('click', function() {
+    bar.classList.remove('expanded');
+    var searchOverlay = document.getElementById('search-overlay');
+    var searchInput = document.getElementById('search-overlay-input');
+    if (searchOverlay) {
+      searchOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      if (searchInput) searchInput.focus();
+    }
   });
 
   // Liked feed entry opens overlay
@@ -891,17 +919,6 @@ function initTopPageNav() {
     }
   }, 1000);
 
-  // Search button opens search overlay
-  bar.querySelector('#tpn-search-btn').addEventListener('click', function() {
-    var searchOverlay = document.getElementById('search-overlay');
-    var searchInput = document.getElementById('search-overlay-input');
-    if (searchOverlay) {
-      searchOverlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      if (searchInput) searchInput.focus();
-    }
-  });
-
   // Close expanded menu when clicking outside
   document.addEventListener('click', function(e) {
     if (!bar.contains(e.target)) {
@@ -921,29 +938,41 @@ function initTopPageNav() {
 // ===== BOTTOM SECTION NAVIGATION BAR =====
 function initBottomSectionNav() {
   var pageFile = getPageFile();
-  var skipPages = ['index.html', 'map.html', 'directory.html'];
+  var skipPages = ['map.html', 'directory.html'];
   if (skipPages.indexOf(pageFile) >= 0) return;
 
+  var isHome = pageFile === 'index.html';
   var mainContent = document.querySelector('.main-content');
-  if (!mainContent) return;
 
   var sections = [];
-  var isFaq = pageFile === 'faq.html';
-  if (isFaq) {
-    mainContent.querySelectorAll('.faq-category-header').forEach(function(header, i) {
-      var parent = header.closest('div[id]') || header.parentElement;
-      var id = parent.id || 'faq-section-' + i;
-      if (!parent.id) parent.id = id;
-      var titleEl = header.querySelector('h3') || header;
-      sections.push({ el: parent, id: id, title: titleEl.textContent.trim() });
+  if (isHome) {
+    // Homepage uses <section class="section"> with <h2> inside .section-header
+    document.querySelectorAll('section.section').forEach(function(sec, i) {
+      var h2 = sec.querySelector('.section-header h2') || sec.querySelector('h2');
+      if (!h2) return;
+      if (!sec.id) sec.id = 'home-section-' + i;
+      sections.push({ el: sec, id: sec.id, title: h2.textContent.trim() });
     });
+  } else if (!mainContent) {
+    return;
   } else {
-    mainContent.querySelectorAll('div[id]').forEach(function(s) {
-      var h2 = s.querySelector('h2');
-      if (h2) {
-        sections.push({ el: s, id: s.id, title: h2.textContent.trim() });
-      }
-    });
+    var isFaq = pageFile === 'faq.html';
+    if (isFaq) {
+      mainContent.querySelectorAll('.faq-category-header').forEach(function(header, i) {
+        var parent = header.closest('div[id]') || header.parentElement;
+        var id = parent.id || 'faq-section-' + i;
+        if (!parent.id) parent.id = id;
+        var titleEl = header.querySelector('h3') || header;
+        sections.push({ el: parent, id: id, title: titleEl.textContent.trim() });
+      });
+    } else {
+      mainContent.querySelectorAll('div[id]').forEach(function(s) {
+        var h2 = s.querySelector('h2');
+        if (h2) {
+          sections.push({ el: s, id: s.id, title: h2.textContent.trim() });
+        }
+      });
+    }
   }
   if (sections.length === 0) return;
 
@@ -1153,6 +1182,89 @@ function initIndexReadBadges() {
       card.appendChild(badge);
     });
   } catch {}
+}
+
+// ===== WELCOME WALKTHROUGH =====
+function initWelcomeWalkthrough() {
+  // Only show once per device
+  if (localStorage.getItem('stlucia_walkthrough_done')) return;
+
+  var isTR = window.location.pathname.includes('/tr/');
+  var steps = isTR ? [
+    { icon: '&#128214;', title: 'Hoş Geldiniz!', text: 'Bu rehber Saint Lucia\'da iş kurma hakkında kapsamlı bir kaynaktır. Nasıl kullanacağınızı öğrenin.' },
+    { icon: '&#9664; &#9654;', title: 'Sayfalar Arası Gezinin', text: 'Üst bardaki ok butonlarıyla sayfalar arasında geçiş yapın. Sayfa başlığına dokunarak tüm sayfaları görün.' },
+    { icon: '&#9829;', title: 'Bölümleri Beğenin', text: 'Herhangi bir bölüme çift dokunarak beğenin. Beğenilerinize sayfa menüsünden ulaşın.' },
+    { icon: '&#9650; &#9660;', title: 'Bölümler Arası Gezinin', text: 'Alt bardaki ok butonlarıyla bölümler arasında geçiş yapın. Bölüm başlığına dokunarak tüm bölümleri görün.' }
+  ] : [
+    { icon: '&#128214;', title: 'Welcome!', text: 'This guide is a comprehensive resource for doing business in Saint Lucia. Here\'s how to use it.' },
+    { icon: '&#9664; &#9654;', title: 'Navigate Pages', text: 'Use the arrows in the top bar to move between pages. Tap the page title to see all pages.' },
+    { icon: '&#9829;', title: 'Like Sections', text: 'Double-tap any section to like it. Access your liked sections from the page menu.' },
+    { icon: '&#9650; &#9660;', title: 'Browse Sections', text: 'Use the bottom bar arrows to jump between sections. Tap the section title to see all sections.' }
+  ];
+
+  var overlay = document.createElement('div');
+  overlay.className = 'walkthrough-overlay';
+  overlay.id = 'walkthrough-overlay';
+
+  var currentStep = 0;
+
+  function render() {
+    var step = steps[currentStep];
+    var isLast = currentStep === steps.length - 1;
+    var isFirst = currentStep === 0;
+    var nextLabel = isTR ? (isLast ? 'Başla' : 'İleri') : (isLast ? 'Get Started' : 'Next');
+    var skipLabel = isTR ? 'Atla' : 'Skip';
+
+    overlay.innerHTML =
+      '<div class="walkthrough-card">' +
+        '<div class="walkthrough-icon">' + step.icon + '</div>' +
+        '<h3 class="walkthrough-title">' + step.title + '</h3>' +
+        '<p class="walkthrough-text">' + step.text + '</p>' +
+        '<div class="walkthrough-dots">' +
+          steps.map(function(_, i) {
+            return '<span class="walkthrough-dot' + (i === currentStep ? ' active' : '') + '"></span>';
+          }).join('') +
+        '</div>' +
+        '<div class="walkthrough-actions">' +
+          (isFirst ? '<button class="walkthrough-skip">' + skipLabel + '</button>' : '<button class="walkthrough-back">&#9664;</button>') +
+          '<button class="walkthrough-next">' + nextLabel + '</button>' +
+        '</div>' +
+      '</div>';
+
+    // Event listeners
+    var nextBtn = overlay.querySelector('.walkthrough-next');
+    var skipBtn = overlay.querySelector('.walkthrough-skip');
+    var backBtn = overlay.querySelector('.walkthrough-back');
+
+    nextBtn.addEventListener('click', function() {
+      if (isLast) {
+        closeWalkthrough();
+      } else {
+        currentStep++;
+        render();
+      }
+    });
+
+    if (skipBtn) {
+      skipBtn.addEventListener('click', closeWalkthrough);
+    }
+
+    if (backBtn) {
+      backBtn.addEventListener('click', function() {
+        currentStep--;
+        render();
+      });
+    }
+  }
+
+  function closeWalkthrough() {
+    localStorage.setItem('stlucia_walkthrough_done', '1');
+    overlay.classList.add('closing');
+    setTimeout(function() { overlay.remove(); }, 300);
+  }
+
+  render();
+  document.body.appendChild(overlay);
 }
 
 // ===== PWA: Service Worker Registration =====
