@@ -1163,6 +1163,15 @@ function initBottomSectionNav() {
   update();
   // Reposition markers after images load etc
   window.addEventListener('load', positionMarkers);
+
+  // Fix Chrome Android: bottom bar jumps when address bar hides/shows
+  if (window.visualViewport) {
+    var fixBottom = function() {
+      var offset = window.innerHeight - window.visualViewport.height;
+      nav.style.bottom = Math.max(0, offset) + 'px';
+    };
+    window.visualViewport.addEventListener('resize', fixBottom);
+  }
 }
 
 // ===== COLLAPSIBLE INFO BOXES (mobile) =====
