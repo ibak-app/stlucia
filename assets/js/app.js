@@ -379,7 +379,7 @@ function initContentChunking() {
   const mainContent = document.querySelector('.main-content');
   if (!mainContent) return;
   const pageFile = getPageFile();
-  if (pageFile === 'index.html' || pageFile === 'map.html' || pageFile === 'directory.html') return;
+  if (pageFile === 'index.html' || pageFile === 'map.html' || pageFile === 'directory.html' || pageFile === 'liked.html') return;
 
   var chunkId = 0;
   var chunkSelectors = 'p, table, .info-box, ul, ol, details, blockquote, .table-responsive';
@@ -1625,24 +1625,31 @@ function initLikedFeedPage() {
   var isTR = window.location.pathname.indexOf('/tr/') !== -1;
   var likes = getLikes();
 
-  if (likes.length === 0) {
-    // Empty state is already in the HTML
-    return;
-  }
+  if (likes.length === 0) return;
 
-  // Group by page
+  // Group by page, preserve order
   var grouped = {};
+  var pageOrder = [];
   likes.forEach(function(like) {
     var key = like.page;
-    if (!grouped[key]) grouped[key] = { pageTitle: like.pageTitle, items: [] };
+    if (!grouped[key]) {
+      grouped[key] = { pageTitle: like.pageTitle, items: [] };
+      pageOrder.push(key);
+    }
     grouped[key].items.push(like);
   });
 
   // Clear the empty state
   feedDiv.innerHTML = '';
 
-  // For each page group, fetch HTML and extract liked section content
-  Object.keys(grouped).forEach(function(pageKey) {
+  // Build sidebar links dynamically
+  var sidebar = document.querySelector('.sidebar');
+  if (sidebar) {
+    sidebar.innerHTML = '<h3>' + (isTR ? 'Beğenilenler' : 'Liked Feed') + '</h3>';
+  }
+
+  // For each page group, fetch HTML and extract full section content
+  pageOrder.forEach(function(pageKey) {
     var group = grouped[pageKey];
 
     // Determine the fetch URL relative to current page
@@ -1657,13 +1664,26 @@ function initLikedFeedPage() {
       fetchUrl = pageKey;
     }
 
-    // Create page group header
+    // Page group divider
+    var groupId = 'from-' + pageKey.replace(/[^a-zA-Z0-9]/g, '-');
     var groupEl = document.createElement('div');
     groupEl.className = 'liked-page-group';
-    groupEl.innerHTML = '<h3 class="liked-page-group-title">' + escapeHtml(group.pageTitle || pageKey) + '</h3>';
+    groupEl.id = groupId;
+    groupEl.innerHTML = '<div class="liked-page-source-bar">' +
+      '<span class="liked-page-source-label">' + escapeHtml(group.pageTitle || pageKey) + '</span>' +
+      '<a href="' + fetchUrl + '" class="liked-page-source-link">' + (isTR ? 'Sayfayı aç' : 'Open page') + ' &rarr;</a>' +
+      '</div>';
     feedDiv.appendChild(groupEl);
 
-    // Fetch the page and extract content
+    // Add sidebar link
+    if (sidebar) {
+      var sideLink = document.createElement('a');
+      sideLink.href = '#' + groupId;
+      sideLink.textContent = group.pageTitle || pageKey;
+      sidebar.appendChild(sideLink);
+    }
+
+    // Fetch the page and extract full content
     fetch(fetchUrl)
       .then(function(r) { return r.text(); })
       .then(function(html) {
@@ -1672,61 +1692,69 @@ function initLikedFeedPage() {
 
         group.items.forEach(function(like) {
           var sourceEl = doc.getElementById(like.section);
-          var card = document.createElement('div');
-          card.className = 'liked-page-card';
+          if (!sourceEl) return;
 
-          var header = document.createElement('div');
-          header.className = 'liked-page-card-header';
-          header.innerHTML = '<span class="liked-page-heart">&#9829;</span>' +
-            '<span class="liked-page-card-title">' + escapeHtml(like.title) + '</span>' +
-            '<button class="liked-page-card-remove" title="Remove">&times;</button>';
-          card.appendChild(header);
+          // Clone the full section as a div[id] — same as native pages
+          var section = document.createElement('div');
+          section.id = 'liked-' + like.section;
+          section.innerHTML = sourceEl.innerHTML;
 
-          // Extract content from source
-          if (sourceEl) {
-            var contentDiv = document.createElement('div');
-            contentDiv.className = 'liked-page-card-content';
-            contentDiv.innerHTML = sourceEl.innerHTML;
-            // Remove h2 headings from extracted content (title is in header)
-            contentDiv.querySelectorAll('h2').forEach(function(h) { h.remove(); });
-            card.appendChild(contentDiv);
+          // Add remove + source link bar at the top, after the h2
+          var toolbar = document.createElement('div');
+          toolbar.className = 'liked-section-toolbar';
+          toolbar.innerHTML = '<a href="' + fetchUrl + '#' + like.section + '" class="liked-section-source">' +
+            (isTR ? 'Kaynağa git \u2192' : 'Go to source \u2192') + '</a>' +
+            '<button class="liked-section-remove" title="' + (isTR ? 'Kaldır' : 'Remove') + '">&#9829; ' +
+            (isTR ? 'Kaldır' : 'Remove') + '</button>';
+
+          // Insert toolbar after first h2, or at top
+          var h2 = section.querySelector('h2');
+          if (h2 && h2.nextSibling) {
+            h2.parentNode.insertBefore(toolbar, h2.nextSibling);
+          } else if (h2) {
+            section.appendChild(toolbar);
+          } else {
+            section.insertBefore(toolbar, section.firstChild);
           }
 
-          // Link to original
-          var linkEl = document.createElement('a');
-          linkEl.className = 'liked-page-card-link';
-          linkEl.href = fetchUrl + '#' + like.section;
-          linkEl.textContent = isTR ? 'Kaynağa git \u2192' : 'Go to source \u2192';
-          card.appendChild(linkEl);
-
           // Remove button handler
-          header.querySelector('.liked-page-card-remove').addEventListener('click', function() {
+          toolbar.querySelector('.liked-section-remove').addEventListener('click', function() {
             removeLike(like.page, like.section);
-            card.remove();
+            section.remove();
             // Check if group is now empty
-            if (!groupEl.querySelector('.liked-page-card')) groupEl.remove();
-            // Check if feed is now empty
-            if (!feedDiv.querySelector('.liked-page-card')) {
+            if (!groupEl.querySelector('div[id]')) {
+              groupEl.remove();
+              if (sidebar) {
+                var sl = sidebar.querySelector('a[href="#' + groupId + '"]');
+                if (sl) sl.remove();
+              }
+            }
+            // Check if feed is now totally empty
+            if (!feedDiv.querySelector('div[id]')) {
               feedDiv.innerHTML = '<div class="liked-page-empty">' +
                 '<div style="font-size:3rem;margin-bottom:16px;">&#9829;</div>' +
                 '<p style="font-size:1.05rem;color:var(--text-light);">' + (isTR ? 'Hen\u00fcz be\u011fenilen b\u00f6l\u00fcm yok.' : 'No liked sections yet.') + '</p>' +
                 '<p style="font-size:0.9rem;color:var(--text-light);margin-top:8px;">' + (isTR ? 'Buraya kaydetmek i\u00e7in rehberdeki herhangi bir b\u00f6l\u00fcme \u00e7ift dokunun.' : 'Double-tap any section across the guide to save it here.') + '</p>' +
                 '</div>';
+              if (sidebar) {
+                sidebar.innerHTML = '<h3>' + (isTR ? 'Beğenilenler' : 'Liked Feed') + '</h3>' +
+                  '<a href="#" onclick="return false;" style="color:var(--text-light);pointer-events:none;">' +
+                  (isTR ? 'Bölümler kaydedilen beğenilerinizden yüklenir' : 'Sections load from your saved likes') + '</a>';
+              }
             }
           });
 
-          groupEl.appendChild(card);
+          groupEl.appendChild(section);
         });
       })
       .catch(function() {
-        // Fallback: show just titles as links
         group.items.forEach(function(like) {
-          var card = document.createElement('div');
-          card.className = 'liked-page-card';
-          card.innerHTML = '<div class="liked-page-card-header">' +
-            '<span class="liked-page-heart">&#9829;</span>' +
-            '<span class="liked-page-card-title">' + escapeHtml(like.title) + '</span></div>';
-          groupEl.appendChild(card);
+          var fallback = document.createElement('div');
+          fallback.id = 'liked-' + like.section;
+          fallback.innerHTML = '<h2>' + escapeHtml(like.title) + '</h2>' +
+            '<p style="color:var(--text-light);">' + (isTR ? 'İçerik yüklenemedi.' : 'Could not load content.') + ' ' +
+            '<a href="' + fetchUrl + '#' + like.section + '">' + (isTR ? 'Kaynağa git' : 'Go to source') + '</a></p>';
+          groupEl.appendChild(fallback);
         });
       });
   });
