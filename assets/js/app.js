@@ -809,6 +809,26 @@ function updateGlobalBookProgress() {
   } catch {}
 }
 
+// ===== PAGE TRANSITION =====
+function showPageTransition(targetPage, callback) {
+  var overlay = document.createElement('div');
+  overlay.className = 'page-transition';
+  var label = targetPage ? targetPage.icon + ' ' + targetPage.title : '';
+  overlay.innerHTML = '<div class="page-transition-content">' +
+    '<div class="page-transition-spinner"></div>' +
+    '<div class="page-transition-label">' + label + '</div>' +
+    '</div>';
+  document.body.appendChild(overlay);
+
+  // Force reflow then add active class for animation
+  overlay.offsetHeight;
+  overlay.classList.add('active');
+
+  setTimeout(function() {
+    if (callback) callback();
+  }, 350);
+}
+
 // ===== TOP PAGE NAVIGATION BAR =====
 function initTopPageNav() {
   var pages = getBookPages();
@@ -856,12 +876,20 @@ function initTopPageNav() {
   });
   listHtml += '</div>';
 
-  var html = '<div class="tpn-progress"><div class="tpn-progress-fill"></div></div>';
+  // Page progress track with markers
+  var trackHtml = '<div class="tpn-track">';
+  trackHtml += '<div class="tpn-track-fill"></div>';
+  pages.forEach(function(p, i) {
+    trackHtml += '<div class="tpn-marker' + (i === idx ? ' active' : '') + '" data-idx="' + i + '" title="' + p.title + '"></div>';
+  });
+  trackHtml += '</div>';
+
+  var html = trackHtml;
   html += '<div class="tpn-controls">';
 
   // Prev button
   if (prevPage) {
-    html += '<a href="' + prevPage.file + '" class="tpn-btn" title="' + prevPage.title + '">&#9664;</a>';
+    html += '<a href="' + prevPage.file + '" class="tpn-btn tpn-nav-link" title="' + prevPage.title + '">&#9664;</a>';
   } else {
     html += '<span class="tpn-btn tpn-disabled">&#9664;</span>';
   }
@@ -873,7 +901,7 @@ function initTopPageNav() {
 
   // Next button
   if (nextPage) {
-    html += '<a href="' + nextPage.file + '" class="tpn-btn" title="' + nextPage.title + '">&#9654;</a>';
+    html += '<a href="' + nextPage.file + '" class="tpn-btn tpn-nav-link" title="' + nextPage.title + '">&#9654;</a>';
   } else {
     html += '<span class="tpn-btn tpn-disabled">&#9654;</span>';
   }
@@ -882,6 +910,29 @@ function initTopPageNav() {
   html += listHtml;
   bar.innerHTML = html;
   document.body.appendChild(bar);
+
+  // Position page markers evenly and set track fill to current page
+  var tpnMarkers = bar.querySelectorAll('.tpn-marker');
+  var tpnTrackFill = bar.querySelector('.tpn-track-fill');
+  tpnMarkers.forEach(function(m, i) {
+    var pct = pages.length > 1 ? (i / (pages.length - 1)) * 100 : 50;
+    m.style.left = pct + '%';
+  });
+  if (tpnTrackFill) {
+    var fillPct = pages.length > 1 ? (idx / (pages.length - 1)) * 100 : 0;
+    tpnTrackFill.style.width = fillPct + '%';
+  }
+
+  // Click page marker to navigate
+  tpnMarkers.forEach(function(m) {
+    m.addEventListener('click', function() {
+      var i = parseInt(m.getAttribute('data-idx'));
+      var prefix = isTR ? '' : '';
+      showPageTransition(pages[i], function() {
+        window.location.href = prefix + pages[i].file;
+      });
+    });
+  });
 
   // Tap title to expand/collapse page list
   bar.querySelector('.tpn-info').addEventListener('click', function() {
@@ -935,13 +986,34 @@ function initTopPageNav() {
     }
   });
 
-  // Update page-level progress on scroll
-  var progressFill = bar.querySelector('.tpn-progress-fill');
-  window.addEventListener('scroll', function() {
-    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    var pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
-    progressFill.style.width = pct + '%';
-  }, { passive: true });
+  // Page transition on prev/next nav links
+  bar.querySelectorAll('.tpn-nav-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var href = link.getAttribute('href');
+      var targetIdx = pages.findIndex(function(p) { return p.file === href; });
+      var targetPage = targetIdx >= 0 ? pages[targetIdx] : null;
+      showPageTransition(targetPage, function() {
+        window.location.href = href;
+      });
+    });
+  });
+
+  // Page transition on page list items
+  bar.querySelectorAll('.tpn-list-item').forEach(function(item) {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      var href = item.getAttribute('href');
+      // Don't animate if it's the current page
+      if (href === currentPage.file) { bar.classList.remove('expanded'); return; }
+      var targetIdx = pages.findIndex(function(p) { return p.file === href; });
+      var targetPage = targetIdx >= 0 ? pages[targetIdx] : null;
+      bar.classList.remove('expanded');
+      showPageTransition(targetPage, function() {
+        window.location.href = href;
+      });
+    });
+  });
 }
 
 // ===== BOTTOM SECTION NAVIGATION BAR =====
@@ -1004,11 +1076,12 @@ function initBottomSectionNav() {
   });
   trackHtml += '</div>';
 
-  nav.innerHTML = listHtml + trackHtml +
+  nav.innerHTML = listHtml +
     '<div class="bsn-controls">' +
     '<button class="bsn-btn bsn-prev" aria-label="Previous section">&#9650;</button>' +
     '<div class="bsn-info"><div class="bsn-title"></div></div>' +
-    '<button class="bsn-btn bsn-next" aria-label="Next section">&#9660;</button></div>';
+    '<button class="bsn-btn bsn-next" aria-label="Next section">&#9660;</button></div>' +
+    trackHtml;
   document.body.appendChild(nav);
   document.body.classList.add('has-bottom-nav');
 
@@ -1221,6 +1294,14 @@ function initNextPageButton() {
     '<span class="next-page-title">' + nextPage.icon + ' ' + nextPage.title + '</span>' +
     '</div>' +
     '<span class="next-page-arrow">&#8594;</span>';
+
+  // Add page transition on click
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    showPageTransition(nextPage, function() {
+      window.location.href = btn.href;
+    });
+  });
 
   // Insert before footer (which is hidden) or at end of body
   var footer = document.querySelector('.footer');
