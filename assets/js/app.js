@@ -21,7 +21,8 @@ const BOOK_PAGES = {
     { file: 'resources.html', title: 'Resources', icon: '&#128218;', desc: 'Useful links, contacts & references' },
     { file: 'faq.html', title: 'FAQ', icon: '&#10067;', desc: 'Frequently asked questions' },
     { file: 'map.html', title: 'Interactive Map', icon: '&#128506;', desc: 'Explore key locations across St. Lucia' },
-    { file: 'directory.html', title: 'Business Directory', icon: '&#128210;', desc: 'Find businesses, services & contacts' }
+    { file: 'directory.html', title: 'Business Directory', icon: '&#128210;', desc: 'Find businesses, services & contacts' },
+    { file: 'liked.html', title: 'Liked Feed', icon: '&#9829;', desc: 'Your saved sections and bookmarks' }
   ],
   tr: [
     { file: 'index.html', title: 'Ana Sayfa', icon: '&#127968;', desc: 'Saint Lucia\'da iş dünyasına açılan kapınız' },
@@ -42,7 +43,8 @@ const BOOK_PAGES = {
     { file: 'resources.html', title: 'Kaynaklar', icon: '&#128218;', desc: 'Faydalı bağlantılar, iletişim ve referanslar' },
     { file: 'faq.html', title: 'SSS', icon: '&#10067;', desc: 'Sıkça sorulan sorular' },
     { file: 'map.html', title: 'Harita', icon: '&#128506;', desc: 'St. Lucia genelinde önemli konumları keşfedin' },
-    { file: 'directory.html', title: 'Rehber', icon: '&#128210;', desc: 'İşletme, hizmet ve iletişim bilgileri' }
+    { file: 'directory.html', title: 'Rehber', icon: '&#128210;', desc: 'İşletme, hizmet ve iletişim bilgileri' },
+    { file: 'liked.html', title: 'Beğenilenler', icon: '&#9829;', desc: 'Kaydettiğiniz bölümler ve yer işaretleri' }
   ]
 };
 
@@ -126,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNextPageButton();
   initWelcomeWalkthrough();
   initTRYCurrency();
+  initLikedFeedPage();
 });
 
 // Mobile nav toggle
@@ -1038,16 +1041,12 @@ function initTopPageNav() {
     }
   });
 
-  // Liked feed entry opens overlay
+  // Liked feed entry navigates to liked page
   bar.querySelector('#tpn-open-liked').addEventListener('click', function() {
     bar.classList.remove('expanded');
     document.body.classList.remove('scroll-locked');
-    var overlay = document.getElementById('liked-feed-overlay');
-    if (overlay) {
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      renderLikedFeed();
-    }
+    var isTR = window.location.pathname.includes('/tr/');
+    window.location.href = (isTR ? '' : '') + 'liked.html';
   });
 
   // Sync liked count periodically
@@ -1612,5 +1611,123 @@ function initTRYCurrency() {
       node.parentElement.classList.add('try-converted');
       node.parentElement.insertBefore(span, node.nextSibling);
     }
+  });
+}
+
+// ===== LIKED FEED PAGE =====
+function initLikedFeedPage() {
+  var pageFile = getPageFile();
+  if (pageFile !== 'liked.html') return;
+
+  var feedDiv = document.getElementById('liked-feed-content');
+  if (!feedDiv) return;
+
+  var isTR = window.location.pathname.indexOf('/tr/') !== -1;
+  var likes = getLikes();
+
+  if (likes.length === 0) {
+    // Empty state is already in the HTML
+    return;
+  }
+
+  // Group by page
+  var grouped = {};
+  likes.forEach(function(like) {
+    var key = like.page;
+    if (!grouped[key]) grouped[key] = { pageTitle: like.pageTitle, items: [] };
+    grouped[key].items.push(like);
+  });
+
+  // Clear the empty state
+  feedDiv.innerHTML = '';
+
+  // For each page group, fetch HTML and extract liked section content
+  Object.keys(grouped).forEach(function(pageKey) {
+    var group = grouped[pageKey];
+
+    // Determine the fetch URL relative to current page
+    var fetchUrl;
+    if (isTR && !pageKey.startsWith('tr/')) {
+      fetchUrl = '../' + pageKey;
+    } else if (isTR && pageKey.startsWith('tr/')) {
+      fetchUrl = pageKey.replace('tr/', '');
+    } else if (!isTR && pageKey.startsWith('tr/')) {
+      fetchUrl = pageKey;
+    } else {
+      fetchUrl = pageKey;
+    }
+
+    // Create page group header
+    var groupEl = document.createElement('div');
+    groupEl.className = 'liked-page-group';
+    groupEl.innerHTML = '<h3 class="liked-page-group-title">' + escapeHtml(group.pageTitle || pageKey) + '</h3>';
+    feedDiv.appendChild(groupEl);
+
+    // Fetch the page and extract content
+    fetch(fetchUrl)
+      .then(function(r) { return r.text(); })
+      .then(function(html) {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, 'text/html');
+
+        group.items.forEach(function(like) {
+          var sourceEl = doc.getElementById(like.section);
+          var card = document.createElement('div');
+          card.className = 'liked-page-card';
+
+          var header = document.createElement('div');
+          header.className = 'liked-page-card-header';
+          header.innerHTML = '<span class="liked-page-heart">&#9829;</span>' +
+            '<span class="liked-page-card-title">' + escapeHtml(like.title) + '</span>' +
+            '<button class="liked-page-card-remove" title="Remove">&times;</button>';
+          card.appendChild(header);
+
+          // Extract content from source
+          if (sourceEl) {
+            var contentDiv = document.createElement('div');
+            contentDiv.className = 'liked-page-card-content';
+            contentDiv.innerHTML = sourceEl.innerHTML;
+            // Remove h2 headings from extracted content (title is in header)
+            contentDiv.querySelectorAll('h2').forEach(function(h) { h.remove(); });
+            card.appendChild(contentDiv);
+          }
+
+          // Link to original
+          var linkEl = document.createElement('a');
+          linkEl.className = 'liked-page-card-link';
+          linkEl.href = fetchUrl + '#' + like.section;
+          linkEl.textContent = isTR ? 'Kaynağa git \u2192' : 'Go to source \u2192';
+          card.appendChild(linkEl);
+
+          // Remove button handler
+          header.querySelector('.liked-page-card-remove').addEventListener('click', function() {
+            removeLike(like.page, like.section);
+            card.remove();
+            // Check if group is now empty
+            if (!groupEl.querySelector('.liked-page-card')) groupEl.remove();
+            // Check if feed is now empty
+            if (!feedDiv.querySelector('.liked-page-card')) {
+              feedDiv.innerHTML = '<div class="liked-page-empty">' +
+                '<div style="font-size:3rem;margin-bottom:16px;">&#9829;</div>' +
+                '<p style="font-size:1.05rem;color:var(--text-light);">' + (isTR ? 'Hen\u00fcz be\u011fenilen b\u00f6l\u00fcm yok.' : 'No liked sections yet.') + '</p>' +
+                '<p style="font-size:0.9rem;color:var(--text-light);margin-top:8px;">' + (isTR ? 'Buraya kaydetmek i\u00e7in rehberdeki herhangi bir b\u00f6l\u00fcme \u00e7ift dokunun.' : 'Double-tap any section across the guide to save it here.') + '</p>' +
+                '</div>';
+            }
+          });
+
+          groupEl.appendChild(card);
+        });
+      })
+      .catch(function() {
+        // Fallback: show just titles as links
+        group.items.forEach(function(like) {
+          var card = document.createElement('div');
+          card.className = 'liked-page-card';
+          card.innerHTML = '<div class="liked-page-card-header">' +
+            '<span class="liked-page-heart">&#9829;</span>' +
+            '<span class="liked-page-card-title">' + escapeHtml(like.title) + '</span></div>';
+          groupEl.appendChild(card);
+        });
+      });
   });
 }

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be&#287;enilenler - St. Lucia &#304;&#351; Rehberi</title>
+  <meta name="description" content="St. Lucia &#304;&#351; Rehberi'nden kaydetti&#287;iniz b&ouml;l&uuml;mler ve yer i&#351;aretleri. T&uuml;m sayfalardaki be&#287;enilen i&ccedil;erikleri tek bir yerde g&ouml;r&uuml;nt&uuml;leyin.">
+  <meta name="keywords" content="Saint Lucia yer i&#351;aretleri, kaydedilen b&ouml;l&uuml;mler, be&#287;enilen i&ccedil;erik, i&#351; rehberi favorileri">
+
+  <meta property="og:title" content="Be&#287;enilenler - St. Lucia &#304;&#351; Rehberi">
+  <meta property="og:description" content="St. Lucia &#304;&#351; Rehberi'nden kaydetti&#287;iniz b&ouml;l&uuml;mler ve yer i&#351;aretleri.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ibak-app.github.io/stlucia/tr/liked.html">
+  <meta property="og:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-pitons.jpg">
+  <meta property="og:site_name" content="St. Lucia &#304;&#351; Rehberi">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Be&#287;enilenler - St. Lucia &#304;&#351; Rehberi">
+  <meta name="twitter:description" content="St. Lucia &#304;&#351; Rehberi'nden kaydetti&#287;iniz b&ouml;l&uuml;mler ve yer i&#351;aretleri.">
+  <meta name="twitter:image" content="https://ibak-app.github.io/stlucia/assets/images/hero-pitons.jpg">
+
+  <link rel="canonical" href="https://ibak-app.github.io/stlucia/tr/liked.html">
+  <link rel="alternate" hreflang="en" href="https://ibak-app.github.io/stlucia/liked.html">
+  <link rel="alternate" hreflang="tr" href="https://ibak-app.github.io/stlucia/tr/liked.html">
+
+  <link rel="manifest" href="/stlucia/manifest.json">
+  <meta name="theme-color" content="#0e2f44">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Y&uuml;kleniyor...</div></div>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia &#304;&#351; Rehberi</a>
+      <button class="nav-toggle" aria-label="Men&uuml;y&uuml; a&ccedil;">&#9776;</button>
+      <div class="nav-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="overview.html">Genel Bak&#305;&#351;</a>
+        <a href="business.html">&#304;&#351; Kurulumu</a>
+        <a href="legal.html">Hukuk &amp; Vergi</a>
+        <a href="sectors.html">Sekt&ouml;rler</a>
+        <a href="cbi.html">Vatanda&#351;l&#305;k</a>
+        <a href="immigration.html">G&ouml;&ccedil;</a>
+        <a href="living.html">Ya&#351;am</a>
+        <a href="events.html">Etkinlikler</a>
+        <a href="map.html">Harita</a>
+        <a href="directory.html">Rehber</a>
+        <a href="faq.html">SSS</a>
+        <a href="resources.html">Kaynaklar</a>
+        <a href="government.html">H&uuml;k&uuml;met</a>
+        <div class="navbar-tools">
+          <button id="search-toggle" class="nav-icon-btn" title="Ara" aria-label="Sitede ara">&#128269;</button>
+          <button id="likes-toggle" class="nav-icon-btn likes-icon-btn" title="Liked sections" aria-label="View liked sections">&#9825;<span id="likes-badge" class="likes-badge" style="display:none;">0</span></button>
+        </div>
+        <div class="lang-selector">
+          <a href="../liked.html" class="lang-btn" title="English">EN</a>
+          <a href="liked.html" class="lang-btn active" title="T&uuml;rk&ccedil;e">TR</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SEARCH OVERLAY -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-content">
+      <div class="search-overlay-header">
+        <button id="search-close" class="search-overlay-close" aria-label="Close search">&times;</button>
+        <input type="text" id="search-overlay-input" class="search-overlay-input" placeholder="Rehberde ara..." autocomplete="off">
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" style="padding:50px 0 40px;">
+    <div class="container">
+      <h1>&#9829; Be&#287;enilenler</h1>
+      <p>Rehber genelinden kaydetti&#287;iniz b&ouml;l&uuml;mler ve yer i&#351;aretleri</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="section">
+    <div class="container">
+      <div class="page-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+          <h3>Be&#287;enilenler</h3>
+          <a href="#" onclick="return false;" style="color:var(--text-light);pointer-events:none;">B&ouml;l&uuml;mler kaydedilen be&#287;enilerinizden y&uuml;klenir</a>
+        </aside>
+
+        <div class="main-content">
+          <div id="liked-feed-content">
+            <div class="liked-page-empty">
+              <div style="font-size:3rem;margin-bottom:16px;">&#9829;</div>
+              <p style="font-size:1.05rem;color:var(--text-light);">Hen&uuml;z be&#287;enilen b&ouml;l&uuml;m yok.</p>
+              <p style="font-size:0.9rem;color:var(--text-light);margin-top:8px;">Buraya kaydetmek i&ccedil;in rehberdeki herhangi bir b&ouml;l&uuml;me &ccedil;ift dokunun.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>St. Lucia &#304;&#351; Rehberi</h4>
+          <p>Saint Lucia'daki i&#351; d&uuml;nyas&#305; ve yat&#305;r&#305;m f&#305;rsatlar&#305; i&ccedil;in kapsaml&#305; kayna&#287;&#305;n&#305;z.</p>
+        </div>
+        <div>
+          <h4>H&#305;zl&#305; Ba&#287;lant&#305;lar</h4>
+          <ul>
+            <li><a href="overview.html">&Uuml;lke Genel Bak&#305;&#351;&#305;</a></li>
+            <li><a href="business.html">&#304;&#351; Kurulumu</a></li>
+            <li><a href="legal.html">Hukuk &amp; Vergi</a></li>
+            <li><a href="sectors.html">Kilit Sekt&ouml;rler</a></li>
+            <li><a href="cbi.html">Yat&#305;r&#305;m Yoluyla Vatanda&#351;l&#305;k</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kaynaklar</h4>
+          <ul>
+            <li><a href="living.html">Ya&#351;am Maliyeti</a></li>
+            <li><a href="events.html">Etkinlikler &amp; Takvim</a></li>
+            <li><a href="faq.html">SSS</a></li>
+            <li><a href="map.html">Harita &amp; B&ouml;lgeler</a></li>
+            <li><a href="directory.html">Rehber</a></li>
+            <li><a href="resources.html">D&#305;&#351; Kaynaklar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>&Ouml;nemli &#304;leti&#351;im Bilgileri</h4>
+          <ul>
+            <li>Invest Saint Lucia</li>
+            <li>&#350;irketler Sicili</li>
+            <li>&#304;&ccedil; Gelirler Dairesi</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Ara&#351;t&#305;rmaya dayal&#305; rehber. &#304;&#351; kararlar&#305; vermeden &ouml;nce t&uuml;m bilgileri resmi kaynaklardan do&#287;rulay&#305;n. Son g&uuml;ncelleme: &#350;ubat 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

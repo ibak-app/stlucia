@@ -1414,6 +1414,22 @@ body.scroll-locked {
   white-space: nowrap;
 }
 
+/* ===== LIKED FEED PAGE ===== */
+.liked-page-empty { text-align: center; padding: 60px 20px; color: var(--text-light); font-size: 1.05rem; }
+.liked-page-group { margin-bottom: 24px; }
+.liked-page-group-title { font-size: 1rem; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; padding-bottom: 8px; border-bottom: 2px solid var(--border); margin-bottom: 12px; }
+.liked-page-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); margin-bottom: 16px; overflow: hidden; border-left: 3px solid #e74c3c; }
+.liked-page-card-header { display: flex; align-items: center; gap: 10px; padding: 14px 16px; background: rgba(231,76,60,0.04); border-bottom: 1px solid var(--border); }
+.liked-page-heart { color: #e74c3c; font-size: 1.1rem; }
+.liked-page-card-title { flex: 1; font-weight: 600; font-size: 0.9rem; color: var(--text); }
+.liked-page-card-remove { background: none; border: none; color: var(--text-light); font-size: 1.2rem; cursor: pointer; padding: 4px; line-height: 1; }
+.liked-page-card-remove:hover { color: #e74c3c; }
+.liked-page-card-content { padding: 16px; font-size: 0.9rem; line-height: 1.6; max-height: 300px; overflow-y: auto; }
+.liked-page-card-content img { display: none; }
+.liked-page-card-content .card, .liked-page-card-content .info-box { border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 8px; }
+.liked-page-card-link { display: block; padding: 10px 16px; text-align: right; font-size: 0.8rem; font-weight: 600; color: var(--primary-light); border-top: 1px solid var(--border); }
+.liked-page-card-link:hover { background: var(--bg-alt); color: var(--accent); }
+
 /* ===== PRINT STYLES ===== */
 @media print {
   .navbar, .nav-toggle, .back-to-top, .reading-progress, .book-progress-bar, .sidebar, .liked-feed-overlay, .heart-pop, .swipe-indicator, .top-page-nav, .bottom-section-nav, .card-read-progress, .collapsible-arrow, .read-more-btn, .walkthrough-overlay, .next-page-btn { display: none !important; }
