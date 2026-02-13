@@ -100,11 +100,24 @@
         </aside>
 
         <div class="main-content">
+          <div class="section-expand-controls">
+            <button class="section-expand-btn" id="expand-all-btn"><i class="fas fa-expand-alt"></i> Expand All</button>
+            <button class="section-expand-btn" id="collapse-all-btn"><i class="fas fa-compress-alt"></i> Collapse All</button>
+          </div>
+
 
           <!-- OVERVIEW -->
-          <div id="overview" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Program Overview</h2>
-            <div class="card" style="margin-bottom:20px;">
+          <div id="overview" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> Program Overview</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Established 2015, minimum $240K NEF donation or $300K real estate, 145+ visa-free countries, 6-12 month processing, 5-year initial passport.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Marigot_Bay%2C_St._Lucia.jpg" alt="Marigot Bay, Saint Lucia - a top destination for CBI real estate investment" class="img-float-right" loading="lazy">
                 <p>Saint Lucia's Citizenship by Investment Programme (CIP) was established in <strong>2015</strong> under the Citizenship by Investment Act (No. 14 of 2015). It is administered by the <strong>Citizenship by Investment Unit (CIU)</strong> and allows qualifying individuals to obtain Saint Lucian citizenship through an approved economic contribution.</p>
@@ -144,12 +157,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- CARIBBEAN GALAXY SCANDAL -->
-          <div id="scandal" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Caribbean Galaxy Scandal &amp; CBI Controversy</h2>
-            <div class="card" style="margin-bottom:20px;">
+          <div id="scandal" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-exclamation-triangle"></i> Caribbean Galaxy Scandal &amp; CBI Controversy</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Caribbean Galaxy scandal: ~5,000 passports sold at ~$65K (below official minimums), largest CBI scandal in Caribbean history, triggering major reforms.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="card" style="margin-bottom:20px;">
               <div class="card-body">
 
                 <div class="info-box danger" style="margin-bottom:20px;">
@@ -192,12 +215,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- INVESTMENT OPTIONS -->
-          <div id="options" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Investment Options</h2>
-            <div class="table-wrapper" style="margin-bottom:24px;">
+          <div id="options" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-list-ul"></i> Investment Options</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Four routes: NEF donation ($240K), real estate ($300K), government bonds ($300K refundable), or enterprise project ($3.5M solo/$1M joint).
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="table-wrapper" style="margin-bottom:24px;">
               <table>
                 <thead>
                   <tr><th>Option</th><th>Minimum Investment</th><th>Return</th><th>Holding Period</th></tr>
@@ -230,12 +263,22 @@
                 </tbody>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- NEF -->
-          <div id="nef" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Option 1: National Economic Fund (NEF)</h2>
-            <img src="assets/images/cbi-stlucia-aerial-investment.jpg" alt="Aerial view of Saint Lucia coastline, a prime citizenship by investment destination" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
+          <div id="nef" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-hand-holding-usd"></i> Option 1: National Economic Fund (NEF)</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Most popular option: non-refundable donation to National Economic Fund starting at $240K single, $275K couple, $300K family of 4.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<img src="assets/images/cbi-stlucia-aerial-investment.jpg" alt="Aerial view of Saint Lucia coastline, a prime citizenship by investment destination" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
             <div class="card" style="margin-bottom:20px;">
               <div class="card-header" style="background:var(--success);">
                 <span class="icon">&#11088;</span>
@@ -260,12 +303,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- REAL ESTATE -->
-          <div id="realestate" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Option 2: Real Estate Investment</h2>
-            <div class="card" style="margin-bottom:20px;">
+          <div id="realestate" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-building"></i> Option 2: Real Estate Investment</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Minimum $300K approved property with 5-year hold; only A'ILA Resorts actively accepting investors as of early 2026; ALHL and stamp duty exempt.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <img src="assets/images/cbi-realestate.jpg" alt="Caribbean luxury villa investment property" class="img-float-right" loading="lazy">
                 <p>Purchase an approved real estate development. The property must be pre-approved by the CIU. The investment must be maintained for a minimum of <strong>5 years</strong> before the property can be resold (and the next buyer may also qualify for CBI).</p>
@@ -371,12 +424,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- BONDS -->
-          <div id="bonds" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Option 3: Government Bonds</h2>
-            <div class="card" style="margin-bottom:20px;">
+          <div id="bonds" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-file-contract"></i> Option 3: Government Bonds</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Unique refundable option: $300K non-interest government bonds held 5 years then returned; Saint Lucia is only Caribbean CBI with this choice.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <p>Purchase non-interest-bearing government bonds with a minimum investment of <strong>USD $300,000</strong>. The bonds are held for <strong>5 years</strong> and the principal is returned after the holding period (minus administrative fees). Saint Lucia is the <strong>only Caribbean CBI programme</strong> offering a fully refundable investment option.</p>
                 <div class="table-wrapper" style="margin-top:16px;">
@@ -390,12 +453,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- ENTERPRISE -->
-          <div id="enterprise" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Option 4: Enterprise Projects</h2>
-            <div class="card" style="margin-bottom:20px;">
+          <div id="enterprise" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-industry"></i> Option 4: Enterprise Projects</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Large-scale business investment: $3.5M solo or $1M per person in joint ventures ($6M+ total) in priority sectors creating jobs.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <p>Invest in an approved enterprise project in a priority sector. This option is designed for significant business investments that create jobs and contribute to economic development.</p>
                 <div class="table-wrapper" style="margin-top:16px;">
@@ -407,12 +480,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- PLANNED REFORMS -->
-          <div id="reforms" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">CBI Reforms &amp; 2026 Harmonized Rules</h2>
-            <div class="card" style="margin-bottom:20px;">
+          <div id="reforms" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-edit"></i> CBI Reforms &amp; 2026 Harmonized Rules</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              2026 CARICOM reforms: 5-year initial passport, 30-day residency, biometric ePassports; Saint Lucia proposing 500-app cap and $3M net worth requirement.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="card" style="margin-bottom:20px;">
               <div class="card-body">
 
                 <h3 style="margin-bottom:12px;">CARICOM-Wide Harmonized Reforms (Effective 2026)</h3>
@@ -525,12 +608,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- US VISA RESTRICTIONS & INTERNATIONAL CONTEXT -->
-          <div id="us-context" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">US Visa Restrictions &amp; International Context</h2>
-            <div class="card" style="margin-bottom:20px;">
+          <div id="us-context" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-flag-usa"></i> US Visa Restrictions &amp; International Context</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              US imposed visa restrictions on Antigua and Dominica (Dec 2025) but excluded Saint Lucia, Grenada, St. Kitts—major competitive advantage.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <p>The international environment for Caribbean CBI programmes has shifted significantly in 2025&ndash;2026, with the United States expressing growing concerns about programme integrity and national security implications.</p>
 
@@ -580,12 +673,22 @@
                 </ul>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- SOVEREIGN WEALTH FUND -->
-          <div id="swf" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Sovereign Wealth Fund</h2>
-            <img src="assets/images/cbi-sovereign-wealth.jpg" alt="Saint Lucia Sovereign Wealth Fund and national investment management" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
+          <div id="swf" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-piggy-bank"></i> Sovereign Wealth Fund</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Sovereign Wealth Fund established Feb 2025, funded by CBI proceeds for sustainable development, climate resilience, and intergenerational wealth.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<img src="assets/images/cbi-sovereign-wealth.jpg" alt="Saint Lucia Sovereign Wealth Fund and national investment management" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
             <div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <p>In <strong>February 2025</strong>, the Cabinet of Saint Lucia approved the establishment of a <strong>Sovereign Wealth Fund (SWF)</strong> funded primarily by CBI/CIP proceeds. This represents a structural shift in how citizenship-by-investment revenue is managed.</p>
@@ -612,12 +715,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- APPLICATION PROCESS -->
-          <div id="process" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Application Process</h2>
-            <img src="assets/images/cbi-stlucia-passport.webp" alt="Saint Lucia passport obtained through citizenship by investment" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
+          <div id="process" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-tasks"></i> Application Process</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Nine steps: engage authorized agent, compile documents, submit application, mandatory interview (16+), due diligence, approval, invest, citizenship certificate, passport.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<img src="assets/images/cbi-stlucia-passport.webp" alt="Saint Lucia passport obtained through citizenship by investment" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
             <div class="timeline">
               <div class="timeline-item">
                 <h4>Step 1: Engage Authorized Agent</h4>
@@ -656,12 +769,22 @@
                 <p>Saint Lucian biometric ePassport issued with an initial validity of <strong>5 years</strong>. To upgrade to the full <strong>10-year passport</strong>, new CBI citizens must complete the orientation programme, spend at least <strong>30 days in Saint Lucia</strong>, and register biometric data (fingerprints and facial scans). Visa-free access to 145+ countries. Total end-to-end timeline is typically <strong>6-12 months</strong> (10-12 months for real estate route).</p>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- FEES -->
-          <div id="fees" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Fees &amp; Cost Breakdown</h2>
-            <div class="table-wrapper" style="margin-bottom:20px;">
+          <div id="fees" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-money-bill-wave"></i> Fees &amp; Cost Breakdown</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Application, due diligence, interview, processing, and passport fees total ~$15K-$20K per person plus agent fees $10K-$25K.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="table-wrapper" style="margin-bottom:20px;">
               <table>
                 <thead>
                   <tr><th>Fee Type</th><th>Main Applicant</th><th>Spouse</th><th>Dependent (under 18)</th><th>Dependent (18+)</th></tr>
@@ -679,12 +802,22 @@
               <h4>Example: Total Cost for Family of 4 (NEF Route, post July 2024)</h4>
               <p><strong>NEF contribution:</strong> ~$300,000 + <strong>Application fees:</strong> $5,000 + <strong>Due diligence:</strong> $13,000 + <strong>Interviews:</strong> $1,500 + <strong>Processing:</strong> $5,000 + <strong>Passports:</strong> $1,000 + <strong>Agent fees:</strong> $10,000-$25,000 = <strong>Total: ~$337,000 - $352,000</strong></p>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- BENEFITS -->
-          <div id="benefits" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Benefits of St. Lucian Citizenship</h2>
-            <img src="assets/images/cbi-passport.webp" alt="Caribbean passport and travel documents" class="section-image" loading="lazy">
+          <div id="benefits" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-star"></i> Benefits of St. Lucian Citizenship</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Visa-free travel to 145+ countries, no residency requirement (30-day orientation for 10-year passport), dual citizenship allowed, territorial tax system.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<img src="assets/images/cbi-passport.webp" alt="Caribbean passport and travel documents" class="section-image" loading="lazy">
             <div class="card-grid">
               <div class="info-box success" style="margin:0;">
                 <h4>Visa-Free Travel</h4>
@@ -711,12 +844,22 @@
                 <p>Right to live, work, and do business in Saint Lucia and CARICOM member states. Easier access to banking and financial services.</p>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- ELIGIBILITY & RESTRICTIONS -->
-          <div id="eligibility" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Eligibility &amp; Restrictions</h2>
-            <div class="card" style="margin-bottom:20px;">
+          <div id="eligibility" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-user-check"></i> Eligibility &amp; Restrictions</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Age 18+, clean criminal record, legitimate funds source, good health; Russia, Belarus, Iran, Ukraine restricted since 2023.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <p>Applicants must be at least 18 years old, have no criminal record, and demonstrate a legitimate source of funds. Since the 2024 MOU, enhanced due diligence standards apply across all Caribbean CBI programmes.</p>
 
@@ -744,12 +887,22 @@
                 </ul>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- PROGRAMME STATISTICS -->
-          <div id="statistics" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Programme Statistics (2023&ndash;2024)</h2>
-            <div class="hero-stats" style="justify-content:flex-start;gap:30px;margin:0 0 20px 0;">
+          <div id="statistics" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-chart-bar"></i> Programme Statistics (2023&ndash;2024)</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              5,642 applications in 2023-24 (+424%), 1,171 approvals, EC$240M revenue; surge linked to Galaxy scandal; reforms expected to reduce volume dramatically.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="hero-stats" style="justify-content:flex-start;gap:30px;margin:0 0 20px 0;">
               <div class="hero-stat" style="text-align:left;">
                 <div class="number" style="color:var(--primary);font-size:1.5rem;">5,642</div>
                 <div class="label" style="color:var(--text);">Applications Received</div>
@@ -790,12 +943,22 @@
               <h4>Sovereign Wealth Fund (Est. February 2025)</h4>
               <p>CBI revenue is now being channeled into Saint Lucia's newly established <strong>Sovereign Wealth Fund</strong>, approved by Cabinet in February 2025. The fund supports climate adaptation, sustainable economic development, and intergenerational wealth preservation under ESG principles. See the <a href="#swf">dedicated SWF section</a> above for full details.</p>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- TURKISH APPLICANTS -->
-          <div id="turkish" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Turkish Citizens &amp; CBI</h2>
-            <div class="card" style="margin-bottom:20px;">
+          <div id="turkish" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-flag"></i> Turkish Citizens &amp; CBI</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Turkey allows dual citizenship; Saint Lucia passport adds Schengen, UK, Singapore visa-free access unavailable to Turkish passport holders.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <p>Turkey <strong>fully allows dual and multiple citizenship</strong>, making Turkish nationals eligible for Saint Lucia's CBI programme without any requirement to renounce their Turkish passport. Saint Lucia likewise permits dual citizenship with no renunciation requirement. Turkish citizens represent approximately <strong>4% of global CBI applications</strong> across all Caribbean programmes, with growing interest since 2020 driven by Turkish lira depreciation and geopolitical considerations.</p>
 
@@ -912,12 +1075,22 @@
                 <p style="margin-top:12px;font-size:0.9rem;color:var(--text-light);">Sources: <a href="https://www.mfa.gov.tr/" target="_blank">Turkish Ministry of Foreign Affairs</a>, <a href="https://cbiindex.com/country/saint-lucia/" target="_blank">CBI Index</a>, <a href="https://www.henleyglobal.com/passport-index" target="_blank">Henley Passport Index</a>.</p>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- COMPARISON -->
-          <div id="comparison" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Caribbean CBI Comparison</h2>
-            <div class="table-wrapper">
+          <div id="comparison" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-table"></i> Caribbean CBI Comparison</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Saint Lucia ($240K donation, 145+ countries) competitive with Dominica, Grenada, St. Kitts, Antigua; only one with refundable bonds.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="table-wrapper">
               <table>
                 <thead>
                   <tr><th>Country</th><th>Min. Donation</th><th>Min. Real Estate</th><th>Processing Time</th><th>Visa-Free Countries</th></tr>
@@ -978,6 +1151,8 @@
                 <li>Only Caribbean CBI with a <strong>refundable bond option</strong> and newly established <strong>Sovereign Wealth Fund</strong></li>
               </ul>
               <p style="margin-top:8px;">Thresholds are subject to change &mdash; always verify at <a href="https://www.cipsaintlucia.com" target="_blank">cipsaintlucia.com</a>.</p>
+            </div>
+              </div>
             </div>
           </div>
 

@@ -129,6 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initWelcomeWalkthrough();
   initTRYCurrency();
   initLikedFeedPage();
+  initSectionAccordions();
+  initTableCollapse();
+  initPageMeta();
 });
 
 // Mobile nav toggle
@@ -1758,4 +1761,187 @@ function initLikedFeedPage() {
         });
       });
   });
+}
+
+// ===== SECTION ACCORDIONS (Phase 1) =====
+function initSectionAccordions() {
+  var accordions = document.querySelectorAll('.section-accordion');
+  if (accordions.length === 0) return;
+
+  var isTR = window.location.pathname.indexOf('/tr/') >= 0;
+
+  // Expand/Collapse all controls
+  var controls = document.querySelector('.section-expand-controls');
+  if (!controls) {
+    var mainContent = document.querySelector('.main-content');
+    if (mainContent && accordions.length > 3) {
+      controls = document.createElement('div');
+      controls.className = 'section-expand-controls';
+      var expandBtn = document.createElement('button');
+      expandBtn.className = 'section-expand-btn';
+      expandBtn.innerHTML = '<i class="fas fa-expand-alt"></i> ' + (isTR ? 'Tümünü aç' : 'Expand all');
+      var collapseBtn = document.createElement('button');
+      collapseBtn.className = 'section-expand-btn';
+      collapseBtn.innerHTML = '<i class="fas fa-compress-alt"></i> ' + (isTR ? 'Tümünü kapat' : 'Collapse all');
+      controls.appendChild(expandBtn);
+      controls.appendChild(collapseBtn);
+
+      // Insert before first accordion
+      accordions[0].parentNode.insertBefore(controls, accordions[0]);
+
+      expandBtn.addEventListener('click', function() {
+        accordions.forEach(function(acc) { openSection(acc); });
+      });
+      collapseBtn.addEventListener('click', function() {
+        accordions.forEach(function(acc) { closeSection(acc); });
+      });
+    }
+  }
+
+  function openSection(acc) {
+    acc.classList.add('open');
+    var body = acc.querySelector('.section-accordion-body');
+    var inner = body.querySelector('.section-accordion-body-inner');
+    if (inner) body.style.maxHeight = inner.scrollHeight + 40 + 'px';
+    // Recalculate after images/tables render
+    setTimeout(function() {
+      if (acc.classList.contains('open') && inner) {
+        body.style.maxHeight = inner.scrollHeight + 40 + 'px';
+      }
+    }, 500);
+  }
+
+  function closeSection(acc) {
+    acc.classList.remove('open');
+    var body = acc.querySelector('.section-accordion-body');
+    body.style.maxHeight = '0';
+  }
+
+  accordions.forEach(function(acc, index) {
+    var header = acc.querySelector('.section-accordion-header');
+    if (!header) return;
+
+    header.addEventListener('click', function() {
+      if (acc.classList.contains('open')) {
+        closeSection(acc);
+      } else {
+        openSection(acc);
+      }
+    });
+
+    // Auto-expand first section
+    if (index === 0) {
+      openSection(acc);
+    }
+  });
+
+  // Handle sidebar link clicks — expand target section
+  document.querySelectorAll('.sidebar a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var targetId = link.getAttribute('href').substring(1);
+      var targetAcc = document.getElementById(targetId);
+      if (targetAcc && targetAcc.classList.contains('section-accordion')) {
+        openSection(targetAcc);
+        setTimeout(function() {
+          targetAcc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+        e.preventDefault();
+      }
+    });
+  });
+
+  // Handle URL hash on load
+  if (window.location.hash) {
+    var hashId = window.location.hash.substring(1);
+    var target = document.getElementById(hashId);
+    if (target && target.classList.contains('section-accordion')) {
+      openSection(target);
+      setTimeout(function() {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
+  }
+}
+
+// ===== TABLE COLLAPSE (Phase 2) =====
+function initTableCollapse() {
+  var isTR = window.location.pathname.indexOf('/tr/') >= 0;
+  var showText = isTR ? 'Tüm {n} satırı göster' : 'Show all {n} rows';
+  var hideText = isTR ? 'Daha az göster' : 'Show less';
+  var VISIBLE_ROWS = 5;
+
+  document.querySelectorAll('.main-content table').forEach(function(table) {
+    var tbody = table.querySelector('tbody');
+    if (!tbody) return;
+    var rows = tbody.querySelectorAll('tr');
+    if (rows.length <= 8) return;
+
+    // Create hidden tbody for overflow rows
+    var hiddenBody = document.createElement('tbody');
+    hiddenBody.className = 'table-collapse-rows';
+    for (var i = VISIBLE_ROWS; i < rows.length; i++) {
+      hiddenBody.appendChild(rows[i]);
+    }
+    table.appendChild(hiddenBody);
+
+    // Create show more button
+    var btn = document.createElement('button');
+    btn.className = 'table-show-more';
+    btn.textContent = showText.replace('{n}', rows.length);
+    var expanded = false;
+
+    btn.addEventListener('click', function() {
+      expanded = !expanded;
+      hiddenBody.classList.toggle('expanded', expanded);
+      btn.textContent = expanded ? hideText : showText.replace('{n}', rows.length);
+      // Recalculate parent accordion height
+      var parentAcc = table.closest('.section-accordion.open');
+      if (parentAcc) {
+        var accBody = parentAcc.querySelector('.section-accordion-body');
+        var accInner = accBody.querySelector('.section-accordion-body-inner');
+        if (accInner) {
+          setTimeout(function() {
+            accBody.style.maxHeight = accInner.scrollHeight + 40 + 'px';
+          }, 50);
+        }
+      }
+    });
+
+    // Insert after the table wrapper or table
+    var wrapper = table.closest('.table-wrapper') || table;
+    wrapper.parentNode.insertBefore(btn, wrapper.nextSibling);
+  });
+}
+
+// ===== PAGE META (Phase 4 - Reading Time) =====
+function initPageMeta() {
+  var metaEl = document.querySelector('.page-meta');
+  if (metaEl) return; // Already rendered server-side
+
+  var mainContent = document.querySelector('.main-content');
+  if (!mainContent) return;
+
+  var isTR = window.location.pathname.indexOf('/tr/') >= 0;
+  var sections = mainContent.querySelectorAll('.section-accordion, > div[id]');
+  if (sections.length < 3) return;
+
+  var tables = mainContent.querySelectorAll('table').length;
+  var text = mainContent.textContent || '';
+  var words = text.split(/\s+/).filter(function(w) { return w.length > 1; }).length;
+  var readTime = Math.max(2, Math.round(words / 200));
+
+  metaEl = document.createElement('div');
+  metaEl.className = 'page-meta';
+  metaEl.innerHTML =
+    '<span><i class="fas fa-layer-group"></i>' + sections.length + (isTR ? ' bölüm' : ' sections') + '</span>' +
+    '<span><i class="fas fa-clock"></i>~' + readTime + (isTR ? ' dk okuma' : ' min read') + '</span>' +
+    (tables > 0 ? '<span><i class="fas fa-table"></i>' + tables + (isTR ? ' tablo' : ' tables') + '</span>' : '');
+
+  // Insert after hero or at top of main content
+  var hero = document.querySelector('.hero, .page-hero');
+  if (hero && hero.nextElementSibling) {
+    hero.nextElementSibling.insertBefore(metaEl, hero.nextElementSibling.firstChild);
+  } else if (mainContent.firstChild) {
+    mainContent.insertBefore(metaEl, mainContent.firstChild);
+  }
 }

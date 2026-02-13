@@ -96,9 +96,22 @@
 
         <div class="main-content">
 
-          <!-- MARKET OVERVIEW -->
-          <div id="overview" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Market Overview</h2>
+
+          <div class="section-expand-controls">
+            <button class="section-expand-btn" id="expand-all-btn"><i class="fas fa-expand-alt"></i> Expand All</button>
+            <button class="section-expand-btn" id="collapse-all-btn"><i class="fas fa-compress-alt"></i> Collapse All</button>
+          </div>
+
+<div id="overview" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-chart-line"></i> Market Overview</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Saint Lucia offers a tax-friendly environment for property investors with no capital gains tax and stable USD-pegged currency.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <img src="assets/images/realestate-luxury-resort.jpg" alt="Luxury Caribbean resort villa development" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
             <div class="card" style="margin-bottom:20px;">
               <div class="card-body">
@@ -139,12 +152,21 @@
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- OWNERSHIP TYPES -->
-          <div id="ownership" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Property Ownership Types</h2>
+    </div>
+  </div>
+</div>
+
+<div id="ownership" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-file-contract"></i> Property Ownership Types</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Freehold, leasehold, condominium, and fractional ownership options are available under a Torrens title registration system.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <p style="margin-bottom:16px;">Saint Lucia recognizes several forms of property ownership. The legal framework is based on English common law, supplemented by the <strong>Land Registration Act (Cap. 5.01)</strong> and the <strong>Condominium Act (Cap. 5.05)</strong>.</p>
             <div class="table-wrapper" style="margin-bottom:20px;">
               <table>
@@ -179,12 +201,21 @@
             <div class="info-box">
               <h4>Land Registration System</h4>
               <p>Saint Lucia operates a <strong>Torrens-style land registration system</strong> under the Land Registration Act. The Registrar of Lands maintains a central register and issues Certificates of Title. All land transactions must be registered. The system provides a government-backed guarantee of title, offering strong protection for buyers.</p>
-            </div>
-          </div>
 
-          <!-- ALIEN LANDHOLDING LICENSE -->
-          <div id="alhl" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Alien Landholding License (ALHL)</h2>
+    </div>
+  </div>
+</div>
+
+<div id="alhl" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-passport"></i> Alien Landholding License (ALHL)</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Non-citizens must obtain an Alien Landholding License before purchasing property, with fees based on land size.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <p>Under the <strong>Aliens (Licensing) Act</strong>, all non-citizens of Saint Lucia must obtain an Alien Landholding License before purchasing property. This is a mandatory legal requirement&mdash;no property transfer to a foreigner can be registered without it.</p>
@@ -268,12 +299,21 @@
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- PURCHASE PROCESS -->
-          <div id="purchase" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Property Purchase Process</h2>
+    </div>
+  </div>
+</div>
+
+<div id="purchase" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-handshake"></i> Property Purchase Process</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Property purchase follows a 3-6 month conveyancing process including title search, ALHL approval, and deed registration.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <h4>Conveyancing Process (Typical Timeline: 3&ndash;6 Months)</h4>
@@ -319,12 +359,21 @@
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- TRANSACTION COSTS -->
-          <div id="costs" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Transaction Costs Breakdown</h2>
+    </div>
+  </div>
+</div>
+
+<div id="costs" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-calculator"></i> Transaction Costs Breakdown</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Transaction costs include 2% stamp duty for buyers and 5-10% transfer tax for sellers, plus legal fees.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
 
             <h3 style="margin-bottom:12px;">Resident vs. Non-Resident Comparison</h3>
             <div class="table-wrapper" style="margin-bottom:20px;">
@@ -470,12 +519,21 @@
             <div class="info-box warning">
               <h4>When Selling as a Non-Resident</h4>
               <p>Non-resident sellers pay a <strong>10% transfer tax (Vendor's Tax)</strong> on the sale price&mdash;significantly higher than the 5% paid by residents. If you plan to sell in the future, consider whether obtaining residency or citizenship (via CBI) would reduce your tax liability. There is <strong>no capital gains tax</strong> in Saint Lucia, which partially offsets the higher vendor's tax.</p>
-            </div>
-          </div>
 
-          <!-- PROPERTY TAXES -->
-          <div id="taxes" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Annual Property Taxes</h2>
+    </div>
+  </div>
+</div>
+
+<div id="taxes" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-receipt"></i> Annual Property Taxes</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Annual property tax is 0.25% for residential and 0.4% for commercial properties, with no capital gains tax.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <div class="table-wrapper" style="margin-bottom:16px;">
               <table>
                 <thead>
@@ -506,12 +564,21 @@
             <div class="info-box success">
               <h4>Very Low Property Taxes by International Standards</h4>
               <p>A USD $500,000 residential property pays approximately <strong>USD $1,250 per year</strong> in property tax (0.25%). By comparison, a similar property in the US might pay $5,000&ndash;$15,000 annually. There is no inheritance tax, wealth tax, or capital gains tax. Rental income is taxable as regular income if you are tax-resident in Saint Lucia.</p>
-            </div>
-          </div>
 
-          <!-- PROPERTY PRICES -->
-          <div id="prices" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Property Prices by Type &amp; Area</h2>
+    </div>
+  </div>
+</div>
+
+<div id="prices" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-dollar-sign"></i> Property Prices by Type &amp; Area</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Property prices range from $100K for inland land to $1M+ for luxury beachfront villas in prime areas.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Reduit_Beach%2C_Rodney_Bay%2C_St._Lucia_11.jpg" alt="Reduit Beach, Rodney Bay - prime real estate area" class="section-image" style="max-height:300px;object-fit:cover;" loading="lazy">
 
             <h3 style="margin-bottom:12px;">Residential Property Prices (2025&ndash;2026)</h3>
@@ -551,12 +618,21 @@
                   <tr><td><strong>Monchy (Rural)</strong></td><td>$3&ndash;$8</td><td>$8&ndash;$22</td><td>Inland; agricultural, budget-friendly</td></tr>
                 </tbody>
               </table>
-            </div>
-          </div>
 
-          <!-- RENTAL YIELDS -->
-          <div id="yields" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Rental Yields by Area</h2>
+    </div>
+  </div>
+</div>
+
+<div id="yields" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-percentage"></i> Rental Yields by Area</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Rental yields vary from 4-10% depending on location, with Rodney Bay and Marigot Bay offering the highest returns.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <div class="table-wrapper" style="margin-bottom:20px;">
               <table>
                 <thead>
@@ -610,12 +686,21 @@
             <div class="info-box warning" style="margin-top:16px;">
               <h4>Rental Income Taxation</h4>
               <p>Rental income earned in Saint Lucia is subject to income tax at standard personal or corporate rates (up to 30%). Non-residents are taxed on Saint Lucia-sourced income. A <strong>Tourism Levy</strong> of US $3&ndash;$6 per person per night applies to short-term accommodation. VAT at <strong>7%</strong> applies to tourism accommodation services. Consult a local tax advisor for structuring rental income efficiently.</p>
-            </div>
-          </div>
 
-          <!-- SHORT-TERM RENTALS / AIRBNB -->
-          <div id="airbnb" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Short-Term Rentals &amp; Airbnb</h2>
+    </div>
+  </div>
+</div>
+
+<div id="airbnb" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-home"></i> Short-Term Rentals &amp; Airbnb</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Short-term rentals are legal and popular, with strong demand from tourists generating attractive rental income.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <p>Short-term vacation rentals have grown significantly in Saint Lucia. Airbnb listings grew from <strong>62 to 223</strong> between 2017 and 2024, with <strong>80% rated 4.5 stars or higher</strong>. Gross rental yields for short-term properties typically range from <strong>3.5&ndash;5.25%</strong>, depending on location, property quality, and management.</p>
@@ -654,12 +739,21 @@
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- KEY DEVELOPMENTS -->
-          <div id="developments" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Key Real Estate Developments</h2>
+    </div>
+  </div>
+</div>
+
+<div id="developments" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-newspaper"></i> Key Real Estate Developments</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Major developments include Cap Estate, The Landings, and Marigot Bay Resort, offering luxury living and resort amenities.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <img src="assets/images/maps/map-parishes-quarters.png" alt="Saint Lucia parishes and quarters map for property investors" style="float:right;margin:0 0 16px 20px;width:300px;border-radius:var(--radius-lg);box-shadow:var(--shadow);background:#f8f9fa;" loading="lazy">
             <p style="margin-bottom:16px;">The following are major residential and resort developments in Saint Lucia as of 2025&ndash;2026. These are <strong>not all CBI-approved</strong>&mdash;most are independent developments where purchases require an ALHL. The island&rsquo;s development pipeline totals approximately <strong>~2,000 new hotel rooms</strong> across all active projects and renovations.</p>
 
@@ -812,12 +906,21 @@
                   </tr>
                 </tbody>
               </table>
-            </div>
-          </div>
 
-          <!-- CBI APPROVED PROJECTS -->
-          <div id="cbi-projects" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">CBI-Approved Real Estate Projects</h2>
+    </div>
+  </div>
+</div>
+
+<div id="cbi-projects" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-flag"></i> CBI-Approved Real Estate Projects</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    A'ILA Canelles Resort is currently the only active CBI-approved project, offering citizenship from $300K investment.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <p style="margin-bottom:12px;">The following projects have been approved by the <strong>Citizenship by Investment Unit (CIU)</strong> for the CBI real estate route. Purchasing approved real estate (minimum USD $300,000) grants Saint Lucian citizenship <strong>without</strong> needing an ALHL. The 5-year holding period applies.</p>
 
             <div class="table-wrapper" style="margin-bottom:16px;">
@@ -859,12 +962,21 @@
                 <li>CBI real estate has a <strong>5-year holding period</strong> before resale. The next buyer may also qualify for CBI.</li>
                 <li>No ALHL is required for CBI real estate purchases.</li>
               </ul>
-            </div>
-          </div>
 
-          <!-- CONSTRUCTION & PERMITS -->
-          <div id="construction" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Construction Costs &amp; Building Permits</h2>
+    </div>
+  </div>
+</div>
+
+<div id="construction" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-hard-hat"></i> Construction Costs &amp; Building Permits</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Construction costs average $150-250 per sq ft, with building permits processed through the Development Control Authority.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <img src="assets/images/realestate-construction.jpg" alt="Tropical building construction and development" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
 
             <h3 style="margin-bottom:12px;">Construction Costs (2025)</h3>
@@ -990,12 +1102,21 @@
             <div class="info-box warning">
               <h4>Pitons Management Area</h4>
               <p>The UNESCO World Heritage Pitons Management Area (~25.4 sq. km around the Pitons near Soufriere) has a <strong>strict development moratorium</strong> (Cabinet, July 2010). Building height limits, maximum footprints, colour/material requirements, and visibility assessments apply. If considering property near the Pitons, verify restrictions with the DCA before purchasing.</p>
-            </div>
-          </div>
 
-          <!-- MORTGAGES -->
-          <div id="mortgages" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Mortgages for Foreign Buyers</h2>
+    </div>
+  </div>
+</div>
+
+<div id="mortgages" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-university"></i> Mortgages for Foreign Buyers</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Local banks offer mortgages to foreigners with 30-40% down payment and interest rates of 5-7%.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <img src="assets/images/realestate-property-financing.jpg" alt="Property financing and mortgage options in Saint Lucia" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
             <div class="card" style="margin-bottom:20px;">
               <div class="card-body">
@@ -1047,12 +1168,21 @@
                   <p>Some resort developments offer <strong>in-house financing</strong>, which may be more accessible than bank mortgages. Cas en Bas Beach Resort (Hyatt) offers up to <strong>50% developer financing</strong>. A'ILA Resorts may offer payment plans for CBI investors. Always compare developer terms against bank mortgage rates.</p>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- PROPERTY MANAGEMENT -->
-          <div id="management" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Property Management Companies</h2>
+    </div>
+  </div>
+</div>
+
+<div id="management" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-cog"></i> Property Management Companies</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Professional property management services handle rentals, maintenance, and guest relations for 15-25% of rental income.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <p style="margin-bottom:16px;">If you are an absentee owner, professional property management is essential. Companies handle maintenance, tenant management, vacation rental marketing, and compliance with local regulations.</p>
 
             <div class="table-wrapper" style="margin-bottom:20px;">
@@ -1108,12 +1238,21 @@
                 <li><strong>Maintenance-only retainer:</strong> USD $150&ndash;$500/month depending on property size</li>
                 <li><strong>One-off inspection / check-in:</strong> USD $50&ndash;$150 per visit</li>
               </ul>
-            </div>
-          </div>
 
-          <!-- AFFORDABLE HOUSING & SOCIAL HOUSING -->
-          <div id="housing" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Affordable &amp; Social Housing</h2>
+    </div>
+  </div>
+</div>
+
+<div id="housing" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-house-user"></i> Affordable &amp; Social Housing</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Government-sponsored affordable housing programs target first-time buyers with properties under $200K.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <p style="margin-bottom:16px;">The government is addressing the housing affordability gap through international partnerships and CBI-funded projects. Housing remains a critical need, with demand outstripping supply particularly in the lower and middle segments of the market.</p>
 
             <div class="card" style="margin-bottom:20px;">
@@ -1152,12 +1291,21 @@
                   <p>Saint Lucia adopted an <strong>updated national building code in November 2024</strong>, aligned with the OECS Building Code framework. Key changes include enhanced hurricane resilience standards (150 mph wind resistance), improved energy efficiency requirements, and stricter seismic design criteria. All new housing projects, including affordable housing developments, must comply with the updated code. The DCA (Development Control Authority) is responsible for enforcement and building permit approvals.</p>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- MARKET TRENDS -->
-          <div id="trends" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Market Trends 2024&ndash;2026</h2>
+    </div>
+  </div>
+</div>
+
+<div id="trends" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-arrow-trend-up"></i> Market Trends 2024&ndash;2026</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    The market is growing with increased CBI interest, tourism recovery, and major infrastructure projects like A'ILA Resort.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <div class="card" style="margin-bottom:20px;">
               <div class="card-body">
 
@@ -1196,12 +1344,21 @@
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- INVESTOR TIPS -->
-          <div id="tips" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Practical Tips for Real Estate Investors</h2>
+    </div>
+  </div>
+</div>
+
+<div id="tips" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-lightbulb"></i> Practical Tips for Real Estate Investors</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Work with local professionals, verify title, budget for hurricane insurance, and consider rental potential in your investment decision.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
             <div class="card-grid" style="grid-template-columns:1fr;">
               <div class="info-box success">
                 <h4>Before You Buy</h4>
@@ -1236,8 +1393,11 @@
                   <li>Install <strong>hurricane shutters</strong> and maintain them annually</li>
                 </ul>
               </div>
-            </div>
-          </div>
+
+    </div>
+  </div>
+</div>
+
 
           <!-- RELATED PAGES -->
           <div style="margin-top:40px;padding-top:30px;border-top:2px solid var(--border);">

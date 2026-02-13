@@ -96,11 +96,24 @@
 
         <div class="main-content">
 
+          <div class="section-expand-controls">
+            <button class="section-expand-btn" id="expand-all-btn"><i class="fas fa-expand-alt"></i> Expand All</button>
+            <button class="section-expand-btn" id="collapse-all-btn"><i class="fas fa-compress-alt"></i> Collapse All</button>
+          </div>
+
           <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Baie_de_Soufri%C3%A8re_%28Sainte-Lucie%29.jpg" alt="Soufriere Bay and the Pitons, Saint Lucia" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
 
           <!-- OFFICIAL GOVERNMENT -->
-          <div id="official" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Official Government Resources</h2>
+          <div id="official" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-landmark"></i> Official Government Resources</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Key government portals include the main govt.lc site, IRD tax services, NIC registration, and the CBI program unit.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <img src="assets/images/resources-stlucia-tourism.jpg" alt="Saint Lucia Tourism Authority promotional material" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
             <div class="table-wrapper">
               <table>
@@ -137,11 +150,21 @@
                 </tr>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- REGULATORY BODIES -->
-          <div id="regulatory" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Regulatory Bodies</h2>
+          <div id="regulatory" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-balance-scale"></i> Regulatory Bodies</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              FSRA regulates financial services, ECCB manages the EC Dollar, and NURC oversees utilities and telecoms.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <div class="table-wrapper">
               <table>
                 <tr><th>Body</th><th>URL</th><th>Jurisdiction</th></tr>
@@ -177,11 +200,21 @@
                 </tr>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- INVESTMENT -->
-          <div id="investment" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Investment Resources</h2>
+          <div id="investment" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-chart-line"></i> Investment Resources</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Invest Saint Lucia, TEPA, the Chamber of Commerce, and BOOST provide business development and export support.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <div class="table-wrapper">
               <table>
                 <tr><th>Resource</th><th>URL</th><th>Description</th></tr>
@@ -227,11 +260,21 @@
                 </tr>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- LEGAL & TAX -->
-          <div id="legal-resources" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Legal &amp; Tax Resources</h2>
+          <div id="legal-resources" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-gavel"></i> Legal &amp; Tax Resources</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              PwC Tax Summaries, UHY guides, and ECSC resources provide detailed tax and legal information for businesses.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <div class="table-wrapper">
               <table>
                 <tr><th>Resource</th><th>URL</th><th>Description</th></tr>
@@ -257,11 +300,21 @@
                 </tr>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- UTILITIES & INFRASTRUCTURE -->
-          <div id="utilities" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Utilities &amp; Infrastructure</h2>
+          <div id="utilities" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-plug"></i> Utilities &amp; Infrastructure</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              LUCELEC provides electricity, WASCO handles water/sewerage, and Flow, Digicel, and Starlink offer telecom services.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <div class="table-wrapper">
               <table>
                 <tr><th>Provider</th><th>URL</th><th>Service</th></tr>
@@ -302,11 +355,21 @@
                 </tr>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- RESEARCH & DATA -->
-          <div id="research" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Research &amp; Economic Data</h2>
+          <div id="research" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-chart-bar"></i> Research &amp; Economic Data</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              IMF, World Bank, ECCB, and local statistics provide comprehensive economic data and development indicators.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <img src="assets/images/overview-ec-dollar-currency.jpg" alt="Eastern Caribbean dollar (EC$) banknote, the official currency of Saint Lucia" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
             <div class="table-wrapper">
               <table>
@@ -343,11 +406,21 @@
                 </tr>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- INTERNATIONAL ORGS -->
-          <div id="international" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">International Organizations</h2>
+          <div id="international" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-globe"></i> International Organizations</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              CARICOM, OECS, Caribbean Export, and CTO coordinate regional integration, trade, and tourism development.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <div class="table-wrapper">
               <table>
                 <tr><th>Organization</th><th>URL</th><th>Relevance</th></tr>
@@ -373,11 +446,21 @@
                 </tr>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- MEDIA & NEWS -->
-          <div id="media" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Media &amp; News</h2>
+          <div id="media" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-newspaper"></i> Media &amp; News</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              St. Lucia Times, The Voice, Loop News, and CHTA provide daily news coverage and tourism industry updates.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <img src="assets/images/expats-rodney-bay-village.jpg" alt="Rodney Bay Village, the main entertainment and dining hub for expats in Saint Lucia" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
             <div class="table-wrapper">
               <table>
@@ -409,11 +492,21 @@
                 </tr>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- PRACTICAL TOOLS -->
-          <div id="practical" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Practical Tools &amp; Information</h2>
+          <div id="practical" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-tools"></i> Practical Tools &amp; Information</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Quick reference for currency conversion, time zone, dialing code, driving rules, visa requirements, and emergency numbers.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <div class="card-grid">
               <div class="info-box">
                 <h4>Currency Converter</h4>
@@ -440,11 +533,21 @@
                 <p>Police: 999 | Fire: 911 | Ambulance: 911 | Coast Guard: 758-452-2656</p>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- DIGITAL & ONLINE SERVICES -->
-          <div id="digital" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Digital &amp; Online Services</h2>
+          <div id="digital" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-laptop"></i> Digital &amp; Online Services</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              DigiGov portal offers 154 government services online, including business registration, tax filing, and digital currency.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <div class="table-wrapper">
               <table>
                 <tr><th>Service</th><th>URL</th><th>Description</th></tr>
@@ -495,11 +598,21 @@
                 </tr>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- THIS GUIDE PAGES -->
-          <div id="guide-pages" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">This Guide - All Pages</h2>
+          <div id="guide-pages" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-book"></i> This Guide - All Pages</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Navigate to all 12+ pages covering business setup, legal framework, sectors, CBI, immigration, living costs, and more.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
               <a href="overview.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
                 <h4>Country Overview</h4>
@@ -550,11 +663,21 @@
                 <p>Step-by-step action plan</p>
               </a>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- PRIMARY SOURCES -->
-          <div id="sources" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Primary Sources &amp; Key Reports</h2>
+          <div id="sources" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-file-alt"></i> Primary Sources &amp; Key Reports</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Official reports from IMF, World Bank, government budgets, LUCELEC, UNFCCC NDC, and sector-specific sources used in this guide.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <img src="assets/images/maps/map-historical-1968.jpg" alt="Historical topographic map of Saint Lucia (1968)" class="section-image" style="max-height:360px;object-fit:contain;margin-bottom:24px;background:#f8f9fa;" loading="lazy">
 
             <h3 style="margin-bottom:12px;">Official Government &amp; International Reports</h3>
@@ -627,11 +750,21 @@
                 <li><a href="https://www.numbeo.com/cost-of-living/in/Castries" target="_blank">Numbeo</a> &mdash; Cost of living data, grocery prices, rent comparisons (Jan 2026)</li>
               </ul>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- RELATED PAGES -->
-          <div style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Related Pages</h2>
+          <div class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-link"></i> Related Pages</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Explore the business directory, setup guides, investment checklist, and frequently asked questions.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
               <a href="directory.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
                 <h4>Business Directory</h4>
@@ -649,6 +782,8 @@
                 <h4>FAQ</h4>
                 <p>42 common questions about business, tax, property, immigration, and daily life</p>
               </a>
+            </div>
+              </div>
             </div>
           </div>
 

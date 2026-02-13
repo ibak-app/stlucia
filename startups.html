@@ -94,9 +94,22 @@
 
         <div class="main-content">
 
+          <div class="section-expand-controls">
+            <button class="section-expand-btn" id="expand-all-btn"><i class="fas fa-expand-alt"></i> Expand All</button>
+            <button class="section-expand-btn" id="collapse-all-btn"><i class="fas fa-compress-alt"></i> Collapse All</button>
+          </div>
+
           <!-- ECOSYSTEM OVERVIEW -->
-          <div id="ecosystem" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Ecosystem Overview</h2>
+          <div id="ecosystem" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> Ecosystem Overview</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Saint Lucia has 154 registered startups with $7.51M raised, driven by youth entrepreneurship programs and OECS regional support.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <img src="assets/images/startups-entrepreneurs.jpg" alt="Startup entrepreneurs meeting in the Caribbean" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
             <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
               <span class="badge badge-primary">~154 registered startups</span>
@@ -187,11 +200,21 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- INCUBATORS & ACCELERATORS (DEDICATED SECTION) -->
-          <div id="incubators" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Incubators, Accelerators &amp; Angel Networks</h2>
+          <div id="incubators" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> Incubators, Accelerators &amp; Angel Networks</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              BOOST Saint Lucia, OECS Global Startup Hub, and RevUP Caribbean provide mentorship, funding connections, and acceleration programs.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <p>Saint Lucia&rsquo;s startup support infrastructure has grown significantly since 2020, with a mix of local, regional, and international programs available to entrepreneurs. Most programs are virtual-first, removing geographic barriers for island-based founders.</p>
 
             <div class="card" style="margin-bottom:24px;">
@@ -329,11 +352,21 @@
                 <p style="margin-top:12px;">Angel investment fills a critical gap in the Caribbean startup financing chain between government grants (typically under US$50K) and venture capital (typically over US$500K).</p>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- GOVERNMENT SUPPORT -->
-          <div id="government-support" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Government Support Programs</h2>
+          <div id="government-support" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> Government Support Programs</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Youth Economy Agency (YEA) offers grants up to $25,000, business training, and e-commerce platform for entrepreneurs aged 15-35.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
 
             <!-- SBDC -->
             <div class="card" style="margin-bottom:24px;">
@@ -397,11 +430,21 @@
                 <p>The OPSR, under the Ministry of Commerce, Business Development, Investment and Consumer Affairs, facilitates dialogue between government and the private sector. It coordinates programs that support entrepreneurial development, including climate adaptation finance for private enterprises and partnerships with international development organizations.</p>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- YOUTH ENTREPRENEURSHIP -->
-          <div id="youth" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Youth Entrepreneurship</h2>
+          <div id="youth" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> Youth Entrepreneurship</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Youth entrepreneurship programs provide angel funds, mentorship, and skills training through YEA, NCPC, and Chamber of Commerce.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <img src="assets/images/startups-youth-entrepreneurship.jpg" alt="Youth Enterprise Agency (YEA) training programme, Saint Lucia" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
 
             <!-- YEA -->
@@ -494,11 +537,21 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- FUNDING & GRANTS -->
-          <div id="funding" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Funding &amp; Grants</h2>
+          <div id="funding" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> Funding &amp; Grants</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Funding sources include YEA Angel Funds ($5,000-$25,000), MSME grants, SLDB loans, FirstAngels Caribbean, and regional OECS programs.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
 
             <!-- FUNDING LANDSCAPE TABLE -->
             <div class="card" style="margin-bottom:24px;">
@@ -720,11 +773,21 @@
                 <p style="margin-top:8px;">This programme is particularly relevant given Saint Lucia&rsquo;s NDC 3.0 targets (40% renewable energy by 2030) and the growing demand for climate-resilient business models in the Caribbean.</p>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- E-COMMERCE & DIGITAL TRADE -->
-          <div id="ecommerce" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">E-Commerce &amp; Digital Trade</h2>
+          <div id="ecommerce" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> E-Commerce &amp; Digital Trade</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              E-commerce growing with YEA platform, EXPORTALL B2B marketplace, and digital payment infrastructure via Caribbean fintech.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <img src="assets/images/startups-ecommerce.jpg" alt="E-commerce and digital shopping in the Eastern Caribbean" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
             <p>Saint Lucia&rsquo;s e-commerce ecosystem is developing rapidly, with <strong>172 online stores</strong>, growing internet penetration (70.1%), and both government-backed platforms and private-sector solutions creating new channels for local businesses.</p>
 
@@ -968,11 +1031,21 @@
               <h4>NCPC Digital Payments Initiative</h4>
               <p>The National Competitiveness and Productivity Council (NCPC) is actively supporting the transition from cash to digital payments among local vendors. The initiative helps small vendors and market traders adopt <strong>POS machines</strong> and digital payment solutions, reducing cash dependency and improving business efficiency. This dovetails with Penny Pinch&rsquo;s mobile wallet expansion and the ECCB&rsquo;s DCash 2.0 digital currency initiative.</p>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- DIGITAL NOMAD VISA -->
-          <div id="nomad" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Digital Nomad Visa &mdash; &ldquo;Live It&rdquo; Programme</h2>
+          <div id="nomad" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> Digital Nomad Visa &mdash; &ldquo;Live It&rdquo; Programme</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Digital nomad visa allows remote workers to live and work from Saint Lucia for 12 months at just $46-$70.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <p>Saint Lucia&rsquo;s <strong>&ldquo;Live It&rdquo; Programme</strong> allows remote workers, freelancers, and digital entrepreneurs to live and work from the island for up to 12 months. It is one of the most affordable digital nomad visas in the Caribbean.</p>
 
             <div class="card" style="margin-bottom:24px;">
@@ -1003,11 +1076,21 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- COWORKING & INFRASTRUCTURE -->
-          <div id="coworking" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Coworking &amp; Infrastructure</h2>
+          <div id="coworking" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> Coworking &amp; Infrastructure</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Coworking spaces emerging in Rodney Bay with fiber internet, Starlink backup, and meeting rooms; most startups work remotely.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
 
             <div class="card" style="margin-bottom:24px;">
               <div class="card-header">
@@ -1067,11 +1150,21 @@
             <div class="info-box" style="margin-bottom:24px;">
               <p>For a complete list of incubators, accelerators, and angel networks available to Saint Lucian entrepreneurs, see the dedicated <a href="#incubators">Incubators &amp; Accelerators</a> section above, including BOOST Saint Lucia, OECS Global Startup Hub, RevUP Caribbean, Founder Institute, and FirstAngels Caribbean.</p>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- KEY SECTORS FOR STARTUPS -->
-          <div id="sectors" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Key Sectors for Startups</h2>
+          <div id="sectors" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> Key Sectors for Startups</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Key startup sectors include tourism-tech, fintech, agri-tech, BPO, renewable energy, and creative industries.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <p>Based on market gaps, government priorities, and regional demand, the following sectors offer the strongest opportunities for new ventures in Saint Lucia:</p>
 
             <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));margin-top:16px;">
@@ -1268,11 +1361,21 @@
                 <p style="margin-top:12px;">The <strong>Fiscal Incentives Act (Amendment) 2020</strong> specifically added the ICT/BPO sector to the list of industries eligible for income tax holidays of up to 15 years and import duty exemptions on equipment. Invest Saint Lucia actively facilitates BPO investment with investment-ready sites and workforce recruitment support.</p>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- REGISTRATION PROCESS -->
-          <div id="registration" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Registration Process for Startups</h2>
+          <div id="registration" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> Registration Process for Startups</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Register company in 1-2 weeks via Invest Saint Lucia one-stop-shop for $300-$1,000 depending on structure.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <p>Starting a business in Saint Lucia is relatively straightforward. The full registration process is detailed on our <a href="business.html#registration">Business Setup page</a>. Here is a summary for startups:</p>
 
             <div class="card" style="margin-top:16px;">
@@ -1319,11 +1422,21 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- SME INCENTIVES -->
-          <div id="incentives" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">SME Incentives &amp; Tax Benefits</h2>
+          <div id="incentives" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> SME Incentives &amp; Tax Benefits</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              SME incentives include 0-10% corporate tax holidays, VAT relief, duty waivers on equipment, and Skills Training rebates.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
 
             <div class="card" style="margin-bottom:24px;">
               <div class="card-body">
@@ -1374,11 +1487,21 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- REGULATORY LANDSCAPE FOR NEW INDUSTRIES -->
-          <div id="regulatory" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Regulatory Landscape &amp; Emerging Industries</h2>
+          <div id="regulatory" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> Regulatory Landscape &amp; Emerging Industries</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              New industries like fintech, cannabis (medicinal), and crypto face evolving regulatory frameworks; consult legal counsel early.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <p style="margin-bottom:16px;">Saint Lucia&rsquo;s regulatory environment is evolving rapidly, with new legislation creating both opportunities and challenges for entrepreneurs. Key developments include gig economy regulation, virtual asset licensing, and potential new industries.</p>
 
             <div class="card" style="margin-bottom:24px;">
@@ -1443,11 +1566,21 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- SUCCESS STORIES -->
-          <div id="success" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Success Stories &amp; Notable Enterprises</h2>
+          <div id="success" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> Success Stories &amp; Notable Enterprises</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Success stories include tourism tech platforms, agri-export businesses, and BPO centers serving North American markets.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
             <p>While Saint Lucia&rsquo;s startup ecosystem is still young, several enterprises demonstrate the island&rsquo;s entrepreneurial potential:</p>
 
             <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));margin-top:16px;">
@@ -1524,11 +1657,21 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- RESOURCES & LINKS -->
-          <div id="resources-links" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Resources &amp; Links</h2>
+          <div id="resources-links" class="section-accordion" data-searchable style="margin-bottom:40px;">
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-info-circle"></i> Resources &amp; Links</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Key contacts: Invest Saint Lucia, SBDC, Youth Economy Agency, NCPC, St. Lucia Chamber of Commerce, and regional OECS programs.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
 
             <div class="card">
               <div class="card-body">
@@ -1584,6 +1727,8 @@
                     <tr><td><strong>Caribbean Greenpreneurs</strong></td><td>&mdash;</td><td>Up to US$50K interest-free loans for green enterprises</td></tr>
                   </table>
                 </div>
+              </div>
+            </div>
               </div>
             </div>
           </div>

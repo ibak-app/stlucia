@@ -96,11 +96,24 @@
         </aside>
 
         <div class="main-content">
+          <div class="section-expand-controls">
+            <button class="section-expand-btn" id="expand-all-btn"><i class="fas fa-expand-alt"></i> Expand All</button>
+            <button class="section-expand-btn" id="collapse-all-btn"><i class="fas fa-compress-alt"></i> Collapse All</button>
+          </div>
+
 
           <!-- TAXATION -->
-          <div id="taxation" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Taxation</h2>
-            <img src="assets/images/legal-tax-accounting.jpg" alt="Inland Revenue Department tax documentation, Saint Lucia" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
+          <div id="taxation" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-file-invoice-dollar"></i> Taxation</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Corporate tax 30% (0% for IBCs), personal income tax 15-30% with $40K deduction (2025), VAT 12.5%, no capital gains/inheritance tax.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<img src="assets/images/legal-tax-accounting.jpg" alt="Inland Revenue Department tax documentation, Saint Lucia" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
 
             <h3 style="margin-bottom:12px;">Corporate Income Tax</h3>
             <div class="table-wrapper" style="margin-bottom:20px;">
@@ -188,12 +201,22 @@
               <p>A <strong>tax amnesty programme</strong> (waiver of penalties and interest on outstanding liabilities) has been extended to <strong>May 1, 2026</strong>. Taxpayers with overdue obligations should contact the Inland Revenue Department.</p>
               <p style="margin-top:8px;">Saint Lucia's sovereign credit rating: <strong>CariCRIS CariBBB-</strong> (reaffirmed September 2024), indicating adequate creditworthiness within the Caribbean context.</p>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- LABOR LAWS -->
-          <div id="labor" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Labor Laws</h2>
-            <img src="assets/images/legal-castries-market-workers.jpg" alt="Workers and vendors at Castries Central Market, Saint Lucia" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
+          <div id="labor" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-briefcase"></i> Labor Laws</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Minimum wage XCD $6.52/hour, 40-hour week, 2 weeks annual leave, 12 weeks maternity leave, NIC contributions 10% total (employer + employee).
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<img src="assets/images/legal-castries-market-workers.jpg" alt="Workers and vendors at Castries Central Market, Saint Lucia" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
             <div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <h4>Key Provisions</h4>
@@ -235,12 +258,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- PROPERTY & LAND -->
-          <div id="property" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Property &amp; Land Ownership</h2>
-            <img src="assets/images/legal-property-caribbean.jpg" alt="Caribbean property and land registry" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
+          <div id="property" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-home"></i> Property &amp; Land Ownership</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Non-citizens require Alien Landholding License (ALHL) costing $2,500-$10,500+ depending on acreage; CBI investors exempt from ALHL.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<img src="assets/images/legal-property-caribbean.jpg" alt="Caribbean property and land registry" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
             <div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <h4>Alien Landholding License (ALHL)</h4>
@@ -279,12 +312,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- LICENSES & PERMITS -->
-          <div id="licenses" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Licenses &amp; Permits</h2>
-            <div class="table-wrapper">
+          <div id="licenses" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-certificate"></i> Licenses &amp; Permits</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              All businesses need Trade License (XCD $1,000/year); tourism, liquor, import/export, building permits require sector-specific approvals.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="table-wrapper">
               <table>
                 <tr><th>License/Permit</th><th>Authority</th><th>Notes</th></tr>
                 <tr><td>Business Name Registration</td><td>Attorney General's Chambers</td><td>Required for all sole proprietors and partnerships</td></tr>
@@ -299,12 +342,22 @@
                 <tr><td>Fire Safety Certificate</td><td>Fire Service</td><td>Required for commercial premises</td></tr>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- KEY LEGISLATION -->
-          <div id="legislation" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Key Legislation</h2>
-            <div class="accordion-group">
+          <div id="legislation" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-gavel"></i> Key Legislation</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              English common law system with Companies Act, Labour Code, Income Tax Act, VAT Act, and sector-specific regulations governing business.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="accordion-group">
               <div class="accordion-item">
                 <div class="accordion-header">
                   <span>Companies Act (Cap. 13.01)</span>
@@ -523,12 +576,22 @@
               </table>
             </div>
             <p style="font-size:0.85em;color:#666;margin-top:6px;">Source: 2025/26 Budget Address, Government of Saint Lucia (March 2025). Measures confirmed by Bloomberg Tax and St. Lucia Times.</p>
+              </div>
+            </div>
           </div>
 
           <!-- BANKING -->
-          <div id="banking" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Banking &amp; Finance</h2>
-            <div class="card">
+          <div id="banking" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-university"></i> Banking &amp; Finance</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Five commercial banks, credit unions, offshore banking sector; ECCB regulates; no exchange controls within OECS; digital banking expanding.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="card">
               <div class="card-body">
                 <h4>Opening a Business Bank Account</h4>
                 <p>To open a corporate bank account in St. Lucia, you typically need:</p>
@@ -581,12 +644,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- ENVIRONMENTAL & PLANNING -->
-          <div id="environmental" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Environmental &amp; Planning Regulations</h2>
-            <p>All business development in Saint Lucia is regulated by the <strong>Physical Planning and Development Act, 2001</strong> (Cap. 5.12). The <strong>Development Control Authority (DCA)</strong> is the regulatory body under the Ministry of Physical Development.</p>
+          <div id="environmental" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-leaf"></i> Environmental &amp; Planning Regulations</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Development Control Authority issues building permits; Environmental Impact Assessments required for major projects; coastal zone restrictions apply.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<p>All business development in Saint Lucia is regulated by the <strong>Physical Planning and Development Act, 2001</strong> (Cap. 5.12). The <strong>Development Control Authority (DCA)</strong> is the regulatory body under the Ministry of Physical Development.</p>
 
             <h3 style="margin-top:20px;margin-bottom:12px;">Development Control Authority (DCA) Process</h3>
             <div class="info-box">
@@ -667,12 +740,22 @@
               </table>
             </div>
             <p style="font-size:0.85em;color:#666;margin-top:6px;">Sources: Physical Planning and Development Act 2001, Waste Management Act 2004, DCA Updated Land Development Regulations (Nov 2024, effective 2025), New Building Code (adopted November 2024), OECS Building Code 2016, Climate Change Act No. 3 of 2024.</p>
+              </div>
+            </div>
           </div>
 
           <!-- INTELLECTUAL PROPERTY -->
-          <div id="ip" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Intellectual Property Protection</h2>
-            <p>Saint Lucia provides IP protection through the <strong>Registry of Companies and Intellectual Property (ROCIP)</strong>, which offers an e-filing portal at <a href="http://rocip.gov.lc/" target="_blank">rocip.gov.lc</a>. The country is a <strong>WIPO member</strong> (since 2002) and party to the Paris Convention, Berne Convention, Patent Cooperation Treaty (PCT, since 1996), WCT, WPPT, Nice Agreement, and WTO/TRIPS (since 1995). Trademark registration costs approximately US$1,130 for the first class (including government and professional fees).</p>
+          <div id="ip" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-copyright"></i> Intellectual Property Protection</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Trademark, patent, and copyright protection under OAPI (regional) and national IP Office; registration through Attorney General Chambers.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<p>Saint Lucia provides IP protection through the <strong>Registry of Companies and Intellectual Property (ROCIP)</strong>, which offers an e-filing portal at <a href="http://rocip.gov.lc/" target="_blank">rocip.gov.lc</a>. The country is a <strong>WIPO member</strong> (since 2002) and party to the Paris Convention, Berne Convention, Patent Cooperation Treaty (PCT, since 1996), WCT, WPPT, Nice Agreement, and WTO/TRIPS (since 1995). Trademark registration costs approximately US$1,130 for the first class (including government and professional fees).</p>
 
             <div class="table-wrapper" style="margin-top:12px;">
               <table>
@@ -693,12 +776,22 @@
 
             <h4 style="margin-top:16px;">Enforcement</h4>
             <p>IP rights are enforceable through the Eastern Caribbean Supreme Court (High Court). Remedies include injunctions, damages, and account of profits. Trademark owners can file border enforcement notices with the Comptroller of Customs to intercept infringing imports (fines up to EC$10,000 and/or imprisonment up to 5 years for customs offences including counterfeits). The US State Department notes that IP enforcement is limited in practice.</p>
+              </div>
+            </div>
           </div>
 
           <!-- DISPUTE RESOLUTION -->
-          <div id="disputes" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Dispute Resolution &amp; Arbitration</h2>
-            <img src="assets/images/legal-courthouse-caribbean.jpg" alt="First District Court, Peynier Street, Castries, Saint Lucia" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
+          <div id="disputes" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-balance-scale"></i> Dispute Resolution &amp; Arbitration</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Labour Tribunal for employment disputes, High Court for commercial cases, alternative arbitration/mediation available; final appeal to CCJ.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<img src="assets/images/legal-courthouse-caribbean.jpg" alt="First District Court, Peynier Street, Castries, Saint Lucia" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
 
             <div class="info-box" style="margin-bottom:20px;">
               <h4>Legal System: Hybrid Common/Civil Law</h4>
@@ -807,12 +900,22 @@
               </table>
             </div>
             <p style="font-size:0.85em;color:#666;margin-top:6px;">Sources: Eastern Caribbean Supreme Court (eccourts.org), World Bank Doing Business 2020, Attorney General Chambers, ROCIP (rocip.gov.lc).</p>
+              </div>
+            </div>
           </div>
 
           <!-- E-COMMERCE & DIGITAL BUSINESS -->
-          <div id="ecommerce" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">E-Commerce &amp; Digital Business</h2>
-            <p>Saint Lucia has developed a legal framework for digital commerce, though some gaps remain for cross-border digital services.</p>
+          <div id="ecommerce" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-shopping-cart"></i> E-Commerce &amp; Digital Business</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Electronic Transactions Act (2021) enables digital contracts and e-signatures; Consumer Protection Act applies to online sales.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<p>Saint Lucia has developed a legal framework for digital commerce, though some gaps remain for cross-border digital services.</p>
 
             <h3 style="margin-bottom:12px;">Electronic Transactions Act (2011)</h3>
             <ul>
@@ -863,12 +966,22 @@
                 <tr><td><strong>Data protection reform</strong></td><td>OECS harmonization consultations launched Jan 2025; current Act (2009) predates modern privacy frameworks</td></tr>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- DOUBLE TAXATION AGREEMENTS & TIEAs -->
-          <div id="dta" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Double Taxation Agreements &amp; Tax Information Exchange</h2>
-            <p>Saint Lucia's treaty network is limited compared to major international financial centres but provides key protections for regional trade and meets global tax transparency standards. The country has <strong>one comprehensive DTA</strong> (the CARICOM multilateral treaty) and <strong>15 bilateral Tax Information Exchange Agreements (TIEAs)</strong>, alongside participation in the OECD's multilateral exchange frameworks.</p>
+          <div id="dta" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-handshake"></i> Double Taxation Agreements &amp; Tax Information Exchange</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              One DTA with CARICOM (11 states); 24 Tax Information Exchange Agreements (TIEAs) including US, UK, Canada, Australia for transparency.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<p>Saint Lucia's treaty network is limited compared to major international financial centres but provides key protections for regional trade and meets global tax transparency standards. The country has <strong>one comprehensive DTA</strong> (the CARICOM multilateral treaty) and <strong>15 bilateral Tax Information Exchange Agreements (TIEAs)</strong>, alongside participation in the OECD's multilateral exchange frameworks.</p>
 
             <h3 style="margin-top:24px;margin-bottom:12px;">CARICOM Double Taxation Agreement</h3>
             <p>Saint Lucia's sole comprehensive DTA is the <strong>CARICOM Double Taxation Agreement</strong>, a multilateral treaty among CARICOM member states. It covers income tax, withholding tax, and provides relief from double taxation through tax credits.</p>
@@ -1014,12 +1127,22 @@
               <p>Under the CARICOM Single Market and Economy (CSME), member states have agreed to harmonize tax incentives and work toward common standards. The CARICOM DTA provides for <strong>mutual recognition of tax credits</strong>, meaning Saint Lucian businesses operating across the 11 CARICOM treaty partners can claim foreign tax credits to avoid double taxation. The ECCB region further coordinates through common reporting requirements and financial sector regulation.</p>
             </div>
             <p style="font-size:0.85em;color:#666;margin-top:8px;">Sources: PwC Tax Summaries (Jan 2026), OECD Global Forum Peer Review Saint Lucia 2023, CARICOM Secretariat, Inland Revenue Department of Saint Lucia.</p>
+              </div>
+            </div>
           </div>
 
           <!-- INVESTMENT INCENTIVES & FREE ZONES -->
-          <div id="incentives" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Investment Incentives &amp; Free Zones</h2>
-            <p>Saint Lucia offers a layered incentive framework designed to attract foreign and domestic investment across manufacturing, tourism, services, agriculture, and renewable energy. The key legislation&mdash;the <strong>Fiscal Incentives Act</strong>, <strong>Tourism Incentives Act</strong>, <strong>Free Zone Act</strong>, and <strong>Special Development Areas Act</strong>&mdash;together provide tax holidays of up to 15 years, duty-free imports, 100% foreign ownership, and full profit repatriation. <strong>Invest Saint Lucia</strong> (<a href="https://investstlucia.com" target="_blank">investstlucia.com</a>) operates as the government's one-stop-shop investment promotion agency, guiding investors through applications, licensing, and aftercare.</p>
+          <div id="incentives" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-gift"></i> Investment Incentives &amp; Free Zones</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Tax holidays up to 15 years for approved tourism/manufacturing/agriculture; Free Zone at Vieux Fort with duty exemptions.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<p>Saint Lucia offers a layered incentive framework designed to attract foreign and domestic investment across manufacturing, tourism, services, agriculture, and renewable energy. The key legislation&mdash;the <strong>Fiscal Incentives Act</strong>, <strong>Tourism Incentives Act</strong>, <strong>Free Zone Act</strong>, and <strong>Special Development Areas Act</strong>&mdash;together provide tax holidays of up to 15 years, duty-free imports, 100% foreign ownership, and full profit repatriation. <strong>Invest Saint Lucia</strong> (<a href="https://investstlucia.com" target="_blank">investstlucia.com</a>) operates as the government's one-stop-shop investment promotion agency, guiding investors through applications, licensing, and aftercare.</p>
 
             <!-- FISCAL INCENTIVES ACT -->
             <h3 style="margin-top:24px;margin-bottom:12px;">Fiscal Incentives Act (Cap. 15.10)</h3>
@@ -1397,12 +1520,22 @@
               </ul>
             </div>
             <p style="font-size:0.85em;color:#666;margin-top:8px;">Sources: PwC Tax Summaries (Jan 2026), US State Dept. Investment Climate Statements (2024&ndash;2025), Invest Saint Lucia, Attorney General's Chambers Revised Laws, St. Lucia Free Zone Authority, KPMG Tax Alerts, OECS Commission, 2025/26 Budget Address.</p>
+              </div>
+            </div>
           </div>
 
           <!-- TAX CALCULATOR -->
-          <div id="calculator" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Tax Calculator</h2>
-            <div class="card">
+          <div id="calculator" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-calculator"></i> Tax Calculator</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Interactive tax calculator for estimating corporate tax, personal income tax, VAT, and import duties based on your business scenario.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="card">
               <div class="card-body">
                 <div style="margin-bottom:20px;">
                   <label style="display:block;font-weight:600;margin-bottom:8px;">Entity Type</label>
@@ -1457,6 +1590,8 @@
                     </table>
                   </div>
                 </div>
+              </div>
+            </div>
               </div>
             </div>
           </div>

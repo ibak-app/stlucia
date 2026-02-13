@@ -98,11 +98,24 @@
         </aside>
 
         <div class="main-content">
+          <div class="section-expand-controls">
+            <button class="section-expand-btn" id="expand-all-btn"><i class="fas fa-expand-alt"></i> Tümünü Aç</button>
+            <button class="section-expand-btn" id="collapse-all-btn"><i class="fas fa-compress-alt"></i> Tümünü Kapat</button>
+          </div>
+
 
           <!-- VERGILENDIRME -->
-          <div id="taxation" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Vergilendirme</h2>
-            <img src="../assets/images/legal-tax-accounting.jpg" alt="Saint Lucia Gelir İdaresi vergi belgeleri" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
+          <div id="taxation" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-file-invoice-dollar"></i> Vergilendirme</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Kurumlar vergisi 30 pct (IBC için 0 pct), gelir vergisi 15-30 pct ($40K muafiyet 2025), KDV 12.5 pct, sermaye kazancı/veraset vergisi yok.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<img src="../assets/images/legal-tax-accounting.jpg" alt="Saint Lucia Gelir İdaresi vergi belgeleri" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
 
             <h3 style="margin-bottom:12px;">Kurumlar Vergisi</h3>
             <div class="table-wrapper" style="margin-bottom:20px;">
@@ -190,12 +203,22 @@
               <p>Bir <strong>vergi affi programi</strong> (�denmemis bor�lardaki ceza ve faiz muafiyeti) <strong>1 Mayis 2026</strong> tarihine kadar uzatilmistir. Vadesi ge�mis y�k�ml�l�kleri olan m�kellefler Gelir Idaresi Baskanligi ile iletisime ge�melidir.</p>
               <p style="margin-top:8px;">Saint Lucia'nin egemenlik kredi notu: <strong>CariCRIS CariBBB-</strong> (Eyl�l 2024'te teyit edildi); Karayip baglaminda yeterli kredi itibarini g�sterir.</p>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- IS HUKUKU -->
-          <div id="labor" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Is Hukuku</h2>
-            <img src="../assets/images/legal-castries-market-workers.jpg" alt="Saint Lucia Castries Merkez Pazarı'nda çalışanlar ve satıcılar" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
+          <div id="labor" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-briefcase"></i> Is Hukuku</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Asgari ücret XCD $6.52/saat, 40 saatlik hafta, yıllık 2 hafta izin, 12 hafta doğum izni, NIC katkıları toplam 10 pct (işveren + çalışan).
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<img src="../assets/images/legal-castries-market-workers.jpg" alt="Saint Lucia Castries Merkez Pazarı'nda çalışanlar ve satıcılar" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
             <div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <h4>Temel H�k�mler</h4>
@@ -236,12 +259,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- M�LKIYET & ARAZI -->
-          <div id="property" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">M�lkiyet &amp; Arazi Sahipligi</h2>
-            <img src="../assets/images/legal-property-caribbean.jpg" alt="Karayipler'de mülk ve tapu sicili" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
+          <div id="property" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-home"></i> M�lkiyet &amp; Arazi Sahipligi</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Vatandaş olmayanlar için Yabancı Arazi Edinme Lisansı (ALHL) gerekli; maliyet dönüme göre $2,500-$10,500+; CBI yatırımcıları muaf.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<img src="../assets/images/legal-property-caribbean.jpg" alt="Karayipler'de mülk ve tapu sicili" style="float:right;margin:0 0 16px 20px;width:280px;border-radius:var(--radius-lg);box-shadow:var(--shadow);" loading="lazy">
             <div class="card" style="margin-bottom:20px;">
               <div class="card-body">
                 <h4>Yabanci Arazi Sahipligi Lisansi (ALHL)</h4>
@@ -280,12 +313,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- LISANSLAR & IZINLER -->
-          <div id="licenses" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Lisanslar &amp; Izinler</h2>
-            <div class="table-wrapper">
+          <div id="licenses" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-certificate"></i> Lisanslar &amp; Izinler</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Tüm işletmeler Ticaret Lisansı almalı (XCD $1,000/yıl); turizm, alkol, ithalat/ihracat, inşaat izinleri sektöre özel onaylar gerektirir.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="table-wrapper">
               <table>
                 <tr><th>Lisans/Izin</th><th>Yetkili Kurum</th><th>Notlar</th></tr>
                 <tr><td>Ticari Unvan Tescili</td><td>Bassavcilik (Attorney General's Chambers)</td><td>T�m sahis isletmeleri ve ortakliklar i�in zorunlu</td></tr>
@@ -300,12 +343,22 @@
                 <tr><td>Yangin G�venlik Sertifikasi</td><td>Itfaiye Teskilati</td><td>Ticari isletmeler i�in zorunlu</td></tr>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- TEMEL MEVZUAT -->
-          <div id="legislation" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Temel Mevzuat</h2>
-            <div class="accordion-group">
+          <div id="legislation" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-gavel"></i> Temel Mevzuat</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              İngiliz örf ve adet hukuku sistemi; Şirketler Yasası, İş Kanunu, Gelir Vergisi Yasası, KDV Yasası ve sektöre özel düzenlemeler.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="accordion-group">
               <div class="accordion-item">
                 <div class="accordion-header">
                   <span>Companies Act (Cap. 13.01)</span>
@@ -497,12 +550,22 @@
               </table>
             </div>
             <p style="font-size:0.85em;color:#666;margin-top:6px;">Kaynak: 2025/26 B�t�e Konusmasi, Saint Lucia H�k�meti (Mart 2025). Tedbirler Bloomberg Tax ve St. Lucia Times tarafindan dogrulanmistir.</p>
+              </div>
+            </div>
           </div>
 
           <!-- BANKACILIK -->
-          <div id="banking" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Bankacilik &amp; Finans</h2>
-            <div class="card">
+          <div id="banking" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-university"></i> Bankacilik &amp; Finans</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Beş ticari banka, kredi birlikleri, offshore bankacılık sektörü; ECCB düzenler; OECS içinde döviz kontrolü yok; dijital bankacılık genişliyor.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="card">
               <div class="card-body">
                 <h4>Kurumsal Banka Hesabi A�ma</h4>
                 <p>Saint Lucia'da kurumsal banka hesabi a�mak i�in genellikle gerekenler:</p>
@@ -555,12 +618,22 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- �EVRE & IMAR -->
-          <div id="environmental" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">�evre &amp; Imar D�zenlemeleri</h2>
-            <p>Saint Lucia'daki t�m ticari kalkinma faaliyetleri, <strong>Physical Planning and Development Act, 2001</strong> (Cap. 5.12) ile d�zenlenir. <strong>Kalkinma Kontrol Kurumu (DCA)</strong>, Fiziksel Kalkinma Bakanligi b�nyesindeki d�zenleyici kurumdur.</p>
+          <div id="environmental" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-leaf"></i> �evre &amp; Imar D�zenlemeleri</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Kalkınma Kontrol Otoritesi inşaat izinleri verir; büyük projeler için Çevresel Etki Değerlendirmesi gerekli; kıyı bölgesi kısıtlamaları uygulanır.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<p>Saint Lucia'daki t�m ticari kalkinma faaliyetleri, <strong>Physical Planning and Development Act, 2001</strong> (Cap. 5.12) ile d�zenlenir. <strong>Kalkinma Kontrol Kurumu (DCA)</strong>, Fiziksel Kalkinma Bakanligi b�nyesindeki d�zenleyici kurumdur.</p>
 
             <h3 style="margin-top:20px;margin-bottom:12px;">Kalkinma Kontrol Kurumu (DCA) S�reci</h3>
             <div class="info-box">
@@ -640,12 +713,22 @@
               </table>
             </div>
             <p style="font-size:0.85em;color:#666;margin-top:6px;">Kaynaklar: Physical Planning and Development Act 2001, Waste Management Act 2004, DCA G�ncellenmis Arazi Gelistirme D�zenlemeleri (Kasim 2024, 2025'ten itibaren y�r�rl�kte), OECS Yapi Y�netmeligi 2016, Iklim Degisikligi Yasasi 2024 (3 Sayili Yasa).</p>
+              </div>
+            </div>
           </div>
 
           <!-- FIKRI M�LKIYET -->
-          <div id="ip" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Fikri M�lkiyet Korumasi</h2>
-            <p>Saint Lucia, <strong>Sirketler ve Fikri M�lkiyet Sicili (ROCIP)</strong> araciligiyla fikri m�lkiyet korumasi saglar ve <a href="http://rocip.gov.lc/" target="_blank">rocip.gov.lc</a> adresinde e-basvuru portali sunmaktadir. �lke, WIPO �yesidir (2002'den beri) ve Paris S�zlesmesi, Berne S�zlesmesi, Patent Isbirligi Antlasmasi (PCT, 1996'dan beri), WCT, WPPT, Nice Anlasmasi ve WTO/TRIPS'e (1995'ten beri) taraftir. Marka tescil �creti ilk sinif i�in yaklasik US$1.130'dir (devlet ve profesyonel �cretler dahil).</p>
+          <div id="ip" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-copyright"></i> Fikri M�lkiyet Korumasi</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              OAPI (bölgesel) ve ulusal FHK Ofisi altında marka, patent, telif hakkı koruması; Başsavcılık aracılığıyla kayıt.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<p>Saint Lucia, <strong>Sirketler ve Fikri M�lkiyet Sicili (ROCIP)</strong> araciligiyla fikri m�lkiyet korumasi saglar ve <a href="http://rocip.gov.lc/" target="_blank">rocip.gov.lc</a> adresinde e-basvuru portali sunmaktadir. �lke, WIPO �yesidir (2002'den beri) ve Paris S�zlesmesi, Berne S�zlesmesi, Patent Isbirligi Antlasmasi (PCT, 1996'dan beri), WCT, WPPT, Nice Anlasmasi ve WTO/TRIPS'e (1995'ten beri) taraftir. Marka tescil �creti ilk sinif i�in yaklasik US$1.130'dir (devlet ve profesyonel �cretler dahil).</p>
 
             <div class="table-wrapper" style="margin-top:12px;">
               <table>
@@ -666,12 +749,22 @@
 
             <h4 style="margin-top:16px;">Uygulama</h4>
             <p>Fikri m�lkiyet haklari, Dogu Karayipler Y�ksek Mahkemesi (High Court) araciligiyla uygulanabilir. ��z�m yollari arasinda ihtiyati tedbirler, tazminat ve kar hesabi yer alir. Marka sahipleri, ihlal eden ithalatin durdurulmasi i�in G�mr�k M�fettisligi'ne sinir uygulama bildirimi sunabilir (taklit �r�nler dahil g�mr�k su�lari i�in EC$10.000'e kadar para cezasi ve/veya 5 yila kadar hapis). ABD Disisleri Bakanligi, fikri m�lkiyet uygulamasinin pratikte sinirli oldugunu belirtmektedir.</p>
+              </div>
+            </div>
           </div>
 
           <!-- UYUSMAZLIK ��Z�M� -->
-          <div id="disputes" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Uyusmazl&iacute;k &Ccedil;&ouml;z&uuml;m&uuml; &amp; Tahkim</h2>
-            <img src="../assets/images/legal-courthouse-caribbean.jpg" alt="İlk Bölge Mahkemesi, Peynier Caddesi, Castries, Saint Lucia" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
+          <div id="disputes" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-balance-scale"></i> Uyusmazl&iacute;k &Ccedil;&ouml;z&uuml;m&uuml; &amp; Tahkim</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              İstihdam anlaşmazlıkları için İş Mahkemesi, ticari davalar için Yüksek Mahkeme, alternatif tahkim/arabuluculuk mevcut; CCJye son temyiz.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<img src="../assets/images/legal-courthouse-caribbean.jpg" alt="İlk Bölge Mahkemesi, Peynier Caddesi, Castries, Saint Lucia" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
 
             <div class="info-box" style="margin-bottom:20px;">
               <h4>Hukuk Sistemi: Hibrit &Ouml;rf ve Adet Hukuku / Medeni Hukuk</h4>
@@ -780,12 +873,22 @@
               </table>
             </div>
             <p style="font-size:0.85em;color:#666;margin-top:6px;">Kaynaklar: Eastern Caribbean Supreme Court (eccourts.org), World Bank Doing Business 2020, Attorney General Chambers, ROCIP (rocip.gov.lc).</p>
+              </div>
+            </div>
           </div>
 
           <!-- E-TICARET & DIJITAL IS -->
-          <div id="ecommerce" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">E-Ticaret &amp; Dijital Is</h2>
-            <p>Saint Lucia, dijital ticaret i�in yasal bir �er�eve gelistirmistir, ancak sinir �tesi dijital hizmetlerde bazi eksiklikler devam etmektedir.</p>
+          <div id="ecommerce" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-shopping-cart"></i> E-Ticaret &amp; Dijital Is</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Elektronik İşlemler Yasası (2021) dijital sözleşmeler ve e-imza sağlar; Tüketici Koruma Yasası çevrimiçi satışlara uygulanır.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<p>Saint Lucia, dijital ticaret i�in yasal bir �er�eve gelistirmistir, ancak sinir �tesi dijital hizmetlerde bazi eksiklikler devam etmektedir.</p>
 
             <h3 style="margin-bottom:12px;">Electronic Transactions Act (2011)</h3>
             <ul>
@@ -836,12 +939,22 @@
                 <tr><td><strong>Veri koruma reformu</strong></td><td>OECS uyumlastirma istisareleri Ocak 2025'te baslatildi; mevcut yasa (2009) modern gizlilik �er�evelerinden eskidir</td></tr>
               </table>
             </div>
+              </div>
+            </div>
           </div>
 
           <!-- �IFTE VERGILENDIRME ANLASMALARI & TIEA -->
-          <div id="dta" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">�ifte Vergilendirme Anlasmalari &amp; Vergi Bilgi Degisimi</h2>
-            <p>Saint Lucia'nin anlasma agi, b�y�k uluslararasi finans merkezleriyle karsilastirildiginda sinirlidir; ancak b�lgesel ticaret i�in temel korumalar saglar ve k�resel vergi seffafligi standartlarini karsilar. �lkenin <strong>bir kapsamli �V�'s�</strong> (CARICOM �ok tarafli anlasmasi) ve <strong>15 ikili Vergi Bilgi Degisim Anlasmasi (TIEA)</strong> ile birlikte OECD'nin �ok tarafli degisim �er�evelerine katilimi bulunmaktadir.</p>
+          <div id="dta" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-handshake"></i> �ifte Vergilendirme Anlasmalari &amp; Vergi Bilgi Degisimi</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              CARICOM ile bir ÇVÖ anlaşması (11 devlet); şeffaflık için ABD, İngiltere, Kanada, Avustralya dahil 24 Vergi Bilgi Değişimi Anlaşması (TIEA).
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<p>Saint Lucia'nin anlasma agi, b�y�k uluslararasi finans merkezleriyle karsilastirildiginda sinirlidir; ancak b�lgesel ticaret i�in temel korumalar saglar ve k�resel vergi seffafligi standartlarini karsilar. �lkenin <strong>bir kapsamli �V�'s�</strong> (CARICOM �ok tarafli anlasmasi) ve <strong>15 ikili Vergi Bilgi Degisim Anlasmasi (TIEA)</strong> ile birlikte OECD'nin �ok tarafli degisim �er�evelerine katilimi bulunmaktadir.</p>
 
             <h3 style="margin-top:24px;margin-bottom:12px;">CARICOM �ifte Vergilendirme Anlasmasi</h3>
             <p>Saint Lucia'nin tek kapsamli �V�'s�, CARICOM �ye devletleri arasindaki �ok tarafli anlasma olan <strong>CARICOM �ifte Vergilendirme Anlasmasi</strong>'dir. Gelir vergisi, stopaj vergisi kapsar ve vergi kredileri yoluyla �ifte vergilendirmeden muafiyet saglar.</p>
@@ -967,12 +1080,22 @@
               <p>CARICOM Tek Pazari ve Ekonomisi (CSME) kapsaminda �ye devletler, vergi tesviklerini uyumlastirma ve ortak standartlara dogru ilerleme konusunda anlasmistir. CARICOM �V�, <strong>vergi kredilerinin karsilikli taninmasini</strong> saglar; bu sayede 11 CARICOM anlasma ortaginda faaliyet g�steren Saint Lucia isletmeleri �ifte vergilendirmeyi �nlemek i�in yabanci vergi kredisi talep edebilir. ECCB b�lgesi ayrica ortak raporlama gereklilikleri ve mali sekt�r d�zenlemesi yoluyla koordinasyon saglar.</p>
             </div>
             <p style="font-size:0.85em;color:#666;margin-top:8px;">Kaynaklar: PwC Tax Summaries (Ocak 2026), OECD K�resel Forum Es Degerlendirmesi Saint Lucia 2023, CARICOM Sekreterligi, Saint Lucia Gelir Idaresi Baskanligi.</p>
+              </div>
+            </div>
           </div>
 
           <!-- YATIRIM TESVIKLERI & SERBEST B�LGELER -->
-          <div id="incentives" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Yatirim Tesvikleri &amp; Serbest B�lgeler</h2>
-            <p>Saint Lucia, �retim, turizm, hizmetler, tarim ve yenilenebilir enerji alanlarinda yabanci ve yerli yatirimi �ekmek i�in �ok katmanli bir tesvik �er�evesi sunmaktadir. Temel mevzuat olan <strong>Fiscal Incentives Act</strong>, <strong>Tourism Incentives Act</strong>, <strong>Free Zone Act</strong> ve <strong>Special Development Areas Act</strong> birlikte 15 yila kadar vergi tatili, g�mr�ks�z ithalat, %100 yabanci m�lkiyet ve tam k�r transferi imk�ni saglar. <strong>Invest Saint Lucia</strong> (<a href="https://investstlucia.com" target="_blank">investstlucia.com</a>), yatirimcilara basvuru, lisanslama ve sonrasi destek konularinda rehberlik eden h�k�metin tek durak yatirim tesvik ajansidir.</p>
+          <div id="incentives" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-gift"></i> Yatirim Tesvikleri &amp; Serbest B�lgeler</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              Onaylı turizm/imalat/tarım için 15 yıla kadar vergi tatili; Vieux Fort Serbest Bölgesi gümrük muafiyetleriyle.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<p>Saint Lucia, �retim, turizm, hizmetler, tarim ve yenilenebilir enerji alanlarinda yabanci ve yerli yatirimi �ekmek i�in �ok katmanli bir tesvik �er�evesi sunmaktadir. Temel mevzuat olan <strong>Fiscal Incentives Act</strong>, <strong>Tourism Incentives Act</strong>, <strong>Free Zone Act</strong> ve <strong>Special Development Areas Act</strong> birlikte 15 yila kadar vergi tatili, g�mr�ks�z ithalat, %100 yabanci m�lkiyet ve tam k�r transferi imk�ni saglar. <strong>Invest Saint Lucia</strong> (<a href="https://investstlucia.com" target="_blank">investstlucia.com</a>), yatirimcilara basvuru, lisanslama ve sonrasi destek konularinda rehberlik eden h�k�metin tek durak yatirim tesvik ajansidir.</p>
 
             <!-- MALI TESVIKLER YASASI -->
             <h3 style="margin-top:24px;margin-bottom:12px;">Fiscal Incentives Act (Cap. 15.10)</h3>
@@ -1327,12 +1450,22 @@
               </ul>
             </div>
             <p style="font-size:0.85em;color:#666;margin-top:8px;">Kaynaklar: PwC Tax Summaries (Ocak 2026), ABD Disisleri Bakanligi Yatirim Iklimi Beyanlari (2024&ndash;2025), Invest Saint Lucia, Bassavcilik Revize Yasalari, St. Lucia Serbest B�lge Otoritesi, KPMG Vergi Uyarilari, OECS Komisyonu, 2025/26 B�t�e Konusmasi.</p>
+              </div>
+            </div>
           </div>
 
           <!-- VERGI HESAPLAYICI -->
-          <div id="calculator" style="margin-bottom:40px;">
-            <h2 style="margin-bottom:16px;">Vergi Hesaplayici</h2>
-            <div class="card">
+          <div id="calculator" class="section-accordion" data-searchable>
+            <div class="section-accordion-header">
+              <h2><i class="fas fa-calculator"></i> Vergi Hesaplayici</h2>
+              <span class="section-toggle-arrow">&#9660;</span>
+            </div>
+            <div class="section-summary">
+              İş senaryonuza göre kurumlar vergisi, gelir vergisi, KDV ve ithalat vergileri tahmini için interaktif vergi hesaplayıcı.
+            </div>
+            <div class="section-accordion-body">
+              <div class="section-accordion-body-inner">
+<div class="card">
               <div class="card-body">
                 <div style="margin-bottom:20px;">
                   <label style="display:block;font-weight:600;margin-bottom:8px;">Kurulus T�r�</label>
@@ -1387,6 +1520,8 @@
                     </table>
                   </div>
                 </div>
+              </div>
+            </div>
               </div>
             </div>
           </div>

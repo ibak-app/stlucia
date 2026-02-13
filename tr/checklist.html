@@ -350,6 +350,7 @@
           <a href="#documents">Belge Kontrol Listesi</a>
           <a href="#cost-summary">Maliyet &Ouml;zeti</a>
           <a href="#timeline-overview">Zaman &Ccedil;izelgesi</a>
+          <a href="#important-reminders">&Ouml;nemli Hatırlatmalar</a>
         </aside>
 
         <div class="main-content">
@@ -381,6 +382,11 @@
                 <span class="phase-name">CBI Başvuru Sahipleri</span>
               </a>
             </div>
+          </div>
+
+          <div class="section-expand-controls">
+            <button class="section-expand-btn" id="expand-all-btn"><i class="fas fa-expand-alt"></i> Tümünü Aç</button>
+            <button class="section-expand-btn" id="collapse-all-btn"><i class="fas fa-compress-alt"></i> Tümünü Kapat</button>
           </div>
 
           <!-- ========================================== -->
@@ -1015,8 +1021,17 @@
           <!-- ========================================== -->
           <!-- MALİYET ÖZETİ -->
           <!-- ========================================== -->
-          <div id="cost-summary" style="margin-bottom:50px;">
-            <h2 style="margin-bottom:16px;">Maliyet &Ouml;zeti: Ne Kadar B&uuml;t&ccedil;e Ayırmalısınız</h2>
+          <div id="cost-summary" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-calculator"></i> Maliyet &Ouml;zeti: Ne Kadar B&uuml;t&ccedil;e Ayırmalısınız</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Kurulum maliyetleri yerel şirketler için 2-6 bin $, IBC'ler için 3-8 bin $ arasındadır, mekân ve sigorta hariç.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
+
             <div class="table-wrapper" style="margin-bottom:20px;">
               <table>
                 <thead>
@@ -1044,13 +1059,25 @@
               <h4>Para Birimi Notu</h4>
               <p>Doğu Karayip Doları (XCD), ABD Doları'na <strong>XCD 2,70 = USD 1,00</strong> olarak sabitlenmiştir. Devlet &uuml;cretleri genellikle XCD olarak belirtilir; profesyonel &uuml;cretler uluslararası m&uuml;şteriler i&ccedil;in genellikle USD olarak belirtilir.</p>
             </div>
-          </div>
+          
+    </div>
+  </div>
+</div>
 
           <!-- ========================================== -->
           <!-- ZAMAN ÇİZELGESİ -->
           <!-- ========================================== -->
-          <div id="timeline-overview" style="margin-bottom:50px;">
-            <h2 style="margin-bottom:16px;">Zaman &Ccedil;izelgesi Genel Bakışı</h2>
+          <div id="timeline-overview" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-clock"></i> Zaman &Ccedil;izelgesi Genel Bakışı</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Tam kurulum süreci yerel şirketler için 4-12 hafta sürer, IBC'ler ise 2-4 hafta gibi kısa sürede hazır olabilir.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
+
             <div class="timeline">
               <div class="timeline-item">
                 <h4>Hafta 1-4: Yatırım &Ouml;ncesi Aşaması</h4>
@@ -1077,7 +1104,10 @@
               <h4>IBC'ler İ&ccedil;in Hızlı S&uuml;re&ccedil;</h4>
               <p>Bir IBC, tescilli temsilci ile <strong>48-72 saat</strong> i&ccedil;inde tamamen kurulabilir. Hazır bir şirket kullanıldığında kuruluş fiilen anında ger&ccedil;ekleşir. Bir IBC i&ccedil;in toplam kurulum s&uuml;resi (kuruluş + banka hesabı) <strong>2-4 hafta</strong> kadar kısa olabilir.</p>
             </div>
-          </div>
+          
+    </div>
+  </div>
+</div>
 
           <!-- ========================================== -->
           <!-- SON HATIRLATMALAR -->

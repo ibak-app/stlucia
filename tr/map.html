@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harita ve B&ouml;lgeler - St. Lucia İş Rehberi</title>
-  <meta name="description" content="Saint Lucia interaktif haritası: 52 işaretleyici ile şehirler, havaalanları, limanlar, iş merkezleri, oteller, hastaneler ve 10 bölgede gezilecek yerler.">
-  <meta name="keywords" content="Saint Lucia harita, Castries, Gros Islet, Vieux Fort, Soufriere, bölgeler, Hewanorra havaalanı, Castries Limanı, interaktif harita">
+  <title>İnteraktif Harita - St. Lucia İş Rehberi</title>
+  <meta name="description" content="Saint Lucia interaktif haritası: 171 işletme işaretçisi, 1.218 arazi kullanım bölgesi, 4.382 bina dış hattı ve özel bölge düzenleyici.">
+  <meta name="keywords" content="Saint Lucia harita, Castries, Gros Islet, Vieux Fort, Soufriere, interaktif harita, arazi kullanım bölgeleri, işletme rehberi">
 
-  <meta property="og:title" content="Harita ve Bölgeler - Saint Lucia">
-  <meta property="og:description" content="Saint Lucia interaktif haritası: 52 işaretleyici ile şehirler, havaalanları, limanlar, iş merkezleri, oteller, hastaneler ve 10 bölgede gezilecek yerler.">
+  <meta property="og:title" content="İnteraktif Harita - Saint Lucia">
+  <meta property="og:description" content="Saint Lucia interaktif haritası: 171 işletme işaretçisi, 1.218 arazi kullanım bölgesi, 4.382 bina dış hattı ve özel bölge düzenleyici.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://stlucia.studio/tr/map.html">
   <meta property="og:image" content="https://stlucia.studio/assets/images/hero-pitons.jpg">
   <meta property="og:site_name" content="St. Lucia İş Rehberi">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Harita ve Bölgeler - Saint Lucia">
-  <meta name="twitter:description" content="Saint Lucia interaktif haritası: 52 işaretleyici ile şehirler, havaalanları, limanlar, iş merkezleri, oteller, hastaneler ve 10 bölgede gezilecek yerler.">
+  <meta name="twitter:title" content="İnteraktif Harita - Saint Lucia">
+  <meta name="twitter:description" content="Saint Lucia interaktif haritası: 171 işletme işaretçisi, 1.218 arazi kullanım bölgesi, 4.382 bina dış hattı ve özel bölge düzenleyici.">
   <meta name="twitter:image" content="https://stlucia.studio/assets/images/hero-pitons.jpg">
 
   <link rel="canonical" href="https://stlucia.studio/tr/map.html">
@@ -273,13 +273,6 @@
       .zone-editor-panel { width: 90%; max-width: 360px; }
     }
 
-    /* District & table sections below map */
-    .below-map { overflow-y: auto; }
-    .district-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
-    .district-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 20px; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
-    .district-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-    .district-card h3 { color: var(--primary); margin-bottom: 8px; }
-    .district-card .meta { color: var(--text-light); font-size: 0.85rem; margin-bottom: 8px; }
   </style>
 </head>
 <body>
@@ -460,202 +453,6 @@
       <button class="ze-btn-cancel" id="ze-cancel">İptal</button>
       <button class="ze-btn-save" id="ze-save">B&ouml;lgeyi Kaydet</button>
     </div>
-  </div>
-
-  <!-- HARİTA ALTI: Bölge Profilleri & Önemli Konumlar -->
-  <div class="below-map">
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>B&ouml;lge Profilleri</h2>
-          <p>Saint Lucia'nın 10 idari b&ouml;lgesi (quarter)</p>
-        </div>
-
-        <div class="district-grid">
-
-          <div class="district-card" data-searchable>
-            <h3>Castries</h3>
-            <div class="meta">Başkent &bull; Kuzeybatı Kıyısı</div>
-            <p>Başkent ve en b&uuml;y&uuml;k şehir olan Castries, ticari, idari ve denizcilik merkezidir. Ana liman, h&uuml;k&uuml;met ofisleri, finans b&ouml;lgesi ve b&uuml;y&uuml;k perakende alanlarına ev sahipliği yapar. N&uuml;fus ~22.000 (metropol ~65.000).</p>
-            <ul style="margin-top:8px;">
-              <li><strong>&Ouml;nemli Alanlar:</strong> Şehir Merkezi, Pointe Seraphine (g&uuml;mr&uuml;ks&uuml;z alışveriş), La Place Carenage, Morne Fortune</li>
-              <li><strong>İş:</strong> Bankalar, hukuk firmaları, h&uuml;k&uuml;met merkezi, Castries Pazarı</li>
-              <li><strong>Liman:</strong> Kruvaziyer terminali, y&uuml;k limanı</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Gros Islet</h3>
-            <div class="meta">Turizm Merkezi &bull; Kuzey Ucu</div>
-            <p>Ana turizm b&ouml;lgesi; Rodney Bay (adanın turizm ve eğlence merkezi), l&uuml;ks tatil k&ouml;yleri, ulusal stadyum ve kuzey plajlarına ev sahipliği yapar.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>&Ouml;nemli Alanlar:</strong> Rodney Bay Village, Reduit Beach, Pigeon Island Ulusal Parkı, Cap Estate</li>
-              <li><strong>İş:</strong> Oteller, restoranlar, gece hayatı, marina, alışveriş merkezi</li>
-              <li><strong>Bilinirliği:</strong> Cuma Gecesi Sokak Partisi (Gros Islet Jump-Up)</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Vieux Fort</h3>
-            <div class="meta">İkinci Şehir &bull; G&uuml;ney Ucu</div>
-            <p>En g&uuml;neydeki kasaba ve ikinci b&uuml;y&uuml;k yerleşim yeri. Ana uluslararası havalimanı, serbest b&ouml;lge ve b&uuml;y&uuml;yen ticari alana ev sahipliği yapar.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>&Ouml;nemli Alanlar:</strong> Hewanorra Uluslararası Havalimanı, Vieux Fort Sanayi B&ouml;lgesi/Serbest B&ouml;lge</li>
-              <li><strong>İş:</strong> Hafif imalat, serbest b&ouml;lge operasyonları, y&uuml;k limanı</li>
-              <li><strong>&Ouml;ne &Ccedil;ıkan:</strong> Sandy Beach, Moule-a-Chique yarımadası (en g&uuml;ney noktası)</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Soufriere</h3>
-            <div class="meta">Miras Kasabası &bull; G&uuml;neybatı Kıyısı</div>
-            <p>Orijinal Fransız başkenti ve St. Lucia'nın en ikonik simgelerinin bulunduğu yer. Volkanik &ouml;zellikleriyle &ouml;nemli bir eko-turizm destinasyonu.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>&Ouml;nemli Alanlar:</strong> The Pitons (UNESCO), K&uuml;k&uuml;rt Kaplıcaları, Diamond Falls, Fond Doux &Ccedil;iftliği</li>
-              <li><strong>İş:</strong> Eko-turizm, l&uuml;ks tatil k&ouml;yleri (Jade Mountain, Sugar Beach), kakao &ccedil;iftlikleri</li>
-              <li><strong>Bilinirliği:</strong> D&uuml;nyanın tek arabayla girilebilen yanardağı</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Dennery</h3>
-            <div class="meta">Doğu B&ouml;lgesi &bull; Atlantik Kıyısı</div>
-            <p>R&uuml;zgar alan (Atlantik) kıyısında yer alır. B&uuml;y&uuml;k &ouml;l&ccedil;&uuml;de tarım ve balık&ccedil;ılık topluluğu, otantik kırsal karaktere sahiptir.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>&Ouml;nemli Alanlar:</strong> Dennery K&ouml;y&uuml;, Fond d'Or Doğa Koruma Alanı</li>
-              <li><strong>İş:</strong> Balık&ccedil;ılık, tarım (muz, k&ouml;k bitkileri), k&uuml;&ccedil;&uuml;k &ouml;l&ccedil;ekli imalat</li>
-              <li><strong>Bilinirliği:</strong> Dennery Balık Şenliği</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Micoud</h3>
-            <div class="meta">Doğu B&ouml;lgesi &bull; G&uuml;neydoğu Kıyısı</div>
-            <p>Doğu kıyısında b&uuml;y&uuml;k bir tarım b&ouml;lgesi, muz ve &uuml;r&uuml;n &uuml;retimi i&ccedil;in &ouml;nemli.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>&Ouml;nemli Alanlar:</strong> Micoud K&ouml;y&uuml;, Praslin, Mamiku Bah&ccedil;eleri</li>
-              <li><strong>İş:</strong> Tarım (muz, hindistancevizi, kakao), balık&ccedil;ılık</li>
-              <li><strong>Bilinirliği:</strong> La Rose &amp; La Marguerite k&uuml;lt&uuml;rel festivalleri</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Choiseul</h3>
-            <div class="meta">Sanat B&ouml;lgesi &bull; G&uuml;neybatı Kıyısı</div>
-            <p>Sanat ve el sanatları mirası, &ccedil;&ouml;ml&ccedil;il&uuml;k geleneği ve tarım toplulukları ile tanınan g&uuml;ney b&ouml;lgesi.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>&Ouml;nemli Alanlar:</strong> Choiseul K&ouml;y&uuml;, Sanat &amp; El Sanatları Merkezi, Balembouche &Ccedil;iftliği</li>
-              <li><strong>İş:</strong> &Ccedil;&ouml;ml&ccedil;il&uuml;k, el sanatları, tarım, miras turizmi</li>
-              <li><strong>Bilinirliği:</strong> Geleneksel Carib &ccedil;&ouml;ml&ccedil;il&uuml;ğ&uuml; ve zanaat k&ouml;y&uuml;</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Laborie</h3>
-            <div class="meta">Balık&ccedil;ı K&ouml;y&uuml; &bull; G&uuml;ney Kıyısı</div>
-            <p>G&uuml;ney kıyısında k&uuml;&ccedil;&uuml;k, pitoresk bir balık&ccedil;ı k&ouml;y&uuml;; g&uuml;&ccedil;l&uuml; topluluk kimliği ve otantik Creole k&uuml;lt&uuml;r&uuml;ne sahip.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>&Ouml;nemli Alanlar:</strong> Laborie K&ouml;y&uuml;, Laborie Koyu</li>
-              <li><strong>İş:</strong> Balık&ccedil;ılık, k&uuml;&ccedil;&uuml;k &ouml;l&ccedil;ekli tarım, topluluk turizmi</li>
-              <li><strong>Bilinirliği:</strong> Geleneksel balık&ccedil;ılık, &ccedil;ekici sahil şeridi</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Anse la Raye</h3>
-            <div class="meta">Balık&ccedil;ı Kasabası &bull; Batı Kıyısı</div>
-            <p>Haftalık Cuma Balık Şenliği ve otantik yerel yemek deneyimi ile &uuml;nl&uuml; batı kıyısı balık&ccedil;ı kasabası.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>&Ouml;nemli Alanlar:</strong> Anse la Raye K&ouml;y&uuml;, Anse Cochon Plajı</li>
-              <li><strong>İş:</strong> Balık&ccedil;ılık, gastronomi turizmi, su sporları</li>
-              <li><strong>Bilinirliği:</strong> Cuma Gecesi Deniz &Uuml;r&uuml;nleri Sokak Partisi</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Canaries</h3>
-            <div class="meta">En K&uuml;&ccedil;&uuml;k B&ouml;lge &bull; Batı Kıyısı</div>
-            <p>Anse la Raye ile Soufriere arasında yer alan en k&uuml;&ccedil;&uuml;k b&ouml;lge. &Ccedil;arpıcı kıyı manzarası ile sakin, kırsal bir topluluk.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>&Ouml;nemli Alanlar:</strong> Canaries K&ouml;y&uuml;, Anse La Libert&eacute; Plajı</li>
-              <li><strong>İş:</strong> K&uuml;&ccedil;&uuml;k &ouml;l&ccedil;ekli balık&ccedil;ılık, tarım</li>
-              <li><strong>Bilinirliği:</strong> Tenha plajlar, huzurlu ortam</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ÖNEMLİ KONUMLAR TABLOSU -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <h2>&Ouml;nemli İş Konumları</h2>
-        </div>
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr><th>Konum</th><th>B&ouml;lge</th><th>T&uuml;r</th><th>&Ouml;nem</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Castries Merkez</td><td>Castries</td><td>Ticari</td><td>H&uuml;k&uuml;met ofisleri, bankalar, mahkemeler, şirketler sicili</td></tr>
-              <tr><td>Pointe Seraphine</td><td>Castries</td><td>Ticari</td><td>G&uuml;mr&uuml;ks&uuml;z alışveriş kompleksi, kruvaziyer limanı</td></tr>
-              <tr><td>Rodney Bay</td><td>Gros Islet</td><td>Turizm/Ticari</td><td>Ana turizm şeridi, marina, restoranlar, JQ Mall</td></tr>
-              <tr><td>Hewanorra Havalimanı</td><td>Vieux Fort</td><td>Ulaşım</td><td>Uluslararası havalimanı, kargo</td></tr>
-              <tr><td>Vieux Fort Serbest B&ouml;lge</td><td>Vieux Fort</td><td>End&uuml;striyel</td><td>Serbest b&ouml;lge, hafif imalat, depolama</td></tr>
-              <tr><td>Cul de Sac</td><td>Castries</td><td>End&uuml;striyel</td><td>Sanayi b&ouml;lgesi, petrol terminali, depolama</td></tr>
-              <tr><td>George F.L. Charles Havalimanı</td><td>Castries</td><td>Ulaşım</td><td>B&ouml;lgesel/i&ccedil; hat havalimanı (Vigie)</td></tr>
-              <tr><td>Port Castries</td><td>Castries</td><td>Denizcilik</td><td>Ana y&uuml;k limanı, kruvaziyer terminali</td></tr>
-              <tr><td>Rodney Bay Marina</td><td>Gros Islet</td><td>Denizcilik</td><td>Yat limanı, tekne hizmetleri</td></tr>
-              <tr><td>Marigot Bay</td><td>Castries</td><td>Turizm/Denizcilik</td><td>Korunaklı liman, l&uuml;ks marina, tatil k&ouml;yleri</td></tr>
-              <tr><td>JQ Mall</td><td>Gros Islet</td><td>Ticari</td><td>Rodney Bay'deki ana alışveriş merkezi, perakende, yemek, sinema</td></tr>
-              <tr><td>La Place Carenage</td><td>Castries</td><td>Ticari</td><td>Sahil alışveriş &amp; yemek kompleksi, liman manzarası</td></tr>
-              <tr><td>Castries Merkez Pazarı</td><td>Castries</td><td>Ticari</td><td>Merkez &uuml;r&uuml;n pazarı, yerel yiyecekler, baharatlar, el sanatları</td></tr>
-              <tr><td>LUCELEC Genel M&uuml;d&uuml;rl&uuml;k</td><td>Castries</td><td>Altyapı</td><td>Ulusal elektrik sağlayıcısı genel merkezi, John Compton Highway</td></tr>
-              <tr><td>OKEU Hastanesi</td><td>Castries</td><td>Sağlık</td><td>160 yataklı kamu hastanesi (2022'de Victoria Hastanesi'nin yerine ge&ccedil;ti)</td></tr>
-              <tr><td>Tapion Hastanesi</td><td>Castries</td><td>Sağlık</td><td>32 yataklı &ouml;zel hastane, uzman &amp; cerrahi hizmetler</td></tr>
-              <tr><td>St. Jude Hastanesi</td><td>Vieux Fort</td><td>Sağlık</td><td>G&uuml;ney b&ouml;lge hastanesi, 75 milyon dolarlık yeniden inşa devam ediyor</td></tr>
-              <tr><td>SALCC</td><td>Castries</td><td>Eğitim</td><td>Sir Arthur Lewis Toplum Koleji, Morne Fortune</td></tr>
-              <tr><td>Daren Sammy Kriket Sahası</td><td>Gros Islet</td><td>Spor</td><td>Uluslararası kriket mekanı, CPL ma&ccedil;ları, kapasite ~15.000</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- İLGİLİ SAYFALAR -->
-    <section class="section">
-      <div class="container">
-        <h3 style="margin-bottom:16px;">İlgili Sayfalar</h3>
-        <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
-          <a href="overview.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
-            <h4>&Uuml;lke Genel Bakışı</h4>
-            <p>Coğrafya, ekonomi, demografi</p>
-          </a>
-          <a href="living.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
-            <h4>Yaşam Maliyeti</h4>
-            <p>B&ouml;lgeye g&ouml;re konut, altyapı</p>
-          </a>
-          <a href="directory.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
-            <h4>İş Rehberi</h4>
-            <p>Yerel işletmeler &amp; iletişim bilgileri</p>
-          </a>
-          <a href="sectors.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
-            <h4>Temel Sekt&ouml;rler</h4>
-            <p>Turizm, tarım, enerji</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-bottom">
-          <p>St. Lucia İş Rehberi &mdash; Araştırmaya dayalı rehber. T&uuml;m bilgileri resmi kaynaklardan doğrulayın. Son g&uuml;ncelleme: Şubat 2026.</p>
-        </div>
-      </div>
-    </footer>
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

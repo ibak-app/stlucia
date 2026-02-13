@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Map &amp; Districts - St. Lucia Business Guide</title>
-  <meta name="description" content="Interactive map of Saint Lucia with 52 markers: cities, airports, ports, business centers, hotels, hospitals, and attractions across 10 districts.">
-  <meta name="keywords" content="Saint Lucia map, Castries, Gros Islet, Vieux Fort, Soufriere, districts, Hewanorra airport, Port Castries, interactive map">
+  <title>Interactive Map - St. Lucia Business Guide</title>
+  <meta name="description" content="Interactive map of Saint Lucia with 171 business markers, 1,218 land use zones, 4,382 building outlines, and custom zone editor.">
+  <meta name="keywords" content="Saint Lucia map, Castries, Gros Islet, Vieux Fort, Soufriere, interactive map, land use zones, business directory">
 
-  <meta property="og:title" content="Map & Districts - Saint Lucia">
-  <meta property="og:description" content="Interactive map of Saint Lucia with 52 markers: cities, airports, ports, business centers, hotels, hospitals, and attractions across 10 districts.">
+  <meta property="og:title" content="Interactive Map - Saint Lucia">
+  <meta property="og:description" content="Interactive map of Saint Lucia with 171 business markers, 1,218 land use zones, 4,382 building outlines, and custom zone editor.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://stlucia.studio/map.html">
   <meta property="og:image" content="https://stlucia.studio/assets/images/hero-pitons.jpg">
   <meta property="og:site_name" content="St. Lucia Business Guide">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Map & Districts - Saint Lucia">
-  <meta name="twitter:description" content="Interactive map of Saint Lucia with 52 markers: cities, airports, ports, business centers, hotels, hospitals, and attractions across 10 districts.">
+  <meta name="twitter:title" content="Interactive Map - Saint Lucia">
+  <meta name="twitter:description" content="Interactive map of Saint Lucia with 171 business markers, 1,218 land use zones, 4,382 building outlines, and custom zone editor.">
   <meta name="twitter:image" content="https://stlucia.studio/assets/images/hero-pitons.jpg">
 
   <link rel="canonical" href="https://stlucia.studio/map.html">
@@ -271,13 +271,6 @@
       .zone-editor-panel { width: 90%; max-width: 360px; }
     }
 
-    /* District & table sections below map */
-    .below-map { overflow-y: auto; }
-    .district-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
-    .district-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 20px; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
-    .district-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-    .district-card h3 { color: var(--primary); margin-bottom: 8px; }
-    .district-card .meta { color: var(--text-light); font-size: 0.85rem; margin-bottom: 8px; }
   </style>
 </head>
 <body>
@@ -458,202 +451,6 @@
       <button class="ze-btn-cancel" id="ze-cancel">Cancel</button>
       <button class="ze-btn-save" id="ze-save">Save Zone</button>
     </div>
-  </div>
-
-  <!-- BELOW MAP: District Profiles & Key Locations -->
-  <div class="below-map">
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>District Profiles</h2>
-          <p>The 10 administrative districts (quarters) of Saint Lucia</p>
-        </div>
-
-        <div class="district-grid">
-
-          <div class="district-card" data-searchable>
-            <h3>Castries</h3>
-            <div class="meta">Capital City &bull; Northwestern Coast</div>
-            <p>The capital and largest city, Castries is the commercial, administrative, and shipping hub. Home to the main port, government offices, the financial district, and major retail areas. Population ~22,000 (metro ~65,000).</p>
-            <ul style="margin-top:8px;">
-              <li><strong>Key Areas:</strong> Downtown, Pointe Seraphine (duty-free), La Place Carenage, Morne Fortune</li>
-              <li><strong>Business:</strong> Banks, law firms, government HQ, Castries Market</li>
-              <li><strong>Port:</strong> Cruise terminal, cargo port</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Gros Islet</h3>
-            <div class="meta">Tourism Hub &bull; Northern Tip</div>
-            <p>The main tourism district, home to Rodney Bay (the island's tourism and entertainment center), luxury resorts, the national stadium, and the northern beaches.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>Key Areas:</strong> Rodney Bay Village, Reduit Beach, Pigeon Island National Park, Cap Estate</li>
-              <li><strong>Business:</strong> Hotels, restaurants, nightlife, marina, shopping mall</li>
-              <li><strong>Known For:</strong> Friday Night Street Party (Gros Islet Jump-Up)</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Vieux Fort</h3>
-            <div class="meta">Second City &bull; Southern Tip</div>
-            <p>The southernmost town and second-largest settlement. Home to the main international airport, free zone, and growing commercial area.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>Key Areas:</strong> Hewanorra Int'l Airport, Vieux Fort Industrial Estate/Free Zone</li>
-              <li><strong>Business:</strong> Light manufacturing, free zone operations, cargo port</li>
-              <li><strong>Notable:</strong> Sandy Beach, Moule-a-Chique peninsula (southernmost point)</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Soufriere</h3>
-            <div class="meta">Heritage Town &bull; Southwest Coast</div>
-            <p>The original French capital and home to St. Lucia's most iconic landmarks. A major eco-tourism destination with volcanic features.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>Key Areas:</strong> The Pitons (UNESCO), Sulphur Springs, Diamond Falls, Fond Doux Estate</li>
-              <li><strong>Business:</strong> Eco-tourism, luxury resorts (Jade Mountain, Sugar Beach), cocoa estates</li>
-              <li><strong>Known For:</strong> World's only drive-in volcano</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Dennery</h3>
-            <div class="meta">Eastern District &bull; Atlantic Coast</div>
-            <p>Located on the windward (Atlantic) coast. A largely agricultural and fishing community with authentic rural character.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>Key Areas:</strong> Dennery Village, Fond d'Or Nature Reserve</li>
-              <li><strong>Business:</strong> Fishing, agriculture (bananas, root crops), small-scale manufacturing</li>
-              <li><strong>Known For:</strong> Dennery Fish Fiesta</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Micoud</h3>
-            <div class="meta">Eastern District &bull; Southeast Coast</div>
-            <p>A large agricultural district on the eastern coast, important for banana and crop production.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>Key Areas:</strong> Micoud Village, Praslin, Mamiku Gardens</li>
-              <li><strong>Business:</strong> Agriculture (bananas, coconut, cocoa), fishing</li>
-              <li><strong>Known For:</strong> La Rose &amp; La Marguerite cultural festivals</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Choiseul</h3>
-            <div class="meta">Arts District &bull; Southwest Coast</div>
-            <p>A southern district known for its arts and crafts heritage, pottery tradition, and agricultural communities.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>Key Areas:</strong> Choiseul Village, Arts &amp; Craft Centre, Balembouche Estate</li>
-              <li><strong>Business:</strong> Pottery, handicrafts, agriculture, heritage tourism</li>
-              <li><strong>Known For:</strong> Traditional Carib pottery and craft village</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Laborie</h3>
-            <div class="meta">Fishing Village &bull; South Coast</div>
-            <p>A small, picturesque fishing village on the southern coast with strong community identity and authentic Creole culture.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>Key Areas:</strong> Laborie Village, Laborie Bay</li>
-              <li><strong>Business:</strong> Fishing, small-scale agriculture, community tourism</li>
-              <li><strong>Known For:</strong> Traditional fishing, charming waterfront</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Anse la Raye</h3>
-            <div class="meta">Fishing Town &bull; West Coast</div>
-            <p>A west coast fishing town famous for its weekly Friday Fish Fry and authentic local dining experience.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>Key Areas:</strong> Anse la Raye Village, Anse Cochon Beach</li>
-              <li><strong>Business:</strong> Fishing, food tourism, water sports</li>
-              <li><strong>Known For:</strong> Friday Night Seafood Street Party</li>
-            </ul>
-          </div>
-
-          <div class="district-card" data-searchable>
-            <h3>Canaries</h3>
-            <div class="meta">Smallest District &bull; West Coast</div>
-            <p>The smallest district, located between Anse la Raye and Soufriere. A quiet, rural community with stunning coastal scenery.</p>
-            <ul style="margin-top:8px;">
-              <li><strong>Key Areas:</strong> Canaries Village, Anse La Libert&eacute; Beach</li>
-              <li><strong>Business:</strong> Small-scale fishing, agriculture</li>
-              <li><strong>Known For:</strong> Secluded beaches, peaceful setting</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- KEY LOCATIONS TABLE -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <h2>Key Business Locations</h2>
-        </div>
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr><th>Location</th><th>District</th><th>Type</th><th>Significance</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Castries Central</td><td>Castries</td><td>Commercial</td><td>Government offices, banks, courts, registry of companies</td></tr>
-              <tr><td>Pointe Seraphine</td><td>Castries</td><td>Commercial</td><td>Duty-free shopping complex, cruise port</td></tr>
-              <tr><td>Rodney Bay</td><td>Gros Islet</td><td>Tourism/Commercial</td><td>Main tourism strip, marina, restaurants, JQ Mall</td></tr>
-              <tr><td>Hewanorra Airport</td><td>Vieux Fort</td><td>Transport</td><td>International airport, cargo</td></tr>
-              <tr><td>Vieux Fort Free Zone</td><td>Vieux Fort</td><td>Industrial</td><td>Free zone, light manufacturing, warehousing</td></tr>
-              <tr><td>Cul de Sac</td><td>Castries</td><td>Industrial</td><td>Industrial area, petroleum terminal, warehousing</td></tr>
-              <tr><td>George F.L. Charles Airport</td><td>Castries</td><td>Transport</td><td>Regional/domestic airport (Vigie)</td></tr>
-              <tr><td>Port Castries</td><td>Castries</td><td>Maritime</td><td>Main cargo port, cruise terminal</td></tr>
-              <tr><td>Rodney Bay Marina</td><td>Gros Islet</td><td>Maritime</td><td>Yacht marina, boat services</td></tr>
-              <tr><td>Marigot Bay</td><td>Castries</td><td>Tourism/Maritime</td><td>Protected harbor, luxury marina, resorts</td></tr>
-              <tr><td>JQ Mall</td><td>Gros Islet</td><td>Commercial</td><td>Main shopping centre in Rodney Bay, retail, dining, cinema</td></tr>
-              <tr><td>La Place Carenage</td><td>Castries</td><td>Commercial</td><td>Waterfront shopping &amp; dining complex, harbour views</td></tr>
-              <tr><td>Castries Central Market</td><td>Castries</td><td>Commercial</td><td>Central produce market, local food, spices, crafts</td></tr>
-              <tr><td>LUCELEC HQ</td><td>Castries</td><td>Utility</td><td>National electricity provider headquarters, John Compton Highway</td></tr>
-              <tr><td>OKEU Hospital</td><td>Castries</td><td>Healthcare</td><td>160-bed public hospital (replaced Victoria Hospital 2022)</td></tr>
-              <tr><td>Tapion Hospital</td><td>Castries</td><td>Healthcare</td><td>32-bed private hospital, specialist &amp; surgical services</td></tr>
-              <tr><td>St. Jude Hospital</td><td>Vieux Fort</td><td>Healthcare</td><td>Southern region hospital, $75M reconstruction underway</td></tr>
-              <tr><td>SALCC</td><td>Castries</td><td>Education</td><td>Sir Arthur Lewis Community College, Morne Fortune</td></tr>
-              <tr><td>Daren Sammy Cricket Ground</td><td>Gros Islet</td><td>Sports</td><td>International cricket venue, CPL matches, capacity ~15,000</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- RELATED PAGES -->
-    <section class="section">
-      <div class="container">
-        <h3 style="margin-bottom:16px;">Related Pages</h3>
-        <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
-          <a href="overview.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
-            <h4>Country Overview</h4>
-            <p>Geography, economy, demographics</p>
-          </a>
-          <a href="living.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
-            <h4>Cost of Living</h4>
-            <p>Housing, utilities by area</p>
-          </a>
-          <a href="directory.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
-            <h4>Business Directory</h4>
-            <p>Local businesses &amp; contacts</p>
-          </a>
-          <a href="sectors.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
-            <h4>Key Sectors</h4>
-            <p>Tourism, agriculture, energy</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-bottom">
-          <p>St. Lucia Business Guide &mdash; Research-based guide. Verify all information with official sources. Last updated: February 2026.</p>
-        </div>
-      </div>
-    </footer>
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
