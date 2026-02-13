@@ -1,7 +1,7 @@
 // St. Lucia Business Guide - Service Worker
 // Cache-first for assets, Network-first for HTML
 
-const CACHE_VERSION = 'v2.0.0';
+const CACHE_VERSION = 'v2.1.0';
 const CACHE_NAME = `stlucia-guide-${CACHE_VERSION}`;
 const OFFLINE_PAGE = '/offline.html';
 
@@ -27,6 +27,7 @@ const STATIC_ASSETS = [
   '/government.html',
   '/realestate.html',
   '/startups.html',
+  '/social-media.html',
   '/offline.html',
   '/assets/css/style.css',
   '/assets/js/app.js',
