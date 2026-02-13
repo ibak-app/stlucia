@@ -2,8 +2,8 @@
   "name": "St. Lucia Business Guide",
   "short_name": "SL Business",
   "description": "Comprehensive business and investment guide for Saint Lucia",
-  "start_url": "/stlucia/",
-  "scope": "/stlucia/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "theme_color": "#0e2f44",
@@ -11,13 +11,13 @@
   "categories": ["business", "finance", "travel"],
   "icons": [
     {
-      "src": "/stlucia/assets/icons/icon-192.png",
+      "src": "/assets/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/stlucia/assets/icons/icon-512.png",
+      "src": "/assets/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

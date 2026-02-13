@@ -1,38 +1,38 @@
 // St. Lucia Business Guide - Service Worker
 // Cache-first for assets, Network-first for HTML
 
-const CACHE_VERSION = 'v1.2.0';
+const CACHE_VERSION = 'v1.3.0';
 const CACHE_NAME = `stlucia-guide-${CACHE_VERSION}`;
-const OFFLINE_PAGE = '/stlucia/offline.html';
+const OFFLINE_PAGE = '/offline.html';
 
 // Files to cache on install
 const STATIC_ASSETS = [
-  '/stlucia/',
-  '/stlucia/index.html',
-  '/stlucia/overview.html',
-  '/stlucia/business.html',
-  '/stlucia/legal.html',
-  '/stlucia/sectors.html',
-  '/stlucia/cbi.html',
-  '/stlucia/immigration.html',
-  '/stlucia/living.html',
-  '/stlucia/expats.html',
-  '/stlucia/events.html',
-  '/stlucia/map.html',
-  '/stlucia/directory.html',
-  '/stlucia/faq.html',
-  '/stlucia/resources.html',
-  '/stlucia/trade.html',
-  '/stlucia/checklist.html',
-  '/stlucia/government.html',
-  '/stlucia/realestate.html',
-  '/stlucia/startups.html',
-  '/stlucia/offline.html',
-  '/stlucia/assets/css/style.css',
-  '/stlucia/assets/js/app.js',
-  '/stlucia/data/stlucia-data.json',
-  '/stlucia/data/businesses.json',
-  '/stlucia/manifest.json'
+  '/',
+  '/index.html',
+  '/overview.html',
+  '/business.html',
+  '/legal.html',
+  '/sectors.html',
+  '/cbi.html',
+  '/immigration.html',
+  '/living.html',
+  '/expats.html',
+  '/events.html',
+  '/map.html',
+  '/directory.html',
+  '/faq.html',
+  '/resources.html',
+  '/trade.html',
+  '/checklist.html',
+  '/government.html',
+  '/realestate.html',
+  '/startups.html',
+  '/offline.html',
+  '/assets/css/style.css',
+  '/assets/js/app.js',
+  '/data/stlucia-data.json',
+  '/data/businesses.json',
+  '/manifest.json'
 ];
 
 // Install event - cache static assets
