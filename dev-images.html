@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEV: Image Gallery &mdash; St. Lucia Business Guide</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root { --bg: #f5f5f7; --card: #fff; --text: #1d1d1f; --muted: #6e6e73; --accent: #0071e3; --border: #d2d2d7; --tag-bg: #e8e8ed; --red: #ff3b30; --green: #34c759; --orange: #ff9500; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #1d1d1f; --card: #2d2d2f; --text: #f5f5f7; --muted: #98989d; --accent: #2997ff; --border: #424245; --tag-bg: #3a3a3c; --red: #ff453a; --green: #30d158; --orange: #ff9f0a; }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+    .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 16px 24px; position: sticky; top: 0; z-index: 100; }
+    .header h1 { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+    .header .stats { font-size: 13px; color: var(--muted); }
+    .header .stats span { margin-right: 16px; }
+    .toolbar { background: var(--card); border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; position: sticky; top: 68px; z-index: 99; }
+    .toolbar input, .toolbar select { padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 14px; }
+    .toolbar input { flex: 1; min-width: 200px; }
+    .toolbar select { min-width: 140px; }
+    .toolbar label { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 4px; cursor: pointer; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; padding: 24px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: box-shadow .2s; }
+    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.12); }
+    .card-img { width: 100%; height: 200px; object-fit: cover; display: block; background: var(--tag-bg); cursor: pointer; }
+    .card-body { padding: 12px 16px; }
+    .card-name { font-size: 14px; font-weight: 600; word-break: break-all; margin-bottom: 4px; }
+    .card-meta { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+    .card-meta span { margin-right: 12px; }
+    .card-alt { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 8px; max-height: 36px; overflow: hidden; }
+    .tags { display: flex; flex-wrap: wrap; gap: 4px; }
+    .tag { font-size: 11px; padding: 2px 8px; border-radius: 12px; background: var(--tag-bg); color: var(--muted); white-space: nowrap; }
+    .tag--type { background: #e3f2fd; color: #1565c0; }
+    .tag--unused { background: #ffebee; color: var(--red); }
+    .tag--page { cursor: pointer; }
+    .tag--page:hover { background: var(--accent); color: #fff; }
+    .size-bar { height: 4px; border-radius: 2px; margin-top: 8px; background: var(--tag-bg); overflow: hidden; }
+    .size-bar-fill { height: 100%; border-radius: 2px; }
+    .size-ok .size-bar-fill { background: var(--green); }
+    .size-warn .size-bar-fill { background: var(--orange); }
+    .size-large .size-bar-fill { background: var(--red); }
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.85); z-index: 200; justify-content: center; align-items: center; cursor: zoom-out; }
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; }
+    .empty { text-align: center; padding: 80px 24px; color: var(--muted); font-size: 16px; }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; padding: 12px; gap: 12px; }
+      .toolbar { padding: 8px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Image Gallery (Dev Only)</h1>
+  <div class="stats" id="stats"></div>
+</div>
+
+<div class="toolbar">
+  <input type="text" id="search" placeholder="Search filename, alt text, or page...">
+  <select id="filterPage">
+    <option value="">All Pages</option>
+  </select>
+  <select id="filterType">
+    <option value="">All Types</option>
+    <option value="hero">Hero</option>
+    <option value="section">Section</option>
+    <option value="float">Float</option>
+    <option value="card">Card</option>
+    <option value="map">Map</option>
+    <option value="unused">Unused</option>
+  </select>
+  <select id="sortBy">
+    <option value="name">Sort: Name</option>
+    <option value="size-desc">Sort: Size (largest)</option>
+    <option value="size-asc">Sort: Size (smallest)</option>
+    <option value="pages">Sort: Page count</option>
+  </select>
+  <label><input type="checkbox" id="showGeneric"> Highlight generic</label>
+</div>
+
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty" style="display:none">No images match your filters.</div>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+// Image catalog - auto-generated from codebase scan
+const IMAGE_DATA = [
+  {name:"Beausejour_Stadium_Cricket_St_Lucia.jpg",size:241310,pages:["events","tr/events"],alt:"Daren Sammy National Cricket Stadium, Gros Islet, Saint Lucia",type:"section"},
+  {name:"business-bpo-office.jpg",size:28954,pages:["business","tr/business"],alt:"Business process outsourcing office in Castries, Saint Lucia",type:"float"},
+  {name:"business-castries-district.jpg",size:94723,pages:["business","faq","tr/business","tr/faq"],alt:"Castries business district in Saint Lucia",type:"section"},
+  {name:"business-eccb-building.webp",size:46140,pages:["business","tr/business"],alt:"Eastern Caribbean Central Bank headquarters",type:"float"},
+  {name:"business-investment-meeting.jpg",size:41540,pages:["business","tr/business"],alt:"Business investment meeting in Saint Lucia",type:"section"},
+  {name:"business-penny-pinch-wallet.jpg",size:17802,pages:["business","tr/business"],alt:"Penny Pinch mobile wallet, a Saint Lucia fintech success story",type:"float"},
+  {name:"card-directory.jpg",size:211990,pages:["index","directory","tr/index","tr/directory"],alt:"Castries waterfront",type:"card"},
+  {name:"card-legal.jpg",size:37482,pages:["index","tr/index"],alt:"Legal documents and gavel",type:"card"},
+  {name:"card-map.jpg",size:83044,pages:["index","tr/index"],alt:"Saint Lucia map",type:"card"},
+  {name:"card-overview.jpg",size:140261,pages:["index","tr/index"],alt:"Saint Lucia coastline aerial view",type:"card"},
+  {name:"card-sectors.jpg",size:141829,pages:["index","tr/index"],alt:"Saint Lucia banana plantation",type:"card"},
+  {name:"card-trade.jpg",size:111282,pages:["index","tr/index"],alt:"Caribbean shipping port",type:"card"},
+  {name:"castries-central-market.jpg",size:49982,pages:["overview","trade","tr/overview","tr/trade"],alt:"Castries Central Market, a historic landmark in Saint Lucia",type:"float"},
+  {name:"cbi-passport.webp",size:30848,pages:["index","cbi","tr/index","tr/cbi"],alt:"Caribbean passport and travel documents",type:"card"},
+  {name:"cbi-realestate.jpg",size:45419,pages:["cbi","tr/cbi"],alt:"Caribbean luxury villa investment property",type:"float"},
+  {name:"cbi-sovereign-wealth.jpg",size:44475,pages:["cbi","tr/cbi"],alt:"Saint Lucia Sovereign Wealth Fund and national investment management",type:"float"},
+  {name:"cbi-stlucia-aerial-investment.jpg",size:42139,pages:["cbi","tr/cbi"],alt:"Aerial view of Saint Lucia coastline, a prime citizenship by investment destination",type:"float"},
+  {name:"cbi-stlucia-passport.webp",size:37742,pages:["cbi","tr/cbi"],alt:"Saint Lucia passport obtained through citizenship by investment",type:"float"},
+  {name:"checklist-business-planning.png",size:21903,pages:["checklist","tr/checklist"],alt:"Business planning and strategy for investing in Saint Lucia",type:"section"},
+  {name:"checklist-compliance.webp",size:24648,pages:["checklist","tr/checklist"],alt:"Business compliance and regulatory requirements in Saint Lucia",type:"float"},
+  {name:"checklist-entity-formation.jpg",size:27280,pages:["checklist","tr/checklist"],alt:"Company registration at the Registry of Companies, Saint Lucia",type:"float"},
+  {name:"event-carnival.jpg",size:169114,pages:["index","events","tr/index","tr/events"],alt:"Saint Lucia Carnival parade celebration",type:"section"},
+  {name:"events-carnival-stlucia.jpg",size:85342,pages:["events","tr/events"],alt:"Saint Lucia Carnival parade celebrations",type:"float"},
+  {name:"events-creole-food.jpg",size:40276,pages:["events","tr/events"],alt:"Saint Lucian Creole cuisine and cultural food",type:"float"},
+  {name:"events-gros-islet-party.jpg",size:205420,pages:["events","tr/events"],alt:"Gros Islet Friday night street party, Saint Lucia",type:"section"},
+  {name:"events-jazz-festival.jpg",size:152606,pages:["events","tr/events"],alt:"Jazz and music festival performance in the Caribbean",type:"section"},
+  {name:"events-jazz-stlucia.jpg",size:46549,pages:["events","tr/events"],alt:"Saint Lucia Jazz and Arts Festival performance",type:"float"},
+  {name:"events-julien-alfred.jpg",size:23777,pages:["events","tr/events"],alt:"Julien Alfred, Saint Lucia Olympic gold medallist sprinter",type:"float"},
+  {name:"events-sailing-caribbean.jpg",size:30716,pages:["events","tr/events"],alt:"Sailing and yachting in Caribbean waters",type:"float"},
+  {name:"expats-driving-stlucia-road.jpg",size:58296,pages:["expats","tr/expats"],alt:"Scenic mountain road driving in Saint Lucia",type:"section"},
+  {name:"expats-healthcare-okeu.jpg",size:82607,pages:["expats","tr/expats"],alt:"Owen King EU Hospital (OKEU), the main public hospital in Castries, Saint Lucia",type:"float"},
+  {name:"expats-rodney-bay-village.jpg",size:65092,pages:["expats","faq","resources","tr/expats","tr/faq","tr/resources"],alt:"Rodney Bay Village, the main entertainment and dining hub for expats in Saint Lucia",type:"float"},
+  {name:"government-house-stlucia.jpg",size:201966,pages:["government","tr/government"],alt:"Government House, official residence of the Governor-General of Saint Lucia",type:"section"},
+  {name:"hero-business.jpg",size:57858,pages:["index","business","startups","tr/index","tr/business","tr/startups"],alt:"Caribbean business meeting",type:"hero"},
+  {name:"hero-cbi.jpg",size:86245,pages:["index","cbi","realestate","tr/index","tr/cbi","tr/realestate"],alt:"Immigration / Real Estate hero",type:"hero"},
+  {name:"hero-checklist.jpg",size:25153,pages:["index","checklist","tr/index","tr/checklist"],alt:"Business planning checklist",type:"hero"},
+  {name:"hero-events.jpg",size:110449,pages:["events","tr/events"],alt:"Saint Lucia events hero",type:"hero"},
+  {name:"hero-faq.jpg",size:112875,pages:["index","faq","tr/index","tr/faq"],alt:"Castries Central Market",type:"hero"},
+  {name:"hero-legal.jpg",size:71938,pages:["immigration","legal","tr/immigration","tr/legal"],alt:"Legal / Immigration hero",type:"hero"},
+  {name:"hero-living.jpg",size:287613,pages:["index","expats","living","tr/index","tr/expats","tr/living"],alt:"Saint Lucia lifestyle",type:"hero"},
+  {name:"hero-overview.jpg",size:140171,pages:["overview","tr/overview"],alt:"Saint Lucia overview hero",type:"hero"},
+  {name:"hero-pitons.jpg",size:175522,pages:["index","tr/index"],alt:"The Pitons, Saint Lucia",type:"hero"},
+  {name:"hero-resources.webp",size:81948,pages:["index","resources","tr/index","tr/resources"],alt:"Reference resources and documents",type:"hero"},
+  {name:"hero-sectors.jpg",size:205405,pages:["sectors","tr/sectors"],alt:"Saint Lucia luxury resort beach",type:"hero"},
+  {name:"hero-trade.jpg",size:105698,pages:["trade","tr/trade"],alt:"Trade hero",type:"hero"},
+  {name:"hewanorra-airport-new.jpg",size:51136,pages:["immigration","tr/immigration"],alt:"Hewanorra International Airport terminal expansion, Saint Lucia",type:"float"},
+  {name:"hewanorra-airport.jpg",size:44999,pages:["overview","tr/overview"],alt:"Hewanorra International Airport, Saint Lucia",type:"float"},
+  {name:"immigration-department-stlucia.jpg",size:47608,pages:["immigration","tr/immigration"],alt:"Immigration Department of Saint Lucia office",type:"float"},
+  {name:"immigration-digital-nomad.jpg",size:141548,pages:["immigration","tr/immigration"],alt:"Digital nomad working remotely from a Caribbean beach",type:"section"},
+  {name:"immigration-work-permit.jpg",size:29000,pages:["immigration","tr/immigration"],alt:"Work permit and employment visa processing, Saint Lucia",type:"section"},
+  {name:"legal-castries-market-workers.jpg",size:59568,pages:["legal","tr/legal"],alt:"Workers and vendors at Castries Central Market, Saint Lucia",type:"section"},
+  {name:"legal-courthouse-caribbean.jpg",size:214606,pages:["legal","tr/legal"],alt:"First District Court, Peynier Street, Castries, Saint Lucia",type:"section"},
+  {name:"legal-eccb-office-castries.jpg",size:23552,pages:["legal","tr/legal"],alt:"Eastern Caribbean Central Bank agency office in Castries, Saint Lucia",type:"float"},
+  {name:"legal-property-caribbean.jpg",size:80344,pages:["legal","faq","tr/legal","tr/faq"],alt:"Caribbean property and land registry",type:"float"},
+  {name:"legal-tax-accounting.jpg",size:19218,pages:["legal","tr/legal"],alt:"Inland Revenue Department tax documentation, Saint Lucia",type:"float"},
+  {name:"living-education-classroom.jpg",size:127301,pages:["living","tr/living"],alt:"Classroom and education in Saint Lucia",type:"section"},
+  {name:"living-food.jpg",size:73424,pages:["living","tr/living"],alt:"Castries Market tropical fruits and produce",type:"float"},
+  {name:"living-housing.jpg",size:40583,pages:["index","living","tr/index","tr/living"],alt:"Saint Lucia villa rental home",type:"float"},
+  {name:"living-lucelec-plant.jpg",size:51242,pages:["living","tr/living"],alt:"LUCELEC power plant, Saint Lucia's electricity provider",type:"float"},
+  {name:"living-lucelec-solar-farm.jpg",size:65621,pages:["living","tr/living"],alt:"LUCELEC solar farm, part of Saint Lucia's renewable energy expansion",type:"float"},
+  {name:"living-telecom-tower.jpg",size:16896,pages:["living","tr/living"],alt:"FLOW and Digicel telecommunications infrastructure in Saint Lucia",type:"float"},
+  {name:"living-transport-bus.jpg",size:55960,pages:["living","tr/living"],alt:"Colourful minibus public transport in Saint Lucia",type:"section"},
+  {name:"living-victoria-hospital.jpg",size:27279,pages:["living","tr/living"],alt:"Victoria Hospital in Castries, Saint Lucia",type:"float"},
+  {name:"marigot-bay-resort.jpg",size:60733,pages:["expats","tr/expats"],alt:"Marigot Bay resort, a popular expat area in Saint Lucia",type:"float"},
+  {name:"overview-ec-dollar-currency.jpg",size:57493,pages:["overview","resources","tr/overview","tr/resources"],alt:"Eastern Caribbean dollar (EC$) banknote, the official currency of Saint Lucia",type:"section"},
+  {name:"overview-rodney-bay-aerial.jpg",size:161557,pages:["overview","tr/overview"],alt:"Aerial view of Rodney Bay, Saint Lucia",type:"section"},
+  {name:"overview-walcott-square.jpg",size:89121,pages:["overview","tr/overview"],alt:"Derek Walcott Square in Castries, Saint Lucia",type:"float"},
+  {name:"pitons-landscape.jpg",size:195381,pages:["overview","tr/overview"],alt:"The Pitons, Saint Lucia UNESCO World Heritage Site",type:"section"},
+  {name:"port-castries-cruise.jpg",size:60650,pages:["trade","tr/trade"],alt:"Port Castries cruise terminal, Saint Lucia",type:"section"},
+  {name:"port-castries.jpg",size:37108,pages:["overview","tr/overview"],alt:"Port of Castries with cruise ships",type:"float"},
+  {name:"realestate-construction.jpg",size:41260,pages:["realestate","tr/realestate"],alt:"Tropical building construction and development",type:"float"},
+  {name:"realestate-luxury-resort.jpg",size:142733,pages:["realestate","tr/realestate"],alt:"Luxury Caribbean resort villa development",type:"section"},
+  {name:"realestate-property-financing.jpg",size:37466,pages:["realestate","tr/realestate"],alt:"Property financing and mortgage options in Saint Lucia",type:"float"},
+  {name:"realestate-sugar-beach.jpg",size:157753,pages:["realestate","tr/realestate"],alt:"Sugar Beach resort between the Pitons, Saint Lucia",type:"section"},
+  {name:"realestate-villa-pitons.jpg",size:50936,pages:["realestate","tr/realestate"],alt:"Luxury villa with Pitons view in Saint Lucia",type:"float"},
+  {name:"resources-stlucia-tourism.jpg",size:45139,pages:["resources","tr/resources"],alt:"Saint Lucia Tourism Authority promotional material",type:"section"},
+  {name:"rodney-bay-marina.jpg",size:44468,pages:["expats","tr/expats"],alt:"Rodney Bay Marina, Saint Lucia",type:"float"},
+  {name:"sector-agriculture.jpg",size:76625,pages:["sectors","tr/sectors"],alt:"Saint Lucia cocoa and chocolate production",type:"float"},
+  {name:"sector-banana-plantation.jpg",size:58313,pages:["sectors","tr/sectors"],alt:"Banana plantation in Saint Lucia",type:"float"},
+  {name:"sector-cocoa-farm.jpg",size:62774,pages:["sectors","tr/sectors"],alt:"Cocoa farm and chocolate production in Saint Lucia",type:"float"},
+  {name:"sector-energy.jpg",size:63816,pages:["sectors","tr/sectors"],alt:"Solar panels in Caribbean tropical setting",type:"float"},
+  {name:"sector-fishing-anse-la-raye.jpg",size:144754,pages:["sectors","tr/sectors"],alt:"Fishing boats on the beach at Anse La Raye, Saint Lucia",type:"section"},
+  {name:"sector-maritime.jpg",size:44468,pages:["tr/sectors"],alt:"Yachts at Rodney Bay Marina",type:"float"},
+  {name:"sector-pigeon-island-landmark.jpg",size:20354,pages:["tr/sectors"],alt:"Pigeon Island National Landmark, Saint Lucia",type:"float"},
+  {name:"sector-technology.jpg",size:42063,pages:["sectors","tr/sectors"],alt:"BPO call center in the Caribbean",type:"float"},
+  {name:"soufriere-pitons-town.jpg",size:77823,pages:["overview","tr/overview"],alt:"Soufriere town with view of the Pitons, Saint Lucia",type:"section"},
+  {name:"startups-coworking.webp",size:35756,pages:["startups","tr/startups"],alt:"Coworking and innovation space in Saint Lucia",type:"float"},
+  {name:"startups-ecommerce.jpg",size:55706,pages:["startups","tr/startups"],alt:"E-commerce and digital shopping in the Eastern Caribbean",type:"section"},
+  {name:"startups-entrepreneurs.jpg",size:166800,pages:["startups","tr/startups"],alt:"Startup entrepreneurs meeting in the Caribbean",type:"section"},
+  {name:"startups-incubator.jpg",size:41333,pages:["startups","tr/startups"],alt:"BOOST business incubator programme, Saint Lucia",type:"float"},
+  {name:"startups-youth-entrepreneurship.jpg",size:42056,pages:["startups","tr/startups"],alt:"Youth Enterprise Agency (YEA) training programme, Saint Lucia",type:"float"},
+  {name:"trade-caricom-leaders.jpg",size:53460,pages:["trade","tr/trade"],alt:"CARICOM Heads of Government meeting, Caribbean regional cooperation",type:"section"},
+  {name:"trade-castries-port-cargo.webp",size:63108,pages:["trade","tr/trade"],alt:"Port of Castries cargo terminal and container shipping, Saint Lucia",type:"section"},
+  {name:"trade-vieux-fort-aerial.jpg",size:49084,pages:["trade","tr/trade"],alt:"Aerial view of Vieux Fort industrial and free trade zone area, Saint Lucia",type:"float"},
+  {name:"maps/map-administrative-districts.jpg",size:40450,pages:["overview","tr/overview"],alt:"Map of Saint Lucia's 10 administrative quarters and districts",type:"map"},
+  {name:"maps/map-cities-locator.jpg",size:53171,pages:[],alt:"Map of Saint Lucia cities and boundaries",type:"map"},
+  {name:"maps/map-detailed-topographic.jpg",size:46463,pages:[],alt:"Detailed topographic map of Saint Lucia",type:"map"},
+  {name:"maps/map-electoral-constituencies.png",size:53570,pages:["government","tr/government"],alt:"Map of Saint Lucia's 17 electoral constituencies",type:"map"},
+  {name:"maps/map-location-overview.jpg",size:51046,pages:["overview","tr/overview"],alt:"Map of Saint Lucia showing major cities, towns and geographical features",type:"map"},
+  {name:"maps/map-marine-protected-areas.jpg",size:35506,pages:["sectors","tr/sectors"],alt:"Soufriere Marine Management Area (SMMA) zonation map, Saint Lucia",type:"map"},
+  {name:"maps/map-parishes-quarters.png",size:138349,pages:[],alt:"Map of Saint Lucia parishes and quarters",type:"map"},
+  {name:"maps/map-topographic-elevation.png",size:290149,pages:["living","tr/living"],alt:"Topographic elevation map of Saint Lucia showing mountainous terrain and coastal areas",type:"map"}
+];
+
+// No missing images - sector-creative.jpg fixed with sector-pigeon-island-landmark.jpg
+const MISSING = [];
+
+const GENERIC_LIST = IMAGE_DATA.filter(i => i.generic).map(i => i.name);
+
+function formatSize(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1048576) return (bytes / 1024).toFixed(0) + ' KB';
+  return (bytes / 1048576).toFixed(1) + ' MB';
+}
+
+function sizeClass(bytes) {
+  if (bytes < 102400) return 'size-ok';
+  if (bytes < 204800) return 'size-warn';
+  return 'size-large';
+}
+
+function getPages() {
+  const pages = new Set();
+  IMAGE_DATA.forEach(i => i.pages.forEach(p => pages.add(p)));
+  return [...pages].sort();
+}
+
+function render() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const page = document.getElementById('filterPage').value;
+  const type = document.getElementById('filterType').value;
+  const sort = document.getElementById('sortBy').value;
+  const showGeneric = document.getElementById('showGeneric').checked;
+
+  let items = [...IMAGE_DATA];
+
+  if (q) items = items.filter(i =>
+    i.name.toLowerCase().includes(q) ||
+    i.alt.toLowerCase().includes(q) ||
+    i.pages.some(p => p.toLowerCase().includes(q))
+  );
+  if (page) items = items.filter(i => i.pages.includes(page));
+  if (type === 'unused') items = items.filter(i => i.pages.length === 0);
+  else if (type) items = items.filter(i => i.type === type);
+
+  if (sort === 'size-desc') items.sort((a, b) => b.size - a.size);
+  else if (sort === 'size-asc') items.sort((a, b) => a.size - b.size);
+  else if (sort === 'pages') items.sort((a, b) => b.pages.length - a.pages.length);
+  else items.sort((a, b) => a.name.localeCompare(b.name));
+
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty');
+
+  if (items.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  const maxSize = Math.max(...IMAGE_DATA.map(i => i.size));
+
+  grid.innerHTML = items.map(i => {
+    const sc = sizeClass(i.size);
+    const pct = (i.size / maxSize * 100).toFixed(0);
+    const isGeneric = i.generic;
+    const borderStyle = showGeneric && isGeneric ? 'border:2px solid var(--orange)' : '';
+
+    return `<div class="card" style="${borderStyle}" data-name="${i.name}">
+      <img class="card-img" src="assets/images/${i.name}" alt="${i.alt}" loading="lazy"
+           onerror="this.style.background='#ffebee';this.alt='MISSING FILE'"
+           onclick="openLightbox('assets/images/${i.name}')">
+      <div class="card-body">
+        <div class="card-name">${i.name}</div>
+        <div class="card-meta">
+          <span>${formatSize(i.size)}</span>
+          <span>${i.pages.length} page${i.pages.length !== 1 ? 's' : ''}</span>
+          <span class="tag tag--type">${i.type}</span>
+          ${isGeneric ? '<span class="tag" style="background:var(--orange);color:#fff">generic</span>' : ''}
+        </div>
+        <div class="card-alt">${i.alt}</div>
+        <div class="tags">
+          ${i.pages.length === 0 ? '<span class="tag tag--unused">UNUSED</span>' : ''}
+          ${i.pages.map(p => `<span class="tag tag--page" onclick="filterByPage('${p}')">${p}</span>`).join('')}
+        </div>
+        <div class="size-bar ${sc}"><div class="size-bar-fill" style="width:${pct}%"></div></div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Update stats
+  const totalSize = IMAGE_DATA.reduce((s, i) => s + i.size, 0);
+  const unused = IMAGE_DATA.filter(i => i.pages.length === 0).length;
+  const generic = GENERIC_LIST.length;
+  document.getElementById('stats').innerHTML =
+    `<span><strong>${IMAGE_DATA.length}</strong> images</span>` +
+    `<span><strong>${formatSize(totalSize)}</strong> total</span>` +
+    `<span><strong>${unused}</strong> unused</span>` +
+    `<span><strong>${generic}</strong> generic</span>` +
+    `<span><strong>${MISSING.length}</strong> missing file</span>` +
+    `<span>Showing <strong>${items.length}</strong></span>`;
+}
+
+function filterByPage(page) {
+  document.getElementById('filterPage').value = page;
+  render();
+}
+
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+}
+
+// Populate page filter
+const pageSelect = document.getElementById('filterPage');
+getPages().forEach(p => {
+  const opt = document.createElement('option');
+  opt.value = p;
+  opt.textContent = p;
+  pageSelect.appendChild(opt);
+});
+
+// Event listeners
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('filterPage').addEventListener('change', render);
+document.getElementById('filterType').addEventListener('change', render);
+document.getElementById('sortBy').addEventListener('change', render);
+document.getElementById('showGeneric').addEventListener('change', render);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
+});
+
+render();
+</script>
+
+</body>
+</html>
