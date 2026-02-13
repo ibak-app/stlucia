@@ -6,90 +6,320 @@
   <title>DEV: Image Gallery &mdash; St. Lucia Business Guide</title>
   <meta name="robots" content="noindex, nofollow">
   <style>
-    :root { --bg: #f5f5f7; --card: #fff; --text: #1d1d1f; --muted: #6e6e73; --accent: #0071e3; --border: #d2d2d7; --tag-bg: #e8e8ed; --red: #ff3b30; --green: #34c759; --orange: #ff9500; }
+    :root { --bg: #f5f5f7; --card: #fff; --text: #1d1d1f; --muted: #6e6e73; --accent: #0071e3; --border: #d2d2d7; --tag-bg: #e8e8ed; --red: #ff3b30; --green: #34c759; --orange: #ff9500; --shadow: rgba(0,0,0,.08); }
     @media (prefers-color-scheme: dark) {
-      :root { --bg: #1d1d1f; --card: #2d2d2f; --text: #f5f5f7; --muted: #98989d; --accent: #2997ff; --border: #424245; --tag-bg: #3a3a3c; --red: #ff453a; --green: #30d158; --orange: #ff9f0a; }
+      :root { --bg: #1d1d1f; --card: #2d2d2f; --text: #f5f5f7; --muted: #98989d; --accent: #2997ff; --border: #424245; --tag-bg: #3a3a3c; --red: #ff453a; --green: #30d158; --orange: #ff9f0a; --shadow: rgba(0,0,0,.3); }
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
-    .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 16px 24px; position: sticky; top: 0; z-index: 100; }
-    .header h1 { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
-    .header .stats { font-size: 13px; color: var(--muted); }
-    .header .stats span { margin-right: 16px; }
-    .toolbar { background: var(--card); border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; position: sticky; top: 68px; z-index: 99; }
+
+    /* ── Login Screen ── */
+    .login-overlay { position: fixed; inset: 0; background: var(--bg); z-index: 999; display: flex; align-items: center; justify-content: center; }
+    .login-overlay.hidden { display: none; }
+    .login-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 48px 40px; width: 100%; max-width: 400px; box-shadow: 0 8px 32px var(--shadow); }
+    .login-box h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; text-align: center; }
+    .login-box p { font-size: 13px; color: var(--muted); text-align: center; margin-bottom: 28px; }
+    .login-box .lock-icon { text-align: center; font-size: 40px; margin-bottom: 16px; opacity: .6; }
+    .login-field { margin-bottom: 16px; }
+    .login-field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; color: var(--muted); }
+    .login-field input { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 15px; outline: none; transition: border-color .2s; }
+    .login-field input:focus { border-color: var(--accent); }
+    .login-btn { width: 100%; padding: 12px; border: none; border-radius: 10px; background: var(--accent); color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 8px; transition: opacity .2s; }
+    .login-btn:hover { opacity: .85; }
+    .login-error { color: var(--red); font-size: 13px; text-align: center; margin-top: 12px; display: none; }
+
+    /* ── App Shell ── */
+    .app { display: none; }
+    .app.visible { display: block; }
+    .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 16px 24px; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; }
+    .header-left h1 { font-size: 20px; font-weight: 600; margin-bottom: 2px; }
+    .header-left .stats { font-size: 13px; color: var(--muted); }
+    .header-left .stats span { margin-right: 16px; }
+    .header-right { display: flex; align-items: center; gap: 12px; }
+    .header-right .user { font-size: 13px; color: var(--muted); }
+    .logout-btn { padding: 6px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); color: var(--text); font-size: 13px; cursor: pointer; transition: all .2s; }
+    .logout-btn:hover { background: var(--red); color: #fff; border-color: var(--red); }
+    .toolbar { background: var(--card); border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; position: sticky; top: 62px; z-index: 99; }
     .toolbar input, .toolbar select { padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 14px; }
     .toolbar input { flex: 1; min-width: 200px; }
     .toolbar select { min-width: 140px; }
     .toolbar label { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 4px; cursor: pointer; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; padding: 24px; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: box-shadow .2s; }
-    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.12); }
-    .card-img { width: 100%; height: 200px; object-fit: cover; display: block; background: var(--tag-bg); cursor: pointer; }
+
+    /* ── Grid & Cards ── */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; padding: 24px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: box-shadow .2s; position: relative; }
+    .card:hover { box-shadow: 0 4px 16px var(--shadow); }
+    .card-img-wrap { position: relative; height: 200px; background: var(--tag-bg); overflow: hidden; }
+    .card-img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; }
+    .card-badge { position: absolute; top: 8px; right: 8px; padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; background: rgba(0,0,0,.6); color: #fff; backdrop-filter: blur(8px); }
     .card-body { padding: 12px 16px; }
     .card-name { font-size: 14px; font-weight: 600; word-break: break-all; margin-bottom: 4px; }
-    .card-meta { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
-    .card-meta span { margin-right: 12px; }
+    .card-meta { font-size: 12px; color: var(--muted); margin-bottom: 8px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
     .card-alt { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 8px; max-height: 36px; overflow: hidden; }
-    .tags { display: flex; flex-wrap: wrap; gap: 4px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
     .tag { font-size: 11px; padding: 2px 8px; border-radius: 12px; background: var(--tag-bg); color: var(--muted); white-space: nowrap; }
     .tag--type { background: #e3f2fd; color: #1565c0; }
     .tag--unused { background: #ffebee; color: var(--red); }
     .tag--page { cursor: pointer; }
     .tag--page:hover { background: var(--accent); color: #fff; }
-    .size-bar { height: 4px; border-radius: 2px; margin-top: 8px; background: var(--tag-bg); overflow: hidden; }
+    .size-bar { height: 4px; border-radius: 2px; background: var(--tag-bg); overflow: hidden; }
     .size-bar-fill { height: 100%; border-radius: 2px; }
     .size-ok .size-bar-fill { background: var(--green); }
     .size-warn .size-bar-fill { background: var(--orange); }
     .size-large .size-bar-fill { background: var(--red); }
+    .card-actions { display: flex; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+    .btn-sm { padding: 6px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); color: var(--text); font-size: 12px; font-weight: 500; cursor: pointer; transition: all .2s; flex: 1; text-align: center; }
+    .btn-sm:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn-sm.btn-replace { border-color: var(--accent); color: var(--accent); }
+    .btn-sm.btn-replace:hover { background: var(--accent); color: #fff; }
+    .btn-sm.btn-context { border-color: var(--orange); color: var(--orange); }
+    .btn-sm.btn-context:hover { background: var(--orange); color: #fff; }
+
+    /* ── Lightbox ── */
     .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.85); z-index: 200; justify-content: center; align-items: center; cursor: zoom-out; }
     .lightbox.active { display: flex; }
     .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; }
+
+    /* ── Modal ── */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 300; justify-content: center; align-items: flex-start; padding: 40px 20px; overflow-y: auto; backdrop-filter: blur(4px); }
+    .modal-overlay.active { display: flex; }
+    .modal { background: var(--card); border-radius: 16px; width: 100%; max-width: 700px; box-shadow: 0 16px 48px rgba(0,0,0,.2); overflow: hidden; }
+    .modal-header { padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .modal-header h2 { font-size: 18px; font-weight: 600; }
+    .modal-close { width: 32px; height: 32px; border: none; background: var(--tag-bg); border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; color: var(--text); }
+    .modal-close:hover { background: var(--red); color: #fff; }
+    .modal-body { padding: 24px; }
+
+    /* Context Modal */
+    .context-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+    .context-item { background: var(--bg); border-radius: 8px; padding: 12px; }
+    .context-item h4 { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+    .context-item p { font-size: 12px; color: var(--muted); }
+    .context-item a { font-size: 12px; color: var(--accent); text-decoration: none; }
+    .context-item a:hover { text-decoration: underline; }
+    .context-preview { width: 100%; max-height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; }
+    .context-info { display: grid; grid-template-columns: 120px 1fr; gap: 6px 12px; font-size: 13px; margin-bottom: 16px; }
+    .context-info dt { color: var(--muted); font-weight: 500; }
+    .context-info dd { font-weight: 400; }
+
+    /* Replace Modal */
+    .replace-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    .replace-side { background: var(--bg); border-radius: 10px; padding: 12px; text-align: center; }
+    .replace-side h4 { font-size: 13px; font-weight: 600; margin-bottom: 8px; color: var(--muted); }
+    .replace-side img { max-width: 100%; max-height: 180px; border-radius: 8px; object-fit: cover; }
+    .replace-side .placeholder { height: 180px; display: flex; align-items: center; justify-content: center; border: 2px dashed var(--border); border-radius: 8px; color: var(--muted); font-size: 13px; }
+    .drop-zone { border: 2px dashed var(--border); border-radius: 12px; padding: 32px; text-align: center; cursor: pointer; transition: all .2s; margin-bottom: 16px; }
+    .drop-zone:hover, .drop-zone.drag-over { border-color: var(--accent); background: rgba(0,113,227,.05); }
+    .drop-zone p { font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+    .drop-zone .browse { color: var(--accent); font-weight: 600; text-decoration: underline; cursor: pointer; }
+    .replace-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .replace-options label { font-size: 13px; color: var(--muted); display: block; margin-bottom: 4px; }
+    .replace-options input, .replace-options select { width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 13px; }
+    .replace-status { font-size: 13px; padding: 10px 14px; border-radius: 8px; margin-top: 12px; display: none; }
+    .replace-status.success { display: block; background: #e8f5e9; color: #2e7d32; }
+    .replace-status.error { display: block; background: #ffebee; color: var(--red); }
+    .replace-status.info { display: block; background: #e3f2fd; color: #1565c0; }
+    .btn-primary { padding: 10px 24px; border: none; border-radius: 10px; background: var(--accent); color: #fff; font-size: 14px; font-weight: 600; cursor: pointer; transition: opacity .2s; }
+    .btn-primary:hover { opacity: .85; }
+    .btn-primary:disabled { opacity: .4; cursor: not-allowed; }
+    .btn-secondary { padding: 10px 24px; border: 1px solid var(--border); border-radius: 10px; background: var(--card); color: var(--text); font-size: 14px; cursor: pointer; transition: all .2s; }
+    .btn-secondary:hover { background: var(--bg); }
+    .modal-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 10px; }
+
     .empty { text-align: center; padding: 80px 24px; color: var(--muted); font-size: 16px; }
-    @media (max-width: 640px) {
+
+    @media (max-width: 700px) {
       .grid { grid-template-columns: 1fr; padding: 12px; gap: 12px; }
       .toolbar { padding: 8px 12px; }
+      .context-grid { grid-template-columns: 1fr; }
+      .replace-compare { grid-template-columns: 1fr; }
+      .replace-options { grid-template-columns: 1fr; }
+      .login-box { padding: 32px 24px; margin: 16px; }
     }
   </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>Image Gallery (Dev Only)</h1>
-  <div class="stats" id="stats"></div>
+<!-- ── Login Screen ── -->
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-box">
+    <div class="lock-icon">&#128274;</div>
+    <h1>Dev Image Gallery</h1>
+    <p>Restricted access. Enter your credentials to continue.</p>
+    <form id="loginForm" onsubmit="return handleLogin(event)">
+      <div class="login-field">
+        <label>Email</label>
+        <input type="email" id="loginEmail" autocomplete="email" required placeholder="you@example.com">
+      </div>
+      <div class="login-field">
+        <label>Password</label>
+        <input type="password" id="loginPassword" autocomplete="current-password" required placeholder="Enter password">
+      </div>
+      <button type="submit" class="login-btn">Sign In</button>
+      <div class="login-error" id="loginError">Invalid email or password.</div>
+    </form>
+  </div>
 </div>
 
-<div class="toolbar">
-  <input type="text" id="search" placeholder="Search filename, alt text, or page...">
-  <select id="filterPage">
-    <option value="">All Pages</option>
-  </select>
-  <select id="filterType">
-    <option value="">All Types</option>
-    <option value="hero">Hero</option>
-    <option value="section">Section</option>
-    <option value="float">Float</option>
-    <option value="card">Card</option>
-    <option value="map">Map</option>
-    <option value="unused">Unused</option>
-  </select>
-  <select id="sortBy">
-    <option value="name">Sort: Name</option>
-    <option value="size-desc">Sort: Size (largest)</option>
-    <option value="size-asc">Sort: Size (smallest)</option>
-    <option value="pages">Sort: Page count</option>
-  </select>
-  <label><input type="checkbox" id="showGeneric"> Highlight generic</label>
+<!-- ── App Shell ── -->
+<div class="app" id="app">
+  <div class="header">
+    <div class="header-left">
+      <h1>Image Gallery (Dev Only)</h1>
+      <div class="stats" id="stats"></div>
+    </div>
+    <div class="header-right">
+      <span class="user" id="userEmail"></span>
+      <button class="logout-btn" onclick="handleLogout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input type="text" id="search" placeholder="Search filename, alt text, or page...">
+    <select id="filterPage"><option value="">All Pages</option></select>
+    <select id="filterType">
+      <option value="">All Types</option>
+      <option value="hero">Hero</option>
+      <option value="section">Section</option>
+      <option value="float">Float</option>
+      <option value="card">Card</option>
+      <option value="map">Map</option>
+      <option value="unused">Unused</option>
+    </select>
+    <select id="sortBy">
+      <option value="name">Sort: Name</option>
+      <option value="size-desc">Sort: Size (largest)</option>
+      <option value="size-asc">Sort: Size (smallest)</option>
+      <option value="pages">Sort: Page count</option>
+    </select>
+    <label><input type="checkbox" id="showGeneric"> Highlight generic</label>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">No images match your filters.</div>
 </div>
 
-<div class="grid" id="grid"></div>
-<div class="empty" id="empty" style="display:none">No images match your filters.</div>
-
+<!-- ── Lightbox ── -->
 <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
   <img id="lightbox-img" src="" alt="">
 </div>
 
+<!-- ── Context Modal ── -->
+<div class="modal-overlay" id="contextModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="contextTitle">Image Context</h2>
+      <button class="modal-close" onclick="closeModal('contextModal')">&times;</button>
+    </div>
+    <div class="modal-body" id="contextBody"></div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModal('contextModal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Replace Modal ── -->
+<div class="modal-overlay" id="replaceModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="replaceTitle">Replace Image</h2>
+      <button class="modal-close" onclick="closeModal('replaceModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="replace-compare">
+        <div class="replace-side">
+          <h4>Current</h4>
+          <img id="replaceCurrent" src="" alt="">
+        </div>
+        <div class="replace-side">
+          <h4>New</h4>
+          <div class="placeholder" id="replaceNewPlaceholder">No image selected</div>
+          <img id="replaceNew" src="" alt="" style="display:none">
+        </div>
+      </div>
+      <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+        <p>Drag & drop an image here, or <span class="browse">browse</span></p>
+        <p style="font-size:12px; margin-top:4px;">JPG, PNG, WebP &mdash; max 5MB</p>
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
+      </div>
+      <div class="replace-options">
+        <div>
+          <label>Max Width (px)</label>
+          <input type="number" id="optMaxWidth" value="1200" min="200" max="2400">
+        </div>
+        <div>
+          <label>Quality (JPG)</label>
+          <input type="number" id="optQuality" value="80" min="10" max="100">
+        </div>
+        <div>
+          <label>Output Format</label>
+          <select id="optFormat">
+            <option value="auto">Auto (match original)</option>
+            <option value="jpeg">JPEG</option>
+            <option value="png">PNG</option>
+            <option value="webp">WebP</option>
+          </select>
+        </div>
+        <div>
+          <label>New Alt Text (optional)</label>
+          <input type="text" id="optAlt" placeholder="Leave blank to keep current">
+        </div>
+      </div>
+      <div class="replace-status" id="replaceStatus"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModal('replaceModal')">Cancel</button>
+      <button class="btn-primary" id="btnDownload" onclick="downloadOptimized()" disabled>Download Optimized</button>
+    </div>
+  </div>
+</div>
+
 <script>
-// Image catalog - auto-generated from codebase scan
+// ── Auth ──
+const AUTH_KEY = 'dev-gallery-auth';
+const VALID = {e: 'hasan@ibak.app', p: 'Biren9'};
+
+function checkAuth() {
+  const saved = sessionStorage.getItem(AUTH_KEY);
+  if (saved === btoa(VALID.e)) {
+    showApp(VALID.e);
+    return true;
+  }
+  return false;
+}
+
+function handleLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value.trim();
+  const pw = document.getElementById('loginPassword').value;
+  if (email === VALID.e && pw === VALID.p) {
+    sessionStorage.setItem(AUTH_KEY, btoa(email));
+    showApp(email);
+  } else {
+    document.getElementById('loginError').style.display = 'block';
+    document.getElementById('loginPassword').value = '';
+    document.getElementById('loginPassword').focus();
+  }
+  return false;
+}
+
+function handleLogout() {
+  sessionStorage.removeItem(AUTH_KEY);
+  document.getElementById('app').classList.remove('visible');
+  document.getElementById('loginOverlay').classList.remove('hidden');
+  document.getElementById('loginEmail').value = '';
+  document.getElementById('loginPassword').value = '';
+  document.getElementById('loginError').style.display = 'none';
+}
+
+function showApp(email) {
+  document.getElementById('loginOverlay').classList.add('hidden');
+  document.getElementById('app').classList.add('visible');
+  document.getElementById('userEmail').textContent = email;
+  render();
+}
+
+// ── Image Data ──
 const IMAGE_DATA = [
   {name:"Beausejour_Stadium_Cricket_St_Lucia.jpg",size:241310,pages:["events","tr/events"],alt:"Daren Sammy National Cricket Stadium, Gros Islet, Saint Lucia",type:"section"},
   {name:"business-bpo-office.jpg",size:28954,pages:["business","tr/business"],alt:"Business process outsourcing office in Castries, Saint Lucia",type:"float"},
@@ -195,11 +425,27 @@ const IMAGE_DATA = [
   {name:"maps/map-topographic-elevation.png",size:290149,pages:["living","tr/living"],alt:"Topographic elevation map of Saint Lucia showing mountainous terrain and coastal areas",type:"map"}
 ];
 
-// No missing images - sector-creative.jpg fixed with sector-pigeon-island-landmark.jpg
 const MISSING = [];
 
-const GENERIC_LIST = IMAGE_DATA.filter(i => i.generic).map(i => i.name);
+// Page URL mapping for context links
+const PAGE_URLS = {
+  'index': 'index.html', 'overview': 'overview.html', 'business': 'business.html',
+  'legal': 'legal.html', 'sectors': 'sectors.html', 'cbi': 'cbi.html',
+  'immigration': 'immigration.html', 'living': 'living.html', 'expats': 'expats.html',
+  'events': 'events.html', 'map': 'map.html', 'directory': 'directory.html',
+  'faq': 'faq.html', 'resources': 'resources.html', 'trade': 'trade.html',
+  'checklist': 'checklist.html', 'government': 'government.html', 'realestate': 'realestate.html',
+  'startups': 'startups.html', 'liked': 'liked.html',
+  'tr/index': 'tr/index.html', 'tr/overview': 'tr/overview.html', 'tr/business': 'tr/business.html',
+  'tr/legal': 'tr/legal.html', 'tr/sectors': 'tr/sectors.html', 'tr/cbi': 'tr/cbi.html',
+  'tr/immigration': 'tr/immigration.html', 'tr/living': 'tr/living.html', 'tr/expats': 'tr/expats.html',
+  'tr/events': 'tr/events.html', 'tr/map': 'tr/map.html', 'tr/directory': 'tr/directory.html',
+  'tr/faq': 'tr/faq.html', 'tr/resources': 'tr/resources.html', 'tr/trade': 'tr/trade.html',
+  'tr/checklist': 'tr/checklist.html', 'tr/government': 'tr/government.html', 'tr/realestate': 'tr/realestate.html',
+  'tr/startups': 'tr/startups.html', 'tr/liked': 'tr/liked.html'
+};
 
+// ── Helpers ──
 function formatSize(bytes) {
   if (bytes < 1024) return bytes + ' B';
   if (bytes < 1048576) return (bytes / 1024).toFixed(0) + ' KB';
@@ -218,6 +464,11 @@ function getPages() {
   return [...pages].sort();
 }
 
+function getExt(name) {
+  return name.split('.').pop().toLowerCase();
+}
+
+// ── Render Gallery ──
 function render() {
   const q = document.getElementById('search').value.toLowerCase();
   const page = document.getElementById('filterPage').value;
@@ -260,16 +511,18 @@ function render() {
     const borderStyle = showGeneric && isGeneric ? 'border:2px solid var(--orange)' : '';
 
     return `<div class="card" style="${borderStyle}" data-name="${i.name}">
-      <img class="card-img" src="assets/images/${i.name}" alt="${i.alt}" loading="lazy"
-           onerror="this.style.background='#ffebee';this.alt='MISSING FILE'"
-           onclick="openLightbox('assets/images/${i.name}')">
+      <div class="card-img-wrap">
+        <img class="card-img" src="assets/images/${i.name}" alt="${i.alt}" loading="lazy"
+             onerror="this.style.background='#ffebee';this.alt='MISSING FILE'"
+             onclick="openLightbox('assets/images/${i.name}')">
+        <span class="card-badge">${i.type}</span>
+      </div>
       <div class="card-body">
         <div class="card-name">${i.name}</div>
         <div class="card-meta">
           <span>${formatSize(i.size)}</span>
           <span>${i.pages.length} page${i.pages.length !== 1 ? 's' : ''}</span>
-          <span class="tag tag--type">${i.type}</span>
-          ${isGeneric ? '<span class="tag" style="background:var(--orange);color:#fff">generic</span>' : ''}
+          <span>${getExt(i.name).toUpperCase()}</span>
         </div>
         <div class="card-alt">${i.alt}</div>
         <div class="tags">
@@ -277,34 +530,245 @@ function render() {
           ${i.pages.map(p => `<span class="tag tag--page" onclick="filterByPage('${p}')">${p}</span>`).join('')}
         </div>
         <div class="size-bar ${sc}"><div class="size-bar-fill" style="width:${pct}%"></div></div>
+        <div class="card-actions">
+          <button class="btn-sm btn-context" onclick="showContext('${i.name}')">Context</button>
+          <button class="btn-sm btn-replace" onclick="showReplace('${i.name}')">Replace</button>
+        </div>
       </div>
     </div>`;
   }).join('');
 
-  // Update stats
   const totalSize = IMAGE_DATA.reduce((s, i) => s + i.size, 0);
   const unused = IMAGE_DATA.filter(i => i.pages.length === 0).length;
-  const generic = GENERIC_LIST.length;
   document.getElementById('stats').innerHTML =
     `<span><strong>${IMAGE_DATA.length}</strong> images</span>` +
     `<span><strong>${formatSize(totalSize)}</strong> total</span>` +
     `<span><strong>${unused}</strong> unused</span>` +
-    `<span><strong>${generic}</strong> generic</span>` +
-    `<span><strong>${MISSING.length}</strong> missing file</span>` +
     `<span>Showing <strong>${items.length}</strong></span>`;
 }
 
+// ── Page Filter ──
 function filterByPage(page) {
   document.getElementById('filterPage').value = page;
   render();
 }
 
+// ── Lightbox ──
 function openLightbox(src) {
   document.getElementById('lightbox-img').src = src;
   document.getElementById('lightbox').classList.add('active');
 }
 
-// Populate page filter
+// ── Modals ──
+function closeModal(id) {
+  document.getElementById(id).classList.remove('active');
+}
+
+// ── Context Modal ──
+function showContext(name) {
+  const img = IMAGE_DATA.find(i => i.name === name);
+  if (!img) return;
+
+  document.getElementById('contextTitle').textContent = img.name;
+
+  const enPages = img.pages.filter(p => !p.startsWith('tr/'));
+  const trPages = img.pages.filter(p => p.startsWith('tr/'));
+
+  let html = `
+    <img class="context-preview" src="assets/images/${img.name}" alt="${img.alt}">
+    <dl class="context-info">
+      <dt>Filename</dt><dd><code>${img.name}</code></dd>
+      <dt>Full Path</dt><dd><code>assets/images/${img.name}</code></dd>
+      <dt>Size</dt><dd>${formatSize(img.size)}</dd>
+      <dt>Format</dt><dd>${getExt(img.name).toUpperCase()}</dd>
+      <dt>Type</dt><dd>${img.type}</dd>
+      <dt>Alt Text</dt><dd>${img.alt}</dd>
+      <dt>Used On</dt><dd>${img.pages.length} page${img.pages.length !== 1 ? 's' : ''} (${enPages.length} EN, ${trPages.length} TR)</dd>
+    </dl>
+  `;
+
+  if (img.pages.length > 0) {
+    html += `<h3 style="font-size:14px; margin-bottom:12px;">Pages Using This Image</h3>`;
+    html += `<div class="context-grid">`;
+    img.pages.forEach(p => {
+      const url = PAGE_URLS[p] || p + '.html';
+      const lang = p.startsWith('tr/') ? 'TR' : 'EN';
+      const pageName = p.replace('tr/', '');
+      html += `<div class="context-item">
+        <h4>${pageName} <span class="tag" style="margin-left:4px">${lang}</span></h4>
+        <a href="${url}" target="_blank">Open page &rarr;</a>
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  document.getElementById('contextBody').innerHTML = html;
+  document.getElementById('contextModal').classList.add('active');
+}
+
+// ── Replace Modal ──
+let currentReplaceTarget = null;
+let newImageFile = null;
+let newImageDataUrl = null;
+
+function showReplace(name) {
+  const img = IMAGE_DATA.find(i => i.name === name);
+  if (!img) return;
+
+  currentReplaceTarget = img;
+  newImageFile = null;
+  newImageDataUrl = null;
+
+  document.getElementById('replaceTitle').textContent = 'Replace: ' + img.name;
+  document.getElementById('replaceCurrent').src = 'assets/images/' + img.name;
+  document.getElementById('replaceNew').style.display = 'none';
+  document.getElementById('replaceNewPlaceholder').style.display = 'flex';
+  document.getElementById('btnDownload').disabled = true;
+  document.getElementById('optAlt').value = '';
+  document.getElementById('optAlt').placeholder = img.alt;
+  document.getElementById('replaceStatus').className = 'replace-status';
+  document.getElementById('replaceStatus').style.display = 'none';
+
+  // Set max width based on type
+  const maxW = document.getElementById('optMaxWidth');
+  if (img.type === 'float') maxW.value = 600;
+  else if (img.type === 'map') maxW.value = 800;
+  else maxW.value = 1200;
+
+  // Set format based on current extension
+  const fmt = document.getElementById('optFormat');
+  fmt.value = 'auto';
+
+  document.getElementById('replaceModal').classList.add('active');
+}
+
+// ── Drag & Drop / File Input ──
+const dropZone = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+
+['dragenter', 'dragover'].forEach(evt => {
+  dropZone.addEventListener(evt, e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+});
+['dragleave', 'drop'].forEach(evt => {
+  dropZone.addEventListener(evt, e => { e.preventDefault(); dropZone.classList.remove('drag-over'); });
+});
+
+dropZone.addEventListener('drop', e => {
+  const file = e.dataTransfer.files[0];
+  if (file) handleFileSelect(file);
+});
+
+fileInput.addEventListener('change', e => {
+  if (e.target.files[0]) handleFileSelect(e.target.files[0]);
+  e.target.value = '';
+});
+
+function handleFileSelect(file) {
+  if (!file.type.match(/^image\/(jpeg|png|webp)$/)) {
+    showReplaceStatus('error', 'Please select a JPG, PNG, or WebP image.');
+    return;
+  }
+  if (file.size > 5 * 1024 * 1024) {
+    showReplaceStatus('error', 'File too large. Maximum 5MB.');
+    return;
+  }
+
+  newImageFile = file;
+  const reader = new FileReader();
+  reader.onload = e => {
+    newImageDataUrl = e.target.result;
+    document.getElementById('replaceNew').src = newImageDataUrl;
+    document.getElementById('replaceNew').style.display = 'block';
+    document.getElementById('replaceNewPlaceholder').style.display = 'none';
+    document.getElementById('btnDownload').disabled = false;
+    showReplaceStatus('info', `Selected: ${file.name} (${formatSize(file.size)}). Click "Download Optimized" to get the processed file.`);
+  };
+  reader.readAsDataURL(file);
+}
+
+function showReplaceStatus(type, msg) {
+  const el = document.getElementById('replaceStatus');
+  el.className = 'replace-status ' + type;
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+// ── Download Optimized Image ──
+function downloadOptimized() {
+  if (!newImageFile || !currentReplaceTarget) return;
+
+  const maxWidth = parseInt(document.getElementById('optMaxWidth').value) || 1200;
+  const quality = parseInt(document.getElementById('optQuality').value) / 100 || 0.8;
+  const formatSel = document.getElementById('optFormat').value;
+
+  const img = new Image();
+  img.onload = () => {
+    const canvas = document.createElement('canvas');
+    let w = img.width;
+    let h = img.height;
+
+    // Resize if needed
+    if (w > maxWidth) {
+      h = Math.round(h * (maxWidth / w));
+      w = maxWidth;
+    }
+
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, w, h);
+
+    // Determine output format
+    let mimeType, ext;
+    if (formatSel === 'auto') {
+      ext = getExt(currentReplaceTarget.name);
+      if (ext === 'jpg' || ext === 'jpeg') { mimeType = 'image/jpeg'; ext = 'jpg'; }
+      else if (ext === 'png') { mimeType = 'image/png'; }
+      else if (ext === 'webp') { mimeType = 'image/webp'; }
+      else { mimeType = 'image/jpeg'; ext = 'jpg'; }
+    } else {
+      mimeType = 'image/' + formatSel;
+      ext = formatSel === 'jpeg' ? 'jpg' : formatSel;
+    }
+
+    canvas.toBlob(blob => {
+      if (!blob) {
+        showReplaceStatus('error', 'Failed to process image.');
+        return;
+      }
+
+      // Build filename (keep the original name)
+      const targetName = currentReplaceTarget.name.includes('/')
+        ? currentReplaceTarget.name.split('/').pop()
+        : currentReplaceTarget.name;
+      const baseName = targetName.substring(0, targetName.lastIndexOf('.'));
+      const outputName = baseName + '.' + ext;
+
+      // Trigger download
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = outputName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      const newAlt = document.getElementById('optAlt').value.trim() || currentReplaceTarget.alt;
+      const pagesAffected = currentReplaceTarget.pages.length;
+
+      showReplaceStatus('success',
+        `Downloaded "${outputName}" (${formatSize(blob.size)}, ${w}x${h}). ` +
+        `To apply: replace assets/images/${currentReplaceTarget.name} with this file. ` +
+        `Affects ${pagesAffected} page${pagesAffected !== 1 ? 's' : ''}.` +
+        (document.getElementById('optAlt').value.trim() ? ` New alt text: "${newAlt}"` : '')
+      );
+    }, mimeType, quality);
+  };
+  img.src = newImageDataUrl;
+}
+
+// ── Init ──
 const pageSelect = document.getElementById('filterPage');
 getPages().forEach(p => {
   const opt = document.createElement('option');
@@ -313,17 +777,23 @@ getPages().forEach(p => {
   pageSelect.appendChild(opt);
 });
 
-// Event listeners
 document.getElementById('search').addEventListener('input', render);
 document.getElementById('filterPage').addEventListener('change', render);
 document.getElementById('filterType').addEventListener('change', render);
 document.getElementById('sortBy').addEventListener('change', render);
 document.getElementById('showGeneric').addEventListener('change', render);
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
+  if (e.key === 'Escape') {
+    document.getElementById('lightbox').classList.remove('active');
+    closeModal('contextModal');
+    closeModal('replaceModal');
+  }
 });
 
-render();
+// Check auth on load
+if (!checkAuth()) {
+  document.getElementById('loginEmail').focus();
+}
 </script>
 
 </body>
