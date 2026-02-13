@@ -53,15 +53,23 @@
     .main{flex:1;display:flex;overflow:hidden}
 
     /* Preview (left) */
-    .preview{flex:1;min-width:0;border-right:1px solid var(--border);position:relative;background:#fff}
-    .preview iframe{width:100%;height:100%;border:none}
+    .preview{flex:1;min-width:0;border-right:1px solid var(--border);position:relative;background:var(--bg);display:flex;flex-direction:column;align-items:center}
+    .preview-wrap{flex:1;width:100%;display:flex;justify-content:center;overflow:hidden;padding-top:32px}
+    .preview-wrap.mobile{background:var(--bg)}
+    .preview-wrap.mobile iframe{width:390px;max-width:390px;height:100%;border-radius:0 0 8px 8px;box-shadow:0 2px 16px rgba(0,0,0,.12);border:1px solid var(--border);border-top:none}
+    .preview-wrap.desktop iframe{width:100%;height:100%;border:none}
+    .preview iframe{border:none;background:#fff}
     .preview-bar{position:absolute;top:0;left:0;right:0;height:32px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 12px;gap:8px;z-index:5}
+    .view-toggle{display:flex;gap:0;border:1px solid var(--border);border-radius:6px;overflow:hidden;height:22px}
+    .view-toggle button{border:none;background:var(--card);color:var(--muted);font-size:10px;padding:0 8px;cursor:pointer;font-weight:600;line-height:20px}
+    .view-toggle button:hover{background:var(--tag)}
+    .view-toggle button.active{background:var(--accent);color:#fff}
     @media(prefers-color-scheme:dark){.preview-bar{background:rgba(28,28,30,.92)}}
     .preview-bar .url{font-size:11px;color:var(--muted);font-family:'SF Mono',Consolas,monospace;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .preview-bar .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
     .preview-bar .dot.green{background:var(--green)}
     .preview-bar .dot.orange{background:var(--orange)}
-    .preview-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg);z-index:4;font-size:13px;color:var(--muted)}
+    .preview-loading{position:absolute;inset:0;top:32px;display:flex;align-items:center;justify-content:center;background:var(--bg);z-index:4;font-size:13px;color:var(--muted)}
     .preview-loading.hidden{display:none}
 
     /* Editor (right) */
@@ -215,9 +223,15 @@
       <div class="preview-bar">
         <div class="dot green" id="previewDot"></div>
         <span class="url" id="previewUrl">Select a page</span>
+        <div class="view-toggle">
+          <button class="active" id="btnMobile" onclick="setView('mobile')" title="Mobile view">Mobile</button>
+          <button id="btnDesktop" onclick="setView('desktop')" title="Desktop view">Desktop</button>
+        </div>
       </div>
-      <div class="preview-loading" id="previewLoading">Select a page from the tabs above</div>
-      <iframe id="previewFrame" src="about:blank" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+      <div class="preview-wrap mobile" id="previewWrap">
+        <div class="preview-loading" id="previewLoading">Select a page from the tabs above</div>
+        <iframe id="previewFrame" src="about:blank" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+      </div>
     </div>
 
     <!-- Editor -->
@@ -452,7 +466,26 @@ function loadPreview(id){
   loading.textContent='Loading '+page.title+'...';
   dot.className='dot orange';
   document.getElementById('previewUrl').textContent=page.file;
-  frame.onload=()=>{loading.classList.add('hidden');dot.className='dot green'};
+  frame.onload=()=>{
+    loading.classList.add('hidden');dot.className='dot green';
+    // Watch for navigation inside iframe
+    try{
+      const iframeDoc=frame.contentDocument||frame.contentWindow.document;
+      iframeDoc.addEventListener('click',e=>{
+        const link=e.target.closest('a[href]');
+        if(!link)return;
+        const href=link.getAttribute('href');
+        if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto'))return;
+        // Match to a page tab
+        const clean=href.replace(/^\.\.\//,'').replace(/^\//,'');
+        const match=PAGES.find(p=>p.file===clean||p.file===clean.replace('index.html',''));
+        if(match){
+          e.preventDefault();
+          selectTab(match.id);
+        }
+      });
+    }catch(ex){}
+  };
   frame.src=page.file;
 }
 
@@ -462,10 +495,21 @@ function openCurrentPage(){
   if(page)window.open(page.file,'_blank');
 }
 
+// ── View toggle ──
+let currentView='mobile';
+function setView(mode){
+  currentView=mode;
+  const wrap=document.getElementById('previewWrap');
+  wrap.className='preview-wrap '+mode;
+  document.getElementById('btnMobile').classList.toggle('active',mode==='mobile');
+  document.getElementById('btnDesktop').classList.toggle('active',mode==='desktop');
+}
+
 // ── Editor ──
 let editorPanel='images';
 let pageOutline=[];
 let pageInfo={};
+let pageImageOrder=[];
 
 function switchEditorTab(el){
   document.querySelectorAll('.editor-tab').forEach(t=>t.classList.remove('active'));
@@ -496,6 +540,13 @@ async function fetchPageData(file){
       const text=h.textContent.trim();
       if(text&&text.length<120)pageOutline.push({level:lvl,text});
     });
+    // Extract image order from page DOM
+    pageImageOrder=[];
+    doc.querySelectorAll('img[src*="assets/images/"]').forEach(img=>{
+      const src=img.getAttribute('src')||'';
+      const match=src.match(/assets\/images\/(.+)$/);
+      if(match&&!pageImageOrder.includes(match[1]))pageImageOrder.push(match[1]);
+    });
     // Page info
     const text=doc.body?doc.body.textContent:'';
     const words=text.trim().split(/\s+/).filter(w=>w).length;
@@ -504,7 +555,7 @@ async function fetchPageData(file){
     const sections=doc.querySelectorAll('section,.content-section,.info-section').length||doc.querySelectorAll('h2').length;
     const bytes=new Blob([html]).size;
     pageInfo={words,imgs,links,sections,bytes,headings:pageOutline.length};
-    if(editorPanel==='outline'||editorPanel==='info')renderEditor();
+    renderEditor();
   }catch(e){pageOutline=[];pageInfo={}}
 }
 
@@ -519,9 +570,10 @@ function renderEditor(){
 function renderImages(body){
   const imgs=IMAGES.filter(i=>i.pages.includes(activePageId));
   if(imgs.length===0){body.innerHTML='<div class="empty-state"><span class="emoji">&#128247;</span><p>No images on this page</p></div>';return}
-  // Sort: hero first, then section, float, card, map
-  const order={hero:0,section:1,float:2,card:3,map:4};
-  imgs.sort((a,b)=>(order[a.type]??9)-(order[b.type]??9));
+  // Sort by appearance order in the page DOM
+  if(pageImageOrder.length){
+    imgs.sort((a,b)=>{const ai=pageImageOrder.indexOf(a.name),bi=pageImageOrder.indexOf(b.name);return(ai===-1?999:ai)-(bi===-1?999:bi)});
+  }
   const totalSize=imgs.reduce((s,i)=>s+i.size,0);
   body.innerHTML=`<div style="padding:10px 16px;font-size:11px;color:var(--muted);border-bottom:1px solid var(--border)">${imgs.length} images &middot; ${fmtSize(totalSize)} total</div>`+imgs.map(i=>{
     const src='assets/images/'+i.name;
