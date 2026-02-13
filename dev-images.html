@@ -3,813 +3,345 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DEV: Content Editor &mdash; St. Lucia Business Guide</title>
+  <title>DEV: Image Gallery | St. Lucia Business Guide</title>
   <meta name="robots" content="noindex, nofollow">
   <style>
-    :root{--bg:#f0f0f3;--card:#fff;--text:#1d1d1f;--muted:#86868b;--accent:#0071e3;--border:#d2d2d7;--tag:#e8e8ed;--red:#ff3b30;--green:#34c759;--orange:#ff9500;--shadow:0 1px 3px rgba(0,0,0,.08);--radius:10px;--header-h:48px;--tabs-h:42px}
-    @media(prefers-color-scheme:dark){:root{--bg:#161617;--card:#1c1c1e;--text:#f5f5f7;--muted:#86868b;--accent:#2997ff;--border:#38383a;--tag:#2c2c2e;--red:#ff453a;--green:#30d158;--orange:#ff9f0a;--shadow:0 1px 3px rgba(0,0,0,.3)}}
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow:hidden;height:100vh}
-
-    /* ── Login ── */
-    .login-overlay{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center}
-    .login-overlay.hidden{display:none}
-    .login-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:44px 36px;width:100%;max-width:380px;box-shadow:0 8px 40px rgba(0,0,0,.12)}
-    .login-box h1{font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
-    .login-box p{font-size:13px;color:var(--muted);text-align:center;margin-bottom:24px}
-    .login-box .ico{text-align:center;font-size:36px;margin-bottom:12px;opacity:.5}
-    .lf{margin-bottom:14px}
-    .lf label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:3px}
-    .lf input{width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:14px;outline:none}
-    .lf input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.15)}
-    .login-btn{width:100%;padding:11px;border:none;border-radius:10px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;cursor:pointer;margin-top:4px}
-    .login-btn:hover{opacity:.9}
-    .login-err{color:var(--red);font-size:12px;text-align:center;margin-top:10px;display:none}
-
-    /* ── App Shell ── */
-    .app{display:none;height:100vh;flex-direction:column}.app.on{display:flex}
-
-    /* Header */
-    .hdr{height:var(--header-h);background:var(--card);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 16px;gap:12px;flex-shrink:0}
-    .hdr-title{font-size:15px;font-weight:700;white-space:nowrap}
-    .hdr-stats{font-size:11px;color:var(--muted);margin-left:4px;white-space:nowrap}
-    .hdr-spacer{flex:1}
-    .hdr-user{font-size:11px;color:var(--muted)}
-    .hdr-btn{height:30px;padding:0 10px;border:1px solid var(--border);border-radius:7px;background:var(--card);color:var(--text);font-size:11px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap}
-    .hdr-btn:hover{background:var(--tag)}
-    .hdr-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .hdr-btn.danger:hover{background:var(--red);color:#fff;border-color:var(--red)}
-
-    /* Tabs */
-    .tabs{height:var(--tabs-h);background:var(--card);border-bottom:1px solid var(--border);display:flex;overflow-x:auto;flex-shrink:0;scrollbar-width:none;-ms-overflow-style:none}
-    .tabs::-webkit-scrollbar{display:none}
-    .tab{padding:0 18px;height:100%;display:flex;align-items:center;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;flex-shrink:0;gap:6px}
-    .tab:hover{color:var(--text);background:var(--tag)}
-    .tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
-    .tab .cnt{font-size:10px;background:var(--tag);padding:1px 6px;border-radius:10px;color:var(--muted)}
-    .tab.active .cnt{background:rgba(0,113,227,.12);color:var(--accent)}
-
-    /* Main split */
-    .main{flex:1;display:flex;overflow:hidden}
-
-    /* Preview (left) */
-    .preview{flex:1;min-width:0;border-right:1px solid var(--border);position:relative;background:var(--bg);display:flex;flex-direction:column;align-items:center}
-    .preview-wrap{flex:1;width:100%;display:flex;justify-content:center;overflow:hidden;padding-top:32px}
-    .preview-wrap.mobile{background:var(--bg)}
-    .preview-wrap.mobile iframe{width:390px;max-width:390px;height:100%;border-radius:0 0 8px 8px;box-shadow:0 2px 16px rgba(0,0,0,.12);border:1px solid var(--border);border-top:none}
-    .preview-wrap.desktop iframe{width:100%;height:100%;border:none}
-    .preview iframe{border:none;background:#fff}
-    .preview-bar{position:absolute;top:0;left:0;right:0;height:32px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 12px;gap:8px;z-index:5}
-    .view-toggle{display:flex;gap:0;border:1px solid var(--border);border-radius:6px;overflow:hidden;height:22px}
-    .view-toggle button{border:none;background:var(--card);color:var(--muted);font-size:10px;padding:0 8px;cursor:pointer;font-weight:600;line-height:20px}
-    .view-toggle button:hover{background:var(--tag)}
-    .view-toggle button.active{background:var(--accent);color:#fff}
-    @media(prefers-color-scheme:dark){.preview-bar{background:rgba(28,28,30,.92)}}
-    .preview-bar .url{font-size:11px;color:var(--muted);font-family:'SF Mono',Consolas,monospace;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    .preview-bar .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-    .preview-bar .dot.green{background:var(--green)}
-    .preview-bar .dot.orange{background:var(--orange)}
-    .preview-loading{position:absolute;inset:0;top:32px;display:flex;align-items:center;justify-content:center;background:var(--bg);z-index:4;font-size:13px;color:var(--muted)}
-    .preview-loading.hidden{display:none}
-
-    /* Editor (right) */
-    .editor{width:420px;flex-shrink:0;display:flex;flex-direction:column;overflow:hidden;background:var(--card)}
-    .editor-head{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
-    .editor-head h2{font-size:14px;font-weight:600;flex:1}
-    .editor-tabs{display:flex;border-bottom:1px solid var(--border)}
-    .editor-tab{flex:1;padding:8px 0;text-align:center;font-size:11px;font-weight:600;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent}
-    .editor-tab:hover{color:var(--text)}
-    .editor-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
-    .editor-body{flex:1;overflow-y:auto;padding:0}
-
-    /* Image cards in editor */
-    .img-item{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;gap:12px;cursor:pointer;transition:background .15s}
-    .img-item:hover{background:var(--tag)}
-    .img-item.highlighted{background:rgba(0,113,227,.08);border-left:3px solid var(--accent)}
-    .img-thumb{width:72px;height:54px;border-radius:6px;object-fit:cover;flex-shrink:0;background:var(--tag)}
-    .img-info{flex:1;min-width:0}
-    .img-info .name{font-size:11px;font-family:'SF Mono',Consolas,monospace;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .img-info .alt{font-size:11px;color:var(--muted);margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-    .img-info .tags{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
-    .img-tag{font-size:9px;padding:1px 6px;border-radius:8px;background:var(--tag);color:var(--muted);text-transform:uppercase;font-weight:600;letter-spacing:.3px}
-    .img-actions-row{display:flex;gap:4px;flex-shrink:0;align-items:center}
-    .img-btn{width:28px;height:28px;border:1px solid var(--border);border-radius:6px;background:var(--card);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);transition:all .15s}
-    .img-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .img-btn.replace-btn:hover{background:var(--green);border-color:var(--green)}
-
-    /* Outline in editor */
-    .outline-item{padding:8px 16px;border-bottom:1px solid var(--border);font-size:12px;cursor:pointer;display:flex;align-items:center;gap:8px}
-    .outline-item:hover{background:var(--tag)}
-    .outline-item .level{font-size:9px;padding:1px 5px;border-radius:4px;background:var(--tag);color:var(--muted);font-weight:700;flex-shrink:0}
-    .outline-item .heading-text{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    .outline-item .word-count{font-size:10px;color:var(--muted)}
-
-    /* Page info in editor */
-    .page-info{padding:16px}
-    .page-info .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    .page-info .stat{background:var(--bg);border-radius:8px;padding:10px 12px}
-    .page-info .stat .label{font-size:10px;color:var(--muted);text-transform:uppercase;font-weight:600;letter-spacing:.3px}
-    .page-info .stat .value{font-size:16px;font-weight:700;margin-top:2px}
-
-    /* Settings panel */
-    .settings-panel{display:none;position:fixed;top:var(--header-h);right:0;width:340px;background:var(--card);border-left:1px solid var(--border);border-bottom:1px solid var(--border);border-radius:0 0 0 12px;box-shadow:0 8px 32px rgba(0,0,0,.15);z-index:200;padding:16px}
-    .settings-panel.open{display:block}
-    .settings-panel h3{font-size:14px;font-weight:600;margin-bottom:12px}
-    .settings-panel label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px;font-weight:600}
-    .settings-panel input{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:7px;background:var(--bg);color:var(--text);font-size:12px;margin-bottom:10px;font-family:'SF Mono',Consolas,monospace}
-    .settings-panel .hint{font-size:10px;color:var(--muted);margin-top:-6px;margin-bottom:10px}
-    .gh-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:6px;font-weight:600}
-    .gh-badge.ok{background:#e8f5e9;color:#2e7d32}
-    .gh-badge.none{background:var(--tag);color:var(--muted)}
-
-    /* Replace modal */
-    .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:300;justify-content:center;align-items:center;backdrop-filter:blur(3px)}
-    .modal-bg.active{display:flex}
-    .modal{background:var(--card);border-radius:14px;width:100%;max-width:560px;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden;max-height:90vh;overflow-y:auto}
-    .modal-hd{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-    .modal-hd h2{font-size:15px;font-weight:600}
-    .modal-x{width:26px;height:26px;border:none;background:var(--tag);border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;color:var(--text)}
-    .modal-x:hover{background:var(--red);color:#fff}
-    .modal-bd{padding:18px}
-    .modal-ft{padding:12px 18px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:6px}
-    .compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
-    .compare-side{background:var(--bg);border-radius:8px;padding:8px;text-align:center}
-    .compare-side h4{font-size:11px;font-weight:600;color:var(--muted);margin-bottom:4px}
-    .compare-side img{max-width:100%;max-height:150px;border-radius:6px;object-fit:cover}
-    .compare-side .ph{height:150px;display:flex;align-items:center;justify-content:center;border:2px dashed var(--border);border-radius:6px;color:var(--muted);font-size:11px}
-    .dropzone{border:2px dashed var(--border);border-radius:8px;padding:20px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:12px}
-    .dropzone:hover,.dropzone.over{border-color:var(--accent);background:rgba(0,113,227,.04)}
-    .dropzone p{font-size:12px;color:var(--muted)}
-    .dropzone .link{color:var(--accent);font-weight:600}
-    .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-    .opts label{font-size:11px;color:var(--muted);display:block;margin-bottom:2px}
-    .opts input,.opts select{width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:11px}
-    .status-msg{font-size:11px;padding:8px 10px;border-radius:6px;margin-top:8px;display:none}
-    .status-msg.ok{display:block;background:#e8f5e9;color:#2e7d32}
-    .status-msg.err{display:block;background:#ffebee;color:#c62828}
-    .status-msg.info{display:block;background:#e3f2fd;color:#1565c0}
-    .btn{padding:7px 16px;border:none;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer}
-    .btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{opacity:.9}
-    .btn-primary:disabled{opacity:.35;cursor:not-allowed}
-    .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}.btn-ghost:hover{background:var(--tag)}
-    .btn-green{background:var(--green);color:#fff}.btn-green:hover{opacity:.9}
-    .btn-green:disabled{opacity:.35;cursor:not-allowed}
-
-    /* Lightbox */
-    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:400;justify-content:center;align-items:center;cursor:zoom-out}
-    .lightbox.active{display:flex}
-    .lightbox img{max-width:92vw;max-height:92vh;border-radius:6px}
-
-    /* Empty state */
-    .empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--muted);gap:8px;padding:40px}
-    .empty-state .emoji{font-size:32px;opacity:.4}
-    .empty-state p{font-size:13px}
-
-    /* Mobile */
-    @media(max-width:900px){
-      .main{flex-direction:column}
-      .preview{height:50%;border-right:none;border-bottom:1px solid var(--border)}
-      .editor{width:100%;height:50%}
-      .login-box{margin:16px;padding:32px 24px}
-      .settings-panel{right:0;left:0;width:auto;border-radius:0 0 12px 12px}
-    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',system-ui,sans-serif;background:#0d1117;color:#c9d1d9;line-height:1.5;padding:20px}
+    h1{font-size:1.4rem;color:#58a6ff;margin-bottom:4px}
+    .subtitle{color:#8b949e;font-size:.85rem;margin-bottom:20px}
+    .stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+    .stat{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:10px 16px;font-size:.8rem}
+    .stat b{color:#58a6ff;font-size:1.1rem;display:block}
+    .controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+    .controls input,.controls select{background:#0d1117;border:1px solid #30363d;color:#c9d1d9;padding:8px 12px;border-radius:6px;font-size:.85rem}
+    .controls input{flex:1;min-width:200px}
+    .controls select{min-width:140px}
+    .controls button{background:#21262d;border:1px solid #30363d;color:#c9d1d9;padding:8px 14px;border-radius:6px;cursor:pointer;font-size:.8rem}
+    .controls button:hover{background:#30363d}
+    .controls button.active{background:#1f6feb;border-color:#1f6feb;color:#fff}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+    .card{background:#161b22;border:1px solid #30363d;border-radius:10px;overflow:hidden;transition:border-color .2s}
+    .card:hover{border-color:#58a6ff}
+    .card.unused{border-color:#f85149;opacity:.7}
+    .card.unused .badge-unused{display:inline-block}
+    .badge-unused{display:none;background:#f85149;color:#fff;font-size:.65rem;padding:2px 6px;border-radius:4px;margin-left:6px}
+    .card-img{width:100%;height:200px;object-fit:cover;background:#21262d;display:block;cursor:pointer}
+    .card-img.loading{background:linear-gradient(90deg,#21262d 25%,#30363d 50%,#21262d 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    .card-body{padding:12px}
+    .card-file{font-family:'Cascadia Code',monospace;font-size:.78rem;color:#79c0ff;word-break:break-all}
+    .card-meta{font-size:.72rem;color:#8b949e;margin-top:4px;display:flex;gap:8px;flex-wrap:wrap}
+    .card-meta span{background:#21262d;padding:2px 6px;border-radius:4px}
+    .card-alt{font-size:.75rem;color:#8b949e;margin-top:6px;font-style:italic;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .card-pages{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
+    .card-pages a{font-size:.68rem;background:#1f6feb22;color:#58a6ff;padding:2px 8px;border-radius:4px;text-decoration:none;border:1px solid #1f6feb44}
+    .card-pages a:hover{background:#1f6feb44}
+    .card-pages a.tr{background:#23812622;color:#3fb950;border-color:#3fb95044}
+    .section-label{font-size:.7rem;color:#8b949e;margin-top:8px;text-transform:uppercase;letter-spacing:.5px}
+    .lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:999;cursor:zoom-out}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:95vw;max-height:90vh;border-radius:8px;box-shadow:0 0 40px rgba(0,0,0,.5)}
+    .lightbox .lb-info{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);background:#161b22;padding:8px 16px;border-radius:8px;font-size:.8rem;color:#c9d1d9;white-space:nowrap}
+    .empty{text-align:center;color:#8b949e;padding:60px 20px;font-size:.9rem}
+    @media(max-width:600px){.grid{grid-template-columns:1fr}.controls{flex-direction:column}}
   </style>
 </head>
 <body>
 
-<!-- Login -->
-<div class="login-overlay" id="loginOverlay">
-  <div class="login-box">
-    <div class="ico">&#128274;</div>
-    <h1>Content Editor</h1>
-    <p>Saint Lucia Business Guide &mdash; Dev Tools</p>
-    <form id="loginForm" onsubmit="return handleLogin(event)">
-      <div class="lf"><label>Email</label><input type="email" id="loginEmail" autocomplete="email" required></div>
-      <div class="lf"><label>Password</label><input type="password" id="loginPassword" autocomplete="current-password" required></div>
-      <button type="submit" class="login-btn">Sign In</button>
-      <div class="login-err" id="loginErr">Invalid credentials.</div>
-    </form>
-  </div>
+<h1>Image Gallery (Dev)</h1>
+<p class="subtitle">All images used in the St. Lucia Business Guide &mdash; not linked in app navigation</p>
+
+<div class="stats" id="stats"></div>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="Search filename, alt text, or page...">
+  <select id="filterPage">
+    <option value="">All Pages</option>
+  </select>
+  <select id="filterCat">
+    <option value="">All Categories</option>
+  </select>
+  <select id="filterType">
+    <option value="">All Types</option>
+  </select>
+  <select id="sortBy">
+    <option value="name">Sort: Name</option>
+    <option value="size-desc">Sort: Size (largest)</option>
+    <option value="size-asc">Sort: Size (smallest)</option>
+    <option value="refs-desc">Sort: Most Used</option>
+    <option value="refs-asc">Sort: Least Used</option>
+  </select>
+  <button id="btnUnused">Show Unused Only</button>
 </div>
 
-<!-- App -->
-<div class="app" id="app">
-  <!-- Header -->
-  <div class="hdr">
-    <span class="hdr-title">Content Editor</span>
-    <span class="hdr-stats" id="hdrStats"></span>
-    <div class="hdr-spacer"></div>
-    <span class="hdr-user" id="hdrUser"></span>
-    <button class="hdr-btn" id="settingsBtn" onclick="toggleSettings()">&#9881; GitHub</button>
-    <button class="hdr-btn danger" onclick="handleLogout()">Logout</button>
-  </div>
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty" style="display:none">No images match your filters.</div>
 
-  <!-- Settings -->
-  <div class="settings-panel" id="settingsPanel">
-    <h3>GitHub Settings</h3>
-    <label>Personal Access Token</label>
-    <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxx" oninput="saveToken()">
-    <div class="hint">Needs <code>repo</code> scope. <a href="https://github.com/settings/tokens/new?scopes=repo&description=stlucia-dev" target="_blank" style="color:var(--accent)">Create token</a></div>
-    <div><span class="gh-badge none" id="ghBadge">No token</span></div>
-  </div>
-
-  <!-- Tabs -->
-  <div class="tabs" id="tabs"></div>
-
-  <!-- Main -->
-  <div class="main">
-    <!-- Preview -->
-    <div class="preview">
-      <div class="preview-bar">
-        <div class="dot green" id="previewDot"></div>
-        <span class="url" id="previewUrl">Select a page</span>
-        <div class="view-toggle">
-          <button class="active" id="btnMobile" onclick="setView('mobile')" title="Mobile view">Mobile</button>
-          <button id="btnDesktop" onclick="setView('desktop')" title="Desktop view">Desktop</button>
-        </div>
-      </div>
-      <div class="preview-wrap mobile" id="previewWrap">
-        <div class="preview-loading" id="previewLoading">Select a page from the tabs above</div>
-        <iframe id="previewFrame" src="about:blank" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
-      </div>
-    </div>
-
-    <!-- Editor -->
-    <div class="editor">
-      <div class="editor-head">
-        <h2 id="editorTitle">No page selected</h2>
-        <span class="hdr-btn" id="openPageBtn" onclick="openCurrentPage()" style="display:none">Open &#8599;</span>
-      </div>
-      <div class="editor-tabs">
-        <div class="editor-tab active" data-panel="images" onclick="switchEditorTab(this)">Images</div>
-        <div class="editor-tab" data-panel="outline" onclick="switchEditorTab(this)">Outline</div>
-        <div class="editor-tab" data-panel="info" onclick="switchEditorTab(this)">Info</div>
-      </div>
-      <div class="editor-body" id="editorBody">
-        <div class="empty-state"><span class="emoji">&#128196;</span><p>Select a page to review</p></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lbImg" src="" alt=""></div>
-
-<!-- Replace Modal -->
-<div class="modal-bg" id="replaceModal">
-  <div class="modal">
-    <div class="modal-hd">
-      <h2 id="replaceTitle">Replace Image</h2>
-      <button class="modal-x" onclick="closeReplace()">&times;</button>
-    </div>
-    <div class="modal-bd">
-      <div class="compare">
-        <div class="compare-side"><h4>Current</h4><img id="repCurrent" src="" alt=""></div>
-        <div class="compare-side"><h4>New</h4><div class="ph" id="repNewPh">Drop image</div><img id="repNew" src="" alt="" style="display:none"></div>
-      </div>
-      <div class="dropzone" id="dropzone" onclick="document.getElementById('fileIn').click()">
-        <p>Drag &amp; drop image or <span class="link">browse</span></p>
-        <p style="font-size:10px;margin-top:3px">JPG, PNG, WebP &mdash; max 5 MB</p>
-        <input type="file" id="fileIn" accept="image/jpeg,image/png,image/webp" style="display:none">
-      </div>
-      <div class="opts">
-        <div><label>Max Width</label><input type="number" id="optW" value="1200" min="200" max="2400"></div>
-        <div><label>Quality</label><input type="number" id="optQ" value="80" min="10" max="100"></div>
-        <div><label>Format</label><select id="optFmt"><option value="auto">Auto</option><option value="jpeg">JPEG</option><option value="png">PNG</option><option value="webp">WebP</option></select></div>
-        <div><label>Alt Text</label><input type="text" id="optAlt" placeholder="Keep current"></div>
-      </div>
-      <div class="status-msg" id="repStatus"></div>
-    </div>
-    <div class="modal-ft">
-      <button class="btn btn-ghost" onclick="closeReplace()">Cancel</button>
-      <button class="btn btn-primary" id="btnDl" onclick="processImg('download')" disabled>Download</button>
-      <button class="btn btn-green" id="btnCommit" onclick="processImg('commit')" disabled>Commit to GitHub</button>
-    </div>
-  </div>
+<div class="lightbox" id="lightbox">
+  <img src="" alt="">
+  <div class="lb-info"></div>
 </div>
 
 <script>
-// ── Auth ──
-const AK='dev-ed-auth',V={e:'hasan@ibak.app',p:'Biren9'};
-function checkAuth(){if(sessionStorage.getItem(AK)===btoa(V.e)){showApp(V.e);return true}return false}
-function handleLogin(e){e.preventDefault();const em=document.getElementById('loginEmail').value.trim(),pw=document.getElementById('loginPassword').value;if(em===V.e&&pw===V.p){sessionStorage.setItem(AK,btoa(em));showApp(em)}else{document.getElementById('loginErr').style.display='block';document.getElementById('loginPassword').value=''}return false}
-function handleLogout(){sessionStorage.removeItem(AK);location.reload()}
-function showApp(em){document.getElementById('loginOverlay').classList.add('hidden');document.getElementById('app').classList.add('on');document.getElementById('hdrUser').textContent=em;loadToken();buildTabs();selectTab(PAGES[0].id)}
-
-// ── GitHub Token ──
-const TK='dev-ed-gh-token',REPO='ibak-app/stlucia',BRANCH='master';
-function loadToken(){const t=sessionStorage.getItem(TK);if(t){document.getElementById('ghToken').value=t;ghBadge(true)}else ghBadge(false)}
-function saveToken(){const t=document.getElementById('ghToken').value.trim();if(t){sessionStorage.setItem(TK,t);ghBadge(true)}else{sessionStorage.removeItem(TK);ghBadge(false)}}
-function getToken(){return sessionStorage.getItem(TK)}
-function ghBadge(ok){const b=document.getElementById('ghBadge');b.className='gh-badge '+(ok?'ok':'none');b.textContent=ok?'Token set':'No token'}
-function toggleSettings(){document.getElementById('settingsPanel').classList.toggle('open');document.getElementById('settingsBtn').classList.toggle('active')}
-
-// ── Page & Image Data ──
-const PAGES=[
-  {id:'index',title:'Home',file:'index.html'},
-  {id:'overview',title:'Overview',file:'overview.html'},
-  {id:'business',title:'Business',file:'business.html'},
-  {id:'legal',title:'Legal & Tax',file:'legal.html'},
-  {id:'sectors',title:'Sectors',file:'sectors.html'},
-  {id:'cbi',title:'CBI',file:'cbi.html'},
-  {id:'immigration',title:'Immigration',file:'immigration.html'},
-  {id:'living',title:'Living',file:'living.html'},
-  {id:'expats',title:'Expat Life',file:'expats.html'},
-  {id:'events',title:'Events',file:'events.html'},
-  {id:'government',title:'Government',file:'government.html'},
-  {id:'realestate',title:'Real Estate',file:'realestate.html'},
-  {id:'startups',title:'Startups',file:'startups.html'},
-  {id:'trade',title:'Trade',file:'trade.html'},
-  {id:'checklist',title:'Checklist',file:'checklist.html'},
-  {id:'faq',title:'FAQ',file:'faq.html'},
-  {id:'resources',title:'Resources',file:'resources.html'},
-  {id:'directory',title:'Directory',file:'directory.html'},
-  {id:'map',title:'Map',file:'map.html'}
+const IMAGE_DATA = [
+  {f:"Beausejour_Stadium_Cricket_St_Lucia.jpg",kb:236,cat:"misc",type:"section",alt:"Daren Sammy National Cricket Stadium, Gros Islet, Saint Lucia",en:["events.html"],tr:["events.html"]},
+  {f:"business-bpo-office.jpg",kb:28,cat:"business",type:"float-right",alt:"Business process outsourcing office in Castries, Saint Lucia",en:["business.html"],tr:["business.html"]},
+  {f:"business-castries-district.jpg",kb:93,cat:"business",type:"section",alt:"Castries business district in Saint Lucia",en:["business.html","faq.html"],tr:["business.html","faq.html"]},
+  {f:"business-eccb-building.webp",kb:45,cat:"business",type:"float-right",alt:"Eastern Caribbean Central Bank headquarters",en:["business.html"],tr:["business.html"]},
+  {f:"business-investment-meeting.jpg",kb:41,cat:"business",type:"section",alt:"Business investment meeting in Saint Lucia",en:["business.html"],tr:["business.html"]},
+  {f:"business-mobile-payment.webp",kb:20,cat:"business",type:"float-right",alt:"Mobile payment digital wallet",en:[],tr:[]},
+  {f:"business-mobile-wallet-pennypinch.png",kb:70,cat:"business",type:"float-right",alt:"Penny Pinch mobile wallet app",en:[],tr:[]},
+  {f:"business-penny-pinch-wallet.jpg",kb:17,cat:"business",type:"float-right",alt:"Penny Pinch mobile wallet, a Saint Lucia fintech success story",en:["business.html"],tr:["business.html"]},
+  {f:"card-directory.jpg",kb:207,cat:"card",type:"card",alt:"Castries waterfront",en:["directory.html","index.html"],tr:["directory.html","index.html"]},
+  {f:"card-legal.jpg",kb:37,cat:"card",type:"card",alt:"Legal documents and gavel",en:["index.html"],tr:["index.html"]},
+  {f:"card-map.jpg",kb:81,cat:"card",type:"card",alt:"Saint Lucia map",en:["index.html"],tr:["index.html"]},
+  {f:"card-overview.jpg",kb:137,cat:"card",type:"card",alt:"Saint Lucia coastline aerial view",en:["index.html"],tr:["index.html"]},
+  {f:"card-sectors.jpg",kb:139,cat:"card",type:"card",alt:"Saint Lucia banana plantation",en:["index.html"],tr:["index.html"]},
+  {f:"card-trade.jpg",kb:109,cat:"card",type:"card",alt:"Caribbean shipping port",en:["index.html"],tr:["index.html"]},
+  {f:"castries-central-market.jpg",kb:49,cat:"misc",type:"float-right",alt:"Castries Central Market, a historic landmark in Saint Lucia",en:["overview.html","trade.html"],tr:["overview.html","trade.html"]},
+  {f:"cbi-citizenship-investment.jpg",kb:63,cat:"cbi",type:"section",alt:"Citizenship by investment programme",en:[],tr:[]},
+  {f:"cbi-passport.webp",kb:30,cat:"cbi",type:"card",alt:"Caribbean passport and travel documents",en:["cbi.html","index.html"],tr:["cbi.html","index.html"]},
+  {f:"cbi-realestate.jpg",kb:44,cat:"cbi",type:"float-right",alt:"Caribbean luxury villa investment property",en:["cbi.html"],tr:["cbi.html"]},
+  {f:"cbi-sovereign-wealth.jpg",kb:43,cat:"cbi",type:"float-right",alt:"Saint Lucia Sovereign Wealth Fund and national investment management",en:["cbi.html"],tr:["cbi.html"]},
+  {f:"cbi-stlucia-aerial-investment.jpg",kb:41,cat:"cbi",type:"float-right",alt:"Aerial view of Saint Lucia coastline, a prime citizenship by investment destination",en:["cbi.html"],tr:["cbi.html"]},
+  {f:"cbi-stlucia-passport.webp",kb:37,cat:"cbi",type:"float-right",alt:"Saint Lucia passport obtained through citizenship by investment",en:["cbi.html"],tr:["cbi.html"]},
+  {f:"checklist-business-planning.png",kb:21,cat:"checklist",type:"section",alt:"Business planning and strategy for investing in Saint Lucia",en:["checklist.html"],tr:["checklist.html"]},
+  {f:"checklist-compliance.webp",kb:24,cat:"checklist",type:"float-right",alt:"Business compliance and regulatory requirements in Saint Lucia",en:["checklist.html"],tr:["checklist.html"]},
+  {f:"checklist-entity-formation.jpg",kb:27,cat:"checklist",type:"float-right",alt:"Company registration at the Registry of Companies, Saint Lucia",en:["checklist.html"],tr:["checklist.html"]},
+  {f:"event-carnival.jpg",kb:165,cat:"misc",type:"card",alt:"Saint Lucia Carnival parade celebration",en:["events.html","index.html"],tr:["events.html","index.html"]},
+  {f:"events-carnival-stlucia.jpg",kb:83,cat:"events",type:"float-right",alt:"Saint Lucia Carnival parade celebrations",en:["events.html"],tr:["events.html"]},
+  {f:"events-creole-food.jpg",kb:39,cat:"events",type:"float-right",alt:"Saint Lucian Creole cuisine and cultural food",en:["events.html"],tr:["events.html"]},
+  {f:"events-gros-islet-party.jpg",kb:201,cat:"events",type:"section",alt:"Gros Islet Friday night street party, Saint Lucia",en:["events.html"],tr:["events.html"]},
+  {f:"events-jazz-festival.jpg",kb:149,cat:"events",type:"section",alt:"Jazz and music festival performance in the Caribbean",en:["events.html"],tr:["events.html"]},
+  {f:"events-jazz-stlucia.jpg",kb:45,cat:"events",type:"float-right",alt:"Saint Lucia Jazz and Arts Festival performance",en:["events.html"],tr:["events.html"]},
+  {f:"events-julien-alfred.jpg",kb:23,cat:"events",type:"float-right",alt:"Julien Alfred, Saint Lucia Olympic gold medallist sprinter",en:["events.html"],tr:["events.html"]},
+  {f:"events-sailing-caribbean.jpg",kb:30,cat:"events",type:"float-right",alt:"Sailing and yachting in Caribbean waters",en:["events.html"],tr:["events.html"]},
+  {f:"expats-community-social.jpg",kb:32,cat:"expats",type:"float-right",alt:"Expat community social gathering",en:[],tr:[]},
+  {f:"expats-driving-caribbean.jpg",kb:38,cat:"expats",type:"float-right",alt:"Driving in the Caribbean",en:[],tr:[]},
+  {f:"expats-driving-stlucia-road.jpg",kb:57,cat:"expats",type:"section",alt:"Scenic mountain road driving in Saint Lucia",en:["expats.html"],tr:["expats.html"]},
+  {f:"expats-healthcare-okeu.jpg",kb:81,cat:"expats",type:"float-right",alt:"Owen King EU Hospital (OKEU), the main public hospital in Castries, Saint Lucia",en:["expats.html"],tr:["expats.html"]},
+  {f:"expats-healthcare.jpg",kb:30,cat:"expats",type:"float-right",alt:"Healthcare in the Caribbean",en:[],tr:[]},
+  {f:"expats-rodney-bay-village.jpg",kb:64,cat:"expats",type:"float-right",alt:"Rodney Bay Village, the main entertainment and dining hub for expats in Saint Lucia",en:["expats.html","faq.html","resources.html"],tr:["expats.html","faq.html","resources.html"]},
+  {f:"government-house-stlucia.jpg",kb:197,cat:"government",type:"section",alt:"Government House, official residence of the Governor-General of Saint Lucia",en:["government.html"],tr:["government.html"]},
+  {f:"hero-business.jpg",kb:57,cat:"hero",type:"hero-bg",alt:"Caribbean business meeting",en:["business.html","index.html","startups.html"],tr:["business.html","index.html","startups.html"]},
+  {f:"hero-cbi.jpg",kb:84,cat:"hero",type:"hero-bg",alt:"Immigration",en:["cbi.html","index.html","realestate.html"],tr:["cbi.html","index.html","realestate.html"]},
+  {f:"hero-checklist.jpg",kb:25,cat:"hero",type:"card",alt:"Business planning checklist",en:["checklist.html","index.html"],tr:["checklist.html","index.html"]},
+  {f:"hero-events.jpg",kb:108,cat:"hero",type:"hero-bg",alt:"Events and culture",en:["events.html"],tr:["events.html"]},
+  {f:"hero-faq.jpg",kb:110,cat:"hero",type:"card",alt:"Castries Central Market",en:["faq.html","index.html"],tr:["faq.html","index.html"]},
+  {f:"hero-legal.jpg",kb:70,cat:"hero",type:"hero-bg",alt:"Legal framework",en:["immigration.html","legal.html"],tr:["immigration.html","legal.html"]},
+  {f:"hero-living.jpg",kb:281,cat:"hero",type:"hero-bg",alt:"Saint Lucia lifestyle for remote workers",en:["expats.html","index.html","living.html"],tr:["expats.html","index.html","living.html"]},
+  {f:"hero-overview.jpg",kb:137,cat:"hero",type:"hero-bg",alt:"Saint Lucia overview",en:["overview.html"],tr:["overview.html"]},
+  {f:"hero-pitons.jpg",kb:171,cat:"hero",type:"hero-bg",alt:"The Pitons, Saint Lucia",en:["checklist.html","directory.html","events.html","faq.html","government.html","index.html","liked.html","living.html","map.html","resources.html","trade.html"],tr:["directory.html","events.html","faq.html","government.html","index.html","liked.html","living.html","map.html","resources.html"]},
+  {f:"hero-resources.webp",kb:80,cat:"hero",type:"hero-bg",alt:"Reference resources and documents",en:["index.html","resources.html"],tr:["index.html","resources.html"]},
+  {f:"hero-sectors.jpg",kb:201,cat:"hero",type:"hero-bg",alt:"Saint Lucia luxury resort beach",en:["sectors.html"],tr:["sectors.html"]},
+  {f:"hero-trade.jpg",kb:103,cat:"hero",type:"hero-bg",alt:"International trade",en:["trade.html"],tr:["trade.html"]},
+  {f:"hewanorra-airport-new.jpg",kb:50,cat:"misc",type:"float-right",alt:"Hewanorra International Airport terminal expansion, Saint Lucia",en:["immigration.html"],tr:["immigration.html"]},
+  {f:"hewanorra-airport.jpg",kb:44,cat:"misc",type:"inline",alt:"Hewanorra International Airport, Saint Lucia",en:["overview.html"],tr:["overview.html"]},
+  {f:"immigration-department-stlucia.jpg",kb:46,cat:"immigration",type:"float-right",alt:"Immigration Department of Saint Lucia office",en:["immigration.html"],tr:["immigration.html"]},
+  {f:"immigration-digital-nomad.jpg",kb:138,cat:"immigration",type:"section",alt:"Digital nomad working remotely from a Caribbean beach",en:["immigration.html"],tr:["immigration.html"]},
+  {f:"immigration-passport-control.jpg",kb:48,cat:"immigration",type:"section",alt:"Passport control at immigration",en:[],tr:[]},
+  {f:"immigration-residence-permit.jpg",kb:25,cat:"immigration",type:"float-right",alt:"Residence permit documents",en:[],tr:[]},
+  {f:"immigration-work-permit.jpg",kb:28,cat:"immigration",type:"section",alt:"Work permit and employment visa processing, Saint Lucia",en:["immigration.html"],tr:["immigration.html"]},
+  {f:"legal-castries-market-workers.jpg",kb:58,cat:"legal",type:"section",alt:"Workers and vendors at Castries Central Market, Saint Lucia",en:["legal.html"],tr:["legal.html"]},
+  {f:"legal-courthouse-caribbean.jpg",kb:210,cat:"legal",type:"section",alt:"First District Court, Peynier Street, Castries, Saint Lucia",en:["legal.html"],tr:["legal.html"]},
+  {f:"legal-eccb-office-castries.jpg",kb:23,cat:"legal",type:"float-right",alt:"Eastern Caribbean Central Bank agency office in Castries, Saint Lucia",en:["legal.html"],tr:["legal.html"]},
+  {f:"legal-employment-contract.jpg",kb:78,cat:"legal",type:"section",alt:"Employment contract signing",en:[],tr:[]},
+  {f:"legal-financial-regulation.jpg",kb:22,cat:"legal",type:"float-right",alt:"Financial regulation documents",en:[],tr:[]},
+  {f:"legal-property-caribbean.jpg",kb:78,cat:"legal",type:"float-right",alt:"Caribbean property and real estate",en:["faq.html","legal.html"],tr:["faq.html","legal.html"]},
+  {f:"legal-tax-accounting.jpg",kb:19,cat:"legal",type:"float-right",alt:"Inland Revenue Department tax documentation, Saint Lucia",en:["legal.html"],tr:["legal.html"]},
+  {f:"living-education-classroom.jpg",kb:124,cat:"living",type:"section",alt:"Classroom and education in Saint Lucia",en:["living.html"],tr:["living.html"]},
+  {f:"living-electricity-solar.jpg",kb:62,cat:"living",type:"float-right",alt:"Solar electricity infrastructure",en:[],tr:[]},
+  {f:"living-food.jpg",kb:72,cat:"living",type:"inline",alt:"Castries Market tropical fruits and produce",en:["living.html"],tr:["living.html"]},
+  {f:"living-housing.jpg",kb:40,cat:"living",type:"card",alt:"Saint Lucia villa",en:["index.html","living.html"],tr:["index.html","living.html"]},
+  {f:"living-lucelec-plant.jpg",kb:50,cat:"living",type:"float-right",alt:"LUCELEC power plant, Saint Lucia's electricity provider",en:["living.html"],tr:["living.html"]},
+  {f:"living-lucelec-solar-farm.jpg",kb:64,cat:"living",type:"float-right",alt:"LUCELEC solar farm, part of Saint Lucia's renewable energy expansion",en:["living.html"],tr:["living.html"]},
+  {f:"living-solar-panels-stlucia.png",kb:111,cat:"living",type:"float-right",alt:"Solar panels in Saint Lucia",en:[],tr:[]},
+  {f:"living-st-jude-hospital-new.jpg",kb:86,cat:"living",type:"section",alt:"St. Jude Hospital reconstruction",en:[],tr:[]},
+  {f:"living-telecom-tower.jpg",kb:16,cat:"living",type:"float-right",alt:"FLOW and Digicel telecommunications infrastructure in Saint Lucia",en:["living.html"],tr:["living.html"]},
+  {f:"living-transport-bus.jpg",kb:55,cat:"living",type:"section",alt:"Colourful minibus public transport in Saint Lucia",en:["living.html"],tr:["living.html"]},
+  {f:"living-victoria-hospital.jpg",kb:27,cat:"living",type:"float-right",alt:"Victoria Hospital in Castries, Saint Lucia",en:["living.html"],tr:["living.html"]},
+  {f:"marigot-bay-resort.jpg",kb:59,cat:"misc",type:"float-right",alt:"Marigot Bay resort, a popular expat area in Saint Lucia",en:["expats.html"],tr:["expats.html"]},
+  {f:"overview-ec-dollar-currency.jpg",kb:56,cat:"overview",type:"float-right",alt:"Eastern Caribbean dollar (EC$) banknote, the official currency of Saint Lucia",en:["overview.html","resources.html"],tr:["overview.html","resources.html"]},
+  {f:"overview-economy-gdp.jpg",kb:33,cat:"overview",type:"float-right",alt:"Economy GDP chart",en:[],tr:[]},
+  {f:"overview-hewanorra-new-terminal.jpg",kb:19,cat:"overview",type:"float-right",alt:"Hewanorra Airport new terminal",en:[],tr:[]},
+  {f:"overview-rodney-bay-aerial.jpg",kb:158,cat:"overview",type:"section",alt:"Aerial view of Rodney Bay, Saint Lucia",en:["overview.html"],tr:["overview.html"]},
+  {f:"overview-walcott-square.jpg",kb:87,cat:"overview",type:"float-right",alt:"Derek Walcott Square in Castries, Saint Lucia",en:["overview.html"],tr:["overview.html"]},
+  {f:"pitons-landscape.jpg",kb:191,cat:"misc",type:"section",alt:"The Pitons, Saint Lucia UNESCO World Heritage Site",en:["overview.html"],tr:["overview.html"]},
+  {f:"port-castries-cruise.jpg",kb:59,cat:"port",type:"section",alt:"Port Castries cruise terminal, Saint Lucia",en:["trade.html"],tr:["trade.html"]},
+  {f:"port-castries.jpg",kb:36,cat:"port",type:"inline",alt:"Port of Castries with cruise ships",en:["overview.html"],tr:["overview.html"]},
+  {f:"realestate-construction.jpg",kb:40,cat:"realestate",type:"float-right",alt:"Tropical building construction and development",en:["realestate.html"],tr:["realestate.html"]},
+  {f:"realestate-luxury-resort.jpg",kb:139,cat:"realestate",type:"section",alt:"Luxury Caribbean resort villa development",en:["realestate.html"],tr:["realestate.html"]},
+  {f:"realestate-property-financing.jpg",kb:37,cat:"realestate",type:"float-right",alt:"Property financing and mortgage options in Saint Lucia",en:["realestate.html"],tr:["realestate.html"]},
+  {f:"realestate-sugar-beach.jpg",kb:154,cat:"realestate",type:"section",alt:"Sugar Beach resort between the Pitons, Saint Lucia",en:["realestate.html"],tr:["realestate.html"]},
+  {f:"realestate-villa-pitons.jpg",kb:50,cat:"realestate",type:"float-right",alt:"Luxury villa with Pitons view in Saint Lucia",en:["realestate.html"],tr:["realestate.html"]},
+  {f:"resources-stlucia-tourism.jpg",kb:44,cat:"resources",type:"section",alt:"Saint Lucia Tourism Authority promotional material",en:["resources.html"],tr:["resources.html"]},
+  {f:"resources-tourism-travel.jpg",kb:56,cat:"resources",type:"section",alt:"Tourism and travel resources",en:[],tr:[]},
+  {f:"rodney-bay-marina.jpg",kb:43,cat:"misc",type:"float-right",alt:"Rodney Bay Marina, Saint Lucia",en:["expats.html"],tr:["expats.html"]},
+  {f:"sector-agriculture.jpg",kb:75,cat:"sector",type:"inline",alt:"Saint Lucia cocoa and chocolate production",en:["sectors.html"],tr:["sectors.html"]},
+  {f:"sector-banana-plantation.jpg",kb:57,cat:"sector",type:"float-right",alt:"Banana plantation in Saint Lucia",en:["sectors.html"],tr:["sectors.html"]},
+  {f:"sector-cocoa-farm.jpg",kb:61,cat:"sector",type:"float-right",alt:"Cocoa farm and chocolate production in Saint Lucia",en:["sectors.html"],tr:["sectors.html"]},
+  {f:"sector-energy.jpg",kb:62,cat:"sector",type:"inline",alt:"Solar panels in Caribbean tropical setting",en:["sectors.html"],tr:["sectors.html"]},
+  {f:"sector-fishing-anse-la-raye.jpg",kb:141,cat:"sector",type:"section",alt:"Fishing boats on the beach at Anse La Raye, Saint Lucia",en:["sectors.html"],tr:["sectors.html"]},
+  {f:"sector-maritime.jpg",kb:43,cat:"sector",type:"inline",alt:"Yachts at Rodney Bay Marina",en:[],tr:["sectors.html"]},
+  {f:"sector-pigeon-island-landmark.jpg",kb:20,cat:"sector",type:"inline",alt:"Pigeon Island National Landmark, Saint Lucia",en:[],tr:["sectors.html"]},
+  {f:"sector-sulphur-springs.jpg",kb:120,cat:"sector",type:"section",alt:"Sulphur Springs volcano, Soufriere, Saint Lucia",en:["sectors.html"],tr:["sectors.html"]},
+  {f:"sector-technology.jpg",kb:41,cat:"sector",type:"inline",alt:"BPO call center in the Caribbean",en:["sectors.html"],tr:["sectors.html"]},
+  {f:"soufriere-pitons-town.jpg",kb:76,cat:"misc",type:"section",alt:"Soufriere town with view of the Pitons, Saint Lucia",en:["overview.html"],tr:["overview.html"]},
+  {f:"startups-coworking.webp",kb:35,cat:"startups",type:"float-right",alt:"Coworking and innovation space in Saint Lucia",en:["startups.html"],tr:["startups.html"]},
+  {f:"startups-ecommerce.jpg",kb:54,cat:"startups",type:"section",alt:"E-commerce and digital shopping in the Eastern Caribbean",en:["startups.html"],tr:["startups.html"]},
+  {f:"startups-entrepreneurs.jpg",kb:163,cat:"startups",type:"section",alt:"Startup entrepreneurs meeting in the Caribbean",en:["startups.html"],tr:["startups.html"]},
+  {f:"startups-incubator.jpg",kb:40,cat:"startups",type:"float-right",alt:"BOOST business incubator programme, Saint Lucia",en:["startups.html"],tr:["startups.html"]},
+  {f:"startups-youth-entrepreneurship.jpg",kb:41,cat:"startups",type:"float-right",alt:"Youth Enterprise Agency (YEA) training programme, Saint Lucia",en:["startups.html"],tr:["startups.html"]},
+  {f:"trade-caricom-leaders.jpg",kb:52,cat:"trade",type:"section",alt:"CARICOM Heads of Government meeting, Caribbean regional cooperation",en:["trade.html"],tr:["trade.html"]},
+  {f:"trade-caricom.jpg",kb:144,cat:"trade",type:"section",alt:"CARICOM trade cooperation",en:[],tr:[]},
+  {f:"trade-castries-port-cargo.webp",kb:62,cat:"trade",type:"section",alt:"Port of Castries cargo terminal and container shipping, Saint Lucia",en:["trade.html"],tr:["trade.html"]},
+  {f:"trade-free-zone.jpg",kb:65,cat:"trade",type:"float-right",alt:"Free trade zone warehouse",en:[],tr:[]},
+  {f:"trade-oecs-headquarters.jpg",kb:30,cat:"trade",type:"float-right",alt:"OECS headquarters",en:[],tr:[]},
+  {f:"trade-shipping-port.jpg",kb:38,cat:"trade",type:"section",alt:"Shipping port containers",en:[],tr:[]},
+  {f:"trade-vieux-fort-aerial.jpg",kb:48,cat:"trade",type:"float-right",alt:"Aerial view of Vieux Fort industrial and free trade zone area, Saint Lucia",en:["trade.html"],tr:["trade.html"]}
 ];
 
-const IMAGES=[
-  {name:"Beausejour_Stadium_Cricket_St_Lucia.jpg",size:241310,pages:["events","tr/events"],alt:"Daren Sammy National Cricket Stadium, Gros Islet, Saint Lucia",type:"section"},
-  {name:"business-bpo-office.jpg",size:28954,pages:["business","tr/business"],alt:"Business process outsourcing office in Castries, Saint Lucia",type:"float"},
-  {name:"business-castries-district.jpg",size:94723,pages:["business","faq","tr/business","tr/faq"],alt:"Castries business district in Saint Lucia",type:"section"},
-  {name:"business-eccb-building.webp",size:46140,pages:["business","tr/business"],alt:"Eastern Caribbean Central Bank headquarters",type:"float"},
-  {name:"business-investment-meeting.jpg",size:41540,pages:["business","tr/business"],alt:"Business investment meeting in Saint Lucia",type:"section"},
-  {name:"business-penny-pinch-wallet.jpg",size:17802,pages:["business","tr/business"],alt:"Penny Pinch mobile wallet, a Saint Lucia fintech success story",type:"float"},
-  {name:"card-directory.jpg",size:211990,pages:["index","directory","tr/index","tr/directory"],alt:"Castries waterfront",type:"card"},
-  {name:"card-legal.jpg",size:37482,pages:["index","tr/index"],alt:"Legal documents and gavel",type:"card"},
-  {name:"card-map.jpg",size:83044,pages:["index","tr/index"],alt:"Saint Lucia map",type:"card"},
-  {name:"card-overview.jpg",size:140261,pages:["index","tr/index"],alt:"Saint Lucia coastline aerial view",type:"card"},
-  {name:"card-sectors.jpg",size:141829,pages:["index","tr/index"],alt:"Saint Lucia banana plantation",type:"card"},
-  {name:"card-trade.jpg",size:111282,pages:["index","tr/index"],alt:"Caribbean shipping port",type:"card"},
-  {name:"castries-central-market.jpg",size:49982,pages:["overview","trade","tr/overview","tr/trade"],alt:"Castries Central Market, a historic landmark in Saint Lucia",type:"float"},
-  {name:"cbi-passport.webp",size:30848,pages:["index","cbi","tr/index","tr/cbi"],alt:"Caribbean passport and travel documents",type:"card"},
-  {name:"cbi-realestate.jpg",size:45419,pages:["cbi","tr/cbi"],alt:"Caribbean luxury villa investment property",type:"float"},
-  {name:"cbi-sovereign-wealth.jpg",size:44475,pages:["cbi","tr/cbi"],alt:"Saint Lucia Sovereign Wealth Fund and national investment management",type:"float"},
-  {name:"cbi-stlucia-aerial-investment.jpg",size:42139,pages:["cbi","tr/cbi"],alt:"Aerial view of Saint Lucia coastline, a prime citizenship by investment destination",type:"float"},
-  {name:"cbi-stlucia-passport.webp",size:37742,pages:["cbi","tr/cbi"],alt:"Saint Lucia passport obtained through citizenship by investment",type:"float"},
-  {name:"checklist-business-planning.png",size:21903,pages:["checklist","tr/checklist"],alt:"Business planning and strategy for investing in Saint Lucia",type:"section"},
-  {name:"checklist-compliance.webp",size:24648,pages:["checklist","tr/checklist"],alt:"Business compliance and regulatory requirements in Saint Lucia",type:"float"},
-  {name:"checklist-entity-formation.jpg",size:27280,pages:["checklist","tr/checklist"],alt:"Company registration at the Registry of Companies, Saint Lucia",type:"float"},
-  {name:"event-carnival.jpg",size:169114,pages:["index","events","tr/index","tr/events"],alt:"Saint Lucia Carnival parade celebration",type:"section"},
-  {name:"events-carnival-stlucia.jpg",size:85342,pages:["events","tr/events"],alt:"Saint Lucia Carnival parade celebrations",type:"float"},
-  {name:"events-creole-food.jpg",size:40276,pages:["events","tr/events"],alt:"Saint Lucian Creole cuisine and cultural food",type:"float"},
-  {name:"events-gros-islet-party.jpg",size:205420,pages:["events","tr/events"],alt:"Gros Islet Friday night street party, Saint Lucia",type:"section"},
-  {name:"events-jazz-festival.jpg",size:152606,pages:["events","tr/events"],alt:"Jazz and music festival performance in the Caribbean",type:"section"},
-  {name:"events-jazz-stlucia.jpg",size:46549,pages:["events","tr/events"],alt:"Saint Lucia Jazz and Arts Festival performance",type:"float"},
-  {name:"events-julien-alfred.jpg",size:23777,pages:["events","tr/events"],alt:"Julien Alfred, Saint Lucia Olympic gold medallist sprinter",type:"float"},
-  {name:"events-sailing-caribbean.jpg",size:30716,pages:["events","tr/events"],alt:"Sailing and yachting in Caribbean waters",type:"float"},
-  {name:"expats-driving-stlucia-road.jpg",size:58296,pages:["expats","tr/expats"],alt:"Scenic mountain road driving in Saint Lucia",type:"section"},
-  {name:"expats-healthcare-okeu.jpg",size:82607,pages:["expats","tr/expats"],alt:"Owen King EU Hospital (OKEU), the main public hospital in Castries, Saint Lucia",type:"float"},
-  {name:"expats-rodney-bay-village.jpg",size:65092,pages:["expats","faq","resources","tr/expats","tr/faq","tr/resources"],alt:"Rodney Bay Village, the main entertainment and dining hub for expats in Saint Lucia",type:"float"},
-  {name:"government-house-stlucia.jpg",size:201966,pages:["government","tr/government"],alt:"Government House, official residence of the Governor-General of Saint Lucia",type:"section"},
-  {name:"hero-business.jpg",size:57858,pages:["index","business","startups","tr/index","tr/business","tr/startups"],alt:"Caribbean business meeting",type:"hero"},
-  {name:"hero-cbi.jpg",size:86245,pages:["index","cbi","realestate","tr/index","tr/cbi","tr/realestate"],alt:"Immigration / Real Estate hero",type:"hero"},
-  {name:"hero-checklist.jpg",size:25153,pages:["index","checklist","tr/index","tr/checklist"],alt:"Business planning checklist",type:"hero"},
-  {name:"hero-events.jpg",size:110449,pages:["events","tr/events"],alt:"Saint Lucia events hero",type:"hero"},
-  {name:"hero-faq.jpg",size:112875,pages:["index","faq","tr/index","tr/faq"],alt:"Castries Central Market",type:"hero"},
-  {name:"hero-legal.jpg",size:71938,pages:["immigration","legal","tr/immigration","tr/legal"],alt:"Legal / Immigration hero",type:"hero"},
-  {name:"hero-living.jpg",size:287613,pages:["index","expats","living","tr/index","tr/expats","tr/living"],alt:"Saint Lucia lifestyle",type:"hero"},
-  {name:"hero-overview.jpg",size:140171,pages:["overview","tr/overview"],alt:"Saint Lucia overview hero",type:"hero"},
-  {name:"hero-pitons.jpg",size:175522,pages:["index","tr/index"],alt:"The Pitons, Saint Lucia",type:"hero"},
-  {name:"hero-resources.webp",size:81948,pages:["index","resources","tr/index","tr/resources"],alt:"Reference resources and documents",type:"hero"},
-  {name:"hero-sectors.jpg",size:205405,pages:["sectors","tr/sectors"],alt:"Saint Lucia luxury resort beach",type:"hero"},
-  {name:"hero-trade.jpg",size:105698,pages:["trade","tr/trade"],alt:"Trade hero",type:"hero"},
-  {name:"hewanorra-airport-new.jpg",size:51136,pages:["immigration","tr/immigration"],alt:"Hewanorra International Airport terminal expansion, Saint Lucia",type:"float"},
-  {name:"hewanorra-airport.jpg",size:44999,pages:["overview","tr/overview"],alt:"Hewanorra International Airport, Saint Lucia",type:"float"},
-  {name:"immigration-department-stlucia.jpg",size:47608,pages:["immigration","tr/immigration"],alt:"Immigration Department of Saint Lucia office",type:"float"},
-  {name:"immigration-digital-nomad.jpg",size:141548,pages:["immigration","tr/immigration"],alt:"Digital nomad working remotely from a Caribbean beach",type:"section"},
-  {name:"immigration-work-permit.jpg",size:29000,pages:["immigration","tr/immigration"],alt:"Work permit and employment visa processing, Saint Lucia",type:"section"},
-  {name:"legal-castries-market-workers.jpg",size:59568,pages:["legal","tr/legal"],alt:"Workers and vendors at Castries Central Market, Saint Lucia",type:"section"},
-  {name:"legal-courthouse-caribbean.jpg",size:214606,pages:["legal","tr/legal"],alt:"First District Court, Peynier Street, Castries, Saint Lucia",type:"section"},
-  {name:"legal-eccb-office-castries.jpg",size:23552,pages:["legal","tr/legal"],alt:"Eastern Caribbean Central Bank agency office in Castries, Saint Lucia",type:"float"},
-  {name:"legal-property-caribbean.jpg",size:80344,pages:["legal","faq","tr/legal","tr/faq"],alt:"Caribbean property and land registry",type:"float"},
-  {name:"legal-tax-accounting.jpg",size:19218,pages:["legal","tr/legal"],alt:"Inland Revenue Department tax documentation, Saint Lucia",type:"float"},
-  {name:"living-education-classroom.jpg",size:127301,pages:["living","tr/living"],alt:"Classroom and education in Saint Lucia",type:"section"},
-  {name:"living-food.jpg",size:73424,pages:["living","tr/living"],alt:"Castries Market tropical fruits and produce",type:"float"},
-  {name:"living-housing.jpg",size:40583,pages:["index","living","tr/index","tr/living"],alt:"Saint Lucia villa rental home",type:"float"},
-  {name:"living-lucelec-plant.jpg",size:51242,pages:["living","tr/living"],alt:"LUCELEC power plant, Saint Lucia's electricity provider",type:"float"},
-  {name:"living-lucelec-solar-farm.jpg",size:65621,pages:["living","tr/living"],alt:"LUCELEC solar farm, part of Saint Lucia's renewable energy expansion",type:"float"},
-  {name:"living-telecom-tower.jpg",size:16896,pages:["living","tr/living"],alt:"FLOW and Digicel telecommunications infrastructure in Saint Lucia",type:"float"},
-  {name:"living-transport-bus.jpg",size:55960,pages:["living","tr/living"],alt:"Colourful minibus public transport in Saint Lucia",type:"section"},
-  {name:"living-victoria-hospital.jpg",size:27279,pages:["living","tr/living"],alt:"Victoria Hospital in Castries, Saint Lucia",type:"float"},
-  {name:"marigot-bay-resort.jpg",size:60733,pages:["expats","tr/expats"],alt:"Marigot Bay resort, a popular expat area in Saint Lucia",type:"float"},
-  {name:"overview-ec-dollar-currency.jpg",size:57493,pages:["overview","resources","tr/overview","tr/resources"],alt:"Eastern Caribbean dollar (EC$) banknote, the official currency of Saint Lucia",type:"section"},
-  {name:"overview-rodney-bay-aerial.jpg",size:161557,pages:["overview","tr/overview"],alt:"Aerial view of Rodney Bay, Saint Lucia",type:"section"},
-  {name:"overview-walcott-square.jpg",size:89121,pages:["overview","tr/overview"],alt:"Derek Walcott Square in Castries, Saint Lucia",type:"float"},
-  {name:"pitons-landscape.jpg",size:195381,pages:["overview","tr/overview"],alt:"The Pitons, Saint Lucia UNESCO World Heritage Site",type:"section"},
-  {name:"port-castries-cruise.jpg",size:60650,pages:["trade","tr/trade"],alt:"Port Castries cruise terminal, Saint Lucia",type:"section"},
-  {name:"port-castries.jpg",size:37108,pages:["overview","tr/overview"],alt:"Port of Castries with cruise ships",type:"float"},
-  {name:"realestate-construction.jpg",size:41260,pages:["realestate","tr/realestate"],alt:"Tropical building construction and development",type:"float"},
-  {name:"realestate-luxury-resort.jpg",size:142733,pages:["realestate","tr/realestate"],alt:"Luxury Caribbean resort villa development",type:"section"},
-  {name:"realestate-property-financing.jpg",size:37466,pages:["realestate","tr/realestate"],alt:"Property financing and mortgage options in Saint Lucia",type:"float"},
-  {name:"realestate-sugar-beach.jpg",size:157753,pages:["realestate","tr/realestate"],alt:"Sugar Beach resort between the Pitons, Saint Lucia",type:"section"},
-  {name:"realestate-villa-pitons.jpg",size:50936,pages:["realestate","tr/realestate"],alt:"Luxury villa with Pitons view in Saint Lucia",type:"float"},
-  {name:"resources-stlucia-tourism.jpg",size:45139,pages:["resources","tr/resources"],alt:"Saint Lucia Tourism Authority promotional material",type:"section"},
-  {name:"rodney-bay-marina.jpg",size:44468,pages:["expats","tr/expats"],alt:"Rodney Bay Marina, Saint Lucia",type:"float"},
-  {name:"sector-agriculture.jpg",size:76625,pages:["sectors","tr/sectors"],alt:"Saint Lucia cocoa and chocolate production",type:"float"},
-  {name:"sector-banana-plantation.jpg",size:58313,pages:["sectors","tr/sectors"],alt:"Banana plantation in Saint Lucia",type:"float"},
-  {name:"sector-cocoa-farm.jpg",size:62774,pages:["sectors","tr/sectors"],alt:"Cocoa farm and chocolate production in Saint Lucia",type:"float"},
-  {name:"sector-energy.jpg",size:63816,pages:["sectors","tr/sectors"],alt:"Solar panels in Caribbean tropical setting",type:"float"},
-  {name:"sector-fishing-anse-la-raye.jpg",size:144754,pages:["sectors","tr/sectors"],alt:"Fishing boats on the beach at Anse La Raye, Saint Lucia",type:"section"},
-  {name:"sector-maritime.jpg",size:44468,pages:["tr/sectors"],alt:"Yachts at Rodney Bay Marina",type:"float"},
-  {name:"sector-pigeon-island-landmark.jpg",size:20354,pages:["tr/sectors"],alt:"Pigeon Island National Landmark, Saint Lucia",type:"float"},
-  {name:"sector-technology.jpg",size:42063,pages:["sectors","tr/sectors"],alt:"BPO call center in the Caribbean",type:"float"},
-  {name:"soufriere-pitons-town.jpg",size:77823,pages:["overview","tr/overview"],alt:"Soufriere town with view of the Pitons, Saint Lucia",type:"section"},
-  {name:"startups-coworking.webp",size:35756,pages:["startups","tr/startups"],alt:"Coworking and innovation space in Saint Lucia",type:"float"},
-  {name:"startups-ecommerce.jpg",size:55706,pages:["startups","tr/startups"],alt:"E-commerce and digital shopping in the Eastern Caribbean",type:"section"},
-  {name:"startups-entrepreneurs.jpg",size:166800,pages:["startups","tr/startups"],alt:"Startup entrepreneurs meeting in the Caribbean",type:"section"},
-  {name:"startups-incubator.jpg",size:41333,pages:["startups","tr/startups"],alt:"BOOST business incubator programme, Saint Lucia",type:"float"},
-  {name:"startups-youth-entrepreneurship.jpg",size:42056,pages:["startups","tr/startups"],alt:"Youth Enterprise Agency (YEA) training programme, Saint Lucia",type:"float"},
-  {name:"trade-caricom-leaders.jpg",size:53460,pages:["trade","tr/trade"],alt:"CARICOM Heads of Government meeting, Caribbean regional cooperation",type:"section"},
-  {name:"trade-castries-port-cargo.webp",size:63108,pages:["trade","tr/trade"],alt:"Port of Castries cargo terminal and container shipping, Saint Lucia",type:"section"},
-  {name:"trade-vieux-fort-aerial.jpg",size:49084,pages:["trade","tr/trade"],alt:"Aerial view of Vieux Fort industrial and free trade zone area, Saint Lucia",type:"float"},
-  {name:"maps/map-administrative-districts.jpg",size:40450,pages:["overview","tr/overview"],alt:"Map of Saint Lucia's 10 administrative quarters and districts",type:"map"},
-  {name:"maps/map-cities-locator.jpg",size:53171,pages:[],alt:"Map of Saint Lucia cities and boundaries",type:"map"},
-  {name:"maps/map-detailed-topographic.jpg",size:46463,pages:[],alt:"Detailed topographic map of Saint Lucia",type:"map"},
-  {name:"maps/map-electoral-constituencies.png",size:53570,pages:["government","tr/government"],alt:"Map of Saint Lucia's 17 electoral constituencies",type:"map"},
-  {name:"maps/map-location-overview.jpg",size:51046,pages:["overview","tr/overview"],alt:"Map of Saint Lucia showing major cities, towns and geographical features",type:"map"},
-  {name:"maps/map-marine-protected-areas.jpg",size:35506,pages:["sectors","tr/sectors"],alt:"Soufriere Marine Management Area (SMMA) zonation map, Saint Lucia",type:"map"},
-  {name:"maps/map-parishes-quarters.png",size:138349,pages:[],alt:"Map of Saint Lucia parishes and quarters",type:"map"},
-  {name:"maps/map-topographic-elevation.png",size:290149,pages:["living","tr/living"],alt:"Topographic elevation map of Saint Lucia showing mountainous terrain and coastal areas",type:"map"}
-];
+// --- Rendering ---
+const grid = document.getElementById('grid');
+const empty = document.getElementById('empty');
+const statsEl = document.getElementById('stats');
+const searchEl = document.getElementById('search');
+const filterPage = document.getElementById('filterPage');
+const filterCat = document.getElementById('filterCat');
+const filterType = document.getElementById('filterType');
+const sortBy = document.getElementById('sortBy');
+const btnUnused = document.getElementById('btnUnused');
+const lightbox = document.getElementById('lightbox');
+let unusedOnly = false;
 
-function fmtSize(b){if(b<1024)return b+' B';if(b<1048576)return(b/1024).toFixed(0)+' KB';return(b/1048576).toFixed(1)+' MB'}
-function getExt(n){return n.split('.').pop().toLowerCase()}
+// Populate filter options
+const pages = new Set();
+const cats = new Set();
+const types = new Set();
+IMAGE_DATA.forEach(img => {
+  img.en.forEach(p => pages.add(p));
+  img.tr.forEach(p => pages.add('tr/' + p));
+  cats.add(img.cat);
+  types.add(img.type);
+});
+[...pages].sort().forEach(p => {
+  const o = document.createElement('option');
+  o.value = p; o.textContent = p;
+  filterPage.appendChild(o);
+});
+[...cats].sort().forEach(c => {
+  const o = document.createElement('option');
+  o.value = c; o.textContent = c;
+  filterCat.appendChild(o);
+});
+[...types].sort().forEach(t => {
+  const o = document.createElement('option');
+  o.value = t; o.textContent = t;
+  filterType.appendChild(o);
+});
 
-// ── Tabs ──
-let activePageId=null;
-function buildTabs(){
-  const c=document.getElementById('tabs');
-  c.innerHTML=PAGES.map(p=>{
-    const cnt=IMAGES.filter(i=>i.pages.includes(p.id)).length;
-    return`<div class="tab" data-id="${p.id}" onclick="selectTab('${p.id}')">${p.title}<span class="cnt">${cnt}</span></div>`;
-  }).join('');
+// Stats
+function updateStats(filtered) {
+  const total = IMAGE_DATA.length;
+  const unused = IMAGE_DATA.filter(i => i.en.length === 0 && i.tr.length === 0).length;
+  const totalKB = IMAGE_DATA.reduce((s, i) => s + i.kb, 0);
+  const filteredKB = filtered.reduce((s, i) => s + i.kb, 0);
+  statsEl.innerHTML = `
+    <div class="stat"><b>${total}</b>Total Images</div>
+    <div class="stat"><b>${(totalKB/1024).toFixed(1)} MB</b>Total Size</div>
+    <div class="stat"><b>${total - unused}</b>In Use</div>
+    <div class="stat"><b style="color:#f85149">${unused}</b>Unused</div>
+    <div class="stat"><b>${filtered.length}</b>Showing</div>
+    <div class="stat"><b>${(filteredKB/1024).toFixed(1)} MB</b>Filtered Size</div>
+  `;
 }
 
-function selectTab(id){
-  if(activePageId===id)return;
-  activePageId=id;
-  // Update tab UI
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.id===id));
-  // Load preview
-  loadPreview(id);
-  // Load editor
-  loadEditor(id);
-}
+function render() {
+  const q = searchEl.value.toLowerCase();
+  const fp = filterPage.value;
+  const fc = filterCat.value;
+  const ft = filterType.value;
+  const sort = sortBy.value;
 
-// ── Preview ──
-function loadPreview(id){
-  const page=PAGES.find(p=>p.id===id);if(!page)return;
-  const frame=document.getElementById('previewFrame');
-  const loading=document.getElementById('previewLoading');
-  const dot=document.getElementById('previewDot');
-  loading.classList.remove('hidden');
-  loading.textContent='Loading '+page.title+'...';
-  dot.className='dot orange';
-  document.getElementById('previewUrl').textContent=page.file;
-  frame.onload=()=>{
-    loading.classList.add('hidden');dot.className='dot green';
-    // Watch for navigation inside iframe
-    try{
-      const iframeDoc=frame.contentDocument||frame.contentWindow.document;
-      iframeDoc.addEventListener('click',e=>{
-        const link=e.target.closest('a[href]');
-        if(!link)return;
-        const href=link.getAttribute('href');
-        if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto'))return;
-        // Match to a page tab
-        const clean=href.replace(/^\.\.\//,'').replace(/^\//,'');
-        const match=PAGES.find(p=>p.file===clean||p.file===clean.replace('index.html',''));
-        if(match){
-          e.preventDefault();
-          selectTab(match.id);
-        }
-      });
-    }catch(ex){}
-  };
-  frame.src=page.file;
-}
+  let data = IMAGE_DATA.filter(img => {
+    if (unusedOnly && (img.en.length > 0 || img.tr.length > 0)) return false;
+    if (q && !img.f.toLowerCase().includes(q) && !img.alt.toLowerCase().includes(q) &&
+        !img.en.some(p => p.includes(q)) && !img.tr.some(p => p.includes(q))) return false;
+    if (fc && img.cat !== fc) return false;
+    if (ft && img.type !== ft) return false;
+    if (fp) {
+      const isTr = fp.startsWith('tr/');
+      const page = isTr ? fp.replace('tr/', '') : fp;
+      if (isTr ? !img.tr.includes(page) : !img.en.includes(page)) return false;
+    }
+    return true;
+  });
 
-function openCurrentPage(){
-  if(!activePageId)return;
-  const page=PAGES.find(p=>p.id===activePageId);
-  if(page)window.open(page.file,'_blank');
-}
+  // Sort
+  if (sort === 'size-desc') data.sort((a, b) => b.kb - a.kb);
+  else if (sort === 'size-asc') data.sort((a, b) => a.kb - b.kb);
+  else if (sort === 'refs-desc') data.sort((a, b) => (b.en.length + b.tr.length) - (a.en.length + a.tr.length));
+  else if (sort === 'refs-asc') data.sort((a, b) => (a.en.length + a.tr.length) - (b.en.length + b.tr.length));
+  else data.sort((a, b) => a.f.localeCompare(b.f));
 
-// ── View toggle ──
-let currentView='mobile';
-function setView(mode){
-  currentView=mode;
-  const wrap=document.getElementById('previewWrap');
-  wrap.className='preview-wrap '+mode;
-  document.getElementById('btnMobile').classList.toggle('active',mode==='mobile');
-  document.getElementById('btnDesktop').classList.toggle('active',mode==='desktop');
-}
+  updateStats(data);
 
-// ── Editor ──
-let editorPanel='images';
-let pageOutline=[];
-let pageInfo={};
-let pageImageOrder=[];
-
-function switchEditorTab(el){
-  document.querySelectorAll('.editor-tab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  editorPanel=el.dataset.panel;
-  renderEditor();
-}
-
-function loadEditor(id){
-  const page=PAGES.find(p=>p.id===id);if(!page)return;
-  document.getElementById('editorTitle').textContent=page.title;
-  document.getElementById('openPageBtn').style.display='inline-flex';
-  // Parse the page for outline and info
-  fetchPageData(page.file);
-  renderEditor();
-}
-
-async function fetchPageData(file){
-  try{
-    const resp=await fetch(file);
-    const html=await resp.text();
-    // Parse headings
-    const parser=new DOMParser();
-    const doc=parser.parseFromString(html,'text/html');
-    pageOutline=[];
-    doc.querySelectorAll('h1,h2,h3,h4').forEach(h=>{
-      const lvl=parseInt(h.tagName[1]);
-      const text=h.textContent.trim();
-      if(text&&text.length<120)pageOutline.push({level:lvl,text});
-    });
-    // Extract image order from page DOM
-    pageImageOrder=[];
-    doc.querySelectorAll('img[src*="assets/images/"]').forEach(img=>{
-      const src=img.getAttribute('src')||'';
-      const match=src.match(/assets\/images\/(.+)$/);
-      if(match&&!pageImageOrder.includes(match[1]))pageImageOrder.push(match[1]);
-    });
-    // Page info
-    const text=doc.body?doc.body.textContent:'';
-    const words=text.trim().split(/\s+/).filter(w=>w).length;
-    const imgs=doc.querySelectorAll('img').length;
-    const links=doc.querySelectorAll('a[href]').length;
-    const sections=doc.querySelectorAll('section,.content-section,.info-section').length||doc.querySelectorAll('h2').length;
-    const bytes=new Blob([html]).size;
-    pageInfo={words,imgs,links,sections,bytes,headings:pageOutline.length};
-    renderEditor();
-  }catch(e){pageOutline=[];pageInfo={}}
-}
-
-function renderEditor(){
-  const body=document.getElementById('editorBody');
-  if(!activePageId){body.innerHTML='<div class="empty-state"><span class="emoji">&#128196;</span><p>Select a page to review</p></div>';return}
-  if(editorPanel==='images')renderImages(body);
-  else if(editorPanel==='outline')renderOutline(body);
-  else if(editorPanel==='info')renderInfo(body);
-}
-
-function renderImages(body){
-  const imgs=IMAGES.filter(i=>i.pages.includes(activePageId));
-  if(imgs.length===0){body.innerHTML='<div class="empty-state"><span class="emoji">&#128247;</span><p>No images on this page</p></div>';return}
-  // Sort by appearance order in the page DOM
-  if(pageImageOrder.length){
-    imgs.sort((a,b)=>{const ai=pageImageOrder.indexOf(a.name),bi=pageImageOrder.indexOf(b.name);return(ai===-1?999:ai)-(bi===-1?999:bi)});
+  if (data.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
   }
-  const totalSize=imgs.reduce((s,i)=>s+i.size,0);
-  body.innerHTML=`<div style="padding:10px 16px;font-size:11px;color:var(--muted);border-bottom:1px solid var(--border)">${imgs.length} images &middot; ${fmtSize(totalSize)} total</div>`+imgs.map(i=>{
-    const src='assets/images/'+i.name;
-    const otherPages=i.pages.filter(p=>p!==activePageId&&!p.startsWith('tr/')).map(p=>{const pg=PAGES.find(x=>x.id===p);return pg?pg.title:p});
-    const trPages=i.pages.filter(p=>p.startsWith('tr/')).length;
-    return`<div class="img-item" onclick="scrollToImage('${i.name}')" data-name="${i.name}">
-      <img class="img-thumb" src="${src}" alt="" loading="lazy">
-      <div class="img-info">
-        <div class="name">${i.name}</div>
-        <div class="alt">${i.alt}</div>
-        <div class="tags">
-          <span class="img-tag">${i.type}</span>
-          <span class="img-tag">${getExt(i.name).toUpperCase()}</span>
-          <span class="img-tag">${fmtSize(i.size)}</span>
-          ${trPages?`<span class="img-tag">+${trPages} TR</span>`:''}
-          ${otherPages.length?`<span class="img-tag">+${otherPages.join(', ')}</span>`:''}
+  empty.style.display = 'none';
+
+  grid.innerHTML = data.map(img => {
+    const isUnused = img.en.length === 0 && img.tr.length === 0;
+    const allPages = [
+      ...img.en.map(p => `<a href="${p}" target="_blank">${p}</a>`),
+      ...img.tr.map(p => `<a href="tr/${p}" target="_blank" class="tr">tr/${p}</a>`)
+    ].join('');
+    return `
+      <div class="card${isUnused ? ' unused' : ''}">
+        <img class="card-img" src="assets/images/${img.f}" alt="${img.alt}" loading="lazy"
+             onclick="openLightbox('assets/images/${img.f}','${img.f} (${img.kb}KB)')">
+        <div class="card-body">
+          <div class="card-file">${img.f}<span class="badge-unused">UNUSED</span></div>
+          <div class="card-meta">
+            <span>${img.kb} KB</span>
+            <span>${img.cat}</span>
+            <span>${img.type}</span>
+            <span>${img.en.length + img.tr.length} refs</span>
+          </div>
+          ${img.alt ? `<div class="card-alt">${img.alt}</div>` : ''}
+          ${allPages ? `<div class="section-label">Pages</div><div class="card-pages">${allPages}</div>` : ''}
         </div>
       </div>
-      <div class="img-actions-row">
-        <button class="img-btn replace-btn" onclick="event.stopPropagation();showReplace('${i.name}')" title="Replace">&#8635;</button>
-        <button class="img-btn" onclick="event.stopPropagation();openLightbox('${src}')" title="View full">&#128269;</button>
-      </div>
-    </div>`;
+    `;
   }).join('');
 }
 
-function renderOutline(body){
-  if(!pageOutline.length){body.innerHTML='<div class="empty-state"><span class="emoji">&#128221;</span><p>Loading outline...</p></div>';return}
-  body.innerHTML=pageOutline.map((h,i)=>{
-    const indent=(h.level-1)*16;
-    return`<div class="outline-item" style="padding-left:${16+indent}px" onclick="scrollToHeading(${i})">
-      <span class="level">H${h.level}</span>
-      <span class="heading-text">${escHtml(h.text)}</span>
-    </div>`;
-  }).join('');
+// Lightbox
+function openLightbox(src, info) {
+  lightbox.querySelector('img').src = src;
+  lightbox.querySelector('.lb-info').textContent = info;
+  lightbox.classList.add('open');
 }
+lightbox.onclick = () => lightbox.classList.remove('open');
+document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
 
-function renderInfo(body){
-  if(!pageInfo.words){body.innerHTML='<div class="empty-state"><span class="emoji">&#9881;</span><p>Loading info...</p></div>';return}
-  const p=pageInfo;
-  body.innerHTML=`<div class="page-info">
-    <div class="stat-grid">
-      <div class="stat"><div class="label">Words</div><div class="value">${p.words.toLocaleString()}</div></div>
-      <div class="stat"><div class="label">File Size</div><div class="value">${fmtSize(p.bytes)}</div></div>
-      <div class="stat"><div class="label">Images</div><div class="value">${p.imgs}</div></div>
-      <div class="stat"><div class="label">Links</div><div class="value">${p.links}</div></div>
-      <div class="stat"><div class="label">Sections</div><div class="value">${p.sections||p.headings}</div></div>
-      <div class="stat"><div class="label">Headings</div><div class="value">${p.headings}</div></div>
-    </div>
-  </div>`;
-}
+// Events
+searchEl.oninput = render;
+filterPage.onchange = render;
+filterCat.onchange = render;
+filterType.onchange = render;
+sortBy.onchange = render;
+btnUnused.onclick = () => {
+  unusedOnly = !unusedOnly;
+  btnUnused.classList.toggle('active', unusedOnly);
+  render();
+};
 
-function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-
-// ── Scroll to image in preview iframe ──
-function scrollToImage(name){
-  // Highlight in editor
-  document.querySelectorAll('.img-item').forEach(el=>el.classList.toggle('highlighted',el.dataset.name===name));
-  // Scroll in iframe
-  try{
-    const frame=document.getElementById('previewFrame');
-    const doc=frame.contentDocument||frame.contentWindow.document;
-    const imgs=doc.querySelectorAll('img');
-    for(const img of imgs){
-      if(img.src.includes(name.replace('maps/','/maps/'))||img.src.includes(name)){
-        img.scrollIntoView({behavior:'smooth',block:'center'});
-        img.style.outline='3px solid #0071e3';
-        img.style.outlineOffset='3px';
-        setTimeout(()=>{img.style.outline='';img.style.outlineOffset=''},2500);
-        return;
-      }
-    }
-  }catch(e){}
-}
-
-function scrollToHeading(idx){
-  try{
-    const frame=document.getElementById('previewFrame');
-    const doc=frame.contentDocument||frame.contentWindow.document;
-    const headings=doc.querySelectorAll('h1,h2,h3,h4');
-    let count=0;
-    for(const h of headings){
-      const text=h.textContent.trim();
-      if(text&&text.length<120){
-        if(count===idx){
-          h.scrollIntoView({behavior:'smooth',block:'start'});
-          h.style.background='rgba(0,113,227,.15)';
-          setTimeout(()=>{h.style.background=''},2000);
-          return;
-        }
-        count++;
-      }
-    }
-  }catch(e){}
-}
-
-// ── Lightbox ──
-function openLightbox(src){document.getElementById('lbImg').src=src;document.getElementById('lightbox').classList.add('active')}
-
-// ── Replace Modal ──
-let curTarget=null,newFile=null,newDataUrl=null;
-
-function showReplace(name){
-  const img=IMAGES.find(i=>i.name===name);if(!img)return;
-  curTarget=img;newFile=null;newDataUrl=null;
-  document.getElementById('replaceTitle').textContent='Replace: '+img.name.split('/').pop();
-  document.getElementById('repCurrent').src='assets/images/'+img.name;
-  document.getElementById('repNew').style.display='none';
-  document.getElementById('repNewPh').style.display='flex';
-  document.getElementById('btnDl').disabled=true;
-  document.getElementById('btnCommit').disabled=true;
-  document.getElementById('optAlt').value='';
-  document.getElementById('optAlt').placeholder=img.alt;
-  document.getElementById('optW').value=img.type==='float'?600:img.type==='map'?800:1200;
-  document.getElementById('optFmt').value='auto';
-  hideStatus();
-  document.getElementById('replaceModal').classList.add('active');
-}
-function closeReplace(){document.getElementById('replaceModal').classList.remove('active')}
-
-// Drop zone
-const dz=document.getElementById('dropzone'),fi=document.getElementById('fileIn');
-['dragenter','dragover'].forEach(e=>dz.addEventListener(e,ev=>{ev.preventDefault();dz.classList.add('over')}));
-['dragleave','drop'].forEach(e=>dz.addEventListener(e,ev=>{ev.preventDefault();dz.classList.remove('over')}));
-dz.addEventListener('drop',e=>{if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0])});
-fi.addEventListener('change',e=>{if(e.target.files[0])handleFile(e.target.files[0]);e.target.value=''});
-
-function handleFile(file){
-  if(!file.type.match(/^image\/(jpeg|png|webp)$/)){setStatus('err','Only JPG, PNG, WebP.');return}
-  if(file.size>5*1024*1024){setStatus('err','Max 5 MB.');return}
-  newFile=file;
-  const reader=new FileReader();
-  reader.onload=e=>{
-    newDataUrl=e.target.result;
-    document.getElementById('repNew').src=newDataUrl;
-    document.getElementById('repNew').style.display='block';
-    document.getElementById('repNewPh').style.display='none';
-    document.getElementById('btnDl').disabled=false;
-    if(getToken())document.getElementById('btnCommit').disabled=false;
-    setStatus('info',`${file.name} (${fmtSize(file.size)})`);
-  };
-  reader.readAsDataURL(file);
-}
-
-function setStatus(t,m){const el=document.getElementById('repStatus');el.className='status-msg '+t;el.textContent=m;el.style.display='block'}
-function hideStatus(){const el=document.getElementById('repStatus');el.style.display='none'}
-
-// ── Process ──
-function processImg(mode){
-  if(!newFile||!curTarget)return;
-  const maxW=parseInt(document.getElementById('optW').value)||1200;
-  const qual=(parseInt(document.getElementById('optQ').value)||80)/100;
-  const fmtSel=document.getElementById('optFmt').value;
-  setStatus('info','Processing...');
-  const img=new Image();
-  img.onload=()=>{
-    const canvas=document.createElement('canvas');
-    let w=img.width,h=img.height;
-    if(w>maxW){h=Math.round(h*(maxW/w));w=maxW}
-    canvas.width=w;canvas.height=h;
-    canvas.getContext('2d').drawImage(img,0,0,w,h);
-    let mime,ext;
-    if(fmtSel==='auto'){ext=getExt(curTarget.name);mime=ext==='png'?'image/png':ext==='webp'?'image/webp':'image/jpeg'}
-    else{mime='image/'+fmtSel;ext=fmtSel==='jpeg'?'jpg':fmtSel}
-    canvas.toBlob(blob=>{
-      if(!blob){setStatus('err','Processing failed.');return}
-      if(mode==='download')downloadBlob(blob,ext,w,h);
-      else commitToGithub(blob,w,h);
-    },mime,qual);
-  };
-  img.src=newDataUrl;
-}
-
-function downloadBlob(blob,ext,w,h){
-  const base=curTarget.name.split('/').pop().replace(/\.[^.]+$/,'');
-  const out=base+'.'+ext;
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');a.href=url;a.download=out;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
-  setStatus('ok',`Downloaded ${out} (${fmtSize(blob.size)}, ${w}x${h})`);
-}
-
-async function commitToGithub(blob,w,h){
-  const token=getToken();
-  if(!token){setStatus('err','No GitHub token. Open settings.');return}
-  setStatus('info','Committing...');
-  const path='assets/images/'+curTarget.name;
-  const apiUrl=`https://api.github.com/repos/${REPO}/contents/${path}`;
-  const headers={'Authorization':'token '+token,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'};
-  try{
-    const r1=await fetch(apiUrl+'?ref='+BRANCH,{headers});
-    if(!r1.ok)throw new Error('Get file: '+r1.status);
-    const info=await r1.json();
-    const buf=await blob.arrayBuffer();
-    const bytes=new Uint8Array(buf);
-    let bin='';for(let i=0;i<bytes.length;i++)bin+=String.fromCharCode(bytes[i]);
-    const b64=btoa(bin);
-    const msg=`Replace ${curTarget.name} (${fmtSize(blob.size)}, ${w}x${h})`;
-    const r2=await fetch(apiUrl,{method:'PUT',headers,body:JSON.stringify({message:msg,content:b64,sha:info.sha,branch:BRANCH})});
-    if(!r2.ok){const e=await r2.json();throw new Error(e.message||'Commit failed')}
-    const res=await r2.json();
-    setStatus('ok',`Committed! SHA: ${res.content.sha.substring(0,7)}. EN+TR updated.`);
-    // Refresh in editor list
-    document.querySelectorAll(`.img-thumb`).forEach(el=>{if(el.src.includes(curTarget.name))el.src='assets/images/'+curTarget.name+'?t='+Date.now()});
-    // Refresh in iframe
-    try{
-      const frame=document.getElementById('previewFrame');
-      const doc=frame.contentDocument||frame.contentWindow.document;
-      doc.querySelectorAll('img').forEach(el=>{if(el.src.includes(curTarget.name)){const base=el.src.split('?')[0];el.src=base+'?t='+Date.now()}});
-    }catch(e){}
-  }catch(err){setStatus('err','GitHub: '+err.message)}
-}
-
-// ── Header stats ──
-function updateStats(){
-  const total=IMAGES.reduce((s,i)=>s+i.size,0);
-  const unused=IMAGES.filter(i=>i.pages.length===0).length;
-  document.getElementById('hdrStats').textContent=`${IMAGES.length} images \u00B7 ${fmtSize(total)} \u00B7 ${PAGES.length} pages${unused?' \u00B7 '+unused+' unused':''}`;
-}
-
-// ── Keyboard ──
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){
-    document.getElementById('lightbox').classList.remove('active');
-    closeReplace();
-    document.getElementById('settingsPanel').classList.remove('open');
-    document.getElementById('settingsBtn').classList.remove('active');
-  }
-});
-document.addEventListener('click',e=>{
-  const sp=document.getElementById('settingsPanel'),sb=document.getElementById('settingsBtn');
-  if(sp.classList.contains('open')&&!sp.contains(e.target)&&!sb.contains(e.target)){sp.classList.remove('open');sb.classList.remove('active')}
-});
-
-// ── Init ──
-if(!checkAuth())document.getElementById('loginEmail').focus();
-updateStats();
+render();
 </script>
 </body>
 </html>
