@@ -1584,17 +1584,31 @@ body.scroll-locked {
 /* Float images for inline content */
 .img-float-right {
   float: right;
-  max-width: 280px;
+  max-width: 260px;
   margin: 0 0 12px 20px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 .img-float-left {
   float: left;
-  max-width: 280px;
+  max-width: 260px;
   margin: 0 20px 12px 0;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+}
+/* Clear floats before block elements inside accordion bodies */
+.section-accordion-body-inner > .card,
+.section-accordion-body-inner > .table-wrapper,
+.section-accordion-body-inner > .info-box,
+.section-accordion-body-inner > .card-grid,
+.section-accordion-body-inner > .grid-2col {
+  clear: both;
+}
+/* Clearfix for accordion body */
+.section-accordion-body-inner::after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
 /* Card thumbnail */
