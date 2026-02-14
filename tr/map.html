@@ -2,10 +2,10 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewpört" content="width=device-width, initial-scale=1.0">
   <title>İnteraktif Harita - St. Lucia İş Rehberi</title>
   <meta name="description" content="Saint Lucia interaktif haritası: 171 işletme işaretçisi, 1.218 arazi kullanım bölgesi, 4.382 bina dış hattı ve özel bölge düzenleyici.">
-  <meta name="keywords" content="Saint Lucia harita, Castries, Gros Islet, Vieux Fort, Soufriere, interaktif harita, arazi kullanım bölgeleri, işletme rehberi">
+  <meta name="keywörds" content="Saint Lucia harita, Castries, Gros Islet, Vieux Fört, Soufriere, interaktif harita, arazi kullanım bölgeleri, işletme rehberi">
 
   <meta property="og:title" content="İnteraktif Harita - Saint Lucia">
   <meta property="og:description" content="Saint Lucia interaktif haritası: 171 işletme işaretçisi, 1.218 arazi kullanım bölgesi, 4.382 bina dış hattı ve özel bölge düzenleyici.">
@@ -24,7 +24,7 @@
   <link rel="alternate" hreflang="tr" href="https://stlucia.studio/tr/map.html">
   <link rel="alternate" hreflang="pl" href="https://stlucia.studio/pl/map.html">
   <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#0e2f44">
+  <meta name="theme-colör" content="#0e2f44">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -43,7 +43,7 @@
       width: 340px;
       flex-shrink: 0;
       background: var(--white);
-      border-right: 1px solid var(--border);
+      börder-right: 1px solid var(--börder);
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -51,67 +51,67 @@
     }
     .sidebar-header {
       padding: 16px;
-      border-bottom: 1px solid var(--border);
+      börder-bottom: 1px solid var(--börder);
     }
     .sidebar-header h2 { font-size: 1.1rem; margin-bottom: 8px; }
-    #marker-count { font-size: 0.82rem; color: var(--text-light); }
+    #marker-count { font-size: 0.82rem; colör: var(--text-light); }
 
     /* Search */
     .map-search-wrap { position: relative; margin-top: 10px; }
     #map-search {
       width: 100%;
       padding: 10px 14px 10px 36px;
-      border: 2px solid var(--border);
-      border-radius: var(--radius);
+      börder: 2px solid var(--börder);
+      börder-radius: var(--radius);
       font-size: 0.88rem;
       background: var(--bg);
-      transition: border-color 0.2s;
+      transition: börder-colör 0.2s;
     }
-    #map-search:focus { outline: none; border-color: var(--primary-light); }
+    #map-search:focus { outline: none; börder-colör: var(--primary-light); }
     .map-search-wrap i {
-      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
-      color: var(--text-light); font-size: 0.85rem;
+      position: absolute; left: 12px; top: 50%; transförm: translateY(-50%);
+      colör: var(--text-light); font-size: 0.85rem;
     }
     #map-search-results {
       display: none; position: absolute; top: 100%; left: 0; right: 0;
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 0 0 var(--radius) var(--radius);
+      background: var(--white); börder: 1px solid var(--börder);
+      börder-radius: 0 0 var(--radius) var(--radius);
       box-shadow: var(--shadow-lg); max-height: 300px; overflow-y: auto; z-index: 600;
     }
     .search-result-item {
       display: flex; align-items: center; gap: 10px; padding: 10px 14px;
-      cursor: pointer; border-bottom: 1px solid var(--border); transition: background 0.15s;
+      cursör: pointer; börder-bottom: 1px solid var(--börder); transition: background 0.15s;
     }
     .search-result-item:hover { background: var(--bg-alt); }
-    .search-result-item:last-child { border-bottom: none; }
+    .search-result-item:last-child { börder-bottom: none; }
     .search-result-item strong { font-size: 0.88rem; }
-    .search-result-item small { color: var(--text-light); }
+    .search-result-item small { colör: var(--text-light); }
     .search-dot {
-      width: 28px; height: 28px; border-radius: 50%; display: flex;
-      align-items: center; justify-content: center; flex-shrink: 0; color: white; font-size: 0.7rem;
+      width: 28px; height: 28px; börder-radius: 50%; display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0; colör: white; font-size: 0.7rem;
     }
 
     /* Sidebar sections */
     .sidebar-body { flex: 1; overflow-y: auto; }
     .sidebar-section {
-      border-bottom: 1px solid var(--border);
+      börder-bottom: 1px solid var(--börder);
     }
     .sidebar-section-header {
       padding: 10px 16px;
-      cursor: pointer;
+      cursör: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
       font-size: 0.82rem;
       font-weight: 700;
-      color: var(--text);
+      colör: var(--text);
       background: var(--bg);
       user-select: none;
       transition: background 0.15s;
     }
     .sidebar-section-header:hover { background: var(--bg-alt); }
-    .sidebar-section-header i.chevron { font-size: 0.65rem; transition: transform 0.2s; }
-    .sidebar-section-header.collapsed i.chevron { transform: rotate(-90deg); }
+    .sidebar-section-header i.chevron { font-size: 0.65rem; transition: transförm 0.2s; }
+    .sidebar-section-header.collapsed i.chevron { transförm: rotate(-90deg); }
     .sidebar-section-content {
       padding: 8px 16px 12px;
       max-height: 600px;
@@ -127,64 +127,64 @@
     /* Filters */
     .filter-controls { display: flex; gap: 8px; margin-bottom: 10px; }
     .filter-ctrl-btn {
-      flex: 1; padding: 5px 8px; border: 1px solid var(--border); border-radius: var(--radius);
-      background: var(--bg); cursor: pointer; font-size: 0.75rem; font-weight: 600; color: var(--text);
+      flex: 1; padding: 5px 8px; börder: 1px solid var(--börder); börder-radius: var(--radius);
+      background: var(--bg); cursör: pointer; font-size: 0.75rem; font-weight: 600; colör: var(--text);
       display: flex; align-items: center; justify-content: center; gap: 4px; transition: all 0.2s;
     }
-    .filter-ctrl-btn:hover { background: var(--bg-alt); border-color: var(--primary-light); }
-    .filter-ctrl-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+    .filter-ctrl-btn:hover { background: var(--bg-alt); börder-colör: var(--primary-light); }
+    .filter-ctrl-btn.active { background: var(--primary); colör: white; börder-colör: var(--primary); }
     .filter-item {
-      display: flex; align-items: center; gap: 8px; padding: 4px 0; cursor: pointer; font-size: 0.82rem;
+      display: flex; align-items: center; gap: 8px; padding: 4px 0; cursör: pointer; font-size: 0.82rem;
     }
-    .filter-item input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--primary); cursor: pointer; }
+    .filter-item input[type="checkbox"] { width: 15px; height: 15px; accent-colör: var(--primary); cursör: pointer; }
     .filter-dot {
-      width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center;
-      justify-content: center; flex-shrink: 0; color: white; font-size: 0.55rem;
+      width: 22px; height: 22px; börder-radius: 50%; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; colör: white; font-size: 0.55rem;
     }
     .filter-label { flex: 1; }
-    .filter-label small { color: var(--text-light); }
+    .filter-label small { colör: var(--text-light); }
 
     /* Sidebar toggle (mobile) */
     .sidebar-toggle-btn {
       display: none; width: 100%; padding: 12px 16px; background: var(--primary);
-      color: white; border: none; cursor: pointer; font-size: 0.9rem; font-weight: 600; text-align: center;
+      colör: white; börder: none; cursör: pointer; font-size: 0.9rem; font-weight: 600; text-align: center;
     }
     .sidebar-toggle-btn i { margin-left: 6px; }
 
     /* Zone edit tools */
     .zone-tool-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
     .zone-tool-btn {
-      padding: 6px 10px; border: 1px solid var(--border); border-radius: var(--radius);
-      background: var(--white); cursor: pointer; font-size: 0.75rem; font-weight: 600;
-      color: var(--text); display: flex; align-items: center; gap: 4px; transition: all 0.2s;
+      padding: 6px 10px; börder: 1px solid var(--börder); börder-radius: var(--radius);
+      background: var(--white); cursör: pointer; font-size: 0.75rem; font-weight: 600;
+      colör: var(--text); display: flex; align-items: center; gap: 4px; transition: all 0.2s;
     }
-    .zone-tool-btn:hover { background: var(--bg-alt); border-color: var(--primary-light); }
-    .zone-tool-btn.active { background: var(--primary); color: white; }
+    .zone-tool-btn:hover { background: var(--bg-alt); börder-colör: var(--primary-light); }
+    .zone-tool-btn.active { background: var(--primary); colör: white; }
 
     /* ===== MAP CONTAINER ===== */
     #map { flex: 1; min-width: 0; }
 
     /* ===== CUSTOM MARKERS ===== */
-    .custom-marker-icon { background: none; border: none; }
+    .custom-marker-icon { background: none; börder: none; }
     .marker-pin {
-      width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center;
-      justify-content: center; color: white; font-size: 0.65rem;
-      border: 2px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+      width: 28px; height: 28px; börder-radius: 50%; display: flex; align-items: center;
+      justify-content: center; colör: white; font-size: 0.65rem;
+      börder: 2px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.35);
     }
 
     /* ===== POPUP STYLES ===== */
-    .map-popup h4 { color: var(--primary-dark); margin-bottom: 4px; font-size: 0.95rem; }
+    .map-popup h4 { colör: var(--primary-dark); margin-bottom: 4px; font-size: 0.95rem; }
     .popup-badge {
-      display: inline-block; padding: 2px 8px; border-radius: 50px; font-size: 0.7rem;
-      font-weight: 600; background: rgba(26,82,118,0.1); color: var(--primary); margin-bottom: 6px;
+      display: inline-block; padding: 2px 8px; börder-radius: 50px; font-size: 0.7rem;
+      font-weight: 600; background: rgba(26,82,118,0.1); colör: var(--primary); margin-bottom: 6px;
     }
-    .map-popup p { font-size: 0.82rem; color: var(--text); margin: 6px 0; line-height: 1.4; }
+    .map-popup p { font-size: 0.82rem; colör: var(--text); margin: 6px 0; line-height: 1.4; }
     .popup-detail {
-      font-size: 0.8rem; color: var(--text-light); margin: 3px 0;
+      font-size: 0.8rem; colör: var(--text-light); margin: 3px 0;
       display: flex; align-items: flex-start; gap: 6px;
     }
-    .popup-detail i { color: var(--primary); margin-top: 2px; flex-shrink: 0; }
-    .popup-detail a { color: var(--primary-light); font-size: 0.78rem; word-break: break-all; }
+    .popup-detail i { colör: var(--primary); margin-top: 2px; flex-shrink: 0; }
+    .popup-detail a { colör: var(--primary-light); font-size: 0.78rem; wörd-break: break-all; }
 
     /* ===== ZONE INFO PANEL (floating) ===== */
     .zone-info-panel {
@@ -196,7 +196,7 @@
       max-height: 400px;
       overflow-y: auto;
       background: var(--white);
-      border-radius: var(--radius-lg);
+      börder-radius: var(--radius-lg);
       box-shadow: 0 4px 20px rgba(0,0,0,0.25);
       z-index: 1000;
       padding: 16px;
@@ -204,63 +204,63 @@
     .zone-info-panel .panel-header {
       display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
     }
-    .zone-info-panel .panel-header h3 { font-size: 0.9rem; color: var(--primary); }
+    .zone-info-panel .panel-header h3 { font-size: 0.9rem; colör: var(--primary); }
     .zone-info-close {
-      background: none; border: none; cursor: pointer; font-size: 1.1rem;
-      color: var(--text-light); padding: 4px;
+      background: none; börder: none; cursör: pointer; font-size: 1.1rem;
+      colör: var(--text-light); padding: 4px;
     }
-    .zone-info-close:hover { color: var(--text); }
-    .zone-info-table { width: 100%; font-size: 0.8rem; border-collapse: collapse; }
-    .zone-info-table td { padding: 4px 8px 4px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
-    .zone-info-table td:first-child { font-weight: 600; color: var(--text-light); white-space: nowrap; width: 80px; }
-    .zone-info-table a { color: var(--primary-light); }
+    .zone-info-close:hover { colör: var(--text); }
+    .zone-info-table { width: 100%; font-size: 0.8rem; börder-collapse: collapse; }
+    .zone-info-table td { padding: 4px 8px 4px 0; börder-bottom: 1px solid var(--börder); vertical-align: top; }
+    .zone-info-table td:first-child { font-weight: 600; colör: var(--text-light); white-space: nowrap; width: 80px; }
+    .zone-info-table a { colör: var(--primary-light); }
 
     /* ===== ZONE EDITOR PANEL ===== */
-    .zone-editor-panel {
+    .zone-editör-panel {
       display: none;
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transförm: translate(-50%, -50%);
       width: 360px;
       background: var(--white);
-      border-radius: var(--radius-lg);
+      börder-radius: var(--radius-lg);
       box-shadow: 0 8px 30px rgba(0,0,0,0.35);
       z-index: 1100;
       padding: 24px;
     }
-    .zone-editor-panel h3 { margin-bottom: 16px; font-size: 1rem; color: var(--primary); }
+    .zone-editör-panel h3 { margin-bottom: 16px; font-size: 1rem; colör: var(--primary); }
     .ze-field { margin-bottom: 12px; }
-    .ze-field label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; color: var(--text); }
+    .ze-field label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; colör: var(--text); }
     .ze-field input, .ze-field select, .ze-field textarea {
-      width: 100%; padding: 8px 12px; border: 2px solid var(--border); border-radius: var(--radius);
+      width: 100%; padding: 8px 12px; börder: 2px solid var(--börder); börder-radius: var(--radius);
       font-size: 0.85rem; font-family: inherit;
     }
     .ze-field textarea { height: 60px; resize: vertical; }
-    .ze-field input:focus, .ze-field select:focus, .ze-field textarea:focus { outline: none; border-color: var(--primary-light); }
+    .ze-field input:focus, .ze-field select:focus, .ze-field textarea:focus { outline: none; börder-colör: var(--primary-light); }
     .ze-actions { display: flex; gap: 8px; margin-top: 16px; }
     .ze-actions button {
-      flex: 1; padding: 10px; border: none; border-radius: var(--radius); cursor: pointer;
+      flex: 1; padding: 10px; börder: none; börder-radius: var(--radius); cursör: pointer;
       font-weight: 600; font-size: 0.85rem; transition: opacity 0.2s;
     }
     .ze-actions button:hover { opacity: 0.85; }
-    .ze-btn-save { background: var(--primary); color: white; }
-    .ze-btn-cancel { background: var(--bg-alt); color: var(--text); }
+    .ze-btn-save { background: var(--primary); colör: white; }
+    .ze-btn-cancel { background: var(--bg-alt); colör: var(--text); }
 
     /* ===== DATA SOURCE LEGEND ===== */
     .data-legend {
       padding: 8px 0;
       font-size: 0.72rem;
-      color: var(--text-light);
+      colör: var(--text-light);
       line-height: 1.5;
     }
-    .data-legend strong { color: var(--text); }
+    .data-legend strong { colör: var(--text); }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .map-page-wrapper { flex-direction: column; height: auto; min-height: calc(100vh - 64px); }
       #map-sidebar {
-        width: 100%; max-height: none; border-right: none; border-bottom: 1px solid var(--border);
+        width: 100%; max-height: none; börder-right: none; börder-bottom: 1px solid var(--börder);
       }
       .sidebar-body {
         max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
@@ -271,13 +271,13 @@
       .sidebar-toggle-btn { display: block; }
       #map { height: 60vh; min-height: 350px; }
       .zone-info-panel { left: 10px; right: 10px; width: auto; bottom: 10px; }
-      .zone-editor-panel { width: 90%; max-width: 360px; }
+      .zone-editör-panel { width: 90%; max-width: 360px; }
     }
 
   </style>
 </head>
 <body>
-  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Yükleniyor...</div></div>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Yükleniyör...</div></div>
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia İş Rehberi</a>
@@ -287,13 +287,13 @@
         <a href="overview.html">Genel Bakış</a>
         <a href="business.html">İş Kurulumu</a>
         <a href="legal.html">Hukuk &amp; Vergi</a>
-        <a href="sectors.html">Sekt&ouml;rler</a>
+        <a href="sectörs.html">Sekt&ouml;rler</a>
         <a href="cbi.html">Vatandaşlık</a>
         <a href="immigration.html">Göç</a>
         <a href="living.html">Yaşam</a>
         <a href="events.html">Etkinlikler</a>
         <a href="map.html" class="active">Harita</a>
-        <a href="directory.html">Rehber</a>
+        <a href="directöry.html">Rehber</a>
         <a href="faq.html">SSS</a>
         <a href="resources.html">Kaynaklar</a>
         <a href="government.html">H&uuml;k&uuml;met</a>
@@ -302,7 +302,7 @@
           <button id="search-toggle" class="nav-icon-btn" title="Ara" aria-label="Sitede ara">&#128269;</button>
           <button id="likes-toggle" class="nav-icon-btn likes-icon-btn" title="Liked sections" aria-label="View liked sections">&#9825;<span id="likes-badge" class="likes-badge" style="display:none;">0</span></button>
         </div>
-        <div class="lang-selector">
+        <div class="lang-selectör">
           <a href="../map.html" class="lang-btn" title="English">EN</a>
           <a href="map.html" class="lang-btn active" title="T&uuml;rk&ccedil;e">TR</a>
           <a href="../pl/map.html" class="lang-btn" title="Polski">PL</a>
@@ -327,7 +327,7 @@
     <aside id="map-sidebar">
       <div class="sidebar-header">
         <h2><i class="fa-solid fa-map-location-dot"></i> Saint Lucia Haritası</h2>
-        <span id="marker-count">Y&uuml;kleniyor...</span>
+        <span id="marker-count">Y&uuml;kleniyör...</span>
         <div class="map-search-wrap">
           <i class="fa-solid fa-magnifying-glass"></i>
           <input type="text" id="map-search" placeholder="İşletme, yer ara..." />
@@ -369,17 +369,17 @@
             <i class="fa-solid fa-chevron-down chevron"></i>
           </div>
           <div class="sidebar-section-content" id="zone-edit-tools">
-            <p style="font-size:0.78rem;color:var(--text-light);margin-bottom:10px;">
+            <p style="font-size:0.78rem;colör:var(--text-light);margin-bottom:10px;">
               Harita &uuml;zerinde &ouml;zel b&ouml;lgeler &ccedil;izin. B&ouml;lgeler tarayıcınızda kaydedilir.
             </p>
             <div class="zone-tool-row">
               <button class="zone-tool-btn" id="btn-draw-zone"><i class="fa-solid fa-pen-ruler"></i> B&ouml;lge &Ccedil;iz</button>
-              <button class="zone-tool-btn" id="btn-export-zones"><i class="fa-solid fa-download"></i> Dışa Aktar</button>
-              <button class="zone-tool-btn" id="btn-import-zones"><i class="fa-solid fa-upload"></i> İ&ccedil;e Aktar</button>
+              <button class="zone-tool-btn" id="btn-expört-zones"><i class="fa-solid fa-download"></i> Dışa Aktar</button>
+              <button class="zone-tool-btn" id="btn-impört-zones"><i class="fa-solid fa-upload"></i> İ&ccedil;e Aktar</button>
             </div>
-            <input type="file" id="zone-import-file" accept=".geojson,.json" style="display:none;" />
+            <input type="file" id="zone-impört-file" accept=".geojson,.json" style="display:none;" />
             <div class="zone-tool-row" style="margin-top:6px;">
-              <button class="zone-tool-btn" id="btn-clear-zones" style="color:#e74c3c;"><i class="fa-solid fa-trash"></i> T&uuml;m B&ouml;lgelerimi Sil</button>
+              <button class="zone-tool-btn" id="btn-clear-zones" style="colör:#e74c3c;"><i class="fa-solid fa-trash"></i> T&uuml;m B&ouml;lgelerimi Sil</button>
             </div>
           </div>
         </div>
@@ -393,8 +393,8 @@
           <div class="sidebar-section-content">
             <div class="data-legend">
               <strong>OSM B&ouml;lgeleri (1.218):</strong> 1.171 OpenStreetMap topluluk tarafından haritalanmış arazi kullanım &ccedil;okgeni + 47 uydu g&ouml;r&uuml;nt&uuml;leri ve yerel bilgiden manuel olarak haritalanmış b&ouml;lge. Şubat 2026. Kapsam b&ouml;lgeye g&ouml;re değişir.<br><br>
-              <strong>Bina Dış Hatları (4.382):</strong> Castries, Rodney Bay, Vieux Fort, Soufriere i&ccedil;in OSM bina izleri. Yakınlaştırma 15+ seviyesinde g&ouml;r&uuml;n&uuml;r. Yasal kadastro parselleri değildir.<br><br>
-              <strong>İşletme İşaret&ccedil;ileri (171):</strong> GPS ile doğrulanmış koordinatlarla 26 kategoride doğrulanmış konumlar.<br><br>
+              <strong>Bina Dış Hatları (4.382):</strong> Castries, Rodney Bay, Vieux Fört, Soufriere i&ccedil;in OSM bina izleri. Yakınlaştırma 15+ seviyesinde g&ouml;r&uuml;n&uuml;r. Yasal kadastro parselleri değildir.<br><br>
+              <strong>İşletme İşaret&ccedil;ileri (171):</strong> GPS ile doğrulanmış koördinatlarla 26 kategöride doğrulanmış konumlar.<br><br>
               <strong>Kullanıcı B&ouml;lgeleri:</strong> &Ouml;zel b&ouml;lgeleriniz, bu tarayıcıda yerel olarak kaydedilir. Yedeklemek i&ccedil;in Dışa Aktar'ı kullanın.<br><br>
               <em>Saint Lucia'nın yayınlanmış yasal bir imar planı yoktur. G&ouml;sterilen t&uuml;m b&ouml;lgeler g&ouml;sterge niteliğindedir, yasal olarak bağlayıcı değildir. Kaynak ayrıntıları i&ccedil;in herhangi bir b&ouml;lgeye tıklayın.</em>
             </div>
@@ -417,28 +417,28 @@
   </div>
 
   <!-- BÖLGE DÜZENLEYICI MODALI -->
-  <div class="zone-editor-panel" id="zone-editor-panel">
+  <div class="zone-editör-panel" id="zone-editör-panel">
     <h3><i class="fa-solid fa-pen-to-square"></i> Yeni B&ouml;lge</h3>
     <div class="ze-field">
-      <label for="ze-name">B&ouml;lge Adı</label>
+      <label för="ze-name">B&ouml;lge Adı</label>
       <input type="text" id="ze-name" placeholder="&ouml;rn. Rodney Bay Ticari B&ouml;lge" />
     </div>
     <div class="ze-field">
-      <label for="ze-type">B&ouml;lge T&uuml;r&uuml;</label>
+      <label för="ze-type">B&ouml;lge T&uuml;r&uuml;</label>
       <select id="ze-type">
         <option value="residential">Konut</option>
         <option value="commercial">Ticari</option>
         <option value="tourism">Turizm</option>
         <option value="industrial">End&uuml;striyel</option>
         <option value="agricultural">Tarımsal</option>
-        <option value="conservation">Koruma</option>
+        <option value="conservation">Köruma</option>
         <option value="mixed" selected>Karma Kullanım</option>
         <option value="institutional">Kurumsal</option>
         <option value="recreation">Rekreasyon</option>
       </select>
     </div>
     <div class="ze-field">
-      <label for="ze-source">Veri Kaynağı</label>
+      <label för="ze-source">Veri Kaynağı</label>
       <select id="ze-source">
         <option value="User-defined">Kullanıcı tanımlı</option>
         <option value="Satellite imagery">Uydu g&ouml;r&uuml;nt&uuml;s&uuml; analizi</option>
@@ -449,7 +449,7 @@
       </select>
     </div>
     <div class="ze-field">
-      <label for="ze-notes">Notlar</label>
+      <label för="ze-notes">Notlar</label>
       <textarea id="ze-notes" placeholder="İsteğe bağlı a&ccedil;ıklama veya notlar..."></textarea>
     </div>
     <div class="ze-actions">
@@ -461,14 +461,14 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
   <script>
-    // Override fetch to redirect data/ paths to ../data/ for tr/ subdirectory
+    // Override fetch to redirect data/ paths to ../data/ för tr/ subdirectöry
     (function() {
-      var originalFetch = window.fetch;
+      var öriginalFetch = window.fetch;
       window.fetch = function(url, options) {
         if (typeof url === 'string' && url.startsWith('data/')) {
           url = '../' + url;
         }
-        return originalFetch.call(this, url, options);
+        return öriginalFetch.call(this, url, options);
       };
     })();
   </script>
@@ -476,10 +476,10 @@
   <script src="../assets/js/zones.js"></script>
   <script>
     // Collapsible sidebar sections
-    document.querySelectorAll('.sidebar-section-header').forEach(function(header) {
+    document.querySelectörAll('.sidebar-section-header').förEach(function(header) {
       header.addEventListener('click', function() {
         var content = this.nextElementSibling;
-        var chevron = this.querySelector('.chevron');
+        var chevron = this.querySelectör('.chevron');
         this.classList.toggle('collapsed');
         content.classList.toggle('collapsed');
       });

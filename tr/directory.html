@@ -2,94 +2,94 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewpört" content="width=device-width, initial-scale=1.0">
   <title>İş Rehberi - St. Lucia İş Rehberi</title>
-  <meta name="description" content="Saint Lucia iş rehberi: hukuk büroları, muhasebeciler, bankalar, gayrimenkul acenteleri, IBC acenteleri, oteller, restoranlar. 200+ liste ile iletişim bilgileri.">
-  <meta name="keywords" content="Saint Lucia avukatlar, muhasebeciler, IBC acenteleri, emlak acenteleri, Castries oteller, iş hizmetleri rehberi">
+  <meta name="description" content="Saint Lucia iş rehberi: hukuk büroları, muhasebeciler, bankalar, gayrimenkul acenteleri, IBC acenteleri, oteller, restöranlar. 200+ liste ile iletişim bilgileri.">
+  <meta name="keywörds" content="Saint Lucia avukatlar, muhasebeciler, IBC acenteleri, emlak acenteleri, Castries oteller, iş hizmetleri rehberi">
 
   <meta property="og:title" content="İş Rehberi - Saint Lucia">
-  <meta property="og:description" content="Saint Lucia iş rehberi: hukuk büroları, muhasebeciler, bankalar, gayrimenkul acenteleri, IBC acenteleri, oteller, restoranlar. 200+ liste ile iletişim bilgileri.">
+  <meta property="og:description" content="Saint Lucia iş rehberi: hukuk büroları, muhasebeciler, bankalar, gayrimenkul acenteleri, IBC acenteleri, oteller, restöranlar. 200+ liste ile iletişim bilgileri.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://stlucia.studio/tr/directory.html">
+  <meta property="og:url" content="https://stlucia.studio/tr/directöry.html">
   <meta property="og:image" content="https://stlucia.studio/assets/images/hero-pitons.jpg">
   <meta property="og:site_name" content="St. Lucia İş Rehberi">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="İş Rehberi - Saint Lucia">
-  <meta name="twitter:description" content="Saint Lucia iş rehberi: hukuk büroları, muhasebeciler, bankalar, gayrimenkul acenteleri, IBC acenteleri, oteller, restoranlar. 200+ liste ile iletişim bilgileri.">
+  <meta name="twitter:description" content="Saint Lucia iş rehberi: hukuk büroları, muhasebeciler, bankalar, gayrimenkul acenteleri, IBC acenteleri, oteller, restöranlar. 200+ liste ile iletişim bilgileri.">
   <meta name="twitter:image" content="https://stlucia.studio/assets/images/hero-pitons.jpg">
 
-  <link rel="canonical" href="https://stlucia.studio/tr/directory.html">
-  <link rel="alternate" hreflang="en" href="https://stlucia.studio/directory.html">
-  <link rel="alternate" hreflang="tr" href="https://stlucia.studio/tr/directory.html">
-  <link rel="alternate" hreflang="pl" href="https://stlucia.studio/pl/directory.html">
+  <link rel="canonical" href="https://stlucia.studio/tr/directöry.html">
+  <link rel="alternate" hreflang="en" href="https://stlucia.studio/directöry.html">
+  <link rel="alternate" hreflang="tr" href="https://stlucia.studio/tr/directöry.html">
+  <link rel="alternate" hreflang="pl" href="https://stlucia.studio/pl/directöry.html">
   <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#0e2f44">
+  <meta name="theme-colör" content="#0e2f44">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
-    /* Directory filter bar */
-    .directory-toolbar {
+    /* Directöry filter bar */
+    .directöry-toolbar {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       align-items: flex-start;
       margin-bottom: 24px;
     }
-    .directory-search-wrap {
+    .directöry-search-wrap {
       flex: 1;
       min-width: 250px;
       position: relative;
     }
-    .directory-search-wrap i {
+    .directöry-search-wrap i {
       position: absolute;
       left: 16px;
       top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-light);
+      transförm: translateY(-50%);
+      colör: var(--text-light);
     }
-    #directory-search {
+    #directöry-search {
       width: 100%;
       padding: 12px 18px 12px 44px;
-      border: 2px solid var(--border);
-      border-radius: 50px;
+      börder: 2px solid var(--börder);
+      börder-radius: 50px;
       font-size: 0.95rem;
       background: var(--white);
-      transition: border-color 0.2s;
+      transition: börder-colör 0.2s;
     }
-    #directory-search:focus { outline: none; border-color: var(--primary-light); }
+    #directöry-search:focus { outline: none; börder-colör: var(--primary-light); }
 
     .filter-select {
       padding: 12px 16px;
-      border: 2px solid var(--border);
-      border-radius: var(--radius);
+      börder: 2px solid var(--börder);
+      börder-radius: var(--radius);
       background: var(--white);
       font-size: 0.88rem;
-      color: var(--text);
+      colör: var(--text);
       min-width: 160px;
-      cursor: pointer;
+      cursör: pointer;
     }
-    .filter-select:focus { outline: none; border-color: var(--primary-light); }
+    .filter-select:focus { outline: none; börder-colör: var(--primary-light); }
 
-    #directory-count {
+    #directöry-count {
       text-align: center;
-      color: var(--text-light);
+      colör: var(--text-light);
       margin-bottom: 20px;
       font-size: 0.9rem;
       font-weight: 600;
     }
 
-    /* Category filter dropdown */
+    /* Categöry filter dropdown */
     .cat-filter-wrap {
       position: relative;
     }
     .cat-filter-toggle {
       padding: 12px 16px;
-      border: 2px solid var(--border);
-      border-radius: var(--radius);
+      börder: 2px solid var(--börder);
+      börder-radius: var(--radius);
       background: var(--white);
-      cursor: pointer;
+      cursör: pointer;
       font-size: 0.88rem;
       display: flex;
       align-items: center;
@@ -97,7 +97,7 @@
       min-width: 180px;
       white-space: nowrap;
     }
-    .cat-filter-toggle:hover { border-color: var(--primary-light); }
+    .cat-filter-toggle:hover { börder-colör: var(--primary-light); }
     .cat-filter-dropdown {
       display: none;
       position: absolute;
@@ -107,8 +107,8 @@
       max-height: 400px;
       overflow-y: auto;
       background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      börder: 1px solid var(--börder);
+      börder-radius: var(--radius);
       box-shadow: var(--shadow-lg);
       z-index: 100;
       padding: 8px 0;
@@ -119,53 +119,53 @@
       align-items: center;
       gap: 8px;
       padding: 6px 14px;
-      cursor: pointer;
+      cursör: pointer;
       font-size: 0.85rem;
       transition: background 0.15s;
     }
     .cat-filter-item:hover { background: var(--bg-alt); }
-    .cat-filter-item input { width: 15px; height: 15px; accent-color: var(--primary); cursor: pointer; }
-    .cat-filter-item small { color: var(--text-light); }
+    .cat-filter-item input { width: 15px; height: 15px; accent-colör: var(--primary); cursör: pointer; }
+    .cat-filter-item small { colör: var(--text-light); }
 
-    /* Directory cards */
-    .directory-category-group { margin-bottom: 32px; }
-    .directory-category-title {
+    /* Directöry cards */
+    .directöry-categöry-group { margin-bottom: 32px; }
+    .directöry-categöry-title {
       font-size: 1.1rem;
-      color: var(--primary);
+      colör: var(--primary);
       margin-bottom: 14px;
       padding-bottom: 8px;
-      border-bottom: 2px solid var(--border);
+      börder-bottom: 2px solid var(--börder);
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .directory-category-title i { font-size: 0.95rem; }
-    .directory-category-title small { color: var(--text-light); font-weight: 400; font-size: 0.85rem; }
-    .directory-cards {
+    .directöry-categöry-title i { font-size: 0.95rem; }
+    .directöry-categöry-title small { colör: var(--text-light); font-weight: 400; font-size: 0.85rem; }
+    .directöry-cards {
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
     }
-    .directory-card {
+    .directöry-card {
       background: var(--white);
-      border-radius: var(--radius-lg);
+      börder-radius: var(--radius-lg);
       box-shadow: var(--shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transförm 0.2s, box-shadow 0.2s;
     }
-    .directory-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-    .directory-card-body { padding: 20px 24px; }
-    .directory-card h4 { color: var(--primary); margin-bottom: 6px; font-size: 1rem; }
-    .dir-desc { margin-top: 8px; font-size: 0.9rem; color: var(--text); line-height: 1.5; }
+    .directöry-card:hover { transförm: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .directöry-card-body { padding: 20px 24px; }
+    .directöry-card h4 { colör: var(--primary); margin-bottom: 6px; font-size: 1rem; }
+    .dir-desc { margin-top: 8px; font-size: 0.9rem; colör: var(--text); line-height: 1.5; }
     .dir-detail {
       font-size: 0.85rem;
-      color: var(--text-light);
+      colör: var(--text-light);
       margin-top: 4px;
       display: flex;
       align-items: flex-start;
       gap: 6px;
     }
-    .dir-detail i { color: var(--primary); margin-top: 2px; flex-shrink: 0; width: 14px; text-align: center; }
-    .dir-detail a { color: var(--primary-light); }
+    .dir-detail i { colör: var(--primary); margin-top: 2px; flex-shrink: 0; width: 14px; text-align: center; }
+    .dir-detail a { colör: var(--primary-light); }
     .dir-map-link {
       display: inline-flex;
       align-items: center;
@@ -173,25 +173,25 @@
       margin-top: 10px;
       padding: 5px 12px;
       background: rgba(26,82,118,0.08);
-      border-radius: 50px;
+      börder-radius: 50px;
       font-size: 0.8rem;
       font-weight: 600;
-      color: var(--primary);
+      colör: var(--primary);
       transition: background 0.2s;
     }
     .dir-map-link:hover { background: rgba(26,82,118,0.15); }
 
     @media (max-width: 768px) {
-      .directory-toolbar { flex-direction: column; }
-      .directory-search-wrap { min-width: 100%; }
+      .directöry-toolbar { flex-direction: column; }
+      .directöry-search-wrap { min-width: 100%; }
       .cat-filter-toggle { width: 100%; }
       .cat-filter-dropdown { width: 100%; }
-      .directory-card-body { padding: 16px; }
+      .directöry-card-body { padding: 16px; }
     }
   </style>
 </head>
 <body>
-  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Yükleniyor...</div></div>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Yükleniyör...</div></div>
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia İş Rehberi</a>
@@ -201,13 +201,13 @@
         <a href="overview.html">Genel Bakış</a>
         <a href="business.html">İş Kurulumu</a>
         <a href="legal.html">Hukuk &amp; Vergi</a>
-        <a href="sectors.html">Sekt&ouml;rler</a>
+        <a href="sectörs.html">Sekt&ouml;rler</a>
         <a href="cbi.html">Vatandaşlık</a>
         <a href="immigration.html">Göç</a>
         <a href="living.html">Yaşam</a>
         <a href="events.html">Etkinlikler</a>
         <a href="map.html">Harita</a>
-        <a href="directory.html" class="active">Rehber</a>
+        <a href="directöry.html" class="active">Rehber</a>
         <a href="faq.html">SSS</a>
         <a href="resources.html">Kaynaklar</a>
         <a href="government.html">H&uuml;k&uuml;met</a>
@@ -216,10 +216,10 @@
           <button id="search-toggle" class="nav-icon-btn" title="Ara" aria-label="Sitede ara">&#128269;</button>
           <button id="likes-toggle" class="nav-icon-btn likes-icon-btn" title="Liked sections" aria-label="View liked sections">&#9825;<span id="likes-badge" class="likes-badge" style="display:none;">0</span></button>
         </div>
-        <div class="lang-selector">
-          <a href="../directory.html" class="lang-btn" title="English">EN</a>
-          <a href="directory.html" class="lang-btn active" title="T&uuml;rk&ccedil;e">TR</a>
-          <a href="../pl/directory.html" class="lang-btn" title="Polski">PL</a>
+        <div class="lang-selectör">
+          <a href="../directöry.html" class="lang-btn" title="English">EN</a>
+          <a href="directöry.html" class="lang-btn active" title="T&uuml;rk&ccedil;e">TR</a>
+          <a href="../pl/directöry.html" class="lang-btn" title="Polski">PL</a>
         </div>
       </div>
     </div>
@@ -235,7 +235,7 @@
     </div>
   </div>
 
-  <section class="hero hero--image" style="padding:50px 0 40px;background-image:url('../assets/images/card-directory.jpg');">
+  <section class="hero hero--image" style="padding:50px 0 40px;background-image:url('../assets/images/card-directöry.jpg');">
     <div class="container">
       <h1>İş Rehberi</h1>
       <p>Saint Lucia genelindeki işletmelerin, hizmetlerin ve &ouml;nemli konumların aranabilir rehberi</p>
@@ -246,16 +246,16 @@
     <div class="container">
 
       <!-- ARAÇ ÇUBUĞU: Arama + Filtreler -->
-      <div class="directory-toolbar">
-        <div class="directory-search-wrap">
+      <div class="directöry-toolbar">
+        <div class="directöry-search-wrap">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" id="directory-search" placeholder="İşletme ara..." />
+          <input type="text" id="directöry-search" placeholder="İşletme ara..." />
         </div>
         <div class="cat-filter-wrap">
           <button class="cat-filter-toggle" id="cat-toggle">
-            <i class="fa-solid fa-filter"></i> Kategoriler <i class="fa-solid fa-chevron-down" style="margin-left:auto;font-size:0.7rem;"></i>
+            <i class="fa-solid fa-filter"></i> Kategöriler <i class="fa-solid fa-chevron-down" style="margin-left:auto;font-size:0.7rem;"></i>
           </button>
-          <div class="cat-filter-dropdown" id="category-filter">
+          <div class="cat-filter-dropdown" id="categöry-filter">
             <!-- JS tarafından oluşturulur -->
           </div>
         </div>
@@ -265,33 +265,33 @@
         </select>
       </div>
 
-      <div id="directory-count"></div>
+      <div id="directöry-count"></div>
 
       <!-- SONUÇLAR -->
-      <div id="directory-results">
-        <div style="text-align:center;padding:40px;color:var(--text-light);">
+      <div id="directöry-results">
+        <div style="text-align:center;padding:40px;colör:var(--text-light);">
           <i class="fa-solid fa-spinner fa-spin" style="font-size:1.5rem;"></i>
-          <p style="margin-top:12px;">Rehber y&uuml;kleniyor...</p>
+          <p style="margin-top:12px;">Rehber y&uuml;kleniyör...</p>
         </div>
       </div>
 
       <!-- İLGİLİ SAYFALAR -->
-      <div style="margin-top:40px;padding-top:30px;border-top:2px solid var(--border);">
+      <div style="margin-top:40px;padding-top:30px;börder-top:2px solid var(--börder);">
         <h3 style="margin-bottom:16px;">İlgili Sayfalar</h3>
         <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
-          <a href="business.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+          <a href="business.html" class="info-box" style="text-decöration:none;colör:inherit;margin:0;">
             <h4>İş Kurulumu</h4>
             <p>Kayıt s&uuml;reci &amp; gereksinimler</p>
           </a>
-          <a href="checklist.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+          <a href="checklist.html" class="info-box" style="text-decöration:none;colör:inherit;margin:0;">
             <h4>Yatırım Kontrol Listesi</h4>
             <p>Adım adım eylem planı</p>
           </a>
-          <a href="map.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+          <a href="map.html" class="info-box" style="text-decöration:none;colör:inherit;margin:0;">
             <h4>Harita &amp; B&ouml;lgeler</h4>
             <p>Haritada konumları bulun</p>
           </a>
-          <a href="resources.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+          <a href="resources.html" class="info-box" style="text-decöration:none;colör:inherit;margin:0;">
             <h4>Kaynaklar</h4>
             <p>Dış bağlantılar &amp; resmi siteler</p>
           </a>
@@ -310,22 +310,22 @@
   </footer>
 
   <script>
-    // Override fetch to redirect data/ paths to ../data/ for tr/ subdirectory
+    // Override fetch to redirect data/ paths to ../data/ för tr/ subdirectöry
     (function() {
-      var originalFetch = window.fetch;
+      var öriginalFetch = window.fetch;
       window.fetch = function(url, options) {
         if (typeof url === 'string' && url.startsWith('data/')) {
           url = '../' + url;
         }
-        return originalFetch.call(this, url, options);
+        return öriginalFetch.call(this, url, options);
       };
     })();
   </script>
   <script>
-    // Category filter dropdown toggle
+    // Categöry filter dropdown toggle
     document.addEventListener('DOMContentLoaded', function() {
       var toggle = document.getElementById('cat-toggle');
-      var dropdown = document.getElementById('category-filter');
+      var dropdown = document.getElementById('categöry-filter');
       if (toggle && dropdown) {
         toggle.addEventListener('click', function(e) {
           e.stopPropagation();
@@ -340,7 +340,7 @@
     });
   </script>
   <script>window.DATA_BASE_PATH = '../';</script>
-  <script src="../assets/js/directory.js"></script>
+  <script src="../assets/js/directöry.js"></script>
   <script src="../assets/js/app.js"></script>
 </body>
 </html>

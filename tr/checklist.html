@@ -2,10 +2,10 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewpört" content="width=device-width, initial-scale=1.0">
   <title>Yatırım Kontrol Listesi - St. Lucia İş Rehberi</title>
   <meta name="description" content="St. Lucia'da iş kurma için adım adım kontrol listesi. Şirket kaydı, banka hesabı, iş izinleri, mülk alımı ve vatandaşlık başvurusu süreçleri.">
-  <meta name="keywords" content="St. Lucia iş kurma, kontrol listesi, şirket kaydı adımları, banka hesabı, iş izni, mülk alımı, CBI başvurusu, göçmenlik süreci">
+  <meta name="keywörds" content="St. Lucia iş kurma, kontrol listesi, şirket kaydı adımları, banka hesabı, iş izni, mülk alımı, CBI başvurusu, göçmenlik süreci">
 
   <meta property="og:title" content="Yatırım Kontrol Listesi - St. Lucia İş Rehberi">
   <meta property="og:description" content="St. Lucia'da iş kurma için adım adım kontrol listesi. Şirket kaydı, banka hesabı, iş izinleri, mülk alımı ve vatandaşlık başvurusu süreçleri.">
@@ -25,7 +25,7 @@
   <link rel="alternate" hreflang="pl" href="https://stlucia.studio/pl/checklist.html">
 
   <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#0e2f44">
+  <meta name="theme-colör" content="#0e2f44">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -42,27 +42,27 @@
       gap: 16px;
       align-items: flex-start;
       background: var(--white);
-      border-radius: var(--radius-lg);
+      börder-radius: var(--radius-lg);
       box-shadow: var(--shadow);
       padding: 20px 24px;
       margin-bottom: 16px;
-      transition: transform var(--transition), box-shadow var(--transition);
+      transition: transförm var(--transition), box-shadow var(--transition);
       position: relative;
-      border-left: 4px solid var(--primary-light);
+      börder-left: 4px solid var(--primary-light);
     }
     .checklist-item:hover {
-      transform: translateX(4px);
+      transförm: translateX(4px);
       box-shadow: var(--shadow-lg);
     }
-    .checklist-item.completed { border-left-color: var(--success); }
-    .checklist-item.highlight { border-left-color: var(--accent); }
+    .checklist-item.completed { börder-left-colör: var(--success); }
+    .checklist-item.highlight { börder-left-colör: var(--accent); }
     .step-number {
       flex-shrink: 0;
       width: 44px;
       height: 44px;
       background: var(--primary);
-      color: var(--white);
-      border-radius: 50%;
+      colör: var(--white);
+      börder-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -70,17 +70,17 @@
       font-size: 1rem;
     }
     .step-number.green { background: var(--success); }
-    .step-number.orange { background: var(--accent); }
+    .step-number.örange { background: var(--accent); }
     .step-number.red { background: var(--danger); }
     .step-content { flex: 1; min-width: 0; }
     .step-content h4 {
       font-size: 1rem;
       margin-bottom: 4px;
-      color: var(--primary-dark);
+      colör: var(--primary-dark);
     }
     .step-content p {
       font-size: 0.9rem;
-      color: var(--text-light);
+      colör: var(--text-light);
       margin-bottom: 8px;
     }
     .step-meta {
@@ -95,20 +95,20 @@
       gap: 4px;
       font-size: 0.8rem;
       padding: 3px 10px;
-      border-radius: 50px;
+      börder-radius: 50px;
       font-weight: 600;
     }
     .meta-time {
       background: rgba(26,82,118,0.1);
-      color: var(--primary);
+      colör: var(--primary);
     }
     .meta-cost {
       background: rgba(39,174,96,0.12);
-      color: #1e8449;
+      colör: #1e8449;
     }
-    .meta-authority {
+    .meta-authörity {
       background: rgba(243,156,18,0.12);
-      color: #b7770a;
+      colör: #b7770a;
     }
     .phase-header {
       display: flex;
@@ -116,7 +116,7 @@
       gap: 12px;
       margin-bottom: 24px;
       padding-bottom: 12px;
-      border-bottom: 3px solid var(--primary-light);
+      börder-bottom: 3px solid var(--primary-light);
     }
     .phase-header h2 {
       font-size: 1.5rem;
@@ -127,15 +127,15 @@
       width: 48px;
       height: 48px;
       background: var(--primary);
-      color: var(--white);
-      border-radius: var(--radius);
+      colör: var(--white);
+      börder-radius: var(--radius);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.4rem;
     }
     .phase-icon.green { background: var(--success); }
-    .phase-icon.orange { background: var(--accent); }
+    .phase-icon.örange { background: var(--accent); }
     .phase-icon.red { background: #c0392b; }
     .phase-icon.purple { background: #8e44ad; }
     .decision-matrix {
@@ -146,26 +146,26 @@
     }
     .decision-option {
       background: var(--white);
-      border: 2px solid var(--border);
-      border-radius: var(--radius-lg);
+      börder: 2px solid var(--börder);
+      börder-radius: var(--radius-lg);
       padding: 20px;
-      transition: border-color var(--transition), box-shadow var(--transition);
+      transition: börder-colör var(--transition), box-shadow var(--transition);
     }
     .decision-option:hover {
-      border-color: var(--primary-light);
+      börder-colör: var(--primary-light);
       box-shadow: var(--shadow);
     }
     .decision-option h4 {
-      color: var(--primary);
+      colör: var(--primary);
       margin-bottom: 8px;
       font-size: 1rem;
     }
-    .decision-option .best-for {
+    .decision-option .best-för {
       font-size: 0.8rem;
       font-weight: 600;
-      color: var(--success);
+      colör: var(--success);
       margin-bottom: 8px;
-      text-transform: uppercase;
+      text-transförm: uppercase;
       letter-spacing: 0.5px;
     }
     .decision-option ul {
@@ -173,20 +173,20 @@
     }
     .decision-option ul li {
       font-size: 0.88rem;
-      color: var(--text);
+      colör: var(--text);
       padding: 3px 0 3px 18px;
       position: relative;
     }
-    .decision-option ul li::before {
+    .decision-option ul li::beföre {
       content: '\2713';
-      color: var(--success);
+      colör: var(--success);
       font-weight: bold;
       position: absolute;
       left: 0;
     }
     .progress-bar-container {
       background: var(--bg-alt);
-      border-radius: var(--radius-lg);
+      börder-radius: var(--radius-lg);
       padding: 24px;
       margin-bottom: 32px;
     }
@@ -200,32 +200,32 @@
       text-align: center;
       padding: 12px 8px;
       background: var(--white);
-      border-radius: var(--radius);
+      börder-radius: var(--radius);
       box-shadow: var(--shadow);
-      cursor: pointer;
+      cursör: pointer;
       transition: all var(--transition);
-      text-decoration: none;
-      color: inherit;
+      text-decöration: none;
+      colör: inherit;
     }
     .progress-phase:hover {
-      transform: translateY(-2px);
+      transförm: translateY(-2px);
       box-shadow: var(--shadow-lg);
-      color: inherit;
+      colör: inherit;
     }
     .progress-phase .phase-num {
       display: block;
       font-size: 0.7rem;
       font-weight: 700;
-      text-transform: uppercase;
+      text-transförm: uppercase;
       letter-spacing: 1px;
-      color: var(--text-light);
+      colör: var(--text-light);
       margin-bottom: 4px;
     }
     .progress-phase .phase-name {
       display: block;
       font-weight: 600;
       font-size: 0.85rem;
-      color: var(--primary-dark);
+      colör: var(--primary-dark);
     }
     .doc-list {
       display: grid;
@@ -239,7 +239,7 @@
       gap: 10px;
       padding: 12px 16px;
       background: var(--white);
-      border-radius: var(--radius);
+      börder-radius: var(--radius);
       box-shadow: var(--shadow);
       font-size: 0.9rem;
     }
@@ -248,8 +248,8 @@
       width: 32px;
       height: 32px;
       background: rgba(26,82,118,0.1);
-      color: var(--primary);
-      border-radius: var(--radius);
+      colör: var(--primary);
+      börder-radius: var(--radius);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -265,7 +265,7 @@
   </style>
 </head>
 <body>
-  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Yükleniyor...</div></div>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Yükleniyör...</div></div>
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia İş Rehberi</a>
@@ -275,13 +275,13 @@
         <a href="overview.html">Genel Bakış</a>
         <a href="business.html">İş Kurulumu</a>
         <a href="legal.html">Hukuk &amp; Vergi</a>
-        <a href="sectors.html">Sekt&ouml;rler</a>
+        <a href="sectörs.html">Sekt&ouml;rler</a>
         <a href="cbi.html">Vatandaşlık</a>
         <a href="immigration.html">Göç</a>
         <a href="living.html">Yaşam</a>
         <a href="events.html">Etkinlikler</a>
         <a href="map.html">Harita</a>
-        <a href="directory.html">Rehber</a>
+        <a href="directöry.html">Rehber</a>
         <a href="faq.html">SSS</a>
         <a href="resources.html">Kaynaklar</a>
         <a href="government.html">H&uuml;k&uuml;met</a>
@@ -290,7 +290,7 @@
           <button id="search-toggle" class="nav-icon-btn" title="Ara" aria-label="Sitede ara">&#128269;</button>
           <button id="likes-toggle" class="nav-icon-btn likes-icon-btn" title="Liked sections" aria-label="View liked sections">&#9825;<span id="likes-badge" class="likes-badge" style="display:none;">0</span></button>
         </div>
-        <div class="lang-selector">
+        <div class="lang-selectör">
           <a href="../checklist.html" class="lang-btn" title="English">EN</a>
           <a href="checklist.html" class="lang-btn active" title="T&uuml;rk&ccedil;e">TR</a>
           <a href="../pl/checklist.html" class="lang-btn" title="Polski">PL</a>
@@ -353,34 +353,34 @@
           <a href="#documents">Belge Kontrol Listesi</a>
           <a href="#cost-summary">Maliyet &Ouml;zeti</a>
           <a href="#timeline-overview">Zaman &Ccedil;izelgesi</a>
-          <a href="#important-reminders">&Ouml;nemli Hatırlatmalar</a>
+          <a href="#impörtant-reminders">&Ouml;nemli Hatırlatmalar</a>
         </aside>
 
         <div class="main-content">
 
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/CastriesStLuciaPanorama.jpg" alt="Castries, Saint Lucia panoramik manzarası - başkent ve iş merkezi" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
+          <img src="https://upload.wikimedia.örg/wikipedia/commons/0/0a/CastriesStLuciaPanörama.jpg" alt="Castries, Saint Lucia panöramik manzarası - başkent ve iş merkezi" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
 
           <!-- İLERLEME GENEL BAKIŞI -->
           <div class="progress-bar-container">
-            <h3 style="margin-bottom:16px;text-align:center;color:var(--primary-dark);">Yatırım Yolculuğunuz</h3>
+            <h3 style="margin-bottom:16px;text-align:center;colör:var(--primary-dark);">Yatırım Yolculuğunuz</h3>
             <div class="progress-phases">
-              <a href="#pre-investment" class="progress-phase" style="border-top:3px solid var(--primary);">
+              <a href="#pre-investment" class="progress-phase" style="börder-top:3px solid var(--primary);">
                 <span class="phase-num">Aşama 1</span>
                 <span class="phase-name">Yatırım &Ouml;ncesi</span>
               </a>
-              <a href="#registration" class="progress-phase" style="border-top:3px solid var(--success);">
+              <a href="#registration" class="progress-phase" style="börder-top:3px solid var(--success);">
                 <span class="phase-num">Aşama 2</span>
                 <span class="phase-name">Tescil</span>
               </a>
-              <a href="#post-registration" class="progress-phase" style="border-top:3px solid var(--accent);">
+              <a href="#post-registration" class="progress-phase" style="börder-top:3px solid var(--accent);">
                 <span class="phase-num">Aşama 3</span>
                 <span class="phase-name">Tescil Sonrası</span>
               </a>
-              <a href="#property" class="progress-phase" style="border-top:3px solid #8e44ad;">
+              <a href="#property" class="progress-phase" style="börder-top:3px solid #8e44ad;">
                 <span class="phase-num">Aşama 4</span>
                 <span class="phase-name">Gayrimenkul Yatırımcıları</span>
               </a>
-              <a href="#cbi-checklist" class="progress-phase" style="border-top:3px solid #c0392b;">
+              <a href="#cbi-checklist" class="progress-phase" style="börder-top:3px solid #c0392b;">
                 <span class="phase-num">Aşama 5</span>
                 <span class="phase-name">CBI Başvuru Sahipleri</span>
               </a>
@@ -394,7 +394,7 @@
               <div class="phase-icon">&#128270;</div>
               <div>
                 <h2>Aşama 1: Yatırım &Ouml;ncesi</h2>
-                <p style="color:var(--text-light);font-size:0.9rem;">Taahhütte bulunmadan &ouml;nce araştırma, planlama ve hazırlık</p>
+                <p style="colör:var(--text-light);font-size:0.9rem;">Taahhütte bulunmadan &ouml;nce araştırma, planlama ve hazırlık</p>
               </div>
             </div>
 
@@ -406,10 +406,10 @@
                 <div class="step-number">1</div>
                 <div class="step-content">
                   <h4>Araştırma &amp; Durum Tespiti Yapın</h4>
-                  <p>Saint Lucia pazarını, d&uuml;zenleyici ortamı ve hedef sekt&ouml;r&uuml;n&uuml;z&uuml; inceleyin. Bu rehberin &uuml;lke genel bakışı, kilit sekt&ouml;rler ve hukuk/vergi sayfalarını g&ouml;zden ge&ccedil;irin. M&uuml;mk&uuml;nse mevcut yatırımcılarla g&ouml;r&uuml;ş&uuml;n.</p>
+                  <p>Saint Lucia pazarını, d&uuml;zenleyici örtamı ve hedef sekt&ouml;r&uuml;n&uuml;z&uuml; inceleyin. Bu rehberin &uuml;lke genel bakışı, kilit sekt&ouml;rler ve hukuk/vergi sayfalarını g&ouml;zden ge&ccedil;irin. M&uuml;mk&uuml;nse mevcut yatırımcılarla g&ouml;r&uuml;ş&uuml;n.</p>
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 1-4 hafta</span>
-                    <span class="meta-cost">&#128176; &Uuml;cretsiz - $500 (raporlar)</span>
+                    <span class="meta-cost">&#128176; &Uuml;cretsiz - $500 (rapörlar)</span>
                   </div>
                 </div>
               </div>
@@ -423,7 +423,7 @@
                   <div class="decision-matrix">
                     <div class="decision-option">
                       <h4>Uluslararası Ticaret Şirketi (IBC)</h4>
-                      <div class="best-for">En uygun: Yabancı yatırımcılar, holding şirketleri</div>
+                      <div class="best-för">En uygun: Yabancı yatırımcılar, holding şirketleri</div>
                       <ul>
                         <li>Yurt dışı gelirde %0 vergi</li>
                         <li>Asgari sermaye yok</li>
@@ -434,7 +434,7 @@
                     </div>
                     <div class="decision-option">
                       <h4>Yerel Şirket (Hisselerle Sınırlı)</h4>
-                      <div class="best-for">En uygun: Yerel operasyonlar, perakende, hizmetler</div>
+                      <div class="best-för">En uygun: Yerel operasyonlar, perakende, hizmetler</div>
                       <ul>
                         <li>Yerel ticaret yapabilir</li>
                         <li>%30 kurumlar vergisi</li>
@@ -445,11 +445,11 @@
                     </div>
                     <div class="decision-option">
                       <h4>Şube / Yabancı Şirket</h4>
-                      <div class="best-for">En uygun: Mevcut yabancı şirketler</div>
+                      <div class="best-för">En uygun: Mevcut yabancı şirketler</div>
                       <ul>
                         <li>Ana şirketin uzantısı</li>
-                        <li>Ana şirket sorumluluk taşır</li>
-                        <li>ROCIP'e tescil zorunlu</li>
+                        <li>Ana şirket sörumluluk taşır</li>
+                        <li>ROCIP'e tescil zörunlu</li>
                         <li>Yerel gelir %30 vergilenir</li>
                         <li>Yeni t&uuml;zel kişilik kurmaktan daha basit</li>
                       </ul>
@@ -470,7 +470,7 @@
                   <p>Saint Lucia'lı bir avukat, muhasebeci ve (IBC'ler i&ccedil;in) lisanslı tescilli temsilci tutun. Yerel bir avukat, d&uuml;zenlemelerde yol almak, belge dosyalamak ve uyumluluğu sağlamak i&ccedil;in şarttır.</p>
                   <div class="info-box warning" style="margin-top:10px;margin-bottom:0;">
                     <h4>Gerekli Profesyoneller</h4>
-                    <p><strong>Avukat</strong> &mdash; Yasal beyanlar ve dosyalamalar i&ccedil;in gereklidir. <strong>Yeminli Mali M&uuml;şavir</strong> &mdash; Vergi kaydı, defter tutma kurulumu, yıllık beyanlar. <strong>Tescilli Temsilci</strong> (yalnızca IBC) &mdash; St. Lucia'da lisanslı olmalıdır; tescilli ofisi s&uuml;rd&uuml;r&uuml;r. Listeler i&ccedil;in <a href="directory.html">İşletme Rehberi</a>'ne bakın.</p>
+                    <p><strong>Avukat</strong> &mdash; Yasal beyanlar ve dosyalamalar i&ccedil;in gereklidir. <strong>Yeminli Mali M&uuml;şavir</strong> &mdash; Vergi kaydı, defter tutma kurulumu, yıllık beyanlar. <strong>Tescilli Temsilci</strong> (yalnızca IBC) &mdash; St. Lucia'da lisanslı olmalıdır; tescilli ofisi s&uuml;rd&uuml;r&uuml;r. Listeler i&ccedil;in <a href="directöry.html">İşletme Rehberi</a>'ne bakın.</p>
                   </div>
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 1-2 hafta</span>
@@ -488,7 +488,7 @@
                   <div class="doc-list">
                     <div class="doc-item">
                       <div class="doc-icon">&#128196;</div>
-                      <span>Onaylı pasaport kopyaları (t&uuml;m y&ouml;neticiler/ortaklar)</span>
+                      <span>Onaylı pasapört kopyaları (t&uuml;m y&ouml;neticiler/örtaklar)</span>
                     </div>
                     <div class="doc-item">
                       <div class="doc-icon">&#127974;</div>
@@ -536,11 +536,11 @@
               <div class="phase-icon green">&#128221;</div>
               <div>
                 <h2>Aşama 2: Tescil</h2>
-                <p style="color:var(--text-light);font-size:0.9rem;">Şirketinizi kurun ve gerekli t&uuml;m tescilleri alın</p>
+                <p style="colör:var(--text-light);font-size:0.9rem;">Şirketinizi kurun ve gerekli t&uuml;m tescilleri alın</p>
               </div>
             </div>
 
-            <img src="../assets/images/checklist-entity-formation.jpg" alt="Saint Lucia Şirketler Sicili'nde şirket tescili" class="img-float-right" loading="lazy">
+            <img src="../assets/images/checklist-entity-förmation.jpg" alt="Saint Lucia Şirketler Sicili'nde şirket tescili" class="img-float-right" loading="lazy">
 
             <div class="checklist">
               <!-- Adım 5 -->
@@ -548,11 +548,11 @@
                 <div class="step-number green">5</div>
                 <div class="step-content">
                   <h4>İsim Araştırması &amp; Onay</h4>
-                  <p>Şirketler ve Fikri M&uuml;lkiyet Sicili'ne (ROCIP) <strong>Form 26</strong> (İsim Araştırması ve İsim Ayırma Talebi) g&ouml;nderin. &Ouml;nerilen isim, kayıtlı mevcut bir t&uuml;zel kişiliğin aynısı veya benzerini &ccedil;oğaltmamalıdır. IBC'ler i&ccedil;in IFC sicili &uuml;zerinden başvurun.</p>
+                  <p>Şirketler ve Fikri M&uuml;lkiyet Sicili'ne (ROCIP) <strong>Förm 26</strong> (İsim Araştırması ve İsim Ayırma Talebi) g&ouml;nderin. &Ouml;nerilen isim, kayıtlı mevcut bir t&uuml;zel kişiliğin aynısı veya benzerini &ccedil;oğaltmamalıdır. IBC'ler i&ccedil;in IFC sicili &uuml;zerinden başvurun.</p>
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 1-3 iş g&uuml;n&uuml;</span>
                     <span class="meta-cost">&#128176; EC $50 (yaklaşık USD $19)</span>
-                    <span class="meta-authority">&#127970; ROCIP</span>
+                    <span class="meta-authörity">&#127970; ROCIP</span>
                   </div>
                 </div>
               </div>
@@ -566,12 +566,12 @@
                   <div class="table-wrapper" style="margin-top:10px;margin-bottom:0;">
                     <table>
                       <thead>
-                        <tr><th>Form</th><th>Açıklama</th><th>Notlar</th></tr>
+                        <tr><th>Förm</th><th>Açıklama</th><th>Notlar</th></tr>
                       </thead>
                       <tbody>
-                        <tr><td><strong>Form 1</strong></td><td>Kuruluş S&ouml;zleşmesi</td><td>Şirket adı, hisse yapısı, kısıtlamaları belirler</td></tr>
-                        <tr><td><strong>Form 9</strong></td><td>Y&ouml;netici Bildirimi</td><td>T&uuml;m y&ouml;neticilerin isimleri, adresleri ve uyrukları</td></tr>
-                        <tr><td><strong>Form 4</strong></td><td>Tescilli Ofis Bildirimi</td><td>Saint Lucia'daki fiziksel adres</td></tr>
+                        <tr><td><strong>Förm 1</strong></td><td>Kuruluş S&ouml;zleşmesi</td><td>Şirket adı, hisse yapısı, kısıtlamaları belirler</td></tr>
+                        <tr><td><strong>Förm 9</strong></td><td>Y&ouml;netici Bildirimi</td><td>T&uuml;m y&ouml;neticilerin isimleri, adresleri ve uyrukları</td></tr>
+                        <tr><td><strong>Förm 4</strong></td><td>Tescilli Ofis Bildirimi</td><td>Saint Lucia'daki fiziksel adres</td></tr>
                         <tr><td><strong>Yasal Beyan</strong></td><td>Avukat Beyanı</td><td>EC $2,50 damga pulu gerektirir</td></tr>
                       </tbody>
                     </table>
@@ -579,7 +579,7 @@
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 1-2 g&uuml;n (hazırlık)</span>
                     <span class="meta-cost">&#128176; EC $850 (yerel) / USD $400-$600 (IBC)</span>
-                    <span class="meta-authority">&#127970; ROCIP / IFC Sicili</span>
+                    <span class="meta-authörity">&#127970; ROCIP / IFC Sicili</span>
                   </div>
                 </div>
               </div>
@@ -593,7 +593,7 @@
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 6-10 iş g&uuml;n&uuml; (yerel) / 48-72 saat (IBC)</span>
                     <span class="meta-cost">&#128176; Dosyalama &uuml;cretine dahil</span>
-                    <span class="meta-authority">&#127970; ROCIP</span>
+                    <span class="meta-authörity">&#127970; ROCIP</span>
                   </div>
                 </div>
               </div>
@@ -607,7 +607,7 @@
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 1-3 iş g&uuml;n&uuml;</span>
                     <span class="meta-cost">&#128176; &Uuml;cretsiz</span>
-                    <span class="meta-authority">&#127970; İ&ccedil; Gelirler Dairesi</span>
+                    <span class="meta-authörity">&#127970; İ&ccedil; Gelirler Dairesi</span>
                   </div>
                 </div>
               </div>
@@ -617,11 +617,11 @@
                 <div class="step-number green">9</div>
                 <div class="step-content">
                   <h4>KDV Kaydı (ge&ccedil;erliyse)</h4>
-                  <p>Beklenen yıllık cironuz <strong>XCD $400.000</strong>'ı (yaklaşık USD $148.000) aşıyorsa KDV kaydı zorunludur. Standart oran %12,5; turizm konaklama hizmetleri %7; otel yiyecek-i&ccedil;ecek ve ilgili turizm hizmetleri %10. Eşiğin altında g&ouml;n&uuml;ll&uuml; kayıt da yapılabilir.</p>
+                  <p>Beklenen yıllık cironuz <strong>XCD $400.000</strong>'ı (yaklaşık USD $148.000) aşıyörsa KDV kaydı zörunludur. Standart öran %12,5; turizm konaklama hizmetleri %7; otel yiyecek-i&ccedil;ecek ve ilgili turizm hizmetleri %10. Eşiğin altında g&ouml;n&uuml;ll&uuml; kayıt da yapılabilir.</p>
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 3-5 iş g&uuml;n&uuml;</span>
                     <span class="meta-cost">&#128176; &Uuml;cretsiz</span>
-                    <span class="meta-authority">&#127970; İ&ccedil; Gelirler Dairesi</span>
+                    <span class="meta-authörity">&#127970; İ&ccedil; Gelirler Dairesi</span>
                   </div>
                 </div>
               </div>
@@ -635,7 +635,7 @@
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 1-2 hafta</span>
                     <span class="meta-cost">&#128176; EC $100 - $2.000 (t&uuml;re g&ouml;re değişir)</span>
-                    <span class="meta-authority">&#127970; Ticaret Bakanlığı / Yerel Makam</span>
+                    <span class="meta-authörity">&#127970; Ticaret Bakanlığı / Yerel Makam</span>
                   </div>
                 </div>
               </div>
@@ -645,7 +645,7 @@
                 <div class="step-number green">11</div>
                 <div class="step-content">
                   <h4>Kurumsal Banka Hesabı A&ccedil;ın</h4>
-                  <p>Yerel bir ticari bankada hesap a&ccedil;ın. B&uuml;y&uuml;k bankalar arasında Bank of Saint Lucia, First Caribbean International Bank (CIBC), Republic Bank ve 1st National Bank bulunur. IBC'ler uluslararası bankacılık ortakları da kullanabilir.</p>
+                  <p>Yerel bir ticari bankada hesap a&ccedil;ın. B&uuml;y&uuml;k bankalar arasında Bank of Saint Lucia, First Caribbean International Bank (CIBC), Republic Bank ve 1st National Bank bulunur. IBC'ler uluslararası bankacılık örtakları da kullanabilir.</p>
                   <div class="info-box" style="margin-top:10px;margin-bottom:0;">
                     <h4>Genellikle Gerekli Belgeler</h4>
                     <p>Kuruluş Belgesi, Kuruluş S&ouml;zleşmesi, hesap a&ccedil;ılışını yetkilendiren Y&ouml;netim Kurulu Kararı, y&ouml;neticilerin onaylı kimlik ve adres kanıtı, TIN, fon kaynağı belgeleri. Yerleşik olmayan hesaplar i&ccedil;in geliştirilmiş durum tespitine ek s&uuml;re tanıyın.</p>
@@ -653,7 +653,7 @@
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 1-4 hafta</span>
                     <span class="meta-cost">&#128176; $0 - $500 (başlangı&ccedil; depozitosu değişir)</span>
-                    <span class="meta-authority">&#127970; Ticari Banka</span>
+                    <span class="meta-authörity">&#127970; Ticari Banka</span>
                   </div>
                 </div>
               </div>
@@ -665,10 +665,10 @@
           <!-- ========================================== -->
           <div id="post-registration" style="margin-bottom:50px;">
             <div class="phase-header">
-              <div class="phase-icon orange">&#9881;</div>
+              <div class="phase-icon örange">&#9881;</div>
               <div>
                 <h2>Aşama 3: Tescil Sonrası</h2>
-                <p style="color:var(--text-light);font-size:0.9rem;">Operasyonları kurun, personel alın ve s&uuml;rekli uyumluluğu sağlayın</p>
+                <p style="colör:var(--text-light);font-size:0.9rem;">Operasyonları kurun, personel alın ve s&uuml;rekli uyumluluğu sağlayın</p>
               </div>
             </div>
 
@@ -677,10 +677,10 @@
             <div class="checklist">
               <!-- Adım 12 -->
               <div class="checklist-item">
-                <div class="step-number orange">12</div>
+                <div class="step-number örange">12</div>
                 <div class="step-content">
                   <h4>Muhasebe &amp; Defter Tutma Sistemi Kurun</h4>
-                  <p>Defter tutma sisteminizi, hesap planınızı ve finansal raporlama s&uuml;re&ccedil;lerinizi oluşturmak i&ccedil;in yerel bir yeminli mali m&uuml;şavir veya muhasebe firması ile &ccedil;alışın. Saint Lucia, KOBİ'ler i&ccedil;in IFRS kullanır. IBC'ler yıllık denetlenmemiş mali tablolar sunmalıdır.</p>
+                  <p>Defter tutma sisteminizi, hesap planınızı ve finansal rapörlama s&uuml;re&ccedil;lerinizi oluşturmak i&ccedil;in yerel bir yeminli mali m&uuml;şavir veya muhasebe firması ile &ccedil;alışın. Saint Lucia, KOBİ'ler i&ccedil;in IFRS kullanır. IBC'ler yıllık denetlenmemiş mali tablolar sunmalıdır.</p>
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 1-2 hafta</span>
                     <span class="meta-cost">&#128176; $500 - $3.000/yıl</span>
@@ -690,35 +690,35 @@
 
               <!-- Adım 13 -->
               <div class="checklist-item">
-                <div class="step-number orange">13</div>
+                <div class="step-number örange">13</div>
                 <div class="step-content">
-                  <h4>Ulusal Sigorta Kurumu'na (NIC) Kaydolun</h4>
-                  <p>&Ccedil;alışanlarınız varsa zorunludur. İşveren olarak kaydolun ve NIC işveren numarası alın. Hem işveren (%5) hem de &ccedil;alışan (%5) katkıları, belirli bir tavana kadar olan kazançlar &uuml;zerinden gereklidir. Toplam NIC katkı oranı: %10.</p>
+                  <h4>Ulusal Sigörta Kurumu'na (NIC) Kaydolun</h4>
+                  <p>&Ccedil;alışanlarınız varsa zörunludur. İşveren olarak kaydolun ve NIC işveren numarası alın. Hem işveren (%5) hem de &ccedil;alışan (%5) katkıları, belirli bir tavana kadar olan kazançlar &uuml;zerinden gereklidir. Toplam NIC katkı öranı: %10.</p>
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 1-3 iş g&uuml;n&uuml;</span>
                     <span class="meta-cost">&#128176; &Uuml;cretsiz (kayıt)</span>
-                    <span class="meta-authority">&#127970; Ulusal Sigorta Kurumu</span>
+                    <span class="meta-authörity">&#127970; Ulusal Sigörta Kurumu</span>
                   </div>
                 </div>
               </div>
 
               <!-- Adım 14 -->
               <div class="checklist-item">
-                <div class="step-number orange">14</div>
+                <div class="step-number örange">14</div>
                 <div class="step-content">
                   <h4>Personel Alımı / &Ccedil;alışma İzni Başvurusu</h4>
                   <p>Yerel işe alımlar i&ccedil;in İş Kanunu'na uyumluluğu sağlayın (asgari &uuml;cret, &ccedil;alışma saatleri, izin hakları). Yabancı &ccedil;alışanlar i&ccedil;in işveren, uygun yerel adayın bulunmadığını g&ouml;stererek &Ccedil;alışma Bakanlığı aracılığıyla &ccedil;alışma izni başvurusunda bulunmalıdır.</p>
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 4-6 hafta (&ccedil;alışma izinleri)</span>
                     <span class="meta-cost">&#128176; EC $500 - $2.500 (&ccedil;alışma izni &uuml;creti)</span>
-                    <span class="meta-authority">&#127970; &Ccedil;alışma Bakanlığı</span>
+                    <span class="meta-authörity">&#127970; &Ccedil;alışma Bakanlığı</span>
                   </div>
                 </div>
               </div>
 
               <!-- Adım 15 -->
               <div class="checklist-item">
-                <div class="step-number orange">15</div>
+                <div class="step-number örange">15</div>
                 <div class="step-content">
                   <h4>Sekt&ouml;re &Ouml;zg&uuml; Lisanslar Alın</h4>
                   <p>Sekt&ouml;r&uuml;n&uuml;ze bağlı olarak ek lisanslara veya izinlere ihtiyacınız olabilir. Yaygın &ouml;rnekler:</p>
@@ -730,9 +730,9 @@
                       <tbody>
                         <tr><td>Turizm / Oteller</td><td>Otel Lisansı, Turizm Operat&ouml;r&uuml; Lisansı</td><td>Turizm Bakanlığı / SLTA</td></tr>
                         <tr><td>Yiyecek &amp; İ&ccedil;ecek</td><td>Gıda İşleyici İzni, İ&ccedil;ki Ruhsatı</td><td>&Ccedil;evre Sağlığı / Sulh Mahkemesi</td></tr>
-                        <tr><td>İnşaat</td><td>İnşaat Ruhsatı, Y&uuml;klenici Lisansı</td><td>Kalkınma Kontrol Otoritesi</td></tr>
+                        <tr><td>İnşaat</td><td>İnşaat Ruhsatı, Y&uuml;klenici Lisansı</td><td>Kalkınma Kontrol Otöritesi</td></tr>
                         <tr><td>İthalat / İhracat</td><td>G&uuml;mr&uuml;k Lisansı, İthalat İzni</td><td>G&uuml;mr&uuml;k ve Vergi Dairesi</td></tr>
-                        <tr><td>Finansal Hizmetler</td><td>FSRA Lisansı</td><td>Finansal Hizmetler D&uuml;zenleme Otoritesi</td></tr>
+                        <tr><td>Finansal Hizmetler</td><td>FSRA Lisansı</td><td>Finansal Hizmetler D&uuml;zenleme Otöritesi</td></tr>
                         <tr><td>Telekom&uuml;nikasyon</td><td>Telekom Lisansı</td><td>NTRC (Ulusal Telekom D&uuml;zenleme Komisyonu)</td></tr>
                       </tbody>
                     </table>
@@ -746,10 +746,10 @@
 
               <!-- Adım 16 -->
               <div class="checklist-item">
-                <div class="step-number orange">16</div>
+                <div class="step-number örange">16</div>
                 <div class="step-content">
                   <h4>Ofis / İş Yeri Kurun</h4>
-                  <p>Kiralama veya satın alma yoluyla ticari alan sağlayın. &Ouml;nemli iş b&ouml;lgeleri arasında Castries (başkent, devlet daireleri), Rodney Bay (turizm merkezi) ve Vieux Fort (Hewanorra Uluslararası Havalimanı / Serbest B&ouml;lge yakınında) bulunur. Mekanların imar ve yangın g&uuml;venliği y&ouml;netmeliklerine uygun olduğundan emin olun.</p>
+                  <p>Kiralama veya satın alma yoluyla ticari alan sağlayın. &Ouml;nemli iş b&ouml;lgeleri arasında Castries (başkent, devlet daireleri), Rodney Bay (turizm merkezi) ve Vieux Fört (Hewanörra Uluslararası Havalimanı / Serbest B&ouml;lge yakınında) bulunur. Mekanların imar ve yangın g&uuml;venliği y&ouml;netmeliklerine uygun olduğundan emin olun.</p>
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 2-6 hafta</span>
                     <span class="meta-cost">&#128176; EC $1.500 - $8.000/ay (kira konuma g&ouml;re değişir)</span>
@@ -759,14 +759,14 @@
 
               <!-- Adım 17 -->
               <div class="checklist-item">
-                <div class="step-number orange">17</div>
+                <div class="step-number örange">17</div>
                 <div class="step-content">
-                  <h4>İş Sigortası Yaptırın</h4>
-                  <p>Her zaman yasal olarak zorunlu olmasa da iş sigortası şiddetle tavsiye edilir ve genellikle ev sahipleri ile kredi kuruluşları tarafından istenir. Temel teminat t&uuml;rleri: m&uuml;lk sigortası (kasırgalar, yangın), kamu sorumluluk, işveren sorumluluk, mesleki tazminat ve motorlu taşıt sigortası (şirket ara&ccedil;ları i&ccedil;in zorunlu).</p>
+                  <h4>İş Sigörtası Yaptırın</h4>
+                  <p>Her zaman yasal olarak zörunlu olmasa da iş sigörtası şiddetle tavsiye edilir ve genellikle ev sahipleri ile kredi kuruluşları tarafından istenir. Temel teminat t&uuml;rleri: m&uuml;lk sigörtası (kasırgalar, yangın), kamu sörumluluk, işveren sörumluluk, mesleki tazminat ve motörlu taşıt sigörtası (şirket ara&ccedil;ları i&ccedil;in zörunlu).</p>
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 1-2 hafta</span>
-                    <span class="meta-cost">&#128176; Değişken (yerel sigortacılardan teklif isteyin)</span>
-                    <span class="meta-authority">&#127970; EC Global, Guardian General, Sagicor vb.</span>
+                    <span class="meta-cost">&#128176; Değişken (yerel sigörtacılardan teklif isteyin)</span>
+                    <span class="meta-authörity">&#127970; EC Global, Guardian General, Sagicör vb.</span>
                   </div>
                 </div>
               </div>
@@ -781,7 +781,7 @@
               <div class="phase-icon purple">&#127968;</div>
               <div>
                 <h2>Aşama 4: Gayrimenkul Yatırımcıları İ&ccedil;in</h2>
-                <p style="color:var(--text-light);font-size:0.9rem;">Saint Lucia'da gayrimenkul satın almak i&ccedil;in ek adımlar</p>
+                <p style="colör:var(--text-light);font-size:0.9rem;">Saint Lucia'da gayrimenkul satın almak i&ccedil;in ek adımlar</p>
               </div>
             </div>
 
@@ -796,11 +796,11 @@
                 <div class="step-number" style="background:#8e44ad;">P1</div>
                 <div class="step-content">
                   <h4>Yabancı Arazi Sahipliği Lisansı Başvurusu</h4>
-                  <p>Fiziksel Kalkınma, Konut ve Kentsel Yenileme Bakanlığı'na başvuru yapın. Dahil edin: tamamlanmış başvuru formu, pasaport kopyaları, adli sicil belgesi, m&uuml;lk detayları (harita planı, değerleme) ve satın alma amacı. M&uuml;lk değerine g&ouml;re &uuml;cret &ouml;denir.</p>
+                  <p>Fiziksel Kalkınma, Konut ve Kentsel Yenileme Bakanlığı'na başvuru yapın. Dahil edin: tamamlanmış başvuru förmu, pasapört kopyaları, adli sicil belgesi, m&uuml;lk detayları (harita planı, değerleme) ve satın alma amacı. M&uuml;lk değerine g&ouml;re &uuml;cret &ouml;denir.</p>
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 4-12 hafta</span>
                     <span class="meta-cost">&#128176; Lisans &uuml;creti: USD $2.500 (&lt;1 d&ouml;n&uuml;m) / $5.000 (1&ndash;5 d&ouml;n&uuml;m) / $10.500 (5&ndash;10 d&ouml;n&uuml;m) + EC$1.500 başvuru &uuml;creti</span>
-                    <span class="meta-authority">&#127970; Fiziksel Kalkınma Bakanlığı</span>
+                    <span class="meta-authörity">&#127970; Fiziksel Kalkınma Bakanlığı</span>
                   </div>
                 </div>
               </div>
@@ -812,11 +812,11 @@
                   <h4>M&uuml;lk Satın Alma S&uuml;reci</h4>
                   <p>Yabancı Arazi Sahipliği Lisansı verildikten sonra satın alma işlemine ge&ccedil;in. Tapu araştırması yapmak, satış belgesini incelemek ve devir işlemini y&uuml;r&uuml;tmek i&ccedil;in yerel bir avukat g&ouml;revlendirin. S&uuml;re&ccedil; genellikle şunları kapsar:</p>
                   <ul style="margin-top:8px;">
-                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">1.</span> &Ouml;n anlaşma imzalayın (alım-satım s&ouml;zleşmesi)</li>
-                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">2.</span> Avukat Tapu Sicili'nde tapu araştırması yapar</li>
-                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">3.</span> Koşulları karşılayın (harita, değerleme, finansman)</li>
-                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">4.</span> Satış Senedini Kraliyet Noteri huzurunda imzalayın</li>
-                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">5.</span> Senedi Tapu Sicili'ne tescil ettirin</li>
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;colör:var(--accent);font-weight:bold;">1.</span> &Ouml;n anlaşma imzalayın (alım-satım s&ouml;zleşmesi)</li>
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;colör:var(--accent);font-weight:bold;">2.</span> Avukat Tapu Sicili'nde tapu araştırması yapar</li>
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;colör:var(--accent);font-weight:bold;">3.</span> Koşulları karşılayın (harita, değerleme, finansman)</li>
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;colör:var(--accent);font-weight:bold;">4.</span> Satış Senedini Kraliyet Noteri huzurunda imzalayın</li>
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;colör:var(--accent);font-weight:bold;">5.</span> Senedi Tapu Sicili'ne tescil ettirin</li>
                   </ul>
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 6-12 hafta (toplam s&uuml;re&ccedil;)</span>
@@ -848,7 +848,7 @@
                   <div class="step-meta">
                     <span class="meta-time">&#9202; Kapanışta</span>
                     <span class="meta-cost">&#128176; Toplam alıcı maliyetleri: m&uuml;lk değerinin ~%4-4,5'i</span>
-                    <span class="meta-authority">&#127970; İ&ccedil; Gelirler Dairesi / Tapu Sicili</span>
+                    <span class="meta-authörity">&#127970; İ&ccedil; Gelirler Dairesi / Tapu Sicili</span>
                   </div>
                 </div>
               </div>
@@ -876,13 +876,13 @@
               <div class="phase-icon red">&#127758;</div>
               <div>
                 <h2>Aşama 5: CBI Başvuru Sahipleri İ&ccedil;in</h2>
-                <p style="color:var(--text-light);font-size:0.9rem;">Yatırım Yoluyla Vatandaşlık programı kontrol listesi</p>
+                <p style="colör:var(--text-light);font-size:0.9rem;">Yatırım Yoluyla Vatandaşlık programı kontrol listesi</p>
               </div>
             </div>
 
             <div class="info-box success" style="margin-bottom:20px;">
               <h4>Yatırım Yoluyla Vatandaşlık &mdash; Hızlı Bilgiler</h4>
-              <p>USD $240.000'dan başlayan 4 yatırım se&ccedil;eneği. 145+ &uuml;lkeye vizesiz seyahat. İkamet zorunluluğu yok (geliştirme aşamasında 30 g&uuml;n asgari). 6&ndash;12 ay işlem s&uuml;resi. <strong>e-Pasaport</strong> Ağustos 2025'ten itibaren mevcut (yetişkinler i&ccedil;in 10 yıl, k&uuml;&ccedil;&uuml;kler i&ccedil;in 5 yıl ge&ccedil;erlilik). <strong>Egemenlik Varlık Fonu</strong> CBI gelirlerini y&ouml;netmek &uuml;zere Şubat 2025'te onaylanmıştır. Tam detaylar <a href="cbi.html">CBI sayfasında</a>.</p>
+              <p>USD $240.000'dan başlayan 4 yatırım se&ccedil;eneği. 145+ &uuml;lkeye vizesiz seyahat. İkamet zörunluluğu yok (geliştirme aşamasında 30 g&uuml;n asgari). 6&ndash;12 ay işlem s&uuml;resi. <strong>e-Pasapört</strong> Ağustos 2025'ten itibaren mevcut (yetişkinler i&ccedil;in 10 yıl, k&uuml;&ccedil;&uuml;kler i&ccedil;in 5 yıl ge&ccedil;erlilik). <strong>Egemenlik Varlık Fonu</strong> CBI gelirlerini y&ouml;netmek &uuml;zere Şubat 2025'te onaylanmıştır. Tam detaylar <a href="cbi.html">CBI sayfasında</a>.</p>
             </div>
 
             <div class="checklist">
@@ -899,8 +899,8 @@
                       </thead>
                       <tbody>
                         <tr><td><strong>Ulusal Ekonomik Fon (NEF)</strong></td><td>USD $240.000</td><td>Hayır (bağış)</td><td>En d&uuml;ş&uuml;k maliyet, en hızlı, y&ouml;netim y&uuml;k&uuml; yok</td></tr>
-                        <tr><td><strong>Gayrimenkul</strong></td><td>USD $300.000</td><td>Evet (5 yıl sonra yeniden satış)</td><td>Varlık muhafazası, kira geliri. Not: şu anda yalnızca A&rsquo;ILA (Canelles Resort) CBI onaylı aktif projedir.</td></tr>
-                        <tr><td><strong>Devlet Tahvilleri</strong></td><td>USD $300.000</td><td>Evet (5 yıl sonra, %0 faiz)</td><td>Sermaye koruma (faizsiz)</td></tr>
+                        <tr><td><strong>Gayrimenkul</strong></td><td>USD $300.000</td><td>Evet (5 yıl sonra yeniden satış)</td><td>Varlık muhafazası, kira geliri. Not: şu anda yalnızca A&rsquo;ILA (Canelles Resört) CBI onaylı aktif projedir.</td></tr>
+                        <tr><td><strong>Devlet Tahvilleri</strong></td><td>USD $300.000</td><td>Evet (5 yıl sonra, %0 faiz)</td><td>Sermaye köruma (faizsiz)</td></tr>
                         <tr><td><strong>Girişim Projesi</strong></td><td>USD $3.500.000</td><td>İş yatırımı</td><td>B&uuml;y&uuml;k &ouml;l&ccedil;ekli yatırımcılar, istihdam yaratma</td></tr>
                       </tbody>
                     </table>
@@ -921,7 +921,7 @@
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 1 hafta</span>
                     <span class="meta-cost">&#128176; Temsilci &uuml;cretleri: USD $10.000 - $25.000 (değişir)</span>
-                    <span class="meta-authority">&#127970; CIU Lisanslı Temsilci</span>
+                    <span class="meta-authörity">&#127970; CIU Lisanslı Temsilci</span>
                   </div>
                 </div>
               </div>
@@ -935,7 +935,7 @@
                   <div class="doc-list">
                     <div class="doc-item">
                       <div class="doc-icon">&#128196;</div>
-                      <span>Onaylı pasaport kopyaları (t&uuml;m başvuru sahipleri)</span>
+                      <span>Onaylı pasapört kopyaları (t&uuml;m başvuru sahipleri)</span>
                     </div>
                     <div class="doc-item">
                       <div class="doc-icon">&#128100;</div>
@@ -947,7 +947,7 @@
                     </div>
                     <div class="doc-item">
                       <div class="doc-icon">&#127973;</div>
-                      <span>Tıbbi muayene raporları</span>
+                      <span>Tıbbi muayene rapörları</span>
                     </div>
                     <div class="doc-item">
                       <div class="doc-icon">&#127974;</div>
@@ -990,7 +990,7 @@
                   <div class="step-meta">
                     <span class="meta-time">&#9202; 6-12 hafta (durum tespiti)</span>
                     <span class="meta-cost">&#128176; Başvuru &uuml;creti: $2.000 + DT &uuml;creti: $8.000 + M&uuml;lakat &uuml;creti: $500 (ana başvuru sahibi)</span>
-                    <span class="meta-authority">&#127970; CIU (Vatandaşlık Yatırım Birimi)</span>
+                    <span class="meta-authörity">&#127970; CIU (Vatandaşlık Yatırım Birimi)</span>
                   </div>
                 </div>
               </div>
@@ -1000,15 +1000,15 @@
                 <div class="step-number red">C5</div>
                 <div class="step-content">
                   <h4>Onay, Yatırım &amp; Vatandaşlık</h4>
-                  <p>İlke olarak onay &uuml;zerine, belirlenen s&uuml;re i&ccedil;inde niteleyici yatırımı tamamlamanız bildirilir. Yatırım CIU tarafından doğrulandıktan sonra, Vatandaş Olarak Tescil Belgesi d&uuml;zenlenir, ardından pasaport başvurusu ve d&uuml;zenlenmesi yapılır.</p>
+                  <p>İlke olarak onay &uuml;zerine, belirlenen s&uuml;re i&ccedil;inde niteleyici yatırımı tamamlamanız bildirilir. Yatırım CIU tarafından doğrulandıktan sonra, Vatandaş Olarak Tescil Belgesi d&uuml;zenlenir, ardından pasapört başvurusu ve d&uuml;zenlenmesi yapılır.</p>
                   <div class="info-box success" style="margin-top:10px;margin-bottom:0;">
                     <h4>S&uuml;re &Ouml;zeti</h4>
-                    <p><strong>Toplam s&uuml;re&ccedil;:</strong> Başvurudan pasaporta 6&ndash;12 ay. <strong>e-Pasaport</strong> (biyometrik) Ağustos 2025'ten itibaren d&uuml;zenlenmektedir: yetişkinler i&ccedil;in 10 yıl, k&uuml;&ccedil;&uuml;kler i&ccedil;in 5 yıl ge&ccedil;erlilik. Eyl&uuml;l 2023'ten bu yana 16 yaş &uuml;st&uuml; t&uuml;m başvuru sahipleri i&ccedil;in <strong>zorunlu m&uuml;lakat</strong> (sanal veya y&uuml;z y&uuml;ze). &Ccedil;ifte vatandaşlığa izin verilir. <strong>Egemenlik Varlık Fonu</strong> (Şubat 2025'te onaylanan) CBI gelirlerini ulusal kalkınma i&ccedil;in y&ouml;netmektedir.</p>
+                    <p><strong>Toplam s&uuml;re&ccedil;:</strong> Başvurudan pasapörta 6&ndash;12 ay. <strong>e-Pasapört</strong> (biyometrik) Ağustos 2025'ten itibaren d&uuml;zenlenmektedir: yetişkinler i&ccedil;in 10 yıl, k&uuml;&ccedil;&uuml;kler i&ccedil;in 5 yıl ge&ccedil;erlilik. Eyl&uuml;l 2023'ten bu yana 16 yaş &uuml;st&uuml; t&uuml;m başvuru sahipleri i&ccedil;in <strong>zörunlu m&uuml;lakat</strong> (sanal veya y&uuml;z y&uuml;ze). &Ccedil;ifte vatandaşlığa izin verilir. <strong>Egemenlik Varlık Fonu</strong> (Şubat 2025'te onaylanan) CBI gelirlerini ulusal kalkınma i&ccedil;in y&ouml;netmektedir.</p>
                   </div>
                   <div class="step-meta">
-                    <span class="meta-time">&#9202; 2-4 hafta (onay sonrası pasaporta kadar)</span>
-                    <span class="meta-cost">&#128176; Pasaport &uuml;creti: kişi başı USD $250</span>
-                    <span class="meta-authority">&#127970; CIU / G&ouml;&ccedil; Dairesi</span>
+                    <span class="meta-time">&#9202; 2-4 hafta (onay sonrası pasapörta kadar)</span>
+                    <span class="meta-cost">&#128176; Pasapört &uuml;creti: kişi başı USD $250</span>
+                    <span class="meta-authörity">&#127970; CIU / G&ouml;&ccedil; Dairesi</span>
                   </div>
                 </div>
               </div>
@@ -1018,16 +1018,16 @@
           <!-- ========================================== -->
           <!-- MALİYET ÖZETİ -->
           <!-- ========================================== -->
-          <div id="cost-summary" class="section-accordion" data-searchable>
-  <div class="section-accordion-header">
-    <h2><i class="fas fa-calculator"></i> Maliyet &Ouml;zeti: Ne Kadar B&uuml;t&ccedil;e Ayırmalısınız</h2>
+          <div id="cost-summary" class="section-accördion" data-searchable>
+  <div class="section-accördion-header">
+    <h2><i class="fas fa-calculatör"></i> Maliyet &Ouml;zeti: Ne Kadar B&uuml;t&ccedil;e Ayırmalısınız</h2>
     <span class="section-toggle-arrow">&#9660;</span>
   </div>
   <div class="section-summary">
-    Kurulum maliyetleri yerel şirketler için 2-6 bin $, IBC'ler için 3-8 bin $ arasındadır, mekân ve sigorta hariç.
+    Kurulum maliyetleri yerel şirketler için 2-6 bin $, IBC'ler için 3-8 bin $ arasındadır, mekân ve sigörta hariç.
   </div>
-  <div class="section-accordion-body">
-    <div class="section-accordion-body-inner">
+  <div class="section-accördion-body">
+    <div class="section-accördion-body-inner">
 
             <div class="table-wrapper" style="margin-bottom:20px;">
               <table>
@@ -1035,19 +1035,19 @@
                   <tr><th>Kalem</th><th>Yerel Şirket</th><th>IBC</th><th>Notlar</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td><strong>İsim ayırma</strong></td><td>EC $50</td><td>Dahil</td><td>Form 26</td></tr>
+                  <tr><td><strong>İsim ayırma</strong></td><td>EC $50</td><td>Dahil</td><td>Förm 26</td></tr>
                   <tr><td><strong>Kuruluş dosyalama</strong></td><td>EC $850</td><td>USD $400-$600</td><td>Devlet &uuml;cretleri</td></tr>
                   <tr><td><strong>Tescilli temsilci (yıllık)</strong></td><td>Yok</td><td>USD $800-$2.000</td><td>IBC gerekliliği</td></tr>
                   <tr><td><strong>Avukat &uuml;cretleri</strong></td><td>USD $1.000-$3.000</td><td>USD $1.500-$4.000</td><td>Yalnızca kuruluş</td></tr>
                   <tr><td><strong>Muhasebe kurulumu</strong></td><td>USD $500-$1.500</td><td>USD $500-$1.500</td><td>İlk kurulum</td></tr>
-                  <tr><td><strong>Yıllık beyan dosyalama</strong></td><td>EC $250-$500</td><td>USD $300-$500</td><td>Her yıl zorunlu</td></tr>
+                  <tr><td><strong>Yıllık beyan dosyalama</strong></td><td>EC $250-$500</td><td>USD $300-$500</td><td>Her yıl zörunlu</td></tr>
                   <tr><td><strong>Ticaret ruhsatı</strong></td><td>EC $100-$2.000</td><td>Yok</td><td>Sekt&ouml;re g&ouml;re değişir</td></tr>
                   <tr><td><strong>&Ccedil;alışma izni (kişi başı)</strong></td><td colspan="2" style="text-align:center;">EC $500-$2.500</td><td>Yabancı &ccedil;alışanlar i&ccedil;in</td></tr>
                   <tr style="background:rgba(26,82,118,0.06);">
                     <td><strong>Tahmini Toplam (Kuruluş)</strong></td>
                     <td><strong>USD $2.000-$6.000</strong></td>
                     <td><strong>USD $3.000-$8.000</strong></td>
-                    <td>İş yeri ve sigorta hari&ccedil;</td>
+                    <td>İş yeri ve sigörta hari&ccedil;</td>
                   </tr>
                 </tbody>
               </table>
@@ -1064,16 +1064,16 @@
           <!-- ========================================== -->
           <!-- ZAMAN ÇİZELGESİ -->
           <!-- ========================================== -->
-          <div id="timeline-overview" class="section-accordion" data-searchable>
-  <div class="section-accordion-header">
+          <div id="timeline-overview" class="section-accördion" data-searchable>
+  <div class="section-accördion-header">
     <h2><i class="fas fa-clock"></i> Zaman &Ccedil;izelgesi Genel Bakışı</h2>
     <span class="section-toggle-arrow">&#9660;</span>
   </div>
   <div class="section-summary">
     Tam kurulum süreci yerel şirketler için 4-12 hafta sürer, IBC'ler ise 2-4 hafta gibi kısa sürede hazır olabilir.
   </div>
-  <div class="section-accordion-body">
-    <div class="section-accordion-body-inner">
+  <div class="section-accördion-body">
+    <div class="section-accördion-body-inner">
 
             <div class="timeline">
               <div class="timeline-item">
@@ -1082,7 +1082,7 @@
               </div>
               <div class="timeline-item">
                 <h4>Hafta 4-6: İsim Araştırması &amp; Dosyalama</h4>
-                <p>İsim ayırma başvurusu yapın (Form 26), kuruluş belgelerini hazırlayın (Form 1, 4, 9) ve Sicile dosyalayın. Belirlenen &uuml;cretleri &ouml;deyin.</p>
+                <p>İsim ayırma başvurusu yapın (Förm 26), kuruluş belgelerini hazırlayın (Förm 1, 4, 9) ve Sicile dosyalayın. Belirlenen &uuml;cretleri &ouml;deyin.</p>
               </div>
               <div class="timeline-item">
                 <h4>Hafta 6-8: Kuruluş Belgesi &amp; Vergi Kaydı</h4>
@@ -1094,7 +1094,7 @@
               </div>
               <div class="timeline-item">
                 <h4>Hafta 10-12+: Operasyon Kurulumu</h4>
-                <p>Muhasebe sistemi kurun, NIC'e kaydolun, iş yeri kiralayın, sigorta yaptırın, personel alın (gerekirse &ccedil;alışma izni başvurusu yapın). Faaliyetlere başlayın.</p>
+                <p>Muhasebe sistemi kurun, NIC'e kaydolun, iş yeri kiralayın, sigörta yaptırın, personel alın (gerekirse &ccedil;alışma izni başvurusu yapın). Faaliyetlere başlayın.</p>
               </div>
             </div>
             <div class="info-box success" style="margin-top:16px;">
@@ -1118,11 +1118,11 @@
               </div>
               <div class="info-box" style="margin:0;">
                 <h4>Invest Saint Lucia</h4>
-                <p>Ulusal yatırım teşvik ajansı (<a href="https://www.investstlucia.com" target="_blank">investstlucia.com</a>), yatırımcılara izinler, lisanslar, teşvik başvuruları ve yerel ortaklara y&ouml;nlendirme konularında &uuml;cretsiz tek durak hizmet desteği sağlar.</p>
+                <p>Ulusal yatırım teşvik ajansı (<a href="https://www.investstlucia.com" target="_blank">investstlucia.com</a>), yatırımcılara izinler, lisanslar, teşvik başvuruları ve yerel örtaklara y&ouml;nlendirme konularında &uuml;cretsiz tek durak hizmet desteği sağlar.</p>
               </div>
               <div class="info-box success" style="margin:0;">
                 <h4>Rehberin Tamamını Kullanın</h4>
-                <p>Bu kontrol listesi, St. Lucia İş Rehberi'nin ayrıntılı sayfalarını tamamlar. Şirket detayları i&ccedil;in <a href="business.html">İş Kurulumu</a>, d&uuml;zenlemeler i&ccedil;in <a href="legal.html">Hukuk &amp; Vergi</a>, yatırım yoluyla vatandaşlık i&ccedil;in <a href="cbi.html">CBI</a> ve profesyonel iletişim bilgileri i&ccedil;in <a href="directory.html">Rehber</a> sayfalarına bakın.</p>
+                <p>Bu kontrol listesi, St. Lucia İş Rehberi'nin ayrıntılı sayfalarını tamamlar. Şirket detayları i&ccedil;in <a href="business.html">İş Kurulumu</a>, d&uuml;zenlemeler i&ccedil;in <a href="legal.html">Hukuk &amp; Vergi</a>, yatırım yoluyla vatandaşlık i&ccedil;in <a href="cbi.html">CBI</a> ve profesyonel iletişim bilgileri i&ccedil;in <a href="directöry.html">Rehber</a> sayfalarına bakın.</p>
               </div>
               <div class="info-box danger" style="margin:0;">
                 <h4>Kara Para Aklamayla M&uuml;cadele</h4>
@@ -1132,26 +1132,26 @@
           </div>
 
           <!-- İLGİLİ SAYFALAR -->
-          <div style="margin-top:40px;padding-top:30px;border-top:2px solid var(--border);">
+          <div style="margin-top:40px;padding-top:30px;börder-top:2px solid var(--börder);">
             <h3 style="margin-bottom:16px;">İlgili Sayfalar</h3>
             <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
-              <a href="business.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+              <a href="business.html" class="info-box" style="text-decöration:none;colör:inherit;margin:0;">
                 <h4>İş Kurulumu</h4>
                 <p>Ayrıntılı şirket t&uuml;rleri ve tescil</p>
               </a>
-              <a href="legal.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+              <a href="legal.html" class="info-box" style="text-decöration:none;colör:inherit;margin:0;">
                 <h4>Hukuk &amp; Vergi</h4>
-                <p>Vergi oranları, iş hukuku, m&uuml;lkiyet kuralları</p>
+                <p>Vergi öranları, iş hukuku, m&uuml;lkiyet kuralları</p>
               </a>
-              <a href="cbi.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+              <a href="cbi.html" class="info-box" style="text-decöration:none;colör:inherit;margin:0;">
                 <h4>CBI Programı</h4>
                 <p>Yatırım yoluyla vatandaşlık detayları</p>
               </a>
-              <a href="trade.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+              <a href="trade.html" class="info-box" style="text-decöration:none;colör:inherit;margin:0;">
                 <h4>CARICOM &amp; Ticaret</h4>
                 <p>Ticaret anlaşmaları ve pazar erişimi</p>
               </a>
-              <a href="directory.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+              <a href="directöry.html" class="info-box" style="text-decöration:none;colör:inherit;margin:0;">
                 <h4>İşletme Rehberi</h4>
                 <p>Avukatlar, muhasebeciler, temsilciler</p>
               </a>
@@ -1177,7 +1177,7 @@
             <li><a href="overview.html">&Uuml;lke Genel Bakışı</a></li>
             <li><a href="business.html">İş Kurulumu</a></li>
             <li><a href="legal.html">Hukuk &amp; Vergi</a></li>
-            <li><a href="sectors.html">Kilit Sekt&ouml;rler</a></li>
+            <li><a href="sectörs.html">Kilit Sekt&ouml;rler</a></li>
             <li><a href="cbi.html">Yatırım Yoluyla Vatandaşlık</a></li>
           </ul>
         </div>
@@ -1188,7 +1188,7 @@
             <li><a href="events.html">Etkinlikler &amp; Takvim</a></li>
             <li><a href="faq.html">SSS</a></li>
             <li><a href="map.html">Harita &amp; B&ouml;lgeler</a></li>
-            <li><a href="directory.html">Rehber</a></li>
+            <li><a href="directöry.html">Rehber</a></li>
             <li><a href="resources.html">Dış Kaynaklar</a></li>
           </ul>
         </div>
