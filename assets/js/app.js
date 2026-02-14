@@ -1258,14 +1258,6 @@ function initBottomSectionNav() {
   // Reposition markers after images load etc
   window.addEventListener('load', positionMarkers);
 
-  // Fix Chrome Android: bottom bar jumps when address bar hides/shows
-  if (window.visualViewport) {
-    var fixBottom = function() {
-      var offset = window.innerHeight - window.visualViewport.height;
-      nav.style.bottom = Math.max(0, offset) + 'px';
-    };
-    window.visualViewport.addEventListener('resize', fixBottom);
-  }
 }
 
 // ===== SWIPE NAVIGATION BETWEEN PAGES =====
@@ -1768,35 +1760,6 @@ function initSectionAccordions() {
   var accordions = document.querySelectorAll('.section-accordion');
   if (accordions.length === 0) return;
 
-  var isTR = window.location.pathname.indexOf('/tr/') >= 0;
-
-  // Expand/Collapse all controls
-  var controls = document.querySelector('.section-expand-controls');
-  if (!controls) {
-    var mainContent = document.querySelector('.main-content');
-    if (mainContent && accordions.length > 3) {
-      controls = document.createElement('div');
-      controls.className = 'section-expand-controls';
-      var expandBtn = document.createElement('button');
-      expandBtn.className = 'section-expand-btn';
-      expandBtn.innerHTML = '<i class="fas fa-expand-alt"></i> ' + (isTR ? 'Tümünü aç' : 'Expand all');
-      var collapseBtn = document.createElement('button');
-      collapseBtn.className = 'section-expand-btn';
-      collapseBtn.innerHTML = '<i class="fas fa-compress-alt"></i> ' + (isTR ? 'Tümünü kapat' : 'Collapse all');
-      controls.appendChild(expandBtn);
-      controls.appendChild(collapseBtn);
-
-      // Insert before first accordion
-      accordions[0].parentNode.insertBefore(controls, accordions[0]);
-
-      expandBtn.addEventListener('click', function() {
-        accordions.forEach(function(acc) { openSection(acc); });
-      });
-      collapseBtn.addEventListener('click', function() {
-        accordions.forEach(function(acc) { closeSection(acc); });
-      });
-    }
-  }
 
   function openSection(acc) {
     acc.classList.add('open');
