@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista Kontrolna Inwestycji - St. Lucia Przewodnik Biznesowy</title>
+  <meta name="description" content="Krok po kroku lista kontrolna inwestycji w Saint Lucia: due diligence, rejestracja firmy, bankowość, licencje, nieruchomości, pozwolenia na pracę. Kompletny plan działania.">
+  <meta name="keywords" content="Saint Lucia lista kontrolna, kroki zakładania firmy, planowanie inwestycji, przewodnik rejestracji firmy, zakładanie IBC, proces pozwolenia na pracę, zakup nieruchomości">
+
+  <meta property="og:title" content="Lista Kontrolna Inwestycji - Saint Lucia">
+  <meta property="og:description" content="Krok po kroku lista kontrolna inwestycji w Saint Lucia: due diligence, rejestracja firmy, bankowość, licencje, nieruchomości, pozwolenia na pracę. Kompletny plan działania.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stlucia.studio/pl/checklist.html">
+  <meta property="og:image" content="https://stlucia.studio/assets/images/hero-pitons.jpg">
+  <meta property="og:site_name" content="St. Lucia Przewodnik Biznesowy">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lista Kontrolna Inwestycji - Saint Lucia">
+  <meta name="twitter:description" content="Krok po kroku lista kontrolna inwestycji w Saint Lucia: due diligence, rejestracja firmy, bankowość, licencje, nieruchomości, pozwolenia na pracę. Kompletny plan działania.">
+  <meta name="twitter:image" content="https://stlucia.studio/assets/images/hero-pitons.jpg">
+
+  <link rel="canonical" href="https://stlucia.studio/pl/checklist.html">
+  <link rel="alternate" hreflang="en" href="https://stlucia.studio/checklist.html">
+  <link rel="alternate" hreflang="tr" href="https://stlucia.studio/tr/checklist.html">
+  <link rel="alternate" hreflang="pl" href="https://stlucia.studio/pl/checklist.html">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0e2f44">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Checklist-specific styles */
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: checklist-counter;
+    }
+    .checklist-item {
+      counter-increment: checklist-counter;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      border-left: 4px solid var(--primary-light);
+    }
+    .checklist-item:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .checklist-item.completed { border-left-color: var(--success); }
+    .checklist-item.highlight { border-left-color: var(--accent); }
+    .step-number {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .step-number.green { background: var(--success); }
+    .step-number.orange { background: var(--accent); }
+    .step-number.red { background: var(--danger); }
+    .step-content { flex: 1; min-width: 0; }
+    .step-content h4 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+      color: var(--primary-dark);
+    }
+    .step-content p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+    .step-meta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .step-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+    .meta-time {
+      background: rgba(26,82,118,0.1);
+      color: var(--primary);
+    }
+    .meta-cost {
+      background: rgba(39,174,96,0.12);
+      color: #1e8449;
+    }
+    .meta-authority {
+      background: rgba(243,156,18,0.12);
+      color: #b7770a;
+    }
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--primary-light);
+    }
+    .phase-header h2 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+    .phase-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+    .phase-icon.green { background: var(--success); }
+    .phase-icon.orange { background: var(--accent); }
+    .phase-icon.red { background: #c0392b; }
+    .phase-icon.purple { background: #8e44ad; }
+    .decision-matrix {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .decision-option {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .decision-option:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow);
+    }
+    .decision-option h4 {
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .decision-option .best-for {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--success);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .decision-option ul {
+      padding-left: 0;
+    }
+    .decision-option ul li {
+      font-size: 0.88rem;
+      color: var(--text);
+      padding: 3px 0 3px 18px;
+      position: relative;
+    }
+    .decision-option ul li::before {
+      content: '\2713';
+      color: var(--success);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    .progress-bar-container {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .progress-phases {
+      display: flex;
+      gap: 8px;
+      justify-content: space-between;
+    }
+    .progress-phase {
+      flex: 1;
+      text-align: center;
+      padding: 12px 8px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      color: inherit;
+    }
+    .progress-phase:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      color: inherit;
+    }
+    .progress-phase .phase-num {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+    .progress-phase .phase-name {
+      display: block;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--primary-dark);
+    }
+    .doc-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .doc-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+    }
+    .doc-item .doc-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: rgba(26,82,118,0.1);
+      color: var(--primary);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .progress-phases { flex-direction: column; }
+      .decision-matrix { grid-template-columns: 1fr; }
+      .doc-list { grid-template-columns: 1fr; }
+      .step-meta { flex-direction: column; gap: 6px; }
+      .phase-header h2 { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Ładowanie...</div></div>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia Przewodnik Biznesowy</a>
+      <button class="nav-toggle" aria-label="Przełącz menu">&#9776;</button>
+      <div class="nav-links">
+        <a href="index.html">Strona Główna</a>
+        <a href="overview.html">Przegląd</a>
+        <a href="business.html">Biznes</a>
+        <a href="legal.html">Prawo i Podatki</a>
+        <a href="sectors.html">Sektory</a>
+        <a href="cbi.html">Obywatelstwo</a>
+        <a href="immigration.html">Imigracja</a>
+        <a href="living.html">Życie</a>
+        <a href="events.html">Wydarzenia</a>
+        <a href="map.html">Mapa</a>
+        <a href="directory.html">Katalog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Zasoby</a>
+        <a href="government.html">Rząd</a>
+        <a href="social-media.html">Media Społecznościowe</a>
+        <div class="navbar-tools">
+          <button id="search-toggle" class="nav-icon-btn" title="Szukaj" aria-label="Szukaj na stronie">&#128269;</button>
+          <button id="likes-toggle" class="nav-icon-btn likes-icon-btn" title="Polubione sekcje" aria-label="Zobacz polubione sekcje">&#9825;<span id="likes-badge" class="likes-badge" style="display:none;">0</span></button>
+        </div>
+        <div class="lang-selector">
+          <a href="../checklist.html" class="lang-btn" title="English">EN</a>
+          <a href="../tr/checklist.html" class="lang-btn" title="T&uuml;rk&ccedil;e">TR</a>
+          <a href="checklist.html" class="lang-btn active" title="Polski">PL</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- NAKŁADKA WYSZUKIWANIA -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-content">
+      <div class="search-overlay-header">
+        <button id="search-close" class="search-overlay-close" aria-label="Zamknij wyszukiwanie">&times;</button>
+        <input type="text" id="search-overlay-input" class="search-overlay-input" placeholder="Szukaj w przewodniku..." autocomplete="off">
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero hero--image" style="padding:50px 0 40px;background-image:url('../assets/images/hero-checklist.jpg');">
+    <div class="container">
+      <h1>Lista Kontrolna Inwestycji</h1>
+      <p>Plan działania krok po kroku do założenia firmy w St. Lucia</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="number">5</div>
+          <div class="label">Faz</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number">30+</div>
+          <div class="label">Kroków</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number">4-12 Tyg.</div>
+          <div class="label">Typowy harmonogram</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number">$2K-$10K</div>
+          <div class="label">Koszty założenia (firma lok.)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GŁÓWNA TREŚĆ -->
+  <section class="section">
+    <div class="container">
+      <div class="page-layout">
+
+        <!-- PASEK BOCZNY -->
+        <aside class="sidebar">
+          <h3>Fazy</h3>
+          <a href="#pre-investment">Przed inwestycją</a>
+          <a href="#registration">Rejestracja</a>
+          <a href="#post-registration">Po rejestracji</a>
+          <a href="#property">Inwestorzy nieruchomości</a>
+          <a href="#cbi-checklist">Wnioskodawcy CBI</a>
+          <h3 style="margin-top:20px;">Szybkie linki</h3>
+          <a href="#entity-decision">Matryca wyboru podmiotu</a>
+          <a href="#documents">Lista dokumentów</a>
+          <a href="#cost-summary">Podsumowanie kosztów</a>
+          <a href="#timeline-overview">Przegląd harmonogramu</a>
+          <a href="#important-reminders">Ważne przypomnienia</a>
+        </aside>
+
+        <div class="main-content">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/CastriesStLuciaPanorama.jpg" alt="Panoramiczny widok na Castries, Saint Lucia - stolica i centrum biznesowe" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
+
+          <!-- PRZEGLĄD POSTĘPÓW -->
+          <div class="progress-bar-container">
+            <h3 style="margin-bottom:16px;text-align:center;color:var(--primary-dark);">Twoja droga inwestycyjna</h3>
+            <div class="progress-phases">
+              <a href="#pre-investment" class="progress-phase" style="border-top:3px solid var(--primary);">
+                <span class="phase-num">Faza 1</span>
+                <span class="phase-name">Przed inwestycją</span>
+              </a>
+              <a href="#registration" class="progress-phase" style="border-top:3px solid var(--success);">
+                <span class="phase-num">Faza 2</span>
+                <span class="phase-name">Rejestracja</span>
+              </a>
+              <a href="#post-registration" class="progress-phase" style="border-top:3px solid var(--accent);">
+                <span class="phase-num">Faza 3</span>
+                <span class="phase-name">Po rejestracji</span>
+              </a>
+              <a href="#property" class="progress-phase" style="border-top:3px solid #8e44ad;">
+                <span class="phase-num">Faza 4</span>
+                <span class="phase-name">Inwestorzy nieruch.</span>
+              </a>
+              <a href="#cbi-checklist" class="progress-phase" style="border-top:3px solid #c0392b;">
+                <span class="phase-num">Faza 5</span>
+                <span class="phase-name">Wnioskodawcy CBI</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- FAZA 1: PRZED INWESTYCJĄ -->
+          <div id="pre-investment" style="margin-bottom:50px;">
+            <div class="phase-header">
+              <div class="phase-icon">&#128270;</div>
+              <div>
+                <h2>Faza 1: Przed inwestycją</h2>
+                <p style="color:var(--text-light);font-size:0.9rem;">Badania, planowanie i przygotowanie przed podjęciem zobowiązań</p>
+              </div>
+            </div>
+
+            <img src="../assets/images/checklist-business-planning.png" alt="Planowanie biznesowe i strategia inwestowania w Saint Lucia" class="section-image" style="max-height:260px;object-fit:cover;margin-bottom:24px;" loading="lazy">
+
+            <div class="checklist">
+              <div class="checklist-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Przeprowadź badania i due diligence</h4>
+                  <p>Przeanalizuj rynek Saint Lucia, otoczenie regulacyjne i docelowy sektor. Zapoznaj się ze stronami przeglądu kraju, kluczowych sektorów oraz prawa i podatków w tym przewodniku. Jeśli to możliwe, porozmawiaj z istniejącymi inwestorami.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-4 tygodnie</span>
+                    <span class="meta-cost">&#128176; Bezpłatnie - $500 (raporty)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item" id="entity-decision">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Wybierz rodzaj podmiotu</h4>
+                  <p>Wybierz odpowiednią strukturę biznesową w oparciu o swoje cele, sytuację podatkową i to, czy będziesz prowadzić działalność lokalnie czy międzynarodowo.</p>
+                  <div class="decision-matrix">
+                    <div class="decision-option">
+                      <h4>Międzynarodowa Spółka Biznesowa (IBC)</h4>
+                      <div class="best-for">Najlepsza dla: Inwestorów zagranicznych, spółek holdingowych</div>
+                      <ul>
+                        <li>0% podatku od dochodu zagranicznego</li>
+                        <li>Brak minimalnego kapitału</li>
+                        <li>Rejestracja w 48-72 godziny</li>
+                        <li>Brak kontroli dewizowej</li>
+                        <li>Nie może prowadzić handlu lokalnie w St. Lucia</li>
+                      </ul>
+                    </div>
+                    <div class="decision-option">
+                      <h4>Spółka lokalna (Sp. z o.o.)</h4>
+                      <div class="best-for">Najlepsza dla: Lokalnej działalności, handlu, usług</div>
+                      <ul>
+                        <li>Może prowadzić handel lokalny</li>
+                        <li>30% podatek CIT</li>
+                        <li>Rejestracja w 6-10 dni</li>
+                        <li>Kwalifikuje się do ulg podatkowych</li>
+                        <li>Może posiadać nieruchomości w St. Lucia</li>
+                      </ul>
+                    </div>
+                    <div class="decision-option">
+                      <h4>Oddział / Spółka zagraniczna</h4>
+                      <div class="best-for">Najlepsza dla: Istniejących firm zagranicznych</div>
+                      <ul>
+                        <li>Rozszerzenie spółki macierzystej</li>
+                        <li>Spółka macierzysta ponosi odpowiedzialność</li>
+                        <li>Wymaga rejestracji w ROCIP</li>
+                        <li>Opodatkowanie dochodu lokalnego 30%</li>
+                        <li>Prostsze niż tworzenie nowego podmiotu</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="step-meta" style="margin-top:12px;">
+                    <span class="meta-time">&#9202; 1-2 tygodnie (decyzja)</span>
+                    <span class="meta-cost">&#128176; Bezpłatnie (samoocena)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Zaangażuj lokalnych specjalistów</h4>
+                  <p>Zatrudnij prawnika, księgowego z Saint Lucia i (dla IBC) licencjonowanego agenta rejestrowego. Lokalny prawnik jest niezbędny do poruszania się po przepisach, składania dokumentów i zapewnienia zgodności.</p>
+                  <div class="info-box warning" style="margin-top:10px;margin-bottom:0;">
+                    <h4>Kluczowi specjaliści</h4>
+                    <p><strong>Adwokat</strong> &mdash; wymagany do oświadczeń ustawowych i dokumentacji. <strong>Biegły księgowy</strong> &mdash; rejestracja podatkowa, konfiguracja księgowości, deklaracje roczne. <strong>Agent rejestrowy</strong> (tylko IBC) &mdash; musi być licencjonowany w St. Lucia; prowadzi siedzibę rejestrową. Sprawdź <a href="directory.html">Katalog firm</a> w poszukiwaniu kontaktów.</p>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-2 tygodnie</span>
+                    <span class="meta-cost">&#128176; $1 000 - $5 000 (zaliczka)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item" id="documents">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h4>Przygotuj wymagane dokumenty</h4>
+                  <p>Zbierz, uwierzytelnij notarialnie i opatrz apostille wszystkie wymagane dokumenty osobowe i korporacyjne. Czas przetwarzania certyfikacji różni się w zależności od kraju.</p>
+                  <div class="doc-list">
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128196;</div>
+                      <span>Poświadczone kopie paszportów (wszyscy dyrektorzy/udziałowcy)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#127974;</div>
+                      <span>Referencja bankowa (wystawiona w ciągu 6 miesięcy)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128176;</div>
+                      <span>Oświadczenie o źródle środków i dokumenty potwierdzające</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128230;</div>
+                      <span>Potwierdzenie adresu (rachunek za media lub wyciąg bankowy)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128221;</div>
+                      <span>List referencyjny od specjalisty</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128188;</div>
+                      <span>Biznesplan (zalecany dla spółek lokalnych)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128100;</div>
+                      <span>CV/życiorys dyrektorów</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128274;</div>
+                      <span>Zaświadczenie o niekaralności (do pozwoleń na pracę)</span>
+                    </div>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 2-4 tygodnie</span>
+                    <span class="meta-cost">&#128176; $200 - $800 (notarializacja, apostille)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAZA 2: REJESTRACJA -->
+          <div id="registration" style="margin-bottom:50px;">
+            <div class="phase-header">
+              <div class="phase-icon green">&#128221;</div>
+              <div>
+                <h2>Faza 2: Rejestracja</h2>
+                <p style="color:var(--text-light);font-size:0.9rem;">Zarejestruj firmę i uzyskaj wszystkie wymagane rejestracje</p>
+              </div>
+            </div>
+
+            <img src="../assets/images/checklist-entity-formation.jpg" alt="Rejestracja firmy w Rejestrze Spółek, Saint Lucia" class="img-float-right" loading="lazy">
+
+            <div class="checklist">
+              <div class="checklist-item">
+                <div class="step-number green">5</div>
+                <div class="step-content">
+                  <h4>Wyszukanie i zatwierdzenie nazwy</h4>
+                  <p>Złóż <strong>Formularz 26</strong> (Wniosek o wyszukanie i rezerwację nazwy) w Rejestrze Spółek i Własności Intelektualnej (ROCIP). Proponowana nazwa nie może powielać ani ściśle przypominać istniejącego zarejestrowanego podmiotu. Dla IBC złóż za pośrednictwem rejestru IFC.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-3 dni robocze</span>
+                    <span class="meta-cost">&#128176; EC $50 (ok. USD $19)</span>
+                    <span class="meta-authority">&#127970; ROCIP</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number green">6</div>
+                <div class="step-content">
+                  <h4>Złóż dokumenty założycielskie</h4>
+                  <p>Przygotuj i złóż następujące dokumenty w Rejestrze:</p>
+                  <div class="table-wrapper" style="margin-top:10px;margin-bottom:0;">
+                    <table>
+                      <thead>
+                        <tr><th>Formularz</th><th>Opis</th><th>Uwagi</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td><strong>Formularz 1</strong></td><td>Akt założycielski</td><td>Określa nazwę firmy, strukturę udziałów, ograniczenia</td></tr>
+                        <tr><td><strong>Formularz 9</strong></td><td>Zawiadomienie o dyrektorach</td><td>Nazwiska, adresy i obywatelstwa wszystkich dyrektorów</td></tr>
+                        <tr><td><strong>Formularz 4</strong></td><td>Zawiadomienie o siedzibie</td><td>Adres fizyczny w Saint Lucia</td></tr>
+                        <tr><td><strong>Ośw. statutowe</strong></td><td>Oświadczenie adwokata</td><td>Wymaga znaczka za EC $2,50</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-2 dni (przygotowanie)</span>
+                    <span class="meta-cost">&#128176; EC $850 (lokalna) / USD $400-$600 (IBC)</span>
+                    <span class="meta-authority">&#127970; ROCIP / Rejestr IFC</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number green">7</div>
+                <div class="step-content">
+                  <h4>Uzyskaj świadectwo rejestracji</h4>
+                  <p>Po przetworzeniu i zatwierdzeniu dokumentów Rejestr wydaje Świadectwo Rejestracji. Jest to akt urodzenia firmy i dowód jej prawnego istnienia.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 6-10 dni roboczych (lokalna) / 48-72 godziny (IBC)</span>
+                    <span class="meta-cost">&#128176; Wliczone w opłatę rejestracyjną</span>
+                    <span class="meta-authority">&#127970; ROCIP</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number green">8</div>
+                <div class="step-content">
+                  <h4>Uzyskaj Numer Identyfikacji Podatkowej (TIN)</h4>
+                  <p>Zarejestruj się w Departamencie Skarbowym (IRD), aby uzyskać TIN. Wymagany do wszystkich deklaracji podatkowych, rejestracji VAT i otwarcia konta bankowego. Zabierz Świadectwo Rejestracji i dokumenty tożsamości dyrektorów.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-3 dni robocze</span>
+                    <span class="meta-cost">&#128176; Bezpłatnie</span>
+                    <span class="meta-authority">&#127970; Departament Skarbowy</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number green">9</div>
+                <div class="step-content">
+                  <h4>Zarejestruj się jako podatnik VAT (jeśli dotyczy)</h4>
+                  <p>Jeśli przewidywany roczny obrót przekracza <strong>XCD $400 000</strong> (ok. USD $148 000), rejestracja VAT jest obowiązkowa. Stawka podstawowa wynosi 12,5%; usługi zakwaterowania turystycznego 7%; gastronomia hotelowa i powiązane usługi turystyczne 10%. Możesz również zarejestrować się dobrowolnie poniżej progu.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 3-5 dni roboczych</span>
+                    <span class="meta-cost">&#128176; Bezpłatnie</span>
+                    <span class="meta-authority">&#127970; Departament Skarbowy</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number green">10</div>
+                <div class="step-content">
+                  <h4>Uzyskaj licencję handlową</h4>
+                  <p>Złóż wniosek do odpowiedniego organu dla swojego sektora biznesowego. Ogólna licencja handlowa jest wymagana dla większości działalności komercyjnych. Niektóre sektory (turystyka, gastronomia, import/eksport) wymagają dodatkowych licencji sektorowych.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-2 tygodnie</span>
+                    <span class="meta-cost">&#128176; EC $100 - $2 000 (zależy od rodzaju)</span>
+                    <span class="meta-authority">&#127970; Ministerstwo Handlu / Władze lokalne</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number green">11</div>
+                <div class="step-content">
+                  <h4>Otwórz firmowe konto bankowe</h4>
+                  <p>Otwórz konto w lokalnym banku komercyjnym. Główne banki to Bank of Saint Lucia, First Caribbean International Bank (CIBC), Republic Bank i 1st National Bank. IBC mogą również korzystać z międzynarodowych partnerów bankowych.</p>
+                  <div class="info-box" style="margin-top:10px;margin-bottom:0;">
+                    <h4>Typowo wymagane dokumenty</h4>
+                    <p>Świadectwo Rejestracji, Akt Założycielski, Uchwała Zarządu upoważniająca do otwarcia konta, poświadczone dokumenty tożsamości i potwierdzenie adresu dyrektorów, TIN, dokumentacja źródła środków. Przewiduj dodatkowy czas na wzmożone due diligence dla kont nierezydentów.</p>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-4 tygodnie</span>
+                    <span class="meta-cost">&#128176; $0 - $500 (wpłata początkowa zróżnicowana)</span>
+                    <span class="meta-authority">&#127970; Bank komercyjny</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAZA 3: PO REJESTRACJI -->
+          <div id="post-registration" style="margin-bottom:50px;">
+            <div class="phase-header">
+              <div class="phase-icon orange">&#9881;</div>
+              <div>
+                <h2>Faza 3: Po rejestracji</h2>
+                <p style="color:var(--text-light);font-size:0.9rem;">Skonfiguruj działalność, zatrudnij personel i zapewnij bieżącą zgodność</p>
+              </div>
+            </div>
+
+            <img src="../assets/images/checklist-compliance.webp" alt="Zgodność biznesowa i wymagania regulacyjne w Saint Lucia" class="img-float-right" loading="lazy">
+
+            <div class="checklist">
+              <div class="checklist-item">
+                <div class="step-number orange">12</div>
+                <div class="step-content">
+                  <h4>Skonfiguruj księgowość</h4>
+                  <p>Zaangażuj lokalnego biegłego księgowego lub firmę księgową do stworzenia systemu księgowego, planu kont i procesów sprawozdawczości finansowej. Saint Lucia stosuje MSSF dla MŚP. IBC muszą składać niezbadane roczne sprawozdania finansowe.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-2 tygodnie</span>
+                    <span class="meta-cost">&#128176; $500 - $3 000/rok</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number orange">13</div>
+                <div class="step-content">
+                  <h4>Zarejestruj się w Krajowej Korporacji Ubezpieczeniowej (NIC)</h4>
+                  <p>Obowiązkowe, jeśli zatrudniasz pracowników. Zarejestruj się jako pracodawca i uzyskaj numer NIC pracodawcy. Wymagane są składki zarówno pracodawcy (5%), jak i pracownika (5%) od zarobków do określonego pułapu. Łączna stawka składki NIC: 10%.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-3 dni robocze</span>
+                    <span class="meta-cost">&#128176; Bezpłatnie (rejestracja)</span>
+                    <span class="meta-authority">&#127970; Krajowa Korporacja Ubezpieczeniowa</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number orange">14</div>
+                <div class="step-content">
+                  <h4>Zatrudnij personel / złóż wniosek o pozwolenia na pracę</h4>
+                  <p>Dla pracowników lokalnych zapewnij zgodność z Ustawą o Pracy (płaca minimalna, godziny pracy, urlopy). Dla pracowników zagranicznych pracodawca musi złożyć wniosek o pozwolenie na pracę w Ministerstwie Pracy, wykazując brak odpowiedniego kandydata lokalnego.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 4-6 tygodni (pozwolenia na pracę)</span>
+                    <span class="meta-cost">&#128176; EC $500 - $2 500 (opłata za pozwolenie)</span>
+                    <span class="meta-authority">&#127970; Ministerstwo Pracy</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number orange">15</div>
+                <div class="step-content">
+                  <h4>Uzyskaj licencje sektorowe</h4>
+                  <p>W zależności od branży możesz potrzebować dodatkowych licencji lub pozwoleń. Typowe przykłady obejmują:</p>
+                  <div class="table-wrapper" style="margin-top:10px;margin-bottom:0;">
+                    <table>
+                      <thead>
+                        <tr><th>Sektor</th><th>Wymagana licencja</th><th>Organ wydający</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>Turystyka / Hotele</td><td>Licencja hotelowa, Licencja operatora turystycznego</td><td>Ministerstwo Turystyki / SLTA</td></tr>
+                        <tr><td>Gastronomia</td><td>Zezwolenie sanitarne, Licencja na alkohol</td><td>Zdrowie Środowiskowe / Sąd Magistracki</td></tr>
+                        <tr><td>Budownictwo</td><td>Pozwolenie na budowę, Licencja wykonawcy</td><td>Urząd Kontroli Zabudowy</td></tr>
+                        <tr><td>Import / Eksport</td><td>Licencja celna, Pozwolenie na import</td><td>Departament Ceł i Akcyzy</td></tr>
+                        <tr><td>Usługi finansowe</td><td>Licencja FSRA</td><td>Urząd Regulacji Usług Finansowych</td></tr>
+                        <tr><td>Telekomunikacja</td><td>Licencja telekomunikacyjna</td><td>NTRC (Krajowa Komisja Regulacji Telekomunikacji)</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 2-8 tygodni (zróżnicowane)</span>
+                    <span class="meta-cost">&#128176; Zależy od sektora</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number orange">16</div>
+                <div class="step-content">
+                  <h4>Urządź biuro / lokal biznesowy</h4>
+                  <p>Zabezpiecz powierzchnię komercyjną poprzez wynajem lub zakup. Kluczowe lokalizacje biznesowe to Castries (stolica, urzędy), Rodney Bay (centrum turystyczne) i Vieux Fort (przy Lotnisku Międzynarodowym Hewanorra / Strefa Wolnocłowa). Upewnij się, że lokal spełnia przepisy zagospodarowania przestrzennego i bezpieczeństwa pożarowego.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 2-6 tygodni</span>
+                    <span class="meta-cost">&#128176; EC $1 500 - $8 000/miesiąc (czynsz zależy od lokalizacji)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number orange">17</div>
+                <div class="step-content">
+                  <h4>Zapewnij ubezpieczenie firmy</h4>
+                  <p>Choć nie zawsze wymagane prawnie, ubezpieczenie firmowe jest zdecydowanie zalecane i często wymagane przez wynajmujących i kredytodawców. Kluczowe rodzaje ochrony: ubezpieczenie majątkowe (huragany, pożar), odpowiedzialność cywilna, odpowiedzialność pracodawcy, ubezpieczenie zawodowe i ubezpieczenie pojazdów (obowiązkowe dla pojazdów firmowych).</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-2 tygodnie</span>
+                    <span class="meta-cost">&#128176; Zróżnicowane (poproś o wyceny od lokalnych ubezpieczycieli)</span>
+                    <span class="meta-authority">&#127970; EC Global, Guardian General, Sagicor itp.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAZA 4: INWESTORZY NIERUCHOMOŚCI -->
+          <div id="property" style="margin-bottom:50px;">
+            <div class="phase-header">
+              <div class="phase-icon purple">&#127968;</div>
+              <div>
+                <h2>Faza 4: Dla inwestorów nieruchomości</h2>
+                <p style="color:var(--text-light);font-size:0.9rem;">Dodatkowe kroki przy zakupie nieruchomości w Saint Lucia</p>
+              </div>
+            </div>
+
+            <div class="info-box warning" style="margin-bottom:20px;">
+              <h4>Cudzoziemcy muszą uzyskać Licencję Alien Landholding</h4>
+              <p>Na mocy Ustawy Alien Landholding wszyscy nie-obywatele Saint Lucia (w tym obywatele CARICOM w przypadku gruntów komercyjnych) muszą uzyskać licencję przed zakupem nieruchomości. Wymóg ten jest zniesiony dla zakupów nieruchomości CBI w ramach zatwierdzonych projektów.</p>
+            </div>
+
+            <div class="checklist">
+              <div class="checklist-item highlight">
+                <div class="step-number" style="background:#8e44ad;">P1</div>
+                <div class="step-content">
+                  <h4>Złóż wniosek o Licencję Alien Landholding</h4>
+                  <p>Złóż wniosek w Ministerstwie Rozwoju Przestrzennego, Mieszkalnictwa i Odnowy Urbanistycznej. Dołącz: wypełniony formularz wniosku, kopie paszportów, zaświadczenie o niekaralności, dane nieruchomości (plan geodezyjny, wycenę) oraz cel zakupu. Opłata zależy od wartości nieruchomości.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 4-12 tygodni</span>
+                    <span class="meta-cost">&#128176; Opłata licencyjna: USD $2 500 (&lt;1 akr) / $5 000 (1&ndash;5 akrów) / $10 500 (5&ndash;10 akrów) + EC$1 500 opłata za wniosek</span>
+                    <span class="meta-authority">&#127970; Ministerstwo Rozwoju Przestrzennego</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item highlight">
+                <div class="step-number" style="background:#8e44ad;">P2</div>
+                <div class="step-content">
+                  <h4>Proces zakupu nieruchomości</h4>
+                  <p>Po uzyskaniu Licencji Alien Landholding przystąp do zakupu. Zaangażuj lokalnego prawnika do przeprowadzenia badań tytułu własności, przeglądu aktu sprzedaży i obsługi procesu konwersji. Typowo obejmuje:</p>
+                  <ul style="margin-top:8px;">
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">1.</span> Podpisanie umowy przedwstępnej (umowa sprzedaży i kupna)</li>
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">2.</span> Prawnik przeprowadza badanie tytułu w Rejestrze Gruntów</li>
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">3.</span> Spełnienie warunków (pomiary, wycena, finansowanie)</li>
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">4.</span> Podpisanie Aktu Sprzedaży przed Notariuszem Królewskim</li>
+                    <li style="padding:4px 0 4px 20px;position:relative;font-size:0.9rem;"><span style="position:absolute;left:0;color:var(--accent);font-weight:bold;">5.</span> Rejestracja aktu w Rejestrze Gruntów</li>
+                  </ul>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 6-12 tygodni (cały proces)</span>
+                    <span class="meta-cost">&#128176; Honoraria prawnicze: 2-3% wartości nieruchomości</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item highlight">
+                <div class="step-number" style="background:#8e44ad;">P3</div>
+                <div class="step-content">
+                  <h4>Zapłać podatek od przeniesienia i opłatę skarbową</h4>
+                  <p>Po zakończeniu przeniesienia nieruchomości obowiązują następujące podatki i opłaty:</p>
+                  <div class="table-wrapper" style="margin-top:10px;margin-bottom:0;">
+                    <table>
+                      <thead>
+                        <tr><th>Podatek / Opłata</th><th>Stawka</th><th>Płaci</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td><strong>Podatek od przeniesienia (sprzedawca)</strong></td><td>2,5% wartości rynkowej</td><td>Sprzedawca</td></tr>
+                        <tr><td><strong>Podatek od przeniesienia (kupujący)</strong></td><td>2,0% wartości rynkowej</td><td>Kupujący</td></tr>
+                        <tr><td><strong>Opłata skarbowa</strong></td><td>2,0% wartości rynkowej</td><td>Kupujący</td></tr>
+                        <tr><td><strong>VAT na nieruchomości komercyjne</strong></td><td>12,5% (jeśli dotyczy)</td><td>Kupujący</td></tr>
+                        <tr><td><strong>Opłaty rejestracyjne</strong></td><td>Ok. EC $100 - $300</td><td>Kupujący</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; Przy zamknięciu transakcji</span>
+                    <span class="meta-cost">&#128176; Łączne koszty kupującego: ~4-4,5% wartości nieruchomości</span>
+                    <span class="meta-authority">&#127970; Departament Skarbowy / Rejestr Gruntów</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item highlight">
+                <div class="step-number" style="background:#8e44ad;">P4</div>
+                <div class="step-content">
+                  <h4>Zaangażuj geodetę i rzeczoznawcę</h4>
+                  <p>Zatrudnij licencjonowanego geodetę do weryfikacji granic i przygotowania planu geodezyjnego. Zaangażuj certyfikowanego rzeczoznawcę nieruchomości do niezależnej wyceny rynkowej, która jest często wymagana przez banki do finansowania hipotecznego i przez Departament Skarbowy do ustalenia podatku od przeniesienia.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 2-4 tygodnie</span>
+                    <span class="meta-cost">&#128176; EC $1 500 - $5 000 (pomiary) / EC $800 - $2 500 (wycena)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAZA 5: WNIOSKODAWCY CBI -->
+          <div id="cbi-checklist" style="margin-bottom:50px;">
+            <div class="phase-header">
+              <div class="phase-icon red">&#127758;</div>
+              <div>
+                <h2>Faza 5: Dla wnioskodawców CBI</h2>
+                <p style="color:var(--text-light);font-size:0.9rem;">Lista kontrolna programu Obywatelstwa przez Inwestycje</p>
+              </div>
+            </div>
+
+            <div class="info-box success" style="margin-bottom:20px;">
+              <h4>Obywatelstwo przez Inwestycje &mdash; Podstawowe fakty</h4>
+              <p>4 drogi inwestycyjne od USD $240 000. Podróż bezwizowa do 145+ krajów. Brak wymogu pobytu (30-dniowe minimum w przygotowaniu). 6&ndash;12 miesięcy rozpatrywania. <strong>ePaszport</strong> dostępny od sierpnia 2025 (10-letnia ważność dla dorosłych, 5 lat dla nieletnich). <strong>Fundusz Państwowy</strong> zatwierdzony w lutym 2025 do zarządzania wpływami CBI. Pełne szczegóły na <a href="cbi.html">stronie CBI</a>.</p>
+            </div>
+
+            <div class="checklist">
+              <div class="checklist-item">
+                <div class="step-number red">C1</div>
+                <div class="step-content">
+                  <h4>Wybierz drogę inwestycyjną</h4>
+                  <p>Zdecyduj między czterema opcjami kwalifikującej inwestycji w oparciu o budżet, cele i sytuację rodzinną.</p>
+                  <div class="table-wrapper" style="margin-top:10px;margin-bottom:0;">
+                    <table>
+                      <thead>
+                        <tr><th>Droga</th><th>Minimum</th><th>Zwrotna?</th><th>Najlepsza dla</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td><strong>Narodowy Fundusz Ekonomiczny (NEF)</strong></td><td>USD $240 000</td><td>Nie (darowizna)</td><td>Najniższy koszt, najszybsza, brak obciążeń zarządczych</td></tr>
+                        <tr><td><strong>Nieruchomości</strong></td><td>USD $300 000</td><td>Tak (odsprzedaż po 5 latach)</td><td>Zachowanie aktywów, dochód z wynajmu. Uwaga: obecnie tylko A'ILA (Canelles Resort) jest aktywnym projektem zatwierdzonym w CBI.</td></tr>
+                        <tr><td><strong>Obligacje rządowe</strong></td><td>USD $300 000</td><td>Tak (po 5 latach, 0% odsetek)</td><td>Zachowanie kapitału (bez odsetek)</td></tr>
+                        <tr><td><strong>Projekt przedsiębiorczy</strong></td><td>USD $3 500 000</td><td>Inwestycja biznesowa</td><td>Wielcy inwestorzy, tworzenie miejsc pracy</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1-2 tygodnie (decyzja)</span>
+                    <span class="meta-cost">&#128176; Bezpłatnie (konsultacja z agentem)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number red">C2</div>
+                <div class="step-content">
+                  <h4>Zaangażuj autoryzowanego agenta CIU</h4>
+                  <p>Wszystkie wnioski CBI <strong>muszą</strong> być składane za pośrednictwem licencjonowanego autoryzowanego agenta. Jest to zwykle kancelaria prawna lub wyspecjalizowany dostawca usług licencjonowany przez Jednostkę Obywatelstwa przez Inwestycje (CIU). Agent zarządza całym procesem aplikacyjnym, przygotowuje dokumenty i kontaktuje się z CIU w Twoim imieniu.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 1 tydzień</span>
+                    <span class="meta-cost">&#128176; Honoraria agenta: USD $10 000 - $25 000 (zróżnicowane)</span>
+                    <span class="meta-authority">&#127970; Agent licencjonowany przez CIU</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number red">C3</div>
+                <div class="step-content">
+                  <h4>Przygotuj dokumentację CBI</h4>
+                  <p>Skompletuj obszerny pakiet dokumentacyjny dla głównego wnioskodawcy i wszystkich osób na utrzymaniu. Wszystkie dokumenty muszą być poświadczone, notarialnie uwierzytelnione i (w razie potrzeby) opatrzone apostille.</p>
+                  <div class="doc-list">
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128196;</div>
+                      <span>Poświadczone kopie paszportów (wszyscy wnioskodawcy)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128100;</div>
+                      <span>Akty urodzenia (wnioskodawca i osoby na utrzymaniu)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128274;</div>
+                      <span>Zaświadczenia o niekaralności (wszyscy dorośli)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#127973;</div>
+                      <span>Wyniki badań lekarskich</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#127974;</div>
+                      <span>Referencje bankowe</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128176;</div>
+                      <span>Dokumenty potwierdzające źródło środków (deklaracje podatkowe, dokumenty finansowe firmy)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128221;</div>
+                      <span>Profesjonalne listy referencyjne</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128247;</div>
+                      <span>Zdjęcia paszportowe (6 na wnioskodawcę)</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128188;</div>
+                      <span>CV/życiorys głównego wnioskodawcy</span>
+                    </div>
+                    <div class="doc-item">
+                      <div class="doc-icon">&#128141;</div>
+                      <span>Akt małżeństwa (jeśli dotyczy)</span>
+                    </div>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 2-6 tygodni</span>
+                    <span class="meta-cost">&#128176; $500 - $2 000 (notarializacja, apostille, tłumaczenia)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number red">C4</div>
+                <div class="step-content">
+                  <h4>Złożenie wniosku i due diligence</h4>
+                  <p>Twój autoryzowany agent składa kompletny wniosek do CIU wraz z opłatami za wniosek, przetworzenie i due diligence. CIU przeprowadza dokładne międzynarodowe sprawdzenie przeszłości obejmujące historię kryminalną, integralność finansową, bezpieczeństwo i źródło środków.</p>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 6-12 tygodni (due diligence)</span>
+                    <span class="meta-cost">&#128176; Opłata za wniosek: $2 000 + opłata DD: $8 000 + opłata za rozmowę: $500 (główny wnioskodawca)</span>
+                    <span class="meta-authority">&#127970; CIU (Jednostka Obywatelstwa przez Inwestycje)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="step-number red">C5</div>
+                <div class="step-content">
+                  <h4>Zatwierdzenie, inwestycja i obywatelstwo</h4>
+                  <p>Po wstępnym zatwierdzeniu otrzymasz powiadomienie o konieczności dokonania kwalifikującej inwestycji w wyznaczonym terminie. Po potwierdzeniu inwestycji przez CIU wydawany jest Certyfikat Rejestracji jako Obywatel, a następnie wniosek paszportowy i wydanie paszportu.</p>
+                  <div class="info-box success" style="margin-top:10px;margin-bottom:0;">
+                    <h4>Podsumowanie harmonogramu</h4>
+                    <p><strong>Cały proces:</strong> 6&ndash;12 miesięcy od złożenia wniosku do paszportu. <strong>ePaszport</strong> (biometryczny) wydawany od sierpnia 2025: 10-letnia ważność dla dorosłych, 5 lat dla nieletnich. <strong>Obowiązkowa rozmowa kwalifikacyjna</strong> (wirtualna lub osobista) dla wszystkich wnioskodawców w wieku 16+ od września 2023. Dozwolone podwójne obywatelstwo. <strong>Fundusz Państwowy</strong> (zatwierdzony w lutym 2025) zarządza wpływami CBI na rzecz rozwoju narodowego.</p>
+                  </div>
+                  <div class="step-meta">
+                    <span class="meta-time">&#9202; 2-4 tygodnie (od zatwierdzenia do paszportu)</span>
+                    <span class="meta-cost">&#128176; Opłata paszportowa: USD $250 za osobę</span>
+                    <span class="meta-authority">&#127970; CIU / Departament Imigracji</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PODSUMOWANIE KOSZTÓW -->
+          <div id="cost-summary" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-calculator"></i> Podsumowanie kosztów: Co zabudżetować</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Koszty założenia wynoszą $2K-$6K dla spółek lokalnych i $3K-$8K dla IBC, bez lokalu i ubezpieczenia.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
+
+            <div class="table-wrapper" style="margin-bottom:20px;">
+              <table>
+                <thead>
+                  <tr><th>Pozycja</th><th>Spółka lokalna</th><th>IBC</th><th>Uwagi</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Rezerwacja nazwy</strong></td><td>EC $50</td><td>Wliczone</td><td>Formularz 26</td></tr>
+                  <tr><td><strong>Opłata rejestracyjna</strong></td><td>EC $850</td><td>USD $400-$600</td><td>Opłaty rządowe</td></tr>
+                  <tr><td><strong>Agent rejestrowy (rocznie)</strong></td><td>N/D</td><td>USD $800-$2 000</td><td>Wymóg IBC</td></tr>
+                  <tr><td><strong>Honoraria prawnicze</strong></td><td>USD $1 000-$3 000</td><td>USD $1 500-$4 000</td><td>Tylko rejestracja</td></tr>
+                  <tr><td><strong>Konfiguracja księgowości</strong></td><td>USD $500-$1 500</td><td>USD $500-$1 500</td><td>Konfiguracja początkowa</td></tr>
+                  <tr><td><strong>Deklaracja roczna</strong></td><td>EC $250-$500</td><td>USD $300-$500</td><td>Wymagana corocznie</td></tr>
+                  <tr><td><strong>Licencja handlowa</strong></td><td>EC $100-$2 000</td><td>N/D</td><td>Zależy od sektora</td></tr>
+                  <tr><td><strong>Pozwolenie na pracę (za osobę)</strong></td><td colspan="2" style="text-align:center;">EC $500-$2 500</td><td>Dla pracowników zagranicznych</td></tr>
+                  <tr style="background:rgba(26,82,118,0.06);">
+                    <td><strong>Szacunkowy łączny koszt (założenie)</strong></td>
+                    <td><strong>USD $2 000-$6 000</strong></td>
+                    <td><strong>USD $3 000-$8 000</strong></td>
+                    <td>Bez lokalu i ubezpieczenia</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="info-box" style="margin-bottom:0;">
+              <h4>Uwaga walutowa</h4>
+              <p>Dolar wschodniokaraibski (XCD) jest powiązany z dolarem amerykańskim po kursie <strong>XCD 2,70 = USD 1,00</strong>. Opłaty rządowe są zwykle podawane w XCD; honoraria specjalistów często w USD dla klientów międzynarodowych.</p>
+            </div>
+
+    </div>
+  </div>
+</div>
+
+          <!-- PRZEGLĄD HARMONOGRAMU -->
+          <div id="timeline-overview" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-clock"></i> Przegląd harmonogramu</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Cały proces zakładania trwa 4-12 tygodni dla spółek lokalnych, natomiast IBC mogą być gotowe już w 2-4 tygodnie.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
+
+            <div class="timeline">
+              <div class="timeline-item">
+                <h4>Tygodnie 1-4: Faza przed inwestycją</h4>
+                <p>Badaj rynek, wybierz rodzaj podmiotu, zaangażuj specjalistów (prawnik, księgowy, agent rejestrowy) i rozpocznij kompletowanie dokumentów. Rozpocznij proces notarializacji i apostille dla dokumentów międzynarodowych.</p>
+              </div>
+              <div class="timeline-item">
+                <h4>Tygodnie 4-6: Wyszukanie nazwy i złożenie dokumentów</h4>
+                <p>Złóż rezerwację nazwy (Formularz 26), przygotuj dokumenty założycielskie (Formularze 1, 4, 9) i złóż je w Rejestrze. Opłać wymagane opłaty.</p>
+              </div>
+              <div class="timeline-item">
+                <h4>Tygodnie 6-8: Świadectwo i rejestracja podatkowa</h4>
+                <p>Otrzymaj Świadectwo Rejestracji (6-10 dni dla spółki lokalnej, 48-72 godziny dla IBC). Natychmiast złóż wniosek o TIN i rejestrację VAT (jeśli dotyczy).</p>
+              </div>
+              <div class="timeline-item">
+                <h4>Tygodnie 8-10: Bankowość i licencje</h4>
+                <p>Otwórz firmowe konto bankowe z wymaganymi dokumentami. Złóż wniosek o licencję handlową i wszelkie pozwolenia sektorowe.</p>
+              </div>
+              <div class="timeline-item">
+                <h4>Tygodnie 10-12+: Uruchomienie działalności</h4>
+                <p>Skonfiguruj system księgowy, zarejestruj się w NIC, zabezpiecz lokal, zapewnij ubezpieczenie, zatrudnij personel (złóż wnioski o pozwolenia na pracę w razie potrzeby). Rozpocznij działalność.</p>
+              </div>
+            </div>
+            <div class="info-box success" style="margin-top:16px;">
+              <h4>Szybka ścieżka dla IBC</h4>
+              <p>IBC może być w pełni zarejestrowana w <strong>48-72 godziny</strong> z agentem rejestrowym. W przypadku gotowej spółki rejestracja jest praktycznie natychmiastowa. Łączny czas konfiguracji IBC (rejestracja + konto bankowe) może wynosić zaledwie <strong>2-4 tygodnie</strong>.</p>
+            </div>
+
+    </div>
+  </div>
+</div>
+
+          <!-- WAŻNE PRZYPOMNIENIA -->
+          <div id="important-reminders" class="section-accordion" data-searchable>
+  <div class="section-accordion-header">
+    <h2><i class="fas fa-exclamation-triangle"></i> Ważne przypomnienia</h2>
+    <span class="section-toggle-arrow">&#9660;</span>
+  </div>
+  <div class="section-summary">
+    Zawsze weryfikuj aktualne wymagania w oficjalnych źródłach, korzystaj z profesjonalnych doradców i zapewnij zgodność z AML.
+  </div>
+  <div class="section-accordion-body">
+    <div class="section-accordion-body-inner">
+
+            <div class="card-grid grid-2col">
+              <div class="info-box warning" style="margin:0;">
+                <h4>Weryfikuj przed działaniem</h4>
+                <p>Ta lista kontrolna jest przewodnikiem opartym na badaniach. Opłaty, harmonogramy i wymagania mogą ulec zmianie. Zawsze weryfikuj aktualne wymagania bezpośrednio w odpowiednim urzędzie lub za pośrednictwem lokalnego prawnika przed podjęciem zobowiązań finansowych.</p>
+              </div>
+              <div class="info-box" style="margin:0;">
+                <h4>Invest Saint Lucia</h4>
+                <p>Krajowa agencja promocji inwestycji (<a href="https://www.investstlucia.com" target="_blank">investstlucia.com</a>) zapewnia bezpłatne wsparcie dla inwestorów w trybie jednego okienka, w tym pomoc przy pozwoleniach, licencjach, wnioskach o ulgi i kontaktach z lokalnymi partnerami.</p>
+              </div>
+              <div class="info-box success" style="margin:0;">
+                <h4>Korzystaj z pełnego przewodnika</h4>
+                <p>Ta lista kontrolna uzupełnia szczegółowe strony Przewodnika Biznesowego St. Lucia. Zobacz <a href="business.html">Zakładanie Firmy</a> po szczegóły dot. podmiotów, <a href="legal.html">Prawo i Podatki</a> po przepisy, <a href="cbi.html">CBI</a> po obywatelstwo przez inwestycje oraz <a href="directory.html">Katalog</a> po kontakty profesjonalistów.</p>
+              </div>
+              <div class="info-box danger" style="margin:0;">
+                <h4>Przeciwdziałanie praniu pieniędzy</h4>
+                <p>Saint Lucia egzekwuje rygorystyczne przepisy AML/CFT. Wszystkie instytucje finansowe i agenci rejestrowi przeprowadzają wzmożone due diligence. Upewnij się, że źródło Twoich środków jest dobrze udokumentowane i przejrzyste. Niezgodność może skutkować opóźnieniami lub odrzuceniem.</p>
+              </div>
+            </div>
+
+    </div>
+  </div>
+</div>
+
+          <!-- POWIĄZANE STRONY -->
+          <div style="margin-top:40px;padding-top:30px;border-top:2px solid var(--border);">
+            <h3 style="margin-bottom:16px;">Powiązane strony</h3>
+            <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+              <a href="business.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>Zakładanie firmy</h4>
+                <p>Szczegółowe rodzaje podmiotów i rejestracja</p>
+              </a>
+              <a href="legal.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>Prawo i Podatki</h4>
+                <p>Stawki podatkowe, prawo pracy, przepisy dot. nieruchomości</p>
+              </a>
+              <a href="cbi.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>Program CBI</h4>
+                <p>Szczegóły obywatelstwa przez inwestycje</p>
+              </a>
+              <a href="trade.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>CARICOM i Handel</h4>
+                <p>Umowy handlowe i dostęp do rynku</p>
+              </a>
+              <a href="directory.html" class="info-box" style="text-decoration:none;color:inherit;margin:0;">
+                <h4>Katalog firm</h4>
+                <p>Prawnicy, księgowi, agenci</p>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STOPKA -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>St. Lucia Przewodnik Biznesowy</h4>
+          <p>Kompleksowe źródło informacji o świecie biznesu i możliwościach inwestycyjnych w Saint Lucia.</p>
+        </div>
+        <div>
+          <h4>Szybkie Linki</h4>
+          <ul>
+            <li><a href="overview.html">Przegląd Kraju</a></li>
+            <li><a href="business.html">Zakładanie Firmy</a></li>
+            <li><a href="legal.html">Prawo i Podatki</a></li>
+            <li><a href="sectors.html">Kluczowe Sektory</a></li>
+            <li><a href="cbi.html">Obywatelstwo przez Inwestycje</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Zasoby</h4>
+          <ul>
+            <li><a href="living.html">Koszty Życia</a></li>
+            <li><a href="events.html">Wydarzenia i Kalendarz</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="map.html">Mapa i Regiony</a></li>
+            <li><a href="directory.html">Katalog</a></li>
+            <li><a href="resources.html">Zasoby Zewnętrzne</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ważne Kontakty</h4>
+          <ul>
+            <li>Invest Saint Lucia</li>
+            <li>Rejestr Spółek</li>
+            <li>Urząd Skarbowy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Przewodnik oparty na badaniach. Przed podjęciem decyzji biznesowych zweryfikuj wszystkie informacje w oficjalnych źródłach. Ostatnia aktualizacja: Luty 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>St. Lucia Przewodnik Biznesowy - Portal Inwestycji i Możliwości</title>
+  <meta name="description" content="Kompletny przewodnik po inwestowaniu i prowadzeniu działalności w Saint Lucia. Rejestracja firm, stawki podatkowe, program CBI, kluczowe sektory i praktyczne porady dla przedsiębiorców.">
+  <meta name="keywords" content="Saint Lucia biznes, St Lucia inwestycje, biznes karaibski, rejestracja IBC, obywatelstwo przez inwestycje, zakładanie firmy St Lucia">
+
+  <meta property="og:title" content="St. Lucia Przewodnik Biznesowy - Portal Inwestycji i Możliwości">
+  <meta property="og:description" content="Kompletny przewodnik po inwestowaniu i prowadzeniu działalności w Saint Lucia. Rejestracja firm, stawki podatkowe, program CBI, kluczowe sektory i praktyczne porady dla przedsiębiorców.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stlucia.studio/pl/index.html">
+  <meta property="og:image" content="https://stlucia.studio/assets/images/hero-pitons.jpg">
+  <meta property="og:site_name" content="St. Lucia Przewodnik Biznesowy">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="St. Lucia Przewodnik Biznesowy - Portal Inwestycji i Możliwości">
+  <meta name="twitter:description" content="Kompletny przewodnik po inwestowaniu i prowadzeniu działalności w Saint Lucia. Rejestracja firm, stawki podatkowe, program CBI, kluczowe sektory i praktyczne porady dla przedsiębiorców.">
+  <meta name="twitter:image" content="https://stlucia.studio/assets/images/hero-pitons.jpg">
+
+  <link rel="canonical" href="https://stlucia.studio/pl/index.html">
+  <link rel="alternate" hreflang="en" href="https://stlucia.studio/index.html">
+  <link rel="alternate" hreflang="tr" href="https://stlucia.studio/tr/index.html">
+  <link rel="alternate" hreflang="pl" href="https://stlucia.studio/pl/index.html">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0e2f44">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Ładowanie...</div></div>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <span class="flag">&#127473;&#127464;</span> St. Lucia Przewodnik Biznesowy
+      </a>
+      <button class="nav-toggle" aria-label="Przełącz menu">&#9776;</button>
+      <div class="nav-links">
+        <a href="index.html" class="active">Strona Główna</a>
+        <a href="overview.html">Przegląd</a>
+        <a href="business.html">Biznes</a>
+        <a href="legal.html">Prawo i Podatki</a>
+        <a href="sectors.html">Sektory</a>
+        <a href="cbi.html">Obywatelstwo</a>
+        <a href="immigration.html">Imigracja</a>
+        <a href="living.html">Życie</a>
+        <a href="events.html">Wydarzenia</a>
+        <a href="map.html">Mapa</a>
+        <a href="directory.html">Katalog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Zasoby</a>
+        <a href="government.html">Rząd</a>
+        <a href="social-media.html">Media Społecznościowe</a>
+        <div class="navbar-tools">
+          <button id="search-toggle" class="nav-icon-btn" title="Szukaj" aria-label="Szukaj w serwisie">&#128269;</button>
+          <button id="likes-toggle" class="nav-icon-btn likes-icon-btn" title="Polubione sekcje" aria-label="Zobacz polubione sekcje">&#9825;<span id="likes-badge" class="likes-badge" style="display:none;">0</span></button>
+        </div>
+        <div class="lang-selector">
+          <a href="../index.html" class="lang-btn" title="English">EN</a>
+          <a href="../tr/index.html" class="lang-btn" title="T&uuml;rk&ccedil;e">TR</a>
+          <a href="index.html" class="lang-btn active" title="Polski">PL</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SEARCH OVERLAY -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-content">
+      <div class="search-overlay-header">
+        <button id="search-close" class="search-overlay-close" aria-label="Zamknij wyszukiwanie">&times;</button>
+        <input type="text" id="search-overlay-input" class="search-overlay-input" placeholder="Szukaj w przewodniku..." autocomplete="off">
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero hero--image" style="background-image:url('../assets/images/hero-pitons.jpg');">
+    <div class="container">
+      <h1>Twoja Brama do Biznesu w Saint Lucia</h1>
+      <p>Kompleksowy przewodnik po inwestowaniu, rejestrowaniu i prowadzeniu działalności gospodarczej w najbardziej dynamicznej wyspiarskiej gospodarce Wschodnich Karaibów.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="number">$2.66B</div>
+          <div class="label">PKB (szac. 2025)</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number">184K</div>
+          <div class="label">Populacja</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number">65%</div>
+          <div class="label">PKB z turystyki</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number">48-72h</div>
+          <div class="label">Rejestracja firmy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK NAVIGATION -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Przeglądaj przewodnik</h2>
+        <p>Wszystko, co musisz wiedzieć o prowadzeniu biznesu w Saint Lucia</p>
+      </div>
+      <div class="card-grid">
+
+        <a href="overview.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/card-overview.jpg" alt="Widok z lotu ptaka na wybrzeże Saint Lucia" class="card-thumb" loading="lazy">
+          <div class="card-header">
+            <span class="icon">&#127758;</span>
+            <h3>Przegląd kraju</h3>
+          </div>
+          <div class="card-body">
+            <p>Geografia, rząd, gospodarka, infrastruktura i wszystko, co musisz wiedzieć o St. Lucia jako celu biznesowym.</p>
+            <ul>
+              <li>10 okręgów administracyjnych</li>
+              <li>Dolar wschodniokaraibski (XCD)</li>
+              <li>Język angielski, system common law</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> 12 min</span><span><i class="fas fa-layer-group"></i> 9 sekcji</span></div>
+        </a>
+
+        <a href="business.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/hero-business.jpg" alt="Spotkanie biznesowe na Karaibach" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:var(--success);">
+            <span class="icon">&#127970;</span>
+            <h3>Zakładanie firmy</h3>
+          </div>
+          <div class="card-body">
+            <p>Przewodnik krok po kroku dotyczący rejestracji i zakładania firmy - od typów spółek po wymagane dokumenty.</p>
+            <ul>
+              <li>IBC, LLC, jednoosobowa działalność</li>
+              <li>Rejestracja w 48-72 godziny</li>
+              <li>Brak minimalnego kapitału dla IBC</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> 18 min</span><span><i class="fas fa-layer-group"></i> 14 sekcji</span></div>
+        </a>
+
+        <a href="legal.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/card-legal.jpg" alt="Dokumenty prawne i młotek sędziowski" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:var(--accent);">
+            <span class="icon">&#9878;</span>
+            <h3>Prawo i podatki</h3>
+          </div>
+          <div class="card-body">
+            <p>Stawki podatkowe, prawo pracy, regulacje dotyczące nieruchomości, pozwolenia na pracę i pełen obraz regulacyjny.</p>
+            <ul>
+              <li>30% podatek CIT (0% dla IBC)</li>
+              <li>12,5% standardowa stawka VAT</li>
+              <li>Zwolnienia podatkowe do 15 lat</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> 14 min</span><span><i class="fas fa-layer-group"></i> 10 sekcji</span></div>
+        </a>
+
+        <a href="sectors.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/card-sectors.jpg" alt="Plantacja bananów na Saint Lucia" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#8e44ad;">
+            <span class="icon">&#128200;</span>
+            <h3>Kluczowe sektory</h3>
+          </div>
+          <div class="card-body">
+            <p>Turystyka, rolnictwo, przemysły kreatywne, energia odnawialna, BPO i nowe możliwości.</p>
+            <ul>
+              <li>Ponad 900 tys. odwiedzających rocznie</li>
+              <li>Rosnący sektor tech/BPO</li>
+              <li>Rozwój energii odnawialnej</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> 16 min</span><span><i class="fas fa-layer-group"></i> 14 sekcji</span></div>
+        </a>
+
+        <a href="map.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/card-map.jpg" alt="Mapa Saint Lucia" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#2c3e50;">
+            <span class="icon">&#128506;</span>
+            <h3>Mapa i okręgi</h3>
+          </div>
+          <div class="card-body">
+            <p>Interaktywna mapa, profile okręgów, kluczowe lokalizacje, porty, lotniska i strefy biznesowe.</p>
+            <ul>
+              <li>Castries - stolica i główny port</li>
+              <li>Vieux Fort - lotnisko międzynarodowe</li>
+              <li>Gros Islet - centrum turystyczne</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> Interaktywna</span><span><i class="fas fa-map-marker-alt"></i> 171 znaczników</span></div>
+        </a>
+
+        <a href="cbi.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/cbi-passport.webp" alt="Paszport karaibski - obywatelstwo przez inwestycje" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#c0392b;">
+            <span class="icon">&#127758;</span>
+            <h3>Obywatelstwo przez inwestycje</h3>
+          </div>
+          <div class="card-body">
+            <p>Drugi paszport przez inwestycję. 4 ścieżki od $240K. Bezwizowy dostęp do ponad 145 krajów.</p>
+            <ul>
+              <li>Darowizna NEF od $240,000</li>
+              <li>Nieruchomości od $300,000</li>
+              <li>Czas rozpatrywania: 6-12 miesięcy</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> 10 min</span><span><i class="fas fa-layer-group"></i> 8 sekcji</span></div>
+        </a>
+
+        <a href="living.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/living-housing.jpg" alt="Willa na Saint Lucia" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#e67e22;">
+            <span class="icon">&#127968;</span>
+            <h3>Koszty życia</h3>
+          </div>
+          <div class="card-body">
+            <p>Mieszkanie, żywność, media, transport, opieka zdrowotna i praktyczne porady dotyczące przeprowadzki.</p>
+            <ul>
+              <li>Rozbicie miesięcznego budżetu</li>
+              <li>Ceny wynajmu i nieruchomości</li>
+              <li>Opieka zdrowotna i edukacja</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> 15 min</span><span><i class="fas fa-layer-group"></i> 12 sekcji</span></div>
+        </a>
+
+        <a href="events.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/event-carnival.jpg" alt="Karnawał na Saint Lucia" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#16a085;">
+            <span class="icon">&#128197;</span>
+            <h3>Wydarzenia i kalendarz</h3>
+          </div>
+          <div class="card-body">
+            <p>Święta państwowe, festiwale, wydarzenia biznesowe, wzorce sezonowe i etykieta kulturowa.</p>
+            <ul>
+              <li>13 świąt państwowych</li>
+              <li>Jazz Festival, Carnival, Jounen Kweyol</li>
+              <li>Przewodnik po kulturze biznesowej</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> 11 min</span><span><i class="fas fa-layer-group"></i> 13 sekcji</span></div>
+        </a>
+
+        <a href="directory.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/card-directory.jpg" alt="Nabrzeże Castries" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#34495e;">
+            <span class="icon">&#128218;</span>
+            <h3>Katalog firm</h3>
+          </div>
+          <div class="card-body">
+            <p>Prawdziwe listy firm: kancelarie prawne, księgowi, banki, agenci nieruchomości, agenci IBC i więcej.</p>
+            <ul>
+              <li>Agencje rządowe</li>
+              <li>Usługi profesjonalne</li>
+              <li>Hotele i centra konferencyjne</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> Interaktywny</span><span><i class="fas fa-search"></i> Ponad 170 wpisów</span></div>
+        </a>
+
+        <a href="faq.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/hero-faq.jpg" alt="Centralny targ w Castries" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#7f8c8d;">
+            <span class="icon">&#10067;</span>
+            <h3>FAQ</h3>
+          </div>
+          <div class="card-body">
+            <p>Szybkie odpowiedzi na najczęstsze pytania o rejestrację firmy, podatki, nieruchomości, imigrację i życie codzienne.</p>
+            <ul>
+              <li>Zakładanie i rejestracja firmy</li>
+              <li>Pytania podatkowe i prawne</li>
+              <li>Praktyczne porady i handel CARICOM</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> Szybki dostęp</span><span><i class="fas fa-question-circle"></i> 268 pytań i odpowiedzi</span></div>
+        </a>
+
+        <a href="trade.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/card-trade.jpg" alt="Karaibski port morski" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#2c3e50;">
+            <span class="icon">&#127757;</span>
+            <h3>CARICOM i handel</h3>
+          </div>
+          <div class="card-body">
+            <p>Umowy handlowe, dostęp do jednolitego rynku CARICOM, możliwości eksportowe i wykorzystanie St. Lucia jako hubu karaibskiego.</p>
+            <ul>
+              <li>CSME i Unia Gospodarcza OECS</li>
+              <li>Umowy handlowe z UE, USA, Kanadą</li>
+              <li>Procedury eksportu/importu</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> 20 min</span><span><i class="fas fa-layer-group"></i> 25 sekcji</span></div>
+        </a>
+
+        <a href="checklist.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/hero-checklist.jpg" alt="Lista kontrolna planowania biznesu" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#27ae60;">
+            <span class="icon">&#9989;</span>
+            <h3>Lista kontrolna inwestora</h3>
+          </div>
+          <div class="card-body">
+            <p>Plan działania krok po kroku dotyczący rejestracji i uruchomienia firmy w Saint Lucia.</p>
+            <ul>
+              <li>Analiza due diligence przed inwestycją</li>
+              <li>Etapy rejestracji i formularze</li>
+              <li>Konfiguracja po rejestracji</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> 8 min</span><span><i class="fas fa-layer-group"></i> 7 sekcji</span></div>
+        </a>
+
+        <a href="resources.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/hero-resources.webp" alt="Materiały referencyjne i dokumenty" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#95a5a6;">
+            <span class="icon">&#128279;</span>
+            <h3>Zasoby zewnętrzne</h3>
+          </div>
+          <div class="card-body">
+            <p>Oficjalne strony rządowe, organizacje międzynarodowe, bazy danych i przydatne linki zewnętrzne.</p>
+            <ul>
+              <li>Portale rządowe i rejestry</li>
+              <li>Międzynarodowe źródła danych</li>
+              <li>Organizacje wspierające biznes</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> 5 min</span><span><i class="fas fa-external-link-alt"></i> Ponad 50 linków</span></div>
+        </a>
+
+        <a href="government.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Government_House%2C_St._Lucia.jpg" alt="Government House, Saint Lucia" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#1a5276;">
+            <span class="icon">&#127963;</span>
+            <h3>Rząd i polityka</h3>
+          </div>
+          <div class="card-body">
+            <p>Przywództwo polityczne, gabinet, struktura parlamentu, wyniki wyborów, sądownictwo i organy regulacyjne.</p>
+            <ul>
+              <li>Premier Philip J. Pierre (SLP, reelekcja 2025)</li>
+              <li>17-mandatowe Zgromadzenie Deputowanych</li>
+              <li>CCJ jako ostateczny sąd apelacyjny</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> 7 min</span><span><i class="fas fa-layer-group"></i> 5 sekcji</span></div>
+        </a>
+
+        <a href="social-media.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/hero-overview.jpg" alt="Krajobraz mediów społecznościowych Saint Lucia" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#1877f2;">
+            <span class="icon">&#128241;</span>
+            <h3>Media społecznościowe i marketing</h3>
+          </div>
+          <div class="card-body">
+            <p>Krajobraz cyfrowy, wykorzystanie platform, influencerzy, agencje, marki, kampanie i możliwości strategiczne.</p>
+            <ul>
+              <li>91,6 tys. użytkowników mediów społecznościowych (52%)</li>
+              <li>Rankingi i analizy influencerów</li>
+              <li>Dennery Segment i treści viralowe</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> 35 min</span><span><i class="fas fa-layer-group"></i> 26 sekcji</span></div>
+        </a>
+
+        <a href="immigration.html" class="card" style="text-decoration:none;color:inherit;">
+          <img src="../assets/images/hero-cbi.jpg" alt="Imigracja" class="card-thumb" loading="lazy">
+          <div class="card-header" style="background:#2980b9;">
+            <span class="icon">&#9992;</span>
+            <h3>Imigracja i wizy</h3>
+          </div>
+          <div class="card-body">
+            <p>Pozwolenia na pracę, opcje pobytu, wymagania wizowe, przedłużenie pobytu i ścieżki do stałego pobytu.</p>
+            <ul>
+              <li>Kategorie i opłaty za pozwolenie na pracę</li>
+              <li>Certyfikat Umiejętności CARICOM</li>
+              <li>Ścieżki do stałego pobytu</li>
+            </ul>
+          </div>
+          <div class="card-meta"><span><i class="fas fa-clock"></i> 9 min</span><span><i class="fas fa-layer-group"></i> 7 sekcji</span></div>
+        </a>
+
+        <a href="realestate.html" class="nav-card">
+          <img src="../assets/images/hero-cbi.jpg" alt="Nieruchomości" class="card-thumb" loading="lazy">
+          <h3>Nieruchomości</h3>
+          <p>Inwestycje w nieruchomości, Alien Landholding License, proces zakupu i projekty deweloperskie</p>
+        </a>
+        <a href="startups.html" class="nav-card">
+          <img src="../assets/images/hero-business.jpg" alt="Startupy" class="card-thumb" loading="lazy">
+          <h3>Startupy i przedsiębiorcy</h3>
+          <p>Inkubatory biznesu, źródła finansowania, programy wsparcia MSME i przestrzenie coworkingowe</p>
+        </a>
+        <a href="expats.html" class="nav-card">
+          <img src="../assets/images/hero-living.jpg" alt="Przewodnik dla ekspatów" class="card-thumb" loading="lazy">
+          <h3>Przewodnik dla ekspatów i nomadów</h3>
+          <p>Przeprowadzka, praca zdalna, bankowość, opieka zdrowotna, wysyłka i życie codzienne dla obcokrajowców</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY FACTS QUICK REFERENCE -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Szybki przegląd</h2>
+        <p>Najważniejsze fakty w pigułce</p>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <tr><th style="width:35%;">Pozycja</th><th>Szczegóły</th></tr>
+          <tr><td><strong>Oficjalna nazwa</strong></td><td>Saint Lucia</td></tr>
+          <tr><td><strong>Stolica</strong></td><td>Castries</td></tr>
+          <tr><td><strong>Populacja</strong></td><td>~184,000</td></tr>
+          <tr><td><strong>Powierzchnia</strong></td><td>617 km&sup2; (238 sq mi)</td></tr>
+          <tr><td><strong>Język</strong></td><td>angielski (urzędowy), kreolski francuski Saint Lucia</td></tr>
+          <tr><td><strong>Waluta</strong></td><td>Dolar wschodniokaraibski (XCD) &mdash; powiązany z USD w stosunku XCD 2.70 = USD 1</td></tr>
+          <tr><td><strong>Strefa czasowa</strong></td><td>AST (UTC-4), bez czasu letniego</td></tr>
+          <tr><td><strong>Ustrój</strong></td><td>Demokracja parlamentarna w ramach monarchii konstytucyjnej (królestwo Wspólnoty Narodów)</td></tr>
+          <tr><td><strong>System prawny</strong></td><td>Prawo zwyczajowe angielskie, Sąd Najwyższy Wschodnich Karaibów</td></tr>
+          <tr><td><strong>PKB (szac. 2025)</strong></td><td>USD $2.66 miliarda</td></tr>
+          <tr><td><strong>PKB na mieszkańca</strong></td><td>~USD $14,650</td></tr>
+          <tr><td><strong>Główne branże</strong></td><td>Turystyka (65% PKB), Rolnictwo, Produkcja, Usługi finansowe</td></tr>
+          <tr><td><strong>Podatek CIT</strong></td><td>30% (standardowy), 0% dla IBC od dochodów zagranicznych</td></tr>
+          <tr><td><strong>VAT</strong></td><td>12,5% standardowy, 7% zakwaterowanie turystyczne, 10% gastronomia hotelowa, 0% eksport/artykuły podstawowe</td></tr>
+          <tr><td><strong>Rejestracja firmy</strong></td><td>48-72 godziny</td></tr>
+          <tr><td><strong>Członkostwo międzynarodowe</strong></td><td>CARICOM, OECS, Wspólnota Narodów, ONZ, OPA, Karaibski Bank Rozwoju</td></tr>
+        </table>
+      </div>
+
+      <!-- CURRENCY CONVERTER -->
+      <div style="margin-top:30px;">
+        <div class="card" style="max-width:500px;margin:0 auto;">
+          <div class="card-header" style="background:var(--accent);">
+            <span class="icon">&#128176;</span>
+            <h3>Kalkulator walut</h3>
+          </div>
+          <div class="card-body">
+            <div style="display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:12px;">
+              <div>
+                <label style="display:block;font-weight:600;margin-bottom:6px;font-size:0.9rem;">Kwota</label>
+                <input type="number" id="currAmount" value="100" placeholder="Wpisz kwotę" style="width:100%;padding:10px;border:2px solid var(--border);border-radius:var(--radius);font-size:1rem;">
+              </div>
+              <div>
+                <label style="display:block;font-weight:600;margin-bottom:6px;font-size:0.9rem;">Z waluty</label>
+                <select id="currFrom" style="width:100%;padding:10px;border:2px solid var(--border);border-radius:var(--radius);font-size:0.95rem;background:var(--white);">
+                  <option value="usd">USD</option>
+                  <option value="eur">EUR</option>
+                  <option value="gbp">GBP</option>
+                  <option value="cad">CAD</option>
+                  <option value="xcd">XCD</option>
+                </select>
+              </div>
+            </div>
+            <div style="text-align:center;margin:16px 0;">
+              <span style="font-size:1.5rem;color:var(--primary);">&#8645;</span>
+            </div>
+            <div style="background:var(--bg-alt);padding:20px;border-radius:var(--radius);text-align:center;">
+              <div style="font-size:0.85rem;color:var(--text-light);margin-bottom:6px;">Dolar wschodniokaraibski (XCD)</div>
+              <div id="currResult" style="font-size:2rem;font-weight:800;color:var(--primary);">XCD 270.00</div>
+            </div>
+            <div style="margin-top:16px;padding:12px;background:rgba(243,156,18,0.1);border-radius:var(--radius);font-size:0.85rem;">
+              <strong>Uwaga:</strong> XCD jest powiązany z USD po stałym kursie 2.70:1 od 1976 roku. Pozostałe kursy są przybliżone i mają charakter wyłącznie informacyjny.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        #currAmount, #currFrom {
+          font-size: 16px !important; /* Prevent zoom on iOS */
+        }
+      </style>
+
+      <script>
+        (function() {
+          const rates = {
+            usd: 2.70,
+            eur: 2.95,
+            gbp: 3.45,
+            cad: 1.95,
+            xcd: 1.00
+          };
+
+          const amountInput = document.getElementById('currAmount');
+          const fromSelect = document.getElementById('currFrom');
+          const resultDiv = document.getElementById('currResult');
+
+          function convert() {
+            const amount = parseFloat(amountInput.value) || 0;
+            const from = fromSelect.value;
+            const xcdAmount = amount * rates[from];
+            resultDiv.textContent = 'XCD ' + xcdAmount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+          }
+
+          amountInput.addEventListener('input', convert);
+          fromSelect.addEventListener('change', convert);
+          convert();
+        })();
+      </script>
+
+    </div>
+  </section>
+
+  <!-- WHY ST. LUCIA -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Dlaczego Saint Lucia dla biznesu?</h2>
+      </div>
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
+        <div class="info-box success">
+          <h4>Strategiczna lokalizacja</h4>
+          <p>Brama między Ameryką Północną i Południową. Bezpośrednie loty z głównych miast USA, Kanady i Europy.</p>
+        </div>
+        <div class="info-box success">
+          <h4>Zachęty podatkowe</h4>
+          <p>Zwolnienia z podatku dochodowego do 15 lat. IBC płacą 0% podatku od dochodów zagranicznych. Brak kontroli dewizowej dla IBC.</p>
+        </div>
+        <div class="info-box success">
+          <h4>Szybka rejestracja firmy</h4>
+          <p>Zarejestruj firmę w 48-72 godziny. Brak wymogu minimalnego kapitału dla IBC. Wymagany tylko 1 dyrektor i 1 udziałowiec.</p>
+        </div>
+        <div class="info-box success">
+          <h4>Język angielski</h4>
+          <p>Angielski jest językiem urzędowym. System common law znany inwestorom z USA/Wielkiej Brytanii/Kanady.</p>
+        </div>
+        <div class="info-box success">
+          <h4>Dostęp do CARICOM</h4>
+          <p>Członek karaibskiego jednolitego rynku. Swobodny przepływ towarów, usług i wykwalifikowanych pracowników w 15 państwach członkowskich.</p>
+        </div>
+        <div class="info-box success">
+          <h4>Obywatelstwo przez inwestycje</h4>
+          <p>Program CBI od USD $240,000 darowizny lub $300,000 w nieruchomości. Podróże bezwizowe do ponad 145 krajów.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>St. Lucia Przewodnik Biznesowy</h4>
+          <p>Kompleksowe źródło informacji o świecie biznesu i możliwościach inwestycyjnych w Saint Lucia.</p>
+        </div>
+        <div>
+          <h4>Szybkie Linki</h4>
+          <ul>
+            <li><a href="overview.html">Przegląd Kraju</a></li>
+            <li><a href="business.html">Zakładanie Firmy</a></li>
+            <li><a href="legal.html">Prawo i Podatki</a></li>
+            <li><a href="sectors.html">Kluczowe Sektory</a></li>
+            <li><a href="cbi.html">Obywatelstwo przez Inwestycje</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Zasoby</h4>
+          <ul>
+            <li><a href="living.html">Koszty Życia</a></li>
+            <li><a href="events.html">Wydarzenia i Kalendarz</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="map.html">Mapa i Regiony</a></li>
+            <li><a href="directory.html">Katalog</a></li>
+            <li><a href="resources.html">Zasoby Zewnętrzne</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ważne Kontakty</h4>
+          <ul>
+            <li>Invest Saint Lucia</li>
+            <li>Rejestr Spółek</li>
+            <li>Urząd Skarbowy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Przewodnik oparty na badaniach. Przed podjęciem decyzji biznesowych zweryfikuj wszystkie informacje w oficjalnych źródłach. Ostatnia aktualizacja: Luty 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

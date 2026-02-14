@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polubione - St. Lucia Przewodnik Biznesowy</title>
+  <meta name="description" content="Twoje zapisane sekcje i zakładki z Przewodnika Biznesowego St. Lucia. Przeglądaj polubione treści ze wszystkich stron w jednym miejscu.">
+  <meta name="keywords" content="Saint Lucia zakładki, zapisane sekcje, polubione treści, ulubione przewodnik biznesowy">
+
+  <meta property="og:title" content="Polubione - St. Lucia Przewodnik Biznesowy">
+  <meta property="og:description" content="Twoje zapisane sekcje i zakładki z Przewodnika Biznesowego St. Lucia.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stlucia.studio/pl/liked.html">
+  <meta property="og:image" content="https://stlucia.studio/assets/images/hero-pitons.jpg">
+  <meta property="og:site_name" content="St. Lucia Przewodnik Biznesowy">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Polubione - St. Lucia Przewodnik Biznesowy">
+  <meta name="twitter:description" content="Twoje zapisane sekcje i zakładki z Przewodnika Biznesowego St. Lucia.">
+  <meta name="twitter:image" content="https://stlucia.studio/assets/images/hero-pitons.jpg">
+
+  <link rel="canonical" href="https://stlucia.studio/pl/liked.html">
+  <link rel="alternate" hreflang="en" href="https://stlucia.studio/liked.html">
+  <link rel="alternate" hreflang="tr" href="https://stlucia.studio/tr/liked.html">
+  <link rel="alternate" hreflang="pl" href="https://stlucia.studio/pl/liked.html">
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0e2f44">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page-loader"><div class="loader-spinner"></div><div class="loader-text">Ładowanie...</div></div>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand"><span class="flag">&#127473;&#127464;</span> St. Lucia Przewodnik Biznesowy</a>
+      <button class="nav-toggle" aria-label="Przełącz menu">&#9776;</button>
+      <div class="nav-links">
+        <a href="index.html">Strona Główna</a>
+        <a href="overview.html">Przegląd</a>
+        <a href="business.html">Biznes</a>
+        <a href="legal.html">Prawo i Podatki</a>
+        <a href="sectors.html">Sektory</a>
+        <a href="cbi.html">Obywatelstwo</a>
+        <a href="immigration.html">Imigracja</a>
+        <a href="living.html">Życie</a>
+        <a href="events.html">Wydarzenia</a>
+        <a href="map.html">Mapa</a>
+        <a href="directory.html">Katalog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Zasoby</a>
+        <a href="government.html">Rząd</a>
+        <a href="social-media.html">Media Społecznościowe</a>
+        <div class="navbar-tools">
+          <button id="search-toggle" class="nav-icon-btn" title="Szukaj" aria-label="Szukaj w serwisie">&#128269;</button>
+          <button id="likes-toggle" class="nav-icon-btn likes-icon-btn" title="Polubione sekcje" aria-label="Zobacz polubione sekcje">&#9825;<span id="likes-badge" class="likes-badge" style="display:none;">0</span></button>
+        </div>
+        <div class="lang-selector">
+          <a href="../liked.html" class="lang-btn" title="English">EN</a>
+          <a href="../tr/liked.html" class="lang-btn" title="T&uuml;rk&ccedil;e">TR</a>
+          <a href="liked.html" class="lang-btn active" title="Polski">PL</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SEARCH OVERLAY -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-content">
+      <div class="search-overlay-header">
+        <button id="search-close" class="search-overlay-close" aria-label="Zamknij wyszukiwanie">&times;</button>
+        <input type="text" id="search-overlay-input" class="search-overlay-input" placeholder="Szukaj w przewodniku..." autocomplete="off">
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" style="padding:50px 0 40px;">
+    <div class="container">
+      <h1>&#9829; Polubione</h1>
+      <p>Twoje zapisane sekcje i zakładki z całego przewodnika</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="section">
+    <div class="container">
+      <div class="page-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+          <h3>Polubione</h3>
+          <a href="#" onclick="return false;" style="color:var(--text-light);pointer-events:none;">Sekcje ładują się z Twoich zapisanych polubień</a>
+        </aside>
+
+        <div class="main-content">
+          <div id="liked-feed-content">
+            <div class="liked-page-empty">
+              <div style="font-size:3rem;margin-bottom:16px;">&#9829;</div>
+              <p style="font-size:1.05rem;color:var(--text-light);">Brak polubionych sekcji.</p>
+              <p style="font-size:0.9rem;color:var(--text-light);margin-top:8px;">Dotknij dwukrotnie dowolną sekcję w przewodniku, aby ją tutaj zapisać.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>St. Lucia Przewodnik Biznesowy</h4>
+          <p>Kompleksowe źródło informacji o świecie biznesu i możliwościach inwestycyjnych w Saint Lucia.</p>
+        </div>
+        <div>
+          <h4>Szybkie Linki</h4>
+          <ul>
+            <li><a href="overview.html">Przegląd Kraju</a></li>
+            <li><a href="business.html">Zakładanie Firmy</a></li>
+            <li><a href="legal.html">Prawo i Podatki</a></li>
+            <li><a href="sectors.html">Kluczowe Sektory</a></li>
+            <li><a href="cbi.html">Obywatelstwo przez Inwestycje</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Zasoby</h4>
+          <ul>
+            <li><a href="living.html">Koszty Życia</a></li>
+            <li><a href="events.html">Wydarzenia i Kalendarz</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="map.html">Mapa i Regiony</a></li>
+            <li><a href="directory.html">Katalog</a></li>
+            <li><a href="resources.html">Zasoby Zewnętrzne</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ważne Kontakty</h4>
+          <ul>
+            <li>Invest Saint Lucia</li>
+            <li>Rejestr Spółek</li>
+            <li>Urząd Skarbowy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Przewodnik oparty na badaniach. Przed podjęciem decyzji biznesowych zweryfikuj wszystkie informacje w oficjalnych źródłach. Ostatnia aktualizacja: Luty 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>
